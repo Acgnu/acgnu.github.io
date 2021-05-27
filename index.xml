@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>https://example.com/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 26 May 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml"/><item><title>某乐谱网站EXE播放器破解记录</title><link>https://example.com/posts/hack/xtan/exe/</link><pubDate>Wed, 26 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/exe/</guid><description>&lt;img src="https://example.com/posts/hack/xtan/exe/cover.png" alt="Featured image of post 某乐谱网站EXE播放器破解记录" />&lt;h2 id="引言">引言&lt;/h2>
+&lt;p>本文接另一篇文章 &lt;a class="link" href="../xtan_flash_hack/index.md" >某乐谱网站Flash播放器破解记录&lt;/a>&lt;/p>
+&lt;p>由于乐谱网站改版正式使用exe播放器之后, 删除了所有的&lt;code>.ypa2&lt;/code>资源, 导致我没有及时下载的乐谱都无法继续使用Flash播放器播放了, 忍不了, 只能破解exe播放器了&lt;/p>
+&lt;h2 id="目标">目标&lt;/h2>
+&lt;p>破解该站的exe播放器, 使其能够免费播放VIP乐谱, 且可以完全脱机使用&lt;/p>
+&lt;h2 id="开始破解">开始破解&lt;/h2>
+&lt;p>首先安装网站的乐谱播放器, 打开安装目录发现文件结构如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 78; flex-basis: 188px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/3.jpg" data-size="246x313">&lt;img src="https://example.com/posts/hack/xtan/exe/3.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/3_hue232319cf432e7036953df257266796c_12330_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/3_hue232319cf432e7036953df257266796c_12330_1024x0_resize_q75_box.jpg 1024w"
+width="246"
+height="313"
+loading="lazy"
+alt="image-3">
+&lt;/a>
+&lt;figcaption>image-3&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>其中&lt;code>xxxchrome.exe&lt;/code>相当于一个浏览器, 可以访问乐谱网站, 点击&amp;quot;客户端播放&amp;quot;按钮即可打开播放器, 如下图&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 151; flex-basis: 363px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/2.jpg" data-size="1116x736">&lt;img src="https://example.com/posts/hack/xtan/exe/2.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/2_hu497f65295a89ad86247035b74338bec2_76064_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/2_hu497f65295a89ad86247035b74338bec2_76064_1024x0_resize_q75_box.jpg 1024w"
+width="1116"
+height="736"
+loading="lazy"
+alt="image-2">
+&lt;/a>
+&lt;figcaption>image-2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>而&lt;code>xxplayer.exe&lt;/code>才是播放器, 播放器启动后, 可以从任务管理器看到新增的进程&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 128; flex-basis: 307px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/1.jpg" data-size="926x722">&lt;img src="https://example.com/posts/hack/xtan/exe/1.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/1_hud35c019f213a619ddd7799f1e0fa3f93_112502_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/1_hud35c019f213a619ddd7799f1e0fa3f93_112502_1024x0_resize_q75_box.jpg 1024w"
+width="926"
+height="722"
+loading="lazy"
+alt="image-1">
+&lt;/a>
+&lt;figcaption>image-1&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>剩下的安装文件和库文件还有配置文件, 就不介绍了.&lt;/p>
+&lt;p>首先播放一个免费的乐谱, 在任务管理器中查看一下&lt;code>xxplayer.exe&lt;/code>的启动参数&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 610; flex-basis: 1464px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/4.jpg" data-size="946x155">&lt;img src="https://example.com/posts/hack/xtan/exe/4.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/4_hub8c1251db8423eeb57a6a376306d634c_30464_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/4_hub8c1251db8423eeb57a6a376306d634c_30464_1024x0_resize_q75_box.jpg 1024w"
+width="946"
+height="155"
+loading="lazy"
+alt="image-4">
+&lt;/a>
+&lt;figcaption>image-4&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>完整的启动参数如下&lt;/p>
+&lt;pre>&lt;code>&amp;quot;C:\Program Files\马赛克music\out1\马赛克player.exe&amp;quot; &amp;quot;file=http://www.马赛克.com/open_yp.php?ypid=73981&amp;amp;uid=999999999&amp;amp;token=fbf0ab24ee47bfa1cb460e41c1f61fdb&amp;amp;ypid=73981&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>可以看到启动参数主要为&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>file&lt;/code> 官网的乐谱页地址&lt;/li>
+&lt;li>&lt;code>ypid&lt;/code> 乐谱ID&lt;/li>
+&lt;li>&lt;code>uid&lt;/code> 用户ID&lt;/li>
+&lt;li>&lt;code>token&lt;/code> 凭证&lt;/li>
+&lt;/ul>
+&lt;p>如果从&lt;code>xxxchrome.exe&lt;/code>打开一个VIP乐谱, 则会显示&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 103; flex-basis: 249px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/5.jpg" data-size="441x425">&lt;img src="https://example.com/posts/hack/xtan/exe/5.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/5_hua261adef9b482683046becfc9484b40d_36483_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/5_hua261adef9b482683046becfc9484b40d_36483_1024x0_resize_q75_box.jpg 1024w"
+width="441"
+height="425"
+loading="lazy"
+alt="image-5">
+&lt;/a>
+&lt;figcaption>image-5&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>那么如果我不用他的&lt;code>xxxchrome.exe&lt;/code>, 直接从命令行启动&lt;code>xxplayer.exe&lt;/code>, 传入一个VIP乐谱ID, 会发生什么呢?&lt;/p>
+&lt;p>将刚才的启动参数中的&lt;code>ypid&lt;/code>参数修改为一个VIP乐谱ID, 通过命令行&lt;/p>
+&lt;pre>&lt;code>xxplayer.exe &amp;quot;file=http://www.马赛克.com/open_yp.php?ypid=33418&amp;amp;uid=999999999&amp;amp;token=4c6930a47090c3f04c7e9db3bf214078&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>启动&lt;code>xxplayer.exe&lt;/code>之后如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 128; flex-basis: 307px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/6.jpg" data-size="926x722">&lt;img src="https://example.com/posts/hack/xtan/exe/6.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/6_hu611ebb7a50cb9110ffdfa4a2b0b1f4b7_52562_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/6_hu611ebb7a50cb9110ffdfa4a2b0b1f4b7_52562_1024x0_resize_q75_box.jpg 1024w"
+width="926"
+height="722"
+loading="lazy"
+alt="image-6">
+&lt;/a>
+&lt;figcaption>image-6&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>非常的正常, 但是至少验证了 &lt;strong>&lt;code>xxplayer.exe&lt;/code>是可以脱离&lt;code>xxxchrome.exe&lt;/code>独立运行的&lt;/strong>, 那么既然要鉴权, 不请求服务器肯定是不行的吧? 于是打开&lt;code>Charles&lt;/code>开始抓包, 首先用命令行打开一个免费的乐谱, 捕获到网络请求如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 217; flex-basis: 520px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/7.jpg" data-size="1109x511">&lt;img src="https://example.com/posts/hack/xtan/exe/7.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/7_hu0c0894aaf992bb2895aba54aaa8c3e13_42004_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/7_hu0c0894aaf992bb2895aba54aaa8c3e13_42004_1024x0_resize_q75_box.jpg 1024w"
+width="1109"
+height="511"
+loading="lazy"
+alt="image-7">
+&lt;/a>
+&lt;figcaption>image-7&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看出主要请求接口为&lt;code>/codeindex.php&lt;/code>, 通过参数&lt;code>m&lt;/code>做不同功能的权限认证&lt;/p>
+&lt;p>&lt;strong>当&lt;code>m=index&lt;/code>, 验证成功返回权限信息&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>{
+&amp;quot;responseCode&amp;quot;: &amp;quot;1000&amp;quot;,
+&amp;quot;message&amp;quot;: &amp;quot;\u6b63\u5e38&amp;quot;,
+&amp;quot;power&amp;quot;: {
+&amp;quot;openPower&amp;quot;: &amp;quot;1&amp;quot;,
+&amp;quot;printPower&amp;quot;: &amp;quot;0&amp;quot;,
+&amp;quot;printCount&amp;quot;: &amp;quot;30&amp;quot;,
+&amp;quot;vstPower&amp;quot;: &amp;quot;0&amp;quot;,
+&amp;quot;pdfPower&amp;quot;: &amp;quot;0&amp;quot;
+}
+}
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>当&lt;code>m=getYpdsUrl&lt;/code>, 验证成功返回&lt;code>.ypdx&lt;/code>格式的播放文件地址&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>{
+&amp;quot;data&amp;quot;: {
+&amp;quot;code&amp;quot;: &amp;quot;1000&amp;quot;,
+&amp;quot;message&amp;quot;: &amp;quot;\u83b7\u53d6\u6210\u529f&amp;quot;,
+&amp;quot;result&amp;quot;: {
+&amp;quot;ypdsUrl&amp;quot;: &amp;quot;http:\/\/马赛克.马赛克.com\/yuepuku\/148\/74205\/74205_cfcbahia.ypds&amp;quot;,
+&amp;quot;ypdxUrl&amp;quot;: &amp;quot;http:\/\/马赛克.马赛克.com\/yuepuku\/148\/74205\/74205_cfcbahia.ypdx&amp;quot;
+}
+}
+}
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>最后再请求资源地址&lt;code>http:\/\/马赛克.马赛克.com\/yuepuku\/148\/74205\/74205_cfcbahia.ypdx&lt;/code>, 得到&lt;code>.ypdx&lt;/code>格式的播放文件&lt;/strong>&lt;/p>
+&lt;p>现在再来通过命令行启动一个VIP乐谱,看看请求和响应会是怎样的&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 253; flex-basis: 609px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/8.jpg" data-size="1421x560">&lt;img src="https://example.com/posts/hack/xtan/exe/8.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/8_hu3f37fa29dc05402f585297533b7b83ee_37005_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/8_hu3f37fa29dc05402f585297533b7b83ee_37005_1024x0_resize_q75_box.jpg 1024w"
+width="1421"
+height="560"
+loading="lazy"
+alt="image-8">
+&lt;/a>
+&lt;figcaption>image-8&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到这次只有一个&lt;code>m=index&lt;/code>的请求, 且返回码不同于免费乐谱的&lt;code>1000&lt;/code>, 之后播放器弹出没有权限的弹窗, 那么思路就来了&lt;/p>
+&lt;p>&lt;strong>如果我将篡改请求的响应,播放器应该就会认为我是有权限的,那不就可以播放了吗?&lt;/strong>&lt;/p>
+&lt;p>首先使用&lt;code>Charles&lt;/code>进行断点, 针对&lt;code>m=index&lt;/code>的请求, 修改播放器请求VIP乐谱的返回值&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 297; flex-basis: 713px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/9.jpg" data-size="1457x490">&lt;img src="https://example.com/posts/hack/xtan/exe/9.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/9_hu7ca9ec15f72904f15f25adfa64967b6c_45120_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/9_hu7ca9ec15f72904f15f25adfa64967b6c_45120_1024x0_resize_q75_box.jpg 1024w"
+width="1457"
+height="490"
+loading="lazy"
+alt="iamge-9">
+&lt;/a>
+&lt;figcaption>iamge-9&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;strong>和我预料的一样, 修改&lt;code>m=index&lt;/code>的响应后, 这次发送了&lt;code>m=getYpdsUrl&lt;/code>的请求&lt;/strong>&lt;/p>
+&lt;p>但是&lt;code>m=getYpdsUrl&lt;/code>仍然对用户权限进行了判断, 因此返回码不是正常的&lt;code>1000&lt;/code>, 且&lt;code>result&lt;/code>节点没有返回&lt;code>.ypdx&lt;/code>播放文件的资源地址, 看样子不是VIP用户是无法获得资源地址了&lt;/p>
+&lt;h1 id="但是">但是&lt;/h1>
+&lt;p>&lt;strong>在文章 &lt;a class="link" href="../xtan_flash_hack/index.md" >某乐谱网站Flash播放器破解记录&lt;/a> 中, 使用&lt;code>getURL&lt;/code>生成的乐谱信息url去请求乐谱服务器得到的返回值里, 是包含&lt;code>.ypa2&lt;/code>格式的资源地址的, 只不过现在&lt;code>.ypa2&lt;/code>资源已经被删了, 不过观察刚才免费的乐谱&lt;code>.ypdx&lt;/code>资源地址后, 会发现这和&lt;code>.ypa2&lt;/code>的资源地址高度相似! 于是我将返回的&lt;code>.ypa2&lt;/code>资源地址修改后缀名为&lt;code>.ypdx&lt;/code>进行请求之后, 顺利得到了&lt;code>.ypdx&lt;/code>格式的播放文件!&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>//ypa2请求地址
+http://oss.马赛克.com/yuepuku/115/57806/57806_hhdafigb.ypa2
+//ypdx请求地址
+http://oss.马赛克.com/yuepuku/115/57806/57806_hhdafigb.ypdx
+&lt;/code>&lt;/pre>&lt;p>得到&lt;code>.ypdx&lt;/code>文件之后, 开启一个本地HTTP服务器, 开放一个地址用于返回&lt;code>.ypdx&lt;/code>文件, 然后用&lt;code>Charles&lt;/code>对VIP乐谱请求中&lt;code>m=getYpdsUrl&lt;/code>断点, 并修改响应中&lt;code>result&lt;/code>里对应的资源地址为本地HTTP服务器地址&lt;/p>
+&lt;pre>&lt;code>{
+&amp;quot;data&amp;quot;:
+{
+&amp;quot;code&amp;quot;:&amp;quot;1000&amp;quot;,
+&amp;quot;message&amp;quot;:&amp;quot;\u83b7\u53d6\u6210\u529f&amp;quot;,
+&amp;quot;result&amp;quot;:
+{
+&amp;quot;ypdsUrl&amp;quot;:&amp;quot;http:\/\/127.0.0.1:7777\/yuepu\/57806_hhdafigb.ypds&amp;quot;,&amp;quot;ypdxUrl&amp;quot;:&amp;quot;http:\/\/127.0.0.1:7777\/yuepu\/57806_hhdafigb.ypdx&amp;quot;
+}
+}
+}
+&lt;/code>&lt;/pre>&lt;p>再次测试, &lt;strong>成功打开VIP乐谱, 并开始播放, 所有功能正常!&lt;/strong>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 172; flex-basis: 412px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/10.jpg" data-size="917x533">&lt;img src="https://example.com/posts/hack/xtan/exe/10.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/10_hud8451ede4dc6fa64d83d0d25cd237bd1_87539_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/10_hud8451ede4dc6fa64d83d0d25cd237bd1_87539_1024x0_resize_q75_box.jpg 1024w"
+width="917"
+height="533"
+loading="lazy"
+alt="image-10">
+&lt;/a>
+&lt;figcaption>image-10&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>确定伪造响应的方案确定可行之后, 下一步就是要让播放器请求我指定的地址了, 因为刚才是通过&lt;code>Charles&lt;/code>修改响应的, 但我不可能每次都使用&lt;code>Charles&lt;/code>断点, 我需要反编译&lt;code>xxplayer.exe&lt;/code>, 并修改服务请求地址为我监听的地址, 然后由我监听的地址返回所需数据&lt;/p>
+&lt;p>使用&lt;code>OllyDbg&lt;/code>(以下简称&lt;code>OD&lt;/code>)反汇编&lt;code>xxplayer.exe&lt;/code>, 在菜单栏依次点击 &amp;ldquo;插件&amp;rdquo; -&amp;gt; &amp;ldquo;中文搜索引擎&amp;rdquo; -&amp;gt; &amp;ldquo;搜索UNICODE&amp;rdquo;, 以&lt;code>Charles&lt;/code>捕获到的url中的关键字&lt;code>codeindex&lt;/code>搜索, 发现一共有三处&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 157; flex-basis: 377px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/11.jpg" data-size="873x555">&lt;img src="https://example.com/posts/hack/xtan/exe/11.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/11_huffee53a5592e1e02a42fb8e5ded3cf0f_112355_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/11_huffee53a5592e1e02a42fb8e5ded3cf0f_112355_1024x0_resize_q75_box.jpg 1024w"
+width="873"
+height="555"
+loading="lazy"
+alt="iamge-11">
+&lt;/a>
+&lt;figcaption>iamge-11&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;blockquote>
+&lt;p>Warning: 此处我没有使用虚拟机打开, 建议各位反汇编的时候用虚拟机, 因为被反汇编的程序如果有反调试的代码, 轻则闪退重则格盘. 另外&lt;code>OD&lt;/code>本身是不带&amp;quot;中文搜索引擎&amp;quot;插件的, 需要自行下载安装&lt;/p>
+&lt;/blockquote>
+&lt;p>双击搜索到的第一处字符串, 跳转到引用代码段, 通过字符串格式可以看出, 其中&lt;code>%s&lt;/code>是要用参数替换的, 且通过前面的&lt;code>push&lt;/code>可以看出, 它自身也是作为参数被传递的, 那么只要跟踪下方离他最近的&lt;code>call&lt;/code>之前的变量, 就能确定需要修改哪一行了, 在可疑的&lt;code>push&lt;/code>处按&lt;code>F2&lt;/code>断点, &lt;code>F8&lt;/code>单步调试后, 发现&lt;code>push [local.7]&lt;/code>正是请求的域名&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 247; flex-basis: 593px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/12.jpg" data-size="1382x559">&lt;img src="https://example.com/posts/hack/xtan/exe/12.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/12_hu2c3187806ba888f67c6ef154a52910a6_103478_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/12_hu2c3187806ba888f67c6ef154a52910a6_103478_1024x0_resize_q75_box.jpg 1024w"
+width="1382"
+height="559"
+loading="lazy"
+alt="image-12">
+&lt;/a>
+&lt;figcaption>image-12&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>为了修改字符串, 有两种方式&lt;/p>
+&lt;ol>
+&lt;li>如果修改前后字符串长度相同, 可以直接定位到字符串地址进行修改&lt;/li>
+&lt;li>如果长度不同, 可以在程序空白处, 新增一段字符串, 然后将之前对字符串的地址引用改为新增的字符串地址&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>程序空白处是指在&lt;code>OD&lt;/code>左下角的数据面板, 拉到最下面, 可以看到一堆&lt;code>00 00 00 00 00 00 ...&lt;/code>, &lt;code>00&lt;/code>在汇编中就是啥都没有, 啥都不干, 也就是空白的意思&lt;/p>
+&lt;/blockquote>
+&lt;p>这里暂时不知道&lt;code>[local.7]&lt;/code>哪儿来的, 所以我选择第二种方式, 查看&lt;code>OD&lt;/code>左下角数据面板, 拉到最下面, 找到程序空白处, 双击空白地址, 在弹出的编辑窗口中取消勾选&amp;quot;Keep size&amp;quot;, 在&lt;code>UNICODE&lt;/code>栏输入&lt;code>localhost:7777&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 141; flex-basis: 338px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/13.jpg" data-size="877x621">&lt;img src="https://example.com/posts/hack/xtan/exe/13.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/13_hudbbd87ddb0f3a147db74e9958487c023_140223_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/13_hudbbd87ddb0f3a147db74e9958487c023_140223_1024x0_resize_q75_box.jpg 1024w"
+width="877"
+height="621"
+loading="lazy"
+alt="image-13">
+&lt;/a>
+&lt;figcaption>image-13&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 183; flex-basis: 440px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/14.jpg" data-size="674x367">&lt;img src="https://example.com/posts/hack/xtan/exe/14.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/14_hu04bc64c292e419c662d490484458d11b_82404_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/14_hu04bc64c292e419c662d490484458d11b_82404_1024x0_resize_q75_box.jpg 1024w"
+width="674"
+height="367"
+loading="lazy"
+alt="image-14">
+&lt;/a>
+&lt;figcaption>image-14&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;blockquote>
+&lt;p>Q1: 为什么不在&lt;code>011808E0&lt;/code>行的&lt;code>6C 65 57&lt;/code>后面的&lt;code>00&lt;/code>处添加, 而是在&lt;code>00&lt;/code>的后面?&lt;/p>
+&lt;blockquote>
+&lt;p>因为汇编中字符串是以&lt;code>00&lt;/code>结尾, 且每个字符后面都跟一个&lt;code>00&lt;/code>, 为了尽量避免覆盖前面的数据块, 这里空开一个&lt;code>00&lt;/code>位置, 如果前面数据块明显是字符串,需要空开三个&lt;code>00&lt;/code>, 因为结束符&lt;code>00&lt;/code>后面也会跟一个&lt;code>00&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>Q2: 为什么取消勾选&amp;quot;Keep size&amp;quot;&lt;/p>
+&lt;blockquote>
+&lt;p>Keep size的作用是保持长度字符串长度一致, 因为如果超过原来的长度会造成不可预知的错误, 但是这里是程序空白处, 后面都是空白行, 所以不需要保持长度, 有多少写多少&lt;/p>
+&lt;/blockquote>
+&lt;/blockquote>
+&lt;p>此时点击新增的字符串头&lt;code>6C&lt;/code>可以在底部栏看到新字符串的起始地址为&lt;code>0x11808E4&lt;/code>, 回到汇编面板, 双击刚才的&lt;code>push [local.7]&lt;/code>所在行, 在弹出的面板中修改为 &lt;code>push 0x11808E4&lt;/code>&lt;/p>
+&lt;blockquote>
+&lt;p>由于修改后的代码较之前的代码更少, 需要勾选&amp;quot;Fill with NOP`s&amp;quot;来保持长度一致&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;figure style="flex-grow: 468; flex-basis: 1125px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/15.jpg" data-size="661x141">&lt;img src="https://example.com/posts/hack/xtan/exe/15.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/15_hu57c63b4afeb55ac5b9b491851fbce9ac_27836_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/15_hu57c63b4afeb55ac5b9b491851fbce9ac_27836_1024x0_resize_q75_box.jpg 1024w"
+width="661"
+height="141"
+loading="lazy"
+alt="image-15">
+&lt;/a>
+&lt;figcaption>image-15&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到在汇编面板右侧已经自动显示了标记, 提示当前&lt;code>push&lt;/code>的值为&lt;code>localhost:7777&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 494; flex-basis: 1187px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/16.jpg" data-size="757x153">&lt;img src="https://example.com/posts/hack/xtan/exe/16.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/16_hu9bfdeefc21eab2638c1ebf03797105d7_27361_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/16_hu9bfdeefc21eab2638c1ebf03797105d7_27361_1024x0_resize_q75_box.jpg 1024w"
+width="757"
+height="153"
+loading="lazy"
+alt="image-16">
+&lt;/a>
+&lt;figcaption>image-16&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>现在选中刚才在数据面板添加的字符串十六进制代码块, 右键点击&amp;quot;复制到可执行文件&amp;quot;, 再选中汇编面板所有修改的行, 右键点击&amp;quot;复制到可执行文件&amp;quot; -&amp;gt; &amp;ldquo;选中行&amp;rdquo;, 在弹出的面板中右键&amp;quot;备份&amp;quot; -&amp;gt; &amp;ldquo;保存数据到文件&amp;quot;即可保存修改后的exe文件&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 169; flex-basis: 406px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/36.jpg" data-size="490x289">&lt;img src="https://example.com/posts/hack/xtan/exe/36.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/36_hu404fc96720b3b7e3a08d11e39c71c904_39522_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/36_hu404fc96720b3b7e3a08d11e39c71c904_39522_1024x0_resize_q75_box.jpg 1024w"
+width="490"
+height="289"
+loading="lazy"
+alt="image-36">
+&lt;/a>
+&lt;figcaption>image-36&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>执行修改后的程序, 发现程序异常退出, 用&lt;code>OD&lt;/code>打开修改后的文件, 再次找到刚才修改&lt;code>push&lt;/code>的地方, 发现右侧没有显示&lt;code>localhost:7777&lt;/code>的标记&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 792; flex-basis: 1900px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/17.jpg" data-size="800x101">&lt;img src="https://example.com/posts/hack/xtan/exe/17.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/17_huf607ca71409b4fad60df0a0bf04883f0_25000_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/17_huf607ca71409b4fad60df0a0bf04883f0_25000_1024x0_resize_q75_box.jpg 1024w"
+width="800"
+height="101"
+loading="lazy"
+alt="image-17">
+&lt;/a>
+&lt;figcaption>image-17&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>再看看跳转地址&lt;code>0x11808E4&lt;/code>, 也不是刚才修改的字符串内容&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 223; flex-basis: 535px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/18.jpg" data-size="705x316">&lt;img src="https://example.com/posts/hack/xtan/exe/18.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/18_hu399d950736d8f788e6f1fac9c27f058c_68183_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/18_hu399d950736d8f788e6f1fac9c27f058c_68183_1024x0_resize_q75_box.jpg 1024w"
+width="705"
+height="316"
+loading="lazy"
+alt="image-18">
+&lt;/a>
+&lt;figcaption>image-18&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>虽然不知道为什么, 但是看来&lt;code>push [local.x]&lt;/code>形式的代码不能这样简单的修改. 那么换个角度想想&lt;code>[local.7]&lt;/code>的值是哪里来的, 这时突然想到播放器启动的时候, 带的参数里是有一个网址的&lt;/p>
+&lt;pre>&lt;code>file=http://www.马赛克.com/open_yp.php?ypid=73981&amp;amp;uid=999999999&amp;amp;token=fbf0ab24ee47bfa1cb460e41c1f61fdb&amp;amp;ypid=73981
+&lt;/code>&lt;/pre>&lt;p>我将这个网址修改为百度的网址&lt;/p>
+&lt;pre>&lt;code>file=http://www.baidu.com/open_yp.php?ypid=73981&amp;amp;uid=999999999&amp;amp;token=fbf0ab24ee47bfa1cb460e41c1f61fdb&amp;amp;ypid=73981
+&lt;/code>&lt;/pre>&lt;p>重新运行, 抓包发现它真的去请求百度的&lt;code>/codeindex.php&lt;/code>接口了&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 246; flex-basis: 591px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/19.jpg" data-size="1201x487">&lt;img src="https://example.com/posts/hack/xtan/exe/19.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/19_hu0b7b1ef1c2d34dbfa1585c7679051785_39521_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/19_hu0b7b1ef1c2d34dbfa1585c7679051785_39521_1024x0_resize_q75_box.jpg 1024w"
+width="1201"
+height="487"
+loading="lazy"
+alt="image-19">
+&lt;/a>
+&lt;figcaption>image-19&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>于是我再将参数换成&lt;code>localhost:7777&lt;/code>, 重新运行, 结果发现程序异常退出, 进行跟踪调试发现&lt;code>[local.7]&lt;/code>的实际值被截取了不包含端口号的部分, 为&lt;code>localhost&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 698; flex-basis: 1676px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/20.jpg" data-size="433x62">&lt;img src="https://example.com/posts/hack/xtan/exe/20.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/20_hu440de6aaab4215e0c9aec32fa24ecc7b_7055_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/20_hu440de6aaab4215e0c9aec32fa24ecc7b_7055_1024x0_resize_q75_box.jpg 1024w"
+width="433"
+height="62"
+loading="lazy"
+alt="image-20">
+&lt;/a>
+&lt;figcaption>image-20&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>尝试跟踪截取部分的代码, 但是太麻烦了决定放弃. 这时候我想到直接将整个url&lt;/p>
+&lt;pre>&lt;code>%s://%s/codeindex.php?d=api&amp;amp;c=check马赛克playerPower&amp;amp;m=%s&amp;amp;ypid=%d&amp;amp;uid=%d&amp;amp;token=%s
+&lt;/code>&lt;/pre>&lt;p>中第二个&lt;code>%s&lt;/code>直接替换成&lt;code>localhost:7777&lt;/code>不就可以了? 但是这样就少了一个&lt;code>%s&lt;/code>, 参数对不上后面的代码一定会报错, 于是我想到在&lt;code>?&lt;/code>后面再加一个参数, 参数名随意, 参数值就用&lt;code>[local.7]&lt;/code>, 反正对于串来说, &lt;code>%s&lt;/code>的数量能够对应参数的数量即可, 而对于HTTP请求来说, 多一个参数也没什么影响. 不过修改后字符串的长度就对不上了, 所以还是在程序空白处添加了一个新的字符串如下&lt;/p>
+&lt;pre>&lt;code>%s://localhost:7777/codeindex.php?a=%s&amp;amp;d=api&amp;amp;c=check马赛克playerPower&amp;amp;m=%s&amp;amp;ypid=%d&amp;amp;uid=%d&amp;amp;token=%s
+&lt;/code>&lt;/pre>&lt;p>&lt;figure style="flex-grow: 153; flex-basis: 367px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/21.jpg" data-size="889x580">&lt;img src="https://example.com/posts/hack/xtan/exe/21.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/21_hu1c54f487ac9664d7c79f770f2f649700_141375_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/21_hu1c54f487ac9664d7c79f770f2f649700_141375_1024x0_resize_q75_box.jpg 1024w"
+width="889"
+height="580"
+loading="lazy"
+alt="image-21">
+&lt;/a>
+&lt;figcaption>image-21&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>其中&lt;code>a&lt;/code>就是新增的无用参数, &lt;code>a&lt;/code>后面跟的&lt;code>%s&lt;/code>将会被&lt;code>[local.7]&lt;/code>的值替换, 这样一来无论启动参数中的域名是什么都无所谓了. 记录新字符串的地址为&lt;code>0x11808E4&lt;/code>, 找到&lt;code>push&lt;/code>原来字符串的汇编代码, 修改&lt;code>push&lt;/code>地址为新的字符串地址&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 375; flex-basis: 901px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/22.jpg" data-size="781x208">&lt;img src="https://example.com/posts/hack/xtan/exe/22.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/22_hue1957260a927d0c5dbb86391d75e28e1_43919_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/22_hue1957260a927d0c5dbb86391d75e28e1_43919_1024x0_resize_q75_box.jpg 1024w"
+width="781"
+height="208"
+loading="lazy"
+alt="image-22">
+&lt;/a>
+&lt;figcaption>image-22&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>再次保存执行, 程序还是异常退出, 用&lt;code>OD&lt;/code>打开修改后的程序发现地址正确, 字符串正确, 但是还是会报错, 于是我怀疑不能用&lt;code>localhost&lt;/code>作为域名. 将&lt;code>localhost:7777&lt;/code>修改为&lt;code>127.0.0.1:7777&lt;/code>, 再次运行, 这次终于在后台收到了来自播放器的HTTP请求!&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 142; flex-basis: 341px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/23.jpg" data-size="588x413">&lt;img src="https://example.com/posts/hack/xtan/exe/23.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/23_hue6d1dcff70949874743239655fec497d_58860_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/23_hue6d1dcff70949874743239655fec497d_58860_1024x0_resize_q75_box.jpg 1024w"
+width="588"
+height="413"
+loading="lazy"
+alt="image-23">
+&lt;/a>
+&lt;figcaption>image-23&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>所有参数也都正常接收, 接下来只要返回正确的响应就行了, 对于&lt;code>m=index&lt;/code>的直接返回&lt;/p>
+&lt;pre>&lt;code>{&amp;quot;responseCode&amp;quot;:&amp;quot;1000&amp;quot;,&amp;quot;message&amp;quot;:&amp;quot;\u6b63\u5e38&amp;quot;,&amp;quot;power&amp;quot;:{&amp;quot;openPower&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;printPower&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;printCount&amp;quot;:&amp;quot;30&amp;quot;,&amp;quot;vstPower&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;pdfPower&amp;quot;:&amp;quot;0&amp;quot;}}
+&lt;/code>&lt;/pre>&lt;p>对于&lt;code>m=getYpdsUrl&lt;/code> 的则返回&lt;/p>
+&lt;pre>&lt;code>{
+&amp;quot;data&amp;quot;:
+{
+&amp;quot;code&amp;quot;:&amp;quot;1000&amp;quot;,
+&amp;quot;message&amp;quot;:&amp;quot;\u83b7\u53d6\u6210\u529f&amp;quot;,
+&amp;quot;result&amp;quot;:
+{
+&amp;quot;ypdsUrl&amp;quot;:&amp;quot;http:\/\/127.0.0.1:7777\/yuepu\/57806_hhdafigb.ypds&amp;quot;,&amp;quot;ypdxUrl&amp;quot;:&amp;quot;http:\/\/127.0.0.1:7777\/yuepu\/57806_hhdafigb.ypdx&amp;quot;
+}
+}
+}
+&lt;/code>&lt;/pre>&lt;p>然后, 用同样的方式修改搜索&lt;code>codeindex&lt;/code>结果中的第二处, 再次运行就能正常播放了.&lt;/p>
+&lt;h2 id="继续破解">继续破解&lt;/h2>
+&lt;p>&lt;strong>现在虽然播放曲谱没有问题了, 但是现在还有如下几个VIP功能用不了, 要白嫖就白嫖到极致&lt;/strong>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 143; flex-basis: 345px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/24.jpg" data-size="233x162">&lt;img src="https://example.com/posts/hack/xtan/exe/24.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/24_hu900d4ace8f5f7a408779743848e939c7_8586_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/24_hu900d4ace8f5f7a408779743848e939c7_8586_1024x0_resize_q75_box.jpg 1024w"
+width="233"
+height="162"
+loading="lazy"
+alt="image-24">
+&lt;/a>
+&lt;figcaption>image-24&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>从音源开始下手, 点击&amp;quot;音源&amp;rdquo; -&amp;gt; &amp;ldquo;浏览&amp;quot;后, 播放器弹出没有权限的提示&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 204; flex-basis: 491px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/25.jpg" data-size="346x169">&lt;img src="https://example.com/posts/hack/xtan/exe/25.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/25_hu59dd44e7ae9f17fbaea053064c4a0a8f_7285_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/25_hu59dd44e7ae9f17fbaea053064c4a0a8f_7285_1024x0_resize_q75_box.jpg 1024w"
+width="346"
+height="169"
+loading="lazy"
+alt="image-25">
+&lt;/a>
+&lt;figcaption>image-25&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>查看&lt;code>Charles&lt;/code>发现期间并没有发出网络请求, 推测应该是在之前的请求里就响应过了, 这时想到最开始&lt;code>m=index&lt;/code>的请求中, &lt;code>power&lt;/code>节点有很多为&lt;code>0&lt;/code>的字段, 仔细一看这不就是对应的权限吗? 推测权限字段对应关系应该是&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>openPower&lt;/code> 打开的权限&lt;/li>
+&lt;li>&lt;code>printPower&lt;/code> 打印的权限&lt;/li>
+&lt;li>&lt;code>printCount&lt;/code> 可打印的数量&lt;/li>
+&lt;li>&lt;code>vstPower&lt;/code> 使用vst音源的权限&lt;/li>
+&lt;li>&lt;code>pdfPower&lt;/code> 转换pdf的权限&lt;/li>
+&lt;/ul>
+&lt;p>参考正常响应中&lt;code>openPower&lt;/code>为1, 其他的为0, 因此把后台响应中所有为0改为1, 再次点击音源, 发现可以正常选择了&lt;/p>
+&lt;pre>&lt;code>{&amp;quot;responseCode&amp;quot;:&amp;quot;1000&amp;quot;,&amp;quot;message&amp;quot;:&amp;quot;\u6b63\u5e38&amp;quot;,&amp;quot;power&amp;quot;:{&amp;quot;openPower&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;printPower&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;printCount&amp;quot;:&amp;quot;30&amp;quot;,&amp;quot;vstPower&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;pdfPower&amp;quot;:&amp;quot;1&amp;quot;}}
+&lt;/code>&lt;/pre>&lt;p>&lt;figure style="flex-grow: 279; flex-basis: 669px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/26.jpg" data-size="960x344">&lt;img src="https://example.com/posts/hack/xtan/exe/26.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/26_hu1bf099da9e3265a9d42b774a7d669a1d_27932_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/26_hu1bf099da9e3265a9d42b774a7d669a1d_27932_1024x0_resize_q75_box.jpg 1024w"
+width="960"
+height="344"
+loading="lazy"
+alt="image-26">
+&lt;/a>
+&lt;figcaption>image-26&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>接下来看看点击转换PDF功能, 通过&lt;code>Charles&lt;/code>发现会发送一个权限请求&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 235; flex-basis: 565px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/27.jpg" data-size="1355x575">&lt;img src="https://example.com/posts/hack/xtan/exe/27.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/27_hu4561b2c4374e5a889b57d6ec9aab22e2_42292_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/27_hu4561b2c4374e5a889b57d6ec9aab22e2_42292_1024x0_resize_q75_box.jpg 1024w"
+width="1355"
+height="575"
+loading="lazy"
+alt="image-27">
+&lt;/a>
+&lt;figcaption>image-27&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>其中接口仍然是&lt;code>/codeindex.php&lt;/code>, 但本次&lt;code>m&lt;/code>取值为&lt;code>addDynamic&lt;/code>, 在&lt;code>OD&lt;/code>中发现就是刚才上文&lt;code>codeindex&lt;/code>搜索结果中的第三处&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 326; flex-basis: 784px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/28.jpg" data-size="1232x377">&lt;img src="https://example.com/posts/hack/xtan/exe/28.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/28_hu916247033dd02548bff370c15f18cd50_79605_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/28_hu916247033dd02548bff370c15f18cd50_79605_1024x0_resize_q75_box.jpg 1024w"
+width="1232"
+height="377"
+loading="lazy"
+alt="image-28">
+&lt;/a>
+&lt;figcaption>image-28&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>双击搜索结果字符串转到汇编代码,&lt;code>00F63EAE&lt;/code> 处的&lt;code>push&lt;/code>地址就是将要用来替换成请求域名的参数, 这个地址指向了乐谱网站的域名, 所以这里采用同样的办法, 先在程序空白处添加字符串&lt;code>127.0.0.1:7777&lt;/code>, 然后修改&lt;code>push&lt;/code>原来串的地址修改为新增的字符串地址&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 121; flex-basis: 291px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/29.jpg" data-size="863x711">&lt;img src="https://example.com/posts/hack/xtan/exe/29.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/29_hu38430dc1e6439a03884f24c857dc3df5_158665_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/29_hu38430dc1e6439a03884f24c857dc3df5_158665_1024x0_resize_q75_box.jpg 1024w"
+width="863"
+height="711"
+loading="lazy"
+alt="image-29">
+&lt;/a>
+&lt;figcaption>image-29&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>重新保存, 然后在乐谱工具中监听这个地址, 并参考&lt;code>m=index&lt;/code>的响应以下结果&lt;/p>
+&lt;blockquote>
+&lt;p>乐谱工具是我基于&lt;code>C#&lt;/code>开发的一款桌面应用, 其中包括乐谱管理功能, 可以管理所有下载的乐谱并调用Flash播放器播放, 同时开启了一个HTTP监听服务, 监听所有来自&lt;code>localhost:7777&lt;/code>的HTTP请求&lt;/p>
+&lt;/blockquote>
+&lt;pre>&lt;code>{&amp;quot;data&amp;quot;:{&amp;quot;code&amp;quot;:&amp;quot;1000&amp;quot;,&amp;quot;message&amp;quot;:&amp;quot;\u6b63\u5e38&amp;quot;,&amp;quot;result&amp;quot;:{&amp;quot;printCount&amp;quot;:&amp;quot;30&amp;quot;}}}
+&lt;/code>&lt;/pre>&lt;p>重新打开运行PDF保存, 发现可以转换并保存了&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 134; flex-basis: 323px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/30.jpg" data-size="820x608">&lt;img src="https://example.com/posts/hack/xtan/exe/30.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/30_hu8e914918ef7e0abf8766f87cc7afd2fe_39001_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/30_hu8e914918ef7e0abf8766f87cc7afd2fe_39001_1024x0_resize_q75_box.jpg 1024w"
+width="820"
+height="608"
+loading="lazy"
+alt="image-30">
+&lt;/a>
+&lt;figcaption>image-30&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>打印的功能和PDF的请求地址和参数&lt;code>m&lt;/code>是一样的, 只要返回同样的响应就可以了&lt;/p>
+&lt;p>&lt;strong>至此VIP功能全部破解&lt;/strong>&lt;/p>
+&lt;h2 id="但是尚不完美">但是尚不完美&lt;/h2>
+&lt;p>最后做脱机测试的时候发现播放器会先检查网络连接状态, 没有网络连接则无法播放&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 138; flex-basis: 332px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/31.jpg" data-size="234x169">&lt;img src="https://example.com/posts/hack/xtan/exe/31.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/31_hua7620923e16ce59bf6ec472d077d4bf8_5366_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/31_hua7620923e16ce59bf6ec472d077d4bf8_5366_1024x0_resize_q75_box.jpg 1024w"
+width="234"
+height="169"
+loading="lazy"
+alt="image-31">
+&lt;/a>
+&lt;figcaption>image-31&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>但是我的目标是播放器能够脱机使用, 而且实际上播放器被我修改后已经不需要再连上互联网, 只需要请求乐谱工具的HTTP服务地址就可以, 因此根据弹窗搜索字符串, 定位到相关代码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 356; flex-basis: 854px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/32.jpg" data-size="755x212">&lt;img src="https://example.com/posts/hack/xtan/exe/32.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/32_huc5c8a523870c7cfbc55a7f4c1592a244_51730_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/32_huc5c8a523870c7cfbc55a7f4c1592a244_51730_1024x0_resize_q75_box.jpg 1024w"
+width="755"
+height="212"
+loading="lazy"
+alt="image-32">
+&lt;/a>
+&lt;figcaption>image-32&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到播放器在&lt;code>00F693E2&lt;/code>处调用系统接口得到网络连接状态, 在&lt;code>00F693EC&lt;/code>处, 如果有网络连接则会跳转到&lt;code>00F6940A&lt;/code>处继续, 没有网络连接则会显示并中断运行, 那我只需要让这个判断失效就可以了, 双击&lt;code>00F693EC&lt;/code>打开编辑窗口, 将&lt;code>jnz&lt;/code> (不等于0则跳转) 修改为&lt;code>jmp&lt;/code> (无条件跳转), 这样运行至此的时候将不会判断网络连接状态, 直接运行后面的代码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 258; flex-basis: 621px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/34.jpg" data-size="725x280">&lt;img src="https://example.com/posts/hack/xtan/exe/34.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/34_hu97a16d2494720619905afeac8c214e7e_58677_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/34_hu97a16d2494720619905afeac8c214e7e_58677_1024x0_resize_q75_box.jpg 1024w"
+width="725"
+height="280"
+loading="lazy"
+alt="image-34">
+&lt;/a>
+&lt;figcaption>image-34&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 424; flex-basis: 1018px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/35.jpg" data-size="734x173">&lt;img src="https://example.com/posts/hack/xtan/exe/35.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/35_hua827e34f01cf28e04ef01c9d17be5ee7_41039_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/35_hua827e34f01cf28e04ef01c9d17be5ee7_41039_1024x0_resize_q75_box.jpg 1024w"
+width="734"
+height="173"
+loading="lazy"
+alt="image-35">
+&lt;/a>
+&lt;figcaption>image-35&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>同样的, 在使用转换PDF功能时还会检测网络状态, 然后弹窗提示&amp;quot;没有检测到网络!&amp;rdquo;, 找到代码运行处, 修改&lt;code>00F75DDE&lt;/code>处的&lt;code>jnz&lt;/code>为&lt;code>jmp&lt;/code>即可&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 529; flex-basis: 1271px">
+&lt;a href="https://example.com/posts/hack/xtan/exe/33.jpg" data-size="694x131">&lt;img src="https://example.com/posts/hack/xtan/exe/33.jpg"
+srcset="https://example.com/posts/hack/xtan/exe/33_huf3b00aaa9378afd32a3c2a50a118f246_35895_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/33_huf3b00aaa9378afd32a3c2a50a118f246_35895_1024x0_resize_q75_box.jpg 1024w"
+width="694"
+height="131"
+loading="lazy"
+alt="image-33">
+&lt;/a>
+&lt;figcaption>image-33&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>保存后重新运行, 现在脱机情况下播放器能够正常打开并请求乐谱工具的HTTP服务并正常播放乐谱了, 转存PDF文件等VIP功能也能够正常使用&lt;/p>
+&lt;h2 id="至此exe版本宣告完美破解">至此exe版本宣告完美破解&lt;/h2></description></item><item><title>某乐谱网站Flash播放器破解记录</title><link>https://example.com/posts/hack/xtan/flash/</link><pubDate>Tue, 25 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/flash/</guid><description>&lt;img src="https://example.com/posts/hack/xtan/flash/cover.png" alt="Featured image of post 某乐谱网站Flash播放器破解记录" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>2019年的某月, 某钢乐谱网站将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.&lt;/p>
+&lt;p>同年, 得知Adobe公司将于2020年年末彻底停用Flash, 遂产生破解其Flash播放器并本地化的想法.&lt;/p>
+&lt;h2 id="目标">目标&lt;/h2>
+&lt;p>破解该站的Flash播放器, 使其能够免费下载并播放VIP乐谱, 并将乐谱保存至本地, 同时使播放器可以脱离浏览器且可以脱机使用&lt;/p>
+&lt;h2 id="网站乐谱页">网站乐谱页&lt;/h2>
+&lt;p>&lt;figure style="flex-grow: 105; flex-basis: 252px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/1.jpg" data-size="829x789">&lt;img src="https://example.com/posts/hack/xtan/flash/1.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/1_hu622fec939dc680334a4fba6113fbf37f_63662_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/1_hu622fec939dc680334a4fba6113fbf37f_63662_1024x0_resize_q75_box.jpg 1024w"
+width="829"
+height="789"
+loading="lazy"
+alt="image-1">
+&lt;/a>
+&lt;figcaption>image-1&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="开始破解">开始破解&lt;/h2>
+&lt;p>&lt;strong>首先通过Chrome的调试控制台Network面板, 跟踪进入乐谱页的网络请求如下&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>进入乐谱页面, 网站向服务端请求 &lt;code>player.swf&lt;/code>, 该 &lt;code>.swf&lt;/code> 文件即为乐谱播放器&lt;/li>
+&lt;li>浏览器加载 &lt;code>player.swf&lt;/code> , 播放器向服务端请求乐谱的第一页作为预览图, 显示在播放器中&lt;/li>
+&lt;li>点击播放按钮时, 播放器请求 &lt;code>Sounds.swf&lt;/code>,&lt;/li>
+&lt;li>播放器请求接口 &lt;code>/flash_get_yp_info.php&lt;/code> 获取乐谱详细信息, 包括谱名称, 页数, 作者, 余下的乐谱页资源地址, 播放文件地址&lt;/li>
+&lt;li>播放器下载并载入余下的 &lt;code>.png&lt;/code> 格式乐谱图片, 并加载 &lt;code>.ypa2&lt;/code> 格式的播放文件, 即可开始播放&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>由于文章编辑于2020年5月, 该网站已经改版移除了Flash版本播放器, 因此当时调用的服务器接口没有被记录下来, 文章没有该部分请求的截图&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>基本过程已经明确了, 而所有的请求接口中, 只有第四步的&lt;code>/flash_get_yp_info.php&lt;/code>是需要对入参&lt;code>sccode&lt;/code>, &lt;code>r1&lt;/code>, &lt;code>r2&lt;/code>, 进行校验, 那我只需要反编译出播放器的源码, 再根据代码仿写一个凭证生成的算法, 不就可以调用接口并得到资源地址了?&lt;/strong>&lt;/p>
+&lt;p>首先要实现下载乐谱图片以及播放文件, 多番对比后选用开源且免费的 &lt;a class="link" href="https://github.com/wholesky/ffdec" target="_blank" rel="noopener"
+>jpexs-decompiler&lt;/a>, 顺利反编译出&lt;code>player.swf&lt;/code>代码, 用IDEA新建为&lt;code>Flex&lt;/code>项目打开, 再百度其中的一些&lt;code>package&lt;/code>名称, 发现代码可基于 &lt;code>flex_sdk_3.6a&lt;/code> 的SDK运行, 再从Adobe官网下载官方的Flash调试工具 &lt;a class="link" href="https://www.flash.cn/cdm/latest/flashplayer_sa_debug.exe" target="_blank" rel="noopener"
+>flash_player_debugger&lt;/a>, 配合IDEA编译后可直接运行调试, 反编译出来的代码如下:&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 120; flex-basis: 288px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/2.jpg" data-size="965x803">&lt;img src="https://example.com/posts/hack/xtan/flash/2.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/2_hu9a1d963a635d7c3fe6b355f33f6e6f72_118163_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/2_hu9a1d963a635d7c3fe6b355f33f6e6f72_118163_1024x0_resize_q75_box.jpg 1024w"
+width="965"
+height="803"
+loading="lazy"
+alt="image-2">
+&lt;/a>
+&lt;figcaption>image-2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>其中&lt;code>Main&lt;/code>为主类, &lt;code>init1&lt;/code> 为初始化函数, 这里可以得到入参, 参数传入形式为&lt;/p>
+&lt;pre>&lt;code>player.swf?id=1
+&lt;/code>&lt;/pre>&lt;p>而配置类&lt;code>Config&lt;/code>定义了服务端接口地址:&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 167; flex-basis: 402px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/3.png" data-size="825x492">&lt;img src="https://example.com/posts/hack/xtan/flash/3.png"
+srcset="https://example.com/posts/hack/xtan/flash/3_hub3691062b2e8682742c3a0f382173200_262924_480x0_resize_box_2.png 480w, https://example.com/posts/hack/xtan/flash/3_hub3691062b2e8682742c3a0f382173200_262924_1024x0_resize_box_2.png 1024w"
+width="825"
+height="492"
+loading="lazy"
+alt="image-3">
+&lt;/a>
+&lt;figcaption>image-3&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>但是很遗憾在&lt;code>player.swf&lt;/code>中的代码没有发现第四步获取乐谱信息的接口地址, 那么只能找其他突破口, 这时&lt;code>Sounds.swf&lt;/code>就很可疑了, 通过阅读&lt;code>player.swf&lt;/code>的代码发现&lt;code>Sounds.swf&lt;/code>是点击播放按钮之后, 作为一个函数库被加载进来的, 这里&lt;code>load&lt;/code>的地址就是&lt;code>Config&lt;/code>里定义了&lt;code>Sounds.swf&lt;/code>资源地址&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 699; flex-basis: 1677px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/4.jpg" data-size="734x105">&lt;img src="https://example.com/posts/hack/xtan/flash/4.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/4_hucd33810a9373f5b4f2b4d4125da2b238_18828_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/4_hucd33810a9373f5b4f2b4d4125da2b238_18828_1024x0_resize_q75_box.jpg 1024w"
+width="734"
+height="105"
+loading="lazy"
+alt="image-4">
+&lt;/a>
+&lt;figcaption>image-4&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>请求响应之后通过回调函数&lt;code>onSwComplete&lt;/code>将其载入并储存到&lt;code>Clib&lt;/code>类的成员变量&lt;code>clib&lt;/code>中&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 318; flex-basis: 764px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/5.jpg" data-size="771x242">&lt;img src="https://example.com/posts/hack/xtan/flash/5.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/5_hu7dd1148387811415828b0c5367c0c670_28650_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/5_hu7dd1148387811415828b0c5367c0c670_28650_1024x0_resize_q75_box.jpg 1024w"
+width="771"
+height="242"
+loading="lazy"
+alt="image-5">
+&lt;/a>
+&lt;figcaption>image-5&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>然后就可以通过&lt;code>utils.Clib.clib.xxx&lt;/code>的方式调用函数, 再深入跟踪代码, 发现&lt;code>Clib&lt;/code>中的&lt;code>getURL&lt;/code>非常可疑&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 379; flex-basis: 910px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/6.jpg" data-size="353x93">&lt;img src="https://example.com/posts/hack/xtan/flash/6.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/6_hue5a4a1589d6a6a188c0c5873cbc35fd2_5299_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/6_hue5a4a1589d6a6a188c0c5873cbc35fd2_5299_1024x0_resize_q75_box.jpg 1024w"
+width="353"
+height="93"
+loading="lazy"
+alt="image-6">
+&lt;/a>
+&lt;figcaption>image-6&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>找到他被调用的地方, 加一行日志跟踪一下输出&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 555; flex-basis: 1333px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/7.jpg" data-size="400x72">&lt;img src="https://example.com/posts/hack/xtan/flash/7.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/7_hu8629b41a250b233303861c7394ae8dd6_6344_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/7_hu8629b41a250b233303861c7394ae8dd6_6344_1024x0_resize_q75_box.jpg 1024w"
+width="400"
+height="72"
+loading="lazy"
+alt="image-7">
+&lt;/a>
+&lt;figcaption>image-7&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>调试运行之后输出的字符串为:&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 469; flex-basis: 1127px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/14.jpg" data-size="902x192">&lt;img src="https://example.com/posts/hack/xtan/flash/14.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/14_hu3210bbc216cfc300e53c7acd4064fc13_28157_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/14_hu3210bbc216cfc300e53c7acd4064fc13_28157_1024x0_resize_q75_box.jpg 1024w"
+width="902"
+height="192"
+loading="lazy"
+alt="image-14">
+&lt;/a>
+&lt;figcaption>image-14&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;strong>这个地址跟第四步的请求地址就是同一个地址!&lt;/strong> 这就是我要找的东西, 现在只需要反编译&lt;code>Sounds.swf&lt;/code>, 把&lt;code>getURL&lt;/code>的算法抄下来就可以了! 想法很美好, 但现实很骨感, &lt;code>Sounds.swf&lt;/code>反编译后发现经过了加密混淆, 反编译出来的代码是这样的&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 116; flex-basis: 280px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/8.jpg" data-size="821x702">&lt;img src="https://example.com/posts/hack/xtan/flash/8.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/8_hu43be67c00b60669f820dce2f971712aa_63579_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/8_hu43be67c00b60669f820dce2f971712aa_63579_1024x0_resize_q75_box.jpg 1024w"
+width="821"
+height="702"
+loading="lazy"
+alt="image-8">
+&lt;/a>
+&lt;figcaption>image-8&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>这代码别说放进去编译了, 甚至难以阅读, 但是在我坚持不懈的寻找下, 还是发现了一丝蛛丝马迹&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 327; flex-basis: 786px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/9.jpg" data-size="678x207">&lt;img src="https://example.com/posts/hack/xtan/flash/9.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/9_hu182ee99ffd16f1fcbe68bcb75ca899e7_23076_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/9_hu182ee99ffd16f1fcbe68bcb75ca899e7_23076_1024x0_resize_q75_box.jpg 1024w"
+width="678"
+height="207"
+loading="lazy"
+alt="image-9">
+&lt;/a>
+&lt;figcaption>image-9&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>这url不就是刚才输出的地址吗, 显然此处的代码是将url中的&lt;code>%s&lt;/code>, &lt;code>%d&lt;/code>替换成对应的参数, 但参数值到底是怎么来的, 仍然无法查明, 于是我决定换个思路, 虽然我无法知道生成参数的具体算法, 但是别忘了这个&lt;code>Sounds.swf&lt;/code>是一个函数库, 那我是不是可以写一个外部代码, 通过外部去调用&lt;code>getURL&lt;/code>这个函数, 直接返回整个url? 这样所达到的最终目的仍然是一样的, 于是开始查询&lt;code>ActionScript&lt;/code>资料, 发现可以通过&lt;code>ExternalInterface&lt;/code>, 让&lt;code>.swf&lt;/code>将接口暴露出来提供外部Flash容器调用, 对于&lt;code>player.swf&lt;/code>来说, 容器就是浏览器, 而我不通过浏览器的话, 则可以使用&lt;code>WinForm&lt;/code>的&lt;code>Shockwave Flash&lt;/code>组件.&lt;/p>
+&lt;p>于是修改&lt;code>player.swf&lt;/code>的源码, 在&lt;code>Main&lt;/code>中定义一段可供外部调用的函数&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 210; flex-basis: 505px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/10.jpg" data-size="825x392">&lt;img src="https://example.com/posts/hack/xtan/flash/10.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/10_hu36f4b6c22103002f7c5a2ad98378fba6_27639_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/10_hu36f4b6c22103002f7c5a2ad98378fba6_27639_1024x0_resize_q75_box.jpg 1024w"
+width="825"
+height="392"
+loading="lazy"
+alt="image-10">
+&lt;/a>
+&lt;figcaption>image-10&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>其中函数名为&lt;code>swfExtGetypURL&lt;/code>, 入参为&lt;code>string&lt;/code>类型的乐谱ID, 函数首先检查&lt;code>clib&lt;/code>是否已经初始化完成, 没有初始化则提示错误, 初始化之后则调用&lt;code>Clib&lt;/code>的&lt;code>getURL&lt;/code>返回乐谱信息url.&lt;/p>
+&lt;p>上文提到&lt;code>clib&lt;/code>是在播放器点击播放按钮之后才开始加载的, 那我总不能每次调用前都先点一下播放按钮吧, 于是找到上文提到的初始化&lt;code>clib&lt;/code>的函数&lt;code>onSwComplete&lt;/code>, 仿照其代码, 在&lt;code>Clib&lt;/code>中写一段初始化代码如下:&lt;/p>
+&lt;pre>&lt;code>public static function myLoadSwf() : void
+{
+swfLoader.contentLoaderInfo.addEventListener(Event.COMPLETE,onSoundsReady);
+swfLoader.load(new URLRequest(Config.flash_sound_lib_URL));
+}
+internal static function onSoundsReady(arg1:Event) : void
+{
+swfLoader.contentLoaderInfo.removeEventListener(Event.COMPLETE,onSoundsReady);
+var loc1:* = swfLoader.contentLoaderInfo.applicationDomain;
+var loc2:* = loc1.getDefinition(&amp;quot;Sounds&amp;quot;) as Class;
+CLib.clib = loc2.cLibInit();
+}
+&lt;/code>&lt;/pre>&lt;p>并将原来的初始化代码&lt;code>loadSwf&lt;/code>修改为:&lt;/p>
+&lt;pre>&lt;code>//修改前
+public static function loadSwf(arg1:Function):void
+{
+swfLoadCompleteCallBack = arg1;
+swfLoader.contentLoaderInfo.addEventListener(flash.events.ProgressEvent.PROGRESS, onSwfProgress);
+swfLoader.contentLoaderInfo.addEventListener(flash.events.IOErrorEvent.IO_ERROR, onSwError);
+swfLoader.contentLoaderInfo.addEventListener(flash.events.Event.COMPLETE, onSwComplete);
+ui.HUD.show(&amp;quot;加载音色库&amp;quot;, 0);
+swfLoader.load(new flash.net.URLRequest(Config.flash_sound_lib_URL));
+swfLoadCompleteCallBack();
+return;
+}
+//修改后
+public static function loadSwf(arg1:Function):void
+{
+swfLoadCompleteCallBack = arg1;
+if(null == CLib.clib)
+{
+swfLoader.contentLoaderInfo.addEventListener(flash.events.ProgressEvent.PROGRESS, onSwfProgress);
+swfLoader.contentLoaderInfo.addEventListener(flash.events.IOErrorEvent.IO_ERROR, onSwError);
+swfLoader.contentLoaderInfo.addEventListener(flash.events.Event.COMPLETE, onSwComplete);
+ui.HUD.show(&amp;quot;加载音色库&amp;quot;, 0);
+swfLoader.load(new flash.net.URLRequest(Config.flash_sound_lib_URL));
+} else {
+swfLoadCompleteCallBack();
+}
+return;
+}
+&lt;/code>&lt;/pre>&lt;p>最后在&lt;code>Mian&lt;/code>类的初始化函数&lt;code>init1&lt;/code>中调用&lt;code>myLoadSwf&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 190; flex-basis: 456px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/12.jpg" data-size="574x302">&lt;img src="https://example.com/posts/hack/xtan/flash/12.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/12_hufd0f78f234cc4632a6b5bd4b8255d81a_26583_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/12_hufd0f78f234cc4632a6b5bd4b8255d81a_26583_1024x0_resize_q75_box.jpg 1024w"
+width="574"
+height="302"
+loading="lazy"
+alt="image-12">
+&lt;/a>
+&lt;figcaption>image-12&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>大功告成, 现在 &lt;code>player.swf&lt;/code> 在启动的时候就会调用我添加的 &lt;code>myLoadSwf&lt;/code> 函数, 开始加载 &lt;code>Sounds.swf&lt;/code> 并初始化到 &lt;code>Clib&lt;/code> 中. 而原来的&lt;code>loadSwf&lt;/code>会先判断&lt;code>Sounds.swf&lt;/code>有没有初始化, 初始化了就跳过初始化步骤, 然后我再通过&lt;code>Shockwave Flash&lt;/code>组件调用&lt;code>player.swf&lt;/code>暴露出来的外部接口就可以了, 调用方式如下:&lt;/p>
+&lt;pre>&lt;code>axShockwaveFlash.CallFunction(
+string.Format(&amp;quot;&amp;lt;invoke name=\&amp;quot;swfExtGetypURL\&amp;quot; returntype=\&amp;quot;xml\&amp;quot;&amp;gt;&amp;lt;arguments&amp;gt;&amp;lt;string&amp;gt;{0}&amp;lt;/string&amp;gt;&amp;lt;/arguments&amp;gt;&amp;lt;/invoke&amp;gt;&amp;quot;, ypid));
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>&lt;code>axShockwaveFlash&lt;/code> 是我在c#代码中定义的Flash容器组件成员变量, 它加载了&lt;code>player.swf&lt;/code>作为内容, 代码中调用到的扩展函数名称为&lt;code>swfExtGetypURL&lt;/code>, 也就是刚才在&lt;code>player.swf&lt;/code>的&lt;code>Main&lt;/code>中定义的&lt;code>ExternalInterface&lt;/code>类型的函数, 参数为&lt;code>string&lt;/code>类型的乐谱ID&lt;/p>
+&lt;/blockquote>
+&lt;p>得到返回的url之后, 使用url发起HTTP请求, 得到的响应如下:&lt;/p>
+&lt;pre>&lt;code>&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;yp_create_time=&amp;lt;yp_create_time&amp;gt;1601587012&amp;lt;/yp_create_time&amp;gt; &amp;lt;br/&amp;gt;
+yp_title=&amp;lt;yp_title&amp;gt;Summer（菊次郎的夏天）&amp;lt;/yp_title&amp;gt; &amp;lt;br/&amp;gt;
+yp_page_count=&amp;lt;yp_page_count&amp;gt;5&amp;lt;/yp_page_count&amp;gt; &amp;lt;br/&amp;gt;
+yp_page_width=&amp;lt;yp_page_width&amp;gt;1051&amp;lt;/yp_page_width&amp;gt; &amp;lt;br/&amp;gt;
+yp_page_height=&amp;lt;yp_page_height&amp;gt;1487&amp;lt;/yp_page_height&amp;gt; &amp;lt;br/&amp;gt;
+yp_is_dadiao=&amp;lt;yp_is_dadiao&amp;gt;1&amp;lt;/yp_is_dadiao&amp;gt; &amp;lt;br/&amp;gt;
+yp_key_note=&amp;lt;yp_key_note&amp;gt;2&amp;lt;/yp_key_note&amp;gt; &amp;lt;br/&amp;gt;
+yp_is_yanyin=&amp;lt;yp_is_yanyin&amp;gt;0&amp;lt;/yp_is_yanyin&amp;gt; &amp;lt;br/&amp;gt;
+ypad_url=&amp;lt;ypad_url&amp;gt;http://www.手动马赛克.com//yuepuku/0/64/64_bidea.ypad&amp;lt;/ypad_url&amp;gt;ypad_url2=&amp;lt;ypad_url2&amp;gt;http://www.手动马赛克.com//yuepuku/0/64/64_bidea.ypa2&amp;lt;/ypad_url2&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>接下来, 只需要解析响应并下载资源就可以了&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>解析 &lt;code>yp_page_count&lt;/code> 节点可以得到乐谱的总页数&lt;/li>
+&lt;li>解析&lt;code>ypad_url&lt;/code>节点, 并在节点中url的最后拼接&lt;code>.乐谱页数.png&lt;/code>, 即可得到真实的乐谱图片地址&lt;/li>
+&lt;li>解析&lt;code>ypad_url&lt;/code>节点, 截取 &lt;code>_&lt;/code> 的前半部分, 再拼接 &lt;code>_prev.jpg&lt;/code>还可以得到乐谱的封面图&lt;/li>
+&lt;li>解析&lt;code>ypad_url2&lt;/code>节点即可获取真实的&lt;code>.ypa2&lt;/code>格式的播放文件&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>由于通过对浏览器Network的跟踪, 可以发现请求的资源地址和响应的乐谱信息资源地址高度相似, 由此可以推论出解析方式以及拼接方式&lt;/p>
+&lt;/blockquote>
+&lt;p>以上即完成了白嫖VIP乐谱的方式, 但播放器仍然会请求官方服务器地址, 达不到脱机使用的目的, 因此, 还需要对&lt;code>player.swf&lt;/code>和&lt;code>Sounds.swf&lt;/code>做一些修改, 首先修改&lt;code>player.swf&lt;/code>的&lt;code>Config&lt;/code>类, 把其中关键的加载&lt;code>Sounds.swf&lt;/code>和获取封面的地址修改为本地地址&lt;/p>
+&lt;pre>&lt;code>//获取曲谱封面的地址
+public static const flash_prev_yp_info_URL:String = &amp;quot;http://localhost:7777/yuepu/preview&amp;quot;;
+//获取Sounds.swf的地址
+public static const flash_sound_lib_URL:String = &amp;quot;http://localhost:7777/yuepu/flash/sound&amp;quot;;
+&lt;/code>&lt;/pre>&lt;p>然后修改&lt;code>Sounds.swf&lt;/code>在上文查找到的生成url串, 把串的前缀修改为本地&lt;/p>
+&lt;pre>&lt;code>gstaticInitter.asciz = &amp;quot;http://localhost:7777/yuepu/info?ypid=%d&amp;amp;sccode=%s&amp;amp;r1=%d&amp;amp;r2=%d&amp;amp;input=%s&amp;quot;;
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>此处&lt;code>Sounds.swf&lt;/code>修改url后, 调用&lt;code>getURL&lt;/code>返回的url已经不再是乐谱网站域名了, 需要将返回的localhost域名修改回为乐谱网站域名之后再请求&lt;/p>
+&lt;/blockquote>
+&lt;p>最后在乐谱工具中开启一个端口为&lt;code>7777&lt;/code>的HTTP的服务, 监听播放器请求的地址, 返回之前下载过来的的对应资源就行了&lt;/p>
+&lt;blockquote>
+&lt;p>乐谱工具是我基于&lt;code>C#&lt;/code>开发的一款桌面应用, 其中包括乐谱管理功能, 可以管理所有下载的乐谱并调用Flash播放器播放, 同时开启了一个HTTP监听服务, 监听所有来自&lt;code>localhost:7777&lt;/code>的HTTP请求&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;figure style="flex-grow: 101; flex-basis: 243px">
+&lt;a href="https://example.com/posts/hack/xtan/flash/13.jpg" data-size="602x593">&lt;img src="https://example.com/posts/hack/xtan/flash/13.jpg"
+srcset="https://example.com/posts/hack/xtan/flash/13_hu2908833c875ad89b3b6b9b88cf245112_47260_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/13_hu2908833c875ad89b3b6b9b88cf245112_47260_1024x0_resize_q75_box.jpg 1024w"
+width="602"
+height="593"
+loading="lazy"
+alt="image-13">
+&lt;/a>
+&lt;figcaption>image-13&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;hr>
+&lt;h2 id="adobe-flash彻底停用后的补偿方案">Adobe Flash彻底停用后的补偿方案&lt;/h2>
+&lt;p>过以上修改之后, 就可以脱离浏览器, 嵌入到乐谱工具&lt;code>WinForm&lt;/code>的Windows窗口中运行, 原以为可以高枕无忧了, 直到2020年底Adobe正式停用Flash, 受此影响, 浏览器都移除了对Flash的支持, 这是意料之中的事, 但是万万没想到安装版的Flash也受到了影响, &lt;strong>直接导致&lt;code>Shockwave Flash&lt;/code>也无法加载Flash内容, 所以乐谱工具也无法打开播放器了.&lt;/strong>&lt;/p>
+&lt;p>既然Flash已经被放弃, 那么继续使用其他低版本安装版的Flash就不考虑了, 本身Flash被代理添加了大量广告令人发指. 因此转念考虑上文的&lt;a class="link" href="https://www.flash.cn/cdm/latest/flashplayer_sa_debug.exe" target="_blank" rel="noopener"
+>flash_player_debugger&lt;/a>, 这个是不需要安装的, 那么我是不是可以通过命令行的形式启动它, 并将需要播放的&lt;code>.swf&lt;/code>文件作为参数传递给它? 由于没有查阅到相关文档, 只能按照习惯进行尝试了, 发现确实可行, 在命令行窗口输入以下命令&lt;/p>
+&lt;pre>&lt;code>flashplayer_sa_debug.exe player.swf?id=1
+&lt;/code>&lt;/pre>&lt;p>即可启动 &lt;a class="link" href="https://www.flash.cn/cdm/latest/flashplayer_sa_debug.exe" target="_blank" rel="noopener"
+>flash_player_debugger&lt;/a> 并打开作为参数的 &lt;code>.swf&lt;/code> 文件, 在&lt;code>C#&lt;/code>中则可以使用&lt;code>Process&lt;/code>启动, 代码如下:&lt;/p>
+&lt;pre>&lt;code>Process.Start(&amp;quot;flashplayer_sa_debug.exe&amp;quot;, &amp;quot;Main.swf?id=1&amp;quot;);
+&lt;/code>&lt;/pre>&lt;p>但是在实际使用中, 发现通过命令行或者程序启动的 &lt;a class="link" href="https://www.flash.cn/cdm/latest/flashplayer_sa_debug.exe" target="_blank" rel="noopener"
+>flash_player_debugger&lt;/a> 打开的&lt;code>player.swf&lt;/code>无法发送&lt;code>localhost&lt;/code>的网络请求, 弹窗报错如下:&lt;/p>
+&lt;pre>&lt;code>SecurityError: Error #2119: 安全沙箱冲突
+&lt;/code>&lt;/pre>&lt;p>但是通过IDEA启动的又可以, 查阅资料后最终确定是由于Adobe施加的安全策略影响, IDEA启动的能正常请求&lt;code>localhost&lt;/code>是因为他在用户文件夹下&lt;code>\AppData\Roaming\Macromediax\Flash Player\#Security\FlashPlayerTrust&lt;/code>创建了信任文件&lt;code>intellij_idea.cfg&lt;/code>, 文件内容即IDEA生成&lt;code>.swf&lt;/code>的完整文件夹路径&lt;/p>
+&lt;pre>&lt;code>E:\flash\bin-debug
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>所以, 我只需要为乐谱工具所在的文件夹也创建信任文件, 内容为乐谱工具完整路径, 就能正常打开并请求&lt;code>localhost&lt;/code>了&lt;/strong>&lt;/p>
+&lt;p>现在解决了乐谱无法播放的问题, 但是由于&lt;a class="link" href="https://www.flash.cn/cdm/latest/flashplayer_sa_debug.exe" target="_blank" rel="noopener"
+>flash_player_debugger&lt;/a>不支持&lt;code>ExternalInterface&lt;/code>, 因此需要通过其他方式获取乐谱信息url, 于是我想到在播放器启动的时候, 根据传入的乐谱ID, 直接调用&lt;code>getURL&lt;/code>获取乐谱信息url, 并通过HTTP将url中的参数作为请求参数, 发送到乐谱工具开启的HTTP监听服务中, 再根据得到的参数请求乐谱网站获取乐谱详细信息.&lt;/p>
+&lt;p>首先删除会引起报错的&lt;code>player.swf&lt;/code>中使用&lt;code>ExternalInterface&lt;/code>定义的接口&lt;code>swfExtGetypURL&lt;/code>, 修改 &lt;code>myLoadSwf&lt;/code>中定义的回调函数 &lt;code>onSoundsReady&lt;/code>, 在此前初始化&lt;code>clib&lt;/code>的基础上加上调用&lt;code>getURL&lt;/code>返回的url, 并提取参数请求本地HTTP服务, 修改后的代码如下:&lt;/p>
+&lt;pre>&lt;code>internal static function onSoundsReady(arg1:Event) : void
+{
+swfLoader.contentLoaderInfo.removeEventListener(Event.COMPLETE,onSoundsReady);
+var loc1:* = swfLoader.contentLoaderInfo.applicationDomain;
+var loc2:* = loc1.getDefinition(&amp;quot;Sounds&amp;quot;) as Class;
+CLib.clib = loc2.cLibInit();
+//添加的部分
+if(utils.Func.ypadId != 0) {
+var url:* = CLib.getURL(utils.Func.ypadId);
+var args:* = &amp;quot;?&amp;quot; + url.split(&amp;quot;?&amp;quot;)[1]
+urlLoader3 = new flash.net.URLLoader();
+urlLoader3.load(new flash.net.URLRequest(&amp;quot;http://localhost:7777/yuepu/fetch&amp;quot; + args));
+}
+}
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>&lt;code>utils.Func.ypadId&lt;/code>中存储了播放器启动时传入的乐谱ID参数&lt;/p>
+&lt;/blockquote>
+&lt;p>此时当&lt;code>clib&lt;/code>初始化完成之后, 会使用传入的乐谱ID直接调用&lt;code>getURL&lt;/code>, 截取返回url的参数部分, 再将参数通过HTTP请求上报到本地监听的地址. 监听地址收到请求后, 首先判断该ID的乐谱是否已经下载, 如果没有下载则会开启下载任务, 这样就解决了乐谱下载的问题&lt;/p>
+&lt;pre>&lt;code>//监听曲谱地址
+if (httpListenerContext.Request.Url.LocalPath.Equals(&amp;quot;/yuepu/fetch&amp;quot;))
+{
+httpListenerContext.Request.QueryString[&amp;quot;ypid&amp;quot;];
+httpListenerContext.Request.QueryString[&amp;quot;sccode&amp;quot;];
+httpListenerContext.Request.QueryString[&amp;quot;r1&amp;quot;];
+httpListenerContext.Request.QueryString[&amp;quot;r2&amp;quot;];
+...
+}
+&lt;/code>&lt;/pre>&lt;p>不过这样的弊端也很明显, 想要下载下一个乐谱就要重新打开一次播放器, 因此在使用&lt;code>Process&lt;/code>启动的指定&lt;code>WindowStyle&lt;/code>为&lt;code>ProcessWindowStyle.Hidden&lt;/code>就可以无感使用了&lt;/p>
+&lt;pre>&lt;code>Process.Start(new ProcessStartInfo()
+{
+FileName = &amp;quot;flashplayer_sa_debug.exe&amp;quot;,
+WindowStyle = ProcessWindowStyle.Hidden,//关键代码
+Arguments = &amp;quot;Main.swf?id=64&amp;quot;,
+})
+&lt;/code>&lt;/pre>&lt;h2 id="至此已经彻底解决flash停用的影响了-但是仍然存在另一个问题-adobe禁用flash之后-该乐谱网站也对播放器进行了换代-停用了旧的flash播放器-改用安装版的exe播放器-同时exe播放器不再使用flash用的ypa2格式播放器文件-且删除了所有ypa2资源-并采用新的ypdx文件-新格式的文件flash无法播放-因此破解exe版本的播放器又被放在日程上了">至此已经彻底解决Flash停用的影响了, 但是仍然存在另一个问题, Adobe禁用Flash之后, 该乐谱网站也对播放器进行了换代, 停用了旧的Flash播放器, 改用安装版的exe播放器, 同时exe播放器不再使用Flash用的&lt;code>.ypa2&lt;/code>格式播放器文件, 且删除了所有&lt;code>.ypa2&lt;/code>资源, 并采用新的&lt;code>.ypdx&lt;/code>文件, 新格式的文件Flash无法播放, 因此破解exe版本的播放器又被放在日程上了&amp;hellip;&lt;/h2></description></item></channel></rss>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ActionScript on Acgnu+</title><link>https://example.com/tags/actionscript/</link><description>Recent content in ActionScript on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 25 May 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/tags/actionscript/index.xml" rel="self" type="application/rss+xml"/><item><title>某乐谱网站Flash播放器破解记录</title><link>https://example.com/posts/hack/xtan/flash/</link><pubDate>Tue, 25 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/flash/</guid><description>背景 2019年的某月, 某钢乐谱网站将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.
+同年, 得知Adobe公司将于2020年年末彻底停用Flash, 遂产生破解其Flash播放器并本地化的想法.
+目标 破解该站的Flash播放器, 使其能够免费下载并播放VIP乐谱, 并将乐谱保存至本地, 同时使播放器可以脱离浏览器且可以脱机使用
+网站乐谱页 image-1
+开始破解 首先通过Chrome的调试控制台Network面板, 跟踪进入乐谱页的网络请求如下
+进入乐谱页面, 网站向服务端请求 player.swf, 该 .swf 文件即为乐谱播放器 浏览器加载 player.swf , 播放器向服务端请求乐谱的第一页作为预览图, 显示在播放器中 点击播放按钮时, 播放器请求 Sounds.swf, 播放器请求接口 /flash_get_yp_info.php 获取乐谱详细信息, 包括谱名称, 页数, 作者, 余下的乐谱页资源地址, 播放文件地址 播放器下载并载入余下的 .png 格式乐谱图片, 并加载 .ypa2 格式的播放文件, 即可开始播放 由于文章编辑于2020年5月, 该网站已经改版移除了Flash版本播放器, 因此当时调用的服务器接口没有被记录下来, 文章没有该部分请求的截图
+基本过程已经明确了, 而所有的请求接口中, 只有第四步的/flash_get_yp_info.php是需要对入参sccode, r1, r2, 进行校验, 那我只需要反编译出播放器的源码, 再根据代码仿写一个凭证生成的算法, 不就可以调用接口并得到资源地址了?
+首先要实现下载乐谱图片以及播放文件, 多番对比后选用开源且免费的 jpexs-decompiler, 顺利反编译出player.swf代码, 用IDEA新建为Flex项目打开, 再百度其中的一些package名称, 发现代码可基于 flex_sdk_3.</description></item></channel></rss>
