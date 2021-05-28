@@ -527,10 +527,10 @@ alt="image-33">
 &lt;/figure>&lt;/p>
 &lt;p>保存后重新运行, 现在脱机情况下播放器能够正常打开并请求乐谱工具的HTTP服务并正常播放乐谱了, 转存PDF文件等VIP功能也能够正常使用&lt;/p>
 &lt;h2 id="至此exe版本宣告完美破解">至此exe版本宣告完美破解&lt;/h2></description></item><item><title>某乐谱网站Flash播放器破解记录</title><link>https://example.com/posts/hack/xtan/flash/</link><pubDate>Tue, 25 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/flash/</guid><description>&lt;img src="https://example.com/posts/hack/xtan/flash/cover.png" alt="Featured image of post 某乐谱网站Flash播放器破解记录" />&lt;h2 id="背景">背景&lt;/h2>
-&lt;p>2019年的某月, 某钢乐谱网站将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.&lt;/p>
+&lt;p>2019年的某月, 某乐谱网站将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.&lt;/p>
 &lt;p>同年, 得知Adobe公司将于2020年年末彻底停用Flash, 遂产生破解其Flash播放器并本地化的想法.&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
-&lt;p>破解该站的Flash播放器, 使其能够免费下载并播放VIP乐谱, 并将乐谱保存至本地, 同时使播放器可以脱离浏览器且可以脱机使用&lt;/p>
+&lt;p>破解该站的Flash播放器, 使其能够免费下载并播放VIP乐谱, 并将乐谱保存至本地硬盘, 同时使播放器可以脱离浏览器且可以脱机使用&lt;/p>
 &lt;h2 id="网站乐谱页">网站乐谱页&lt;/h2>
 &lt;p>&lt;figure style="flex-grow: 105; flex-basis: 252px">
 &lt;a href="https://example.com/posts/hack/xtan/flash/1.jpg" data-size="829x789">&lt;img src="https://example.com/posts/hack/xtan/flash/1.jpg"
@@ -552,7 +552,7 @@ alt="image-1">
 &lt;li>播放器下载并载入余下的 &lt;code>.png&lt;/code> 格式乐谱图片, 并加载 &lt;code>.ypa2&lt;/code> 格式的播放文件, 即可开始播放&lt;/li>
 &lt;/ol>
 &lt;blockquote>
-&lt;p>由于文章编辑于2020年5月, 该网站已经改版移除了Flash版本播放器, 因此当时调用的服务器接口没有被记录下来, 文章没有该部分请求的截图&lt;/p>
+&lt;p>由于文章编辑于2021年5月, 该网站已经改版移除了Flash版本播放器, 因此当时调用的服务器接口没有被记录下来, 文章没有该部分请求的截图&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;strong>基本过程已经明确了, 而所有的请求接口中, 只有第四步的&lt;code>/flash_get_yp_info.php&lt;/code>是需要对入参&lt;code>sccode&lt;/code>, &lt;code>r1&lt;/code>, &lt;code>r2&lt;/code>, 进行校验, 那我只需要反编译出播放器的源码, 再根据代码仿写一个凭证生成的算法, 不就可以调用接口并得到资源地址了?&lt;/strong>&lt;/p>
 &lt;p>首先要实现下载乐谱图片以及播放文件, 多番对比后选用开源且免费的 &lt;a class="link" href="https://github.com/wholesky/ffdec" target="_blank" rel="noopener"
@@ -750,12 +750,12 @@ ypad_url=&amp;lt;ypad_url&amp;gt;http://www.手动马赛克.com//yuepuku/0/64/64
 &lt;blockquote>
 &lt;p>由于通过对浏览器Network的跟踪, 可以发现请求的资源地址和响应的乐谱信息资源地址高度相似, 由此可以推论出解析方式以及拼接方式&lt;/p>
 &lt;/blockquote>
-&lt;p>以上即完成了白嫖VIP乐谱的方式, 但播放器仍然会请求官方服务器地址, 达不到脱机使用的目的, 因此, 还需要对&lt;code>player.swf&lt;/code>和&lt;code>Sounds.swf&lt;/code>做一些修改, 首先修改&lt;code>player.swf&lt;/code>的&lt;code>Config&lt;/code>类, 把其中关键的加载&lt;code>Sounds.swf&lt;/code>和获取封面的地址修改为本地地址&lt;/p>
+&lt;p>以上即完成了白嫖VIP乐谱的方式, 但播放器仍然会请求官方服务器地址, 达不到脱机使用的目的, 因此, 还需要对&lt;code>player.swf&lt;/code>和&lt;code>Sounds.swf&lt;/code>做一些修改, 首先修改&lt;code>player.swf&lt;/code>的&lt;code>Config&lt;/code>类, 把其中关键的加载&lt;code>Sounds.swf&lt;/code>和获取封面的地址修改为&lt;code>localhost:7777&lt;/code>&lt;/p>
 &lt;pre>&lt;code>//获取曲谱封面的地址
 public static const flash_prev_yp_info_URL:String = &amp;quot;http://localhost:7777/yuepu/preview&amp;quot;;
 //获取Sounds.swf的地址
 public static const flash_sound_lib_URL:String = &amp;quot;http://localhost:7777/yuepu/flash/sound&amp;quot;;
-&lt;/code>&lt;/pre>&lt;p>然后修改&lt;code>Sounds.swf&lt;/code>在上文查找到的生成url串, 把串的前缀修改为本地&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>然后修改&lt;code>Sounds.swf&lt;/code>在上文查找到的生成url串, 把串的前缀修改为&lt;code>localhost:7777&lt;/code>&lt;/p>
 &lt;pre>&lt;code>gstaticInitter.asciz = &amp;quot;http://localhost:7777/yuepu/info?ypid=%d&amp;amp;sccode=%s&amp;amp;r1=%d&amp;amp;r2=%d&amp;amp;input=%s&amp;quot;;
 &lt;/code>&lt;/pre>&lt;blockquote>
 &lt;p>此处&lt;code>Sounds.swf&lt;/code>修改url后, 调用&lt;code>getURL&lt;/code>返回的url已经不再是乐谱网站域名了, 需要将返回的localhost域名修改回为乐谱网站域名之后再请求&lt;/p>
@@ -791,7 +791,7 @@ alt="image-13">
 &lt;/code>&lt;/pre>&lt;p>&lt;strong>所以, 我只需要为乐谱工具所在的文件夹也创建信任文件, 内容为乐谱工具完整路径, 就能正常打开并请求&lt;code>localhost&lt;/code>了&lt;/strong>&lt;/p>
 &lt;p>现在解决了乐谱无法播放的问题, 但是由于&lt;a class="link" href="https://www.flash.cn/cdm/latest/flashplayer_sa_debug.exe" target="_blank" rel="noopener"
 >flash_player_debugger&lt;/a>不支持&lt;code>ExternalInterface&lt;/code>, 因此需要通过其他方式获取乐谱信息url, 于是我想到在播放器启动的时候, 根据传入的乐谱ID, 直接调用&lt;code>getURL&lt;/code>获取乐谱信息url, 并通过HTTP将url中的参数作为请求参数, 发送到乐谱工具开启的HTTP监听服务中, 再根据得到的参数请求乐谱网站获取乐谱详细信息.&lt;/p>
-&lt;p>首先删除会引起报错的&lt;code>player.swf&lt;/code>中使用&lt;code>ExternalInterface&lt;/code>定义的接口&lt;code>swfExtGetypURL&lt;/code>, 修改 &lt;code>myLoadSwf&lt;/code>中定义的回调函数 &lt;code>onSoundsReady&lt;/code>, 在此前初始化&lt;code>clib&lt;/code>的基础上加上调用&lt;code>getURL&lt;/code>返回的url, 并提取参数请求本地HTTP服务, 修改后的代码如下:&lt;/p>
+&lt;p>首先删除会引起报错的&lt;code>player.swf&lt;/code>中使用&lt;code>ExternalInterface&lt;/code>定义的接口&lt;code>swfExtGetypURL&lt;/code>, 修改 &lt;code>myLoadSwf&lt;/code>中定义的回调函数 &lt;code>onSoundsReady&lt;/code>, 在此前初始化&lt;code>clib&lt;/code>的基础上加上调用&lt;code>getURL&lt;/code>返回的url, 并提取参数请求&lt;code>localhost:7777&lt;/code>, 修改后的代码如下:&lt;/p>
 &lt;pre>&lt;code>internal static function onSoundsReady(arg1:Event) : void
 {
 swfLoader.contentLoaderInfo.removeEventListener(Event.COMPLETE,onSoundsReady);
@@ -809,7 +809,7 @@ urlLoader3.load(new flash.net.URLRequest(&amp;quot;http://localhost:7777/yuepu/f
 &lt;/code>&lt;/pre>&lt;blockquote>
 &lt;p>&lt;code>utils.Func.ypadId&lt;/code>中存储了播放器启动时传入的乐谱ID参数&lt;/p>
 &lt;/blockquote>
-&lt;p>此时当&lt;code>clib&lt;/code>初始化完成之后, 会使用传入的乐谱ID直接调用&lt;code>getURL&lt;/code>, 截取返回url的参数部分, 再将参数通过HTTP请求上报到本地监听的地址. 监听地址收到请求后, 首先判断该ID的乐谱是否已经下载, 如果没有下载则会开启下载任务, 这样就解决了乐谱下载的问题&lt;/p>
+&lt;p>此时当&lt;code>clib&lt;/code>初始化完成之后, 会使用传入的乐谱ID直接调用&lt;code>getURL&lt;/code>, 截取返回url的参数部分, 再将参数通过HTTP请求上报到&lt;code>localhost:7777&lt;/code>. 收到请求后, 首先判断该ID的乐谱是否已经下载, 如果没有下载则会开启下载任务, 这样就解决了乐谱下载的问题&lt;/p>
 &lt;pre>&lt;code>//监听曲谱地址
 if (httpListenerContext.Request.Url.LocalPath.Equals(&amp;quot;/yuepu/fetch&amp;quot;))
 {
