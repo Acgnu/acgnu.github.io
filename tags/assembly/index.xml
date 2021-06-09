@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Assembly on Acgnu+</title><link>https://example.com/tags/assembly/</link><description>Recent content in Assembly on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 26 May 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/tags/assembly/index.xml" rel="self" type="application/rss+xml"/><item><title>某乐谱网站EXE播放器破解记录</title><link>https://example.com/posts/hack/xtan/exe/</link><pubDate>Wed, 26 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/exe/</guid><description>引言 本文接另一篇文章 某乐谱网站Flash播放器破解记录
-由于乐谱网站改版正式使用exe播放器之后, 删除了所有的.ypa2资源, 导致我没有及时下载的乐谱都无法继续使用Flash播放器播放了, 忍不了, 只能破解exe播放器了
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Assembly on Acgnu+</title><link>https://example.com/tags/assembly/</link><description>Recent content in Assembly on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 26 May 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/tags/assembly/index.xml" rel="self" type="application/rss+xml"/><item><title>某琴吧EXE播放器破解记录</title><link>https://example.com/posts/hack/xtan/exe/</link><pubDate>Wed, 26 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/exe/</guid><description>背景 本文接另一篇文章 某琴吧Flash播放器破解记录
+由于某琴吧改版正式使用exe播放器之后, 删除了所有的.ypa2资源, 导致我没有及时下载的乐谱都无法继续使用Flash播放器播放了, 忍不了, 只能破解exe播放器了
 目标 破解该站的exe播放器, 使其能够免费播放VIP乐谱, 且可以完全脱机使用
 开始破解 首先安装网站的乐谱播放器, 打开安装目录发现文件结构如下
 image-3
-其中xxxchrome.exe相当于一个浏览器, 可以访问乐谱网站, 点击&amp;quot;客户端播放&amp;quot;按钮即可打开播放器, 如下图
+其中xxxchrome.exe相当于一个浏览器, 可以访问某琴吧, 点击&amp;quot;客户端播放&amp;quot;按钮即可打开播放器, 如下图
 image-2
 而xxplayer.exe才是播放器, 播放器启动后, 可以从任务管理器看到新增的进程
 image-1

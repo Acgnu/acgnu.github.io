@@ -1,6 +1,300 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>https://example.com/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 26 May 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml"/><item><title>某乐谱网站EXE播放器破解记录</title><link>https://example.com/posts/hack/xtan/exe/</link><pubDate>Wed, 26 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/exe/</guid><description>&lt;img src="https://example.com/posts/hack/xtan/exe/cover.png" alt="Featured image of post 某乐谱网站EXE播放器破解记录" />&lt;h2 id="引言">引言&lt;/h2>
-&lt;p>本文接另一篇文章 &lt;a class="link" href="../xtan_flash_hack/index.md" >某乐谱网站Flash播放器破解记录&lt;/a>&lt;/p>
-&lt;p>由于乐谱网站改版正式使用exe播放器之后, 删除了所有的&lt;code>.ypa2&lt;/code>资源, 导致我没有及时下载的乐谱都无法继续使用Flash播放器播放了, 忍不了, 只能破解exe播放器了&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>https://example.com/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 08 Jun 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml"/><item><title>某鱼APP破解去广告</title><link>https://example.com/posts/hack/xfish/</link><pubDate>Tue, 08 Jun 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xfish/</guid><description>&lt;img src="https://example.com/posts/hack/xfish/cover.png" alt="Featured image of post 某鱼APP破解去广告" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>作为一个家徒四壁的打工人, 在某鱼上购买二手的闲置商品便成了我实现梦想的捷径, 但某鱼经过多次升级改版已经相当流氓, 在我搜索出想要的商品的结果页, 嵌入识别度很低的广告, 导致我经常手滑点错, 然后直接跳转启动某宝, 某宝的启动速度又慢的令人发指, 最终还得按下多次返回才能再次回到某鱼的搜索结果页, 忍无可忍的我只能对它做一些不可描述的事了&lt;/p>
+&lt;h2 id="目标">目标&lt;/h2>
+&lt;p>破解某鱼并去除搜索结果页的广告, 同时去掉每次启动就弹窗的恼人的更新提示&lt;/p>
+&lt;h2 id="某鱼的搜索结果页">某鱼的搜索结果页&lt;/h2>
+&lt;p>&lt;figure style="flex-grow: 56; flex-basis: 134px">
+&lt;a href="https://example.com/posts/hack/xfish/adpage.jpg" data-size="540x961">&lt;img src="https://example.com/posts/hack/xfish/adpage.jpg"
+srcset="https://example.com/posts/hack/xfish/adpage_hu1ba7e09bc24973772dcedd1129f840e8_86307_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/adpage_hu1ba7e09bc24973772dcedd1129f840e8_86307_1024x0_resize_q75_box.jpg 1024w"
+width="540"
+height="961"
+loading="lazy"
+alt="某鱼广告">
+&lt;/a>
+&lt;figcaption>某鱼广告&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;blockquote>
+&lt;p>PS:一个屏幕总共就6个展位, 这三个广告位良心不会痛吗, 特别是中间的辨识度低还自动跳转简直不要Face&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="开始破解">开始破解&lt;/h2>
+&lt;p>首先尝试使用Android反编译大杀器&lt;a class="link" href="https://github.com/skylot/jadx" target="_blank" rel="noopener"
+>Jadx&lt;/a>, 打开&lt;code>Jadx&lt;/code>, 直接把某鱼安装包即&lt;code>.apk&lt;/code>文件拖进去, 发现软件没有加壳, 可以看到&lt;code>Jadx&lt;/code>顺利反编译出了某鱼的源码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 139; flex-basis: 334px">
+&lt;a href="https://example.com/posts/hack/xfish/jadx_source.jpg" data-size="1173x842">&lt;img src="https://example.com/posts/hack/xfish/jadx_source.jpg"
+srcset="https://example.com/posts/hack/xfish/jadx_source_hud0af3715194ff4882a261e5347d833be_127929_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/jadx_source_hud0af3715194ff4882a261e5347d833be_127929_1024x0_resize_q75_box.jpg 1024w"
+width="1173"
+height="842"
+loading="lazy"
+alt="JADX-源码">
+&lt;/a>
+&lt;figcaption>JADX-源码&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>直接按 &lt;code>Ctrl + S&lt;/code> 将源码全部保存, 然后导入&lt;code>IDEA&lt;/code>, 开始分析代码&lt;/p>
+&lt;p>&lt;strong>首先从输入搜索目标后, 点击搜索的按钮开始入手&lt;/strong>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 249; flex-basis: 599px">
+&lt;a href="https://example.com/posts/hack/xfish/search.jpg" data-size="537x215">&lt;img src="https://example.com/posts/hack/xfish/search.jpg"
+srcset="https://example.com/posts/hack/xfish/search_hubb017e4f37f205bfbcd52d21910b75ab_11320_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/search_hubb017e4f37f205bfbcd52d21910b75ab_11320_1024x0_resize_q75_box.jpg 1024w"
+width="537"
+height="215"
+loading="lazy"
+alt="搜索面板">
+&lt;/a>
+&lt;figcaption>搜索面板&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>在代码中查找&amp;quot;搜索&amp;quot;关键字, 发现有多处匹配, 结合搜索面板底下的历史搜索布局, 推测该面板的布局文件应该是&lt;code>search_mid.xml&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 212; flex-basis: 510px">
+&lt;a href="https://example.com/posts/hack/xfish/searchlayout.jpg" data-size="1078x507">&lt;img src="https://example.com/posts/hack/xfish/searchlayout.jpg"
+srcset="https://example.com/posts/hack/xfish/searchlayout_hu165f087e67dd8c3f20528ecb83d1223f_83048_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchlayout_hu165f087e67dd8c3f20528ecb83d1223f_83048_1024x0_resize_q75_box.jpg 1024w"
+width="1078"
+height="507"
+loading="lazy"
+alt="面板代码">
+&lt;/a>
+&lt;figcaption>面板代码&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>搜索布局文件引用的地方, 发现其在&lt;code>SearchMidActivity&lt;/code>中被使用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 342; flex-basis: 821px">
+&lt;a href="https://example.com/posts/hack/xfish/uselayout.jpg" data-size="606x177">&lt;img src="https://example.com/posts/hack/xfish/uselayout.jpg"
+srcset="https://example.com/posts/hack/xfish/uselayout_huf0a2434a3d7d0179055128c7c7a27089_13700_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/uselayout_huf0a2434a3d7d0179055128c7c7a27089_13700_1024x0_resize_q75_box.jpg 1024w"
+width="606"
+height="177"
+loading="lazy"
+alt="布局使用">
+&lt;/a>
+&lt;figcaption>布局使用&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>再查看布局文件代码, 搜索按钮的组件ID为&lt;code>search_button&lt;/code>, 在&lt;code>SearchMidActivity&lt;/code>中查找相关引用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 316; flex-basis: 758px">
+&lt;a href="https://example.com/posts/hack/xfish/searchbtn1.jpg" data-size="351x111">&lt;img src="https://example.com/posts/hack/xfish/searchbtn1.jpg"
+srcset="https://example.com/posts/hack/xfish/searchbtn1_hud7caf3cc5e731a5a19c2db74ba6f7cd8_6010_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn1_hud7caf3cc5e731a5a19c2db74ba6f7cd8_6010_1024x0_resize_q75_box.jpg 1024w"
+width="351"
+height="111"
+loading="lazy"
+alt="搜索点击1">
+&lt;/a>
+&lt;figcaption>搜索点击1&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 277; flex-basis: 667px">
+&lt;a href="https://example.com/posts/hack/xfish/searchbtn2.jpg" data-size="795x286">&lt;img src="https://example.com/posts/hack/xfish/searchbtn2.jpg"
+srcset="https://example.com/posts/hack/xfish/searchbtn2_hu43e90636119c85769bcd2cb8b226da7a_24664_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn2_hu43e90636119c85769bcd2cb8b226da7a_24664_1024x0_resize_q75_box.jpg 1024w"
+width="795"
+height="286"
+loading="lazy"
+alt="搜索点击2">
+&lt;/a>
+&lt;figcaption>搜索点击2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看出按钮点击后, 首先会调用&lt;code>searchKeyAction&lt;/code>, 再经过层层调用最后到达&lt;code>searchNormal&lt;/code>, 之后就会通过 &lt;code>gotoResultActivity&lt;/code> 跳转到结果页, 继续跟踪&lt;code>gotoResultActivity&lt;/code>方法&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 700; flex-basis: 1680px">
+&lt;a href="https://example.com/posts/hack/xfish/searchbtn3.jpg" data-size="525x75">&lt;img src="https://example.com/posts/hack/xfish/searchbtn3.jpg"
+srcset="https://example.com/posts/hack/xfish/searchbtn3_hu5fb2147c87591b6c85c08e2046a0c2df_6451_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn3_hu5fb2147c87591b6c85c08e2046a0c2df_6451_1024x0_resize_q75_box.jpg 1024w"
+width="525"
+height="75"
+loading="lazy"
+alt="搜索点击3">
+&lt;/a>
+&lt;figcaption>搜索点击3&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>此处出现&lt;code>searchresult&lt;/code>字符, 搜索这个字符&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 469; flex-basis: 1127px">
+&lt;a href="https://example.com/posts/hack/xfish/searchbtn4.jpg" data-size="780x166">&lt;img src="https://example.com/posts/hack/xfish/searchbtn4.jpg"
+srcset="https://example.com/posts/hack/xfish/searchbtn4_hu3064fae03e259149ff91124b7637e5f8_29435_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn4_hu3064fae03e259149ff91124b7637e5f8_29435_1024x0_resize_q75_box.jpg 1024w"
+width="780"
+height="166"
+loading="lazy"
+alt="搜索点击4">
+&lt;/a>
+&lt;figcaption>搜索点击4&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看出这个字符串对应的页面应该是 &lt;code>SearchResultActivity&lt;/code>, 打开这个类之后一眼看不出什么重要的东西, 然后线索就这么中断了&lt;/p>
+&lt;p>线索中断之后, 可以用&lt;code>Xposed&lt;/code>对某些可疑方法&lt;code>Hook&lt;/code>, 然后通过打印调用堆栈的方法, 继续分析, 比如此我找到的&lt;code>SearchResultInterrupter&lt;/code>中的&lt;code>checkInterrupt&lt;/code>方法&lt;/p>
+&lt;pre>&lt;code>Throwable ex = new Throwable();
+StackTraceElement[] stackElements = ex.getStackTrace();
+if (stackElements != null) {
+MyLog.log(&amp;quot;调用堆栈:--------------------&amp;quot;, true);
+for (int i = 0; i &amp;lt; stackElements.length; i++) {
+MyLog.log(stackElements[i].getClassName() + &amp;quot; -&amp;gt; &amp;quot; +
+stackElements[i].getMethodName() + &amp;quot;()&amp;quot;
+, true);
+}
+}
+&lt;/code>&lt;/pre>&lt;p>不过这样比较麻烦而且也不好找. 于是换个思路, 安装&lt;code>Xposed&lt;/code>模块&lt;a class="link" href="https://github.com/Palatis/XAppDebug" target="_blank" rel="noopener"
+>XAppDebug&lt;/a>, 为某鱼强制开启&lt;code>Debug&lt;/code>模式, 此时查看控制台会显示所有某鱼打印的日志信息, 现在控制台显示了包括网络请求在内的日志信息&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 379; flex-basis: 911px">
+&lt;a href="https://example.com/posts/hack/xfish/motp.jpg" data-size="1136x299">&lt;img src="https://example.com/posts/hack/xfish/motp.jpg"
+srcset="https://example.com/posts/hack/xfish/motp_hu728bdb3602c9c0a190a3b046fde1f8dd_69023_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/motp_hu728bdb3602c9c0a190a3b046fde1f8dd_69023_1024x0_resize_q75_box.jpg 1024w"
+width="1136"
+height="299"
+loading="lazy"
+alt="MTOP">
+&lt;/a>
+&lt;figcaption>MTOP&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>最终找到可疑类&lt;code>MtopResponse&lt;/code>, 分析代码可以推测这个类应该是一个封装了网络响应的类, 其成员变量&lt;code>bytedata&lt;/code>是主要数据源, &lt;code>bytedata&lt;/code>将会被转换成&lt;code>dataJsonObject&lt;/code>的&lt;code>JSON&lt;/code>对象储存, 然后被使用, 因此找到&lt;code>bytedata&lt;/code>赋值的方法&lt;code>setBytedata&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 287; flex-basis: 691px">
+&lt;a href="https://example.com/posts/hack/xfish/rep.jpg" data-size="478x166">&lt;img src="https://example.com/posts/hack/xfish/rep.jpg"
+srcset="https://example.com/posts/hack/xfish/rep_huaa9da268be2d331c855d2c964a90ed3f_10820_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/rep_huaa9da268be2d331c855d2c964a90ed3f_10820_1024x0_resize_q75_box.jpg 1024w"
+width="478"
+height="166"
+loading="lazy"
+alt="响应模型">
+&lt;/a>
+&lt;figcaption>响应模型&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;blockquote>
+&lt;p>破解时间于2020年8月, 文章编辑时间为2021年6月, 当时似乎不是这样找到&lt;code>MtopResponse&lt;/code>类的, 依稀记得是通过跟踪调用堆栈的方式逐步打印日志找到的, 没有记录下来是我的失误也是我的损失, 现在能找到这个类是因为当时开发&lt;code>Xposed&lt;/code>模块中的代码有这一段. 如果某天我突然想起来了或者有兴致花时间重新找的话, 会回来补充的&lt;/p>
+&lt;/blockquote>
+&lt;p>使用&lt;code>Xposed&lt;/code>拦截此函数, 并打印入参&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(&amp;quot;mtopsdk.mtop.domain.MtopResponse&amp;quot;, loadPackageParam.classLoader,
+&amp;quot;setBytedata&amp;quot;,
+byte[].class,
+new XC_MethodHook() {
+@Override
+protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+String content = new String((byte[]) param.args[0]);
+MyLog.log(content);
+}
+});
+&lt;/code>&lt;/pre>&lt;p>得到入参截取如下&lt;/p>
+&lt;pre>&lt;code>{
+&amp;quot;data&amp;quot;: {
+&amp;quot;item&amp;quot;: {
+...
+&amp;quot;main&amp;quot;: {
+&amp;quot;clickParam&amp;quot;: {
+&amp;quot;arg1&amp;quot;: &amp;quot;Item&amp;quot;,
+&amp;quot;args&amp;quot;: {
+...
+&amp;quot;tagname&amp;quot;: &amp;quot;全新\/极好\/298人想要&amp;quot;,
+&amp;quot;wantNum&amp;quot;: &amp;quot;298&amp;quot;,
+&amp;quot;id&amp;quot;: &amp;quot;619312410203&amp;quot;,
+&amp;quot;tag&amp;quot;: &amp;quot;new\/credit-6\/wantnum-298&amp;quot;,
+&amp;quot;scm&amp;quot;: &amp;quot;1007.32845.224895.0&amp;quot;,
+&amp;quot;publishTime&amp;quot;: &amp;quot;1590461455000&amp;quot;,
+&amp;quot;i2i&amp;quot;: &amp;quot;相似&amp;quot;,
+&amp;quot;search_tab_from&amp;quot;: null,
+&amp;quot;item_id&amp;quot;: &amp;quot;619312410203&amp;quot;,
+&amp;quot;biz_type&amp;quot;: &amp;quot;item&amp;quot;, //破解重点
+&amp;quot;q&amp;quot;: &amp;quot;10700k&amp;quot;,
+...
+},
+&amp;quot;page&amp;quot;: &amp;quot;Page_xySearchResult&amp;quot;
+},
+...
+}
+}
+...
+}
+...
+}
+&lt;/code>&lt;/pre>&lt;p>此处截取了一条记录展示, 实际拦截到的参数中是一个数组, 包含本次结果页的所有商品, 其中就包括了搜索的商品, 广告商品, 推荐商品等, 通过对比发现, &lt;strong>搜索的商品数据在节点&lt;code>args&lt;/code> &amp;gt; &lt;code>biz_type&lt;/code> 的取值为 &lt;code>item&lt;/code>, 而广告等商品取值为&lt;code>ad&lt;/code>, &lt;code>Bagtag&lt;/code>, &lt;code>聚合卡片&lt;/code>&lt;/strong>, 那么接下来要做的事就很明确了, &lt;strong>解析这个字符串, 如果发现是广告商品则从数据中删除这条数据&lt;/strong>, 修改对&lt;code>setBytedate&lt;/code>的&lt;code>Hook&lt;/code>代码如下&lt;/p>
+&lt;pre>&lt;code>...
+protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+if (null == param.args[0] || ((byte[]) param.args[0]).length == 0) {
+return;
+}
+String content = new String((byte[]) param.args[0]);
+JSONObject jsonContent = new JSONObject(content);
+JSONObject jsonData = jsonContent.optJSONObject(&amp;quot;data&amp;quot;);
+if (null == jsonData || !jsonData.has(&amp;quot;resultList&amp;quot;)) {
+return;
+}
+JSONArray resultList = jsonData.getJSONArray(&amp;quot;resultList&amp;quot;);
+List&amp;lt;String&amp;gt; filterList = Arrays.asList(&amp;quot;ad&amp;quot;, &amp;quot;Bagtag&amp;quot;, &amp;quot;聚合卡片&amp;quot;);
+for (int i = 0; i &amp;lt; resultList.length(); i++) {
+JSONObject listItem = resultList.getJSONObject(i);
+String bizType = listItem.getJSONObject(&amp;quot;data&amp;quot;).getJSONObject(&amp;quot;item&amp;quot;)
+.getJSONObject(&amp;quot;main&amp;quot;).getJSONObject(&amp;quot;clickParam&amp;quot;).getJSONObject(&amp;quot;args&amp;quot;)
+.getString(&amp;quot;biz_type&amp;quot;);
+if (filterList.contains(bizType)) {
+if (Build.VERSION.SDK_INT &amp;gt;= Build.VERSION_CODES.KITKAT) {
+resultList.remove(i);
+i--;
+}
+}
+}
+param.args[0] = jsonContent.toString().getBytes();
+}
+...
+&lt;/code>&lt;/pre>&lt;p>上述代码首先将&lt;code>byte&lt;/code>数组转换为&lt;code>json&lt;/code>对象, 然后遍历所有商品, 将找到的广告商品移除, 再将处理过后的字符串重新转换为&lt;code>byte&lt;/code>数组, 最后赋值给原始参数, 这样当某鱼实际代码&lt;code>setBytedata&lt;/code>得到的参数将会是我修改后的参数. 编译验证后可以看到广告已经不会再显示了&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 56; flex-basis: 136px">
+&lt;a href="https://example.com/posts/hack/xfish/noadresult.jpg" data-size="529x933">&lt;img src="https://example.com/posts/hack/xfish/noadresult.jpg"
+srcset="https://example.com/posts/hack/xfish/noadresult_hufb7fc091ad8dd52f3bb83e2bc584be96_75816_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/noadresult_hufb7fc091ad8dd52f3bb83e2bc584be96_75816_1024x0_resize_q75_box.jpg 1024w"
+width="529"
+height="933"
+loading="lazy"
+alt="哇塞">
+&lt;/a>
+&lt;figcaption>哇塞&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="禁用恼人的升级弹窗">禁用恼人的升级弹窗&lt;/h2>
+&lt;p>&lt;strong>由于本人不爱更新, 且破解后如果更新版本, 可能导致破解失效, 所以必须禁用更新&lt;/strong>&lt;/p>
+&lt;p>首先根据弹窗文字搜索代码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 128; flex-basis: 309px">
+&lt;a href="https://example.com/posts/hack/xfish/updateprop.jpg" data-size="487x378">&lt;img src="https://example.com/posts/hack/xfish/updateprop.jpg"
+srcset="https://example.com/posts/hack/xfish/updateprop_huc83cba95d5fbda156357bc25e87590dc_41270_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updateprop_huc83cba95d5fbda156357bc25e87590dc_41270_1024x0_resize_q75_box.jpg 1024w"
+width="487"
+height="378"
+loading="lazy"
+alt="更新弹窗">
+&lt;/a>
+&lt;figcaption>更新弹窗&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>发现仅有一处, 位于&lt;code>BaseUpgradeHandler&lt;/code>类的&lt;code>onUpgradeNeed()&lt;/code>方法&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 136; flex-basis: 327px">
+&lt;a href="https://example.com/posts/hack/xfish/updatecode.jpg" data-size="609x446">&lt;img src="https://example.com/posts/hack/xfish/updatecode.jpg"
+srcset="https://example.com/posts/hack/xfish/updatecode_hue08c2e2c8268d22c9b70d5b029bd39b2_29411_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updatecode_hue08c2e2c8268d22c9b70d5b029bd39b2_29411_1024x0_resize_q75_box.jpg 1024w"
+width="609"
+height="446"
+loading="lazy"
+alt="更新代码">
+&lt;/a>
+&lt;figcaption>更新代码&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>跟踪方法调用, 在&lt;code>com.马赛克.马赛克fish.upgrade.traceable.Upgrade&lt;/code>类的&lt;code>c&lt;/code>方法中被调用, 而&lt;code>c&lt;/code>则被&lt;code>b&lt;/code>调用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 189; flex-basis: 454px">
+&lt;a href="https://example.com/posts/hack/xfish/updatecall1.jpg" data-size="705x372">&lt;img src="https://example.com/posts/hack/xfish/updatecall1.jpg"
+srcset="https://example.com/posts/hack/xfish/updatecall1_hu44c789f25140b4297b45caa6517061ba_31907_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updatecall1_hu44c789f25140b4297b45caa6517061ba_31907_1024x0_resize_q75_box.jpg 1024w"
+width="705"
+height="372"
+loading="lazy"
+alt="更新1">
+&lt;/a>
+&lt;figcaption>更新1&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 290; flex-basis: 696px">
+&lt;a href="https://example.com/posts/hack/xfish/updatecall2.jpg" data-size="708x244">&lt;img src="https://example.com/posts/hack/xfish/updatecall2.jpg"
+srcset="https://example.com/posts/hack/xfish/updatecall2_hu8b4e53f6efc16eee43e3c0879d76ef38_23057_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updatecall2_hu8b4e53f6efc16eee43e3c0879d76ef38_23057_1024x0_resize_q75_box.jpg 1024w"
+width="708"
+height="244"
+loading="lazy"
+alt="更新2">
+&lt;/a>
+&lt;figcaption>更新2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>重点代码摘要如下:&lt;/p>
+&lt;pre>&lt;code>private void c(final UpgradeHandler handler) {
+if (handler != null) {
+...
+handler.onUpgradeNeed(info, tracer);
+...
+}
+}
+&lt;/code>&lt;/pre>&lt;p>&lt;code>c&lt;/code>中的代码的突破点在于, &lt;strong>如果传入的&lt;code>handler&lt;/code>不为&lt;code>null&lt;/code>, 才会执行更新检测并弹窗的方法&lt;/strong>, 那么我只需要让传入的&lt;code>handler&lt;/code>为&lt;code>null&lt;/code>就可以了. 在&lt;code>Xposed&lt;/code>模块中对&lt;code>Upgrade&lt;/code>类的&lt;code>b&lt;/code>方法&lt;code>Hook&lt;/code>, 将入参设置为&lt;code>null&lt;/code>&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(&amp;quot;com.马赛克.马赛克fish.upgrade.traceable.Upgrade&amp;quot;,loadPackageParam.classLoader,
+&amp;quot;b&amp;quot;,
+&amp;quot;com.马赛克.马赛克fish.upgrade.traceable.UpgradeHandler&amp;quot;,
+new XC_MethodHook() {
+@Override
+protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+//这里将入参设置为null
+param.args[0] = null;
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>重新进行测试, &lt;strong>一切正常且启动之后不再有更新弹窗了&lt;/strong>&lt;/p></description></item><item><title>某琴吧EXE播放器破解记录</title><link>https://example.com/posts/hack/xtan/exe/</link><pubDate>Wed, 26 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/exe/</guid><description>&lt;img src="https://example.com/posts/hack/xtan/exe/cover.png" alt="Featured image of post 某琴吧EXE播放器破解记录" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>本文接另一篇文章 &lt;a class="link" href="../xtan_flash_hack/index.md" >某琴吧Flash播放器破解记录&lt;/a>&lt;/p>
+&lt;p>由于某琴吧改版正式使用exe播放器之后, 删除了所有的&lt;code>.ypa2&lt;/code>资源, 导致我没有及时下载的乐谱都无法继续使用Flash播放器播放了, 忍不了, 只能破解exe播放器了&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
 &lt;p>破解该站的exe播放器, 使其能够免费播放VIP乐谱, 且可以完全脱机使用&lt;/p>
 &lt;h2 id="开始破解">开始破解&lt;/h2>
@@ -15,7 +309,7 @@ alt="image-3">
 &lt;/a>
 &lt;figcaption>image-3&lt;/figcaption>
 &lt;/figure>&lt;/p>
-&lt;p>其中&lt;code>xxxchrome.exe&lt;/code>相当于一个浏览器, 可以访问乐谱网站, 点击&amp;quot;客户端播放&amp;quot;按钮即可打开播放器, 如下图&lt;/p>
+&lt;p>其中&lt;code>xxxchrome.exe&lt;/code>相当于一个浏览器, 可以访问某琴吧, 点击&amp;quot;客户端播放&amp;quot;按钮即可打开播放器, 如下图&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 151; flex-basis: 363px">
 &lt;a href="https://example.com/posts/hack/xtan/exe/2.jpg" data-size="1116x736">&lt;img src="https://example.com/posts/hack/xtan/exe/2.jpg"
 srcset="https://example.com/posts/hack/xtan/exe/2_hu497f65295a89ad86247035b74338bec2_76064_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/2_hu497f65295a89ad86247035b74338bec2_76064_1024x0_resize_q75_box.jpg 1024w"
@@ -146,7 +440,7 @@ alt="iamge-9">
 &lt;p>&lt;strong>和我预料的一样, 修改&lt;code>m=index&lt;/code>的响应后, 这次发送了&lt;code>m=getYpdsUrl&lt;/code>的请求&lt;/strong>&lt;/p>
 &lt;p>但是&lt;code>m=getYpdsUrl&lt;/code>仍然对用户权限进行了判断, 因此返回码不是正常的&lt;code>1000&lt;/code>, 且&lt;code>result&lt;/code>节点没有返回&lt;code>.ypdx&lt;/code>播放文件的资源地址, 看样子不是VIP用户是无法获得资源地址了&lt;/p>
 &lt;h1 id="但是">但是&lt;/h1>
-&lt;p>&lt;strong>在文章 &lt;a class="link" href="../xtan_flash_hack/index.md" >某乐谱网站Flash播放器破解记录&lt;/a> 中, 使用&lt;code>getURL&lt;/code>生成的乐谱信息url去请求乐谱服务器得到的返回值里, 是包含&lt;code>.ypa2&lt;/code>格式的资源地址的, 只不过现在&lt;code>.ypa2&lt;/code>资源已经被删了, 不过观察刚才免费的乐谱&lt;code>.ypdx&lt;/code>资源地址后, 会发现这和&lt;code>.ypa2&lt;/code>的资源地址高度相似! 于是我将返回的&lt;code>.ypa2&lt;/code>资源地址修改后缀名为&lt;code>.ypdx&lt;/code>进行请求之后, 顺利得到了&lt;code>.ypdx&lt;/code>格式的播放文件!&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>在文章 &lt;a class="link" href="../xtan_flash_hack/index.md" >某琴吧Flash播放器破解记录&lt;/a> 中, 使用&lt;code>getURL&lt;/code>生成的乐谱信息url去请求乐谱服务器得到的返回值里, 是包含&lt;code>.ypa2&lt;/code>格式的资源地址的, 只不过现在&lt;code>.ypa2&lt;/code>资源已经被删了, 不过观察刚才免费的乐谱&lt;code>.ypdx&lt;/code>资源地址后, 会发现这和&lt;code>.ypa2&lt;/code>的资源地址高度相似! 于是我将返回的&lt;code>.ypa2&lt;/code>资源地址修改后缀名为&lt;code>.ypdx&lt;/code>进行请求之后, 顺利得到了&lt;code>.ypdx&lt;/code>格式的播放文件!&lt;/strong>&lt;/p>
 &lt;pre>&lt;code>//ypa2请求地址
 http://oss.马赛克.com/yuepuku/115/57806/57806_hhdafigb.ypa2
 //ypdx请求地址
@@ -441,7 +735,7 @@ alt="image-28">
 &lt;/a>
 &lt;figcaption>image-28&lt;/figcaption>
 &lt;/figure>&lt;/p>
-&lt;p>双击搜索结果字符串转到汇编代码,&lt;code>00F63EAE&lt;/code> 处的&lt;code>push&lt;/code>地址就是将要用来替换成请求域名的参数, 这个地址指向了乐谱网站的域名, 所以这里采用同样的办法, 先在程序空白处添加字符串&lt;code>127.0.0.1:7777&lt;/code>, 然后修改&lt;code>push&lt;/code>原来串的地址修改为新增的字符串地址&lt;/p>
+&lt;p>双击搜索结果字符串转到汇编代码,&lt;code>00F63EAE&lt;/code> 处的&lt;code>push&lt;/code>地址就是将要用来替换成请求域名的参数, 这个地址指向了某琴吧的域名, 所以这里采用同样的办法, 先在程序空白处添加字符串&lt;code>127.0.0.1:7777&lt;/code>, 然后修改&lt;code>push&lt;/code>原来串的地址修改为新增的字符串地址&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 121; flex-basis: 291px">
 &lt;a href="https://example.com/posts/hack/xtan/exe/29.jpg" data-size="863x711">&lt;img src="https://example.com/posts/hack/xtan/exe/29.jpg"
 srcset="https://example.com/posts/hack/xtan/exe/29_hu38430dc1e6439a03884f24c857dc3df5_158665_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/29_hu38430dc1e6439a03884f24c857dc3df5_158665_1024x0_resize_q75_box.jpg 1024w"
@@ -526,15 +820,15 @@ alt="image-33">
 &lt;figcaption>image-33&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>保存后重新运行, 现在脱机情况下播放器能够正常打开并请求乐谱工具的HTTP服务并正常播放乐谱了, 转存PDF文件等VIP功能也能够正常使用&lt;/p>
-&lt;h2 id="至此exe版本宣告完美破解">至此exe版本宣告完美破解&lt;/h2></description></item><item><title>某乐谱网站Flash播放器破解记录</title><link>https://example.com/posts/hack/xtan/flash/</link><pubDate>Tue, 25 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/flash/</guid><description>&lt;img src="https://example.com/posts/hack/xtan/flash/cover.png" alt="Featured image of post 某乐谱网站Flash播放器破解记录" />&lt;h2 id="背景">背景&lt;/h2>
-&lt;p>2019年的某月, 某乐谱网站将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.&lt;/p>
+&lt;h2 id="至此exe版本宣告完美破解">至此exe版本宣告完美破解&lt;/h2></description></item><item><title>某琴吧Flash播放器破解记录</title><link>https://example.com/posts/hack/xtan/flash/</link><pubDate>Tue, 25 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/flash/</guid><description>&lt;img src="https://example.com/posts/hack/xtan/flash/cover.png" alt="Featured image of post 某琴吧Flash播放器破解记录" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>2019年的某月, 某琴吧将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.&lt;/p>
 &lt;p>同年, 得知Adobe公司将于2020年年末彻底停用Flash, 遂产生破解其Flash播放器并本地化的想法.&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
 &lt;p>破解该站的Flash播放器, 使其能够免费下载并播放VIP乐谱, 并将乐谱保存至本地硬盘, 同时使播放器可以脱离浏览器且可以脱机使用&lt;/p>
 &lt;h2 id="网站乐谱页">网站乐谱页&lt;/h2>
 &lt;p>&lt;figure style="flex-grow: 105; flex-basis: 252px">
 &lt;a href="https://example.com/posts/hack/xtan/flash/1.jpg" data-size="829x789">&lt;img src="https://example.com/posts/hack/xtan/flash/1.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/1_hu622fec939dc680334a4fba6113fbf37f_63662_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/1_hu622fec939dc680334a4fba6113fbf37f_63662_1024x0_resize_q75_box.jpg 1024w"
+srcset="https://example.com/posts/hack/xtan/flash/1_hu7d519fa7cc6e6f603ce1301045ffe678_62992_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/1_hu7d519fa7cc6e6f603ce1301045ffe678_62992_1024x0_resize_q75_box.jpg 1024w"
 width="829"
 height="789"
 loading="lazy"
@@ -758,7 +1052,7 @@ public static const flash_sound_lib_URL:String = &amp;quot;http://localhost:7777
 &lt;/code>&lt;/pre>&lt;p>然后修改&lt;code>Sounds.swf&lt;/code>在上文查找到的生成url串, 把串的前缀修改为&lt;code>localhost:7777&lt;/code>&lt;/p>
 &lt;pre>&lt;code>gstaticInitter.asciz = &amp;quot;http://localhost:7777/yuepu/info?ypid=%d&amp;amp;sccode=%s&amp;amp;r1=%d&amp;amp;r2=%d&amp;amp;input=%s&amp;quot;;
 &lt;/code>&lt;/pre>&lt;blockquote>
-&lt;p>此处&lt;code>Sounds.swf&lt;/code>修改url后, 调用&lt;code>getURL&lt;/code>返回的url已经不再是乐谱网站域名了, 需要将返回的localhost域名修改回为乐谱网站域名之后再请求&lt;/p>
+&lt;p>此处&lt;code>Sounds.swf&lt;/code>修改url后, 调用&lt;code>getURL&lt;/code>返回的url已经不再是某琴吧域名了, 需要将返回的localhost域名修改回为某琴吧域名之后再请求&lt;/p>
 &lt;/blockquote>
 &lt;p>最后在乐谱工具中开启一个端口为&lt;code>7777&lt;/code>的HTTP的服务, 监听播放器请求的地址, 返回之前下载过来的的对应资源就行了&lt;/p>
 &lt;blockquote>
@@ -790,7 +1084,7 @@ alt="image-13">
 &lt;pre>&lt;code>E:\flash\bin-debug
 &lt;/code>&lt;/pre>&lt;p>&lt;strong>所以, 我只需要为乐谱工具所在的文件夹也创建信任文件, 内容为乐谱工具完整路径, 就能正常打开并请求&lt;code>localhost&lt;/code>了&lt;/strong>&lt;/p>
 &lt;p>现在解决了乐谱无法播放的问题, 但是由于&lt;a class="link" href="https://www.flash.cn/cdm/latest/flashplayer_sa_debug.exe" target="_blank" rel="noopener"
->flash_player_debugger&lt;/a>不支持&lt;code>ExternalInterface&lt;/code>, 因此需要通过其他方式获取乐谱信息url, 于是我想到在播放器启动的时候, 根据传入的乐谱ID, 直接调用&lt;code>getURL&lt;/code>获取乐谱信息url, 并通过HTTP将url中的参数作为请求参数, 发送到乐谱工具开启的HTTP监听服务中, 再根据得到的参数请求乐谱网站获取乐谱详细信息.&lt;/p>
+>flash_player_debugger&lt;/a>不支持&lt;code>ExternalInterface&lt;/code>, 因此需要通过其他方式获取乐谱信息url, 于是我想到在播放器启动的时候, 根据传入的乐谱ID, 直接调用&lt;code>getURL&lt;/code>获取乐谱信息url, 并通过HTTP将url中的参数作为请求参数, 发送到乐谱工具开启的HTTP监听服务中, 再根据得到的参数请求某琴吧获取乐谱详细信息.&lt;/p>
 &lt;p>首先删除会引起报错的&lt;code>player.swf&lt;/code>中使用&lt;code>ExternalInterface&lt;/code>定义的接口&lt;code>swfExtGetypURL&lt;/code>, 修改 &lt;code>myLoadSwf&lt;/code>中定义的回调函数 &lt;code>onSoundsReady&lt;/code>, 在此前初始化&lt;code>clib&lt;/code>的基础上加上调用&lt;code>getURL&lt;/code>返回的url, 并提取参数请求&lt;code>localhost:7777&lt;/code>, 修改后的代码如下:&lt;/p>
 &lt;pre>&lt;code>internal static function onSoundsReady(arg1:Event) : void
 {
@@ -826,4 +1120,4 @@ FileName = &amp;quot;flashplayer_sa_debug.exe&amp;quot;,
 WindowStyle = ProcessWindowStyle.Hidden,//关键代码
 Arguments = &amp;quot;Main.swf?id=64&amp;quot;,
 })
-&lt;/code>&lt;/pre>&lt;h2 id="至此已经彻底解决flash停用的影响了-但是仍然存在另一个问题-adobe禁用flash之后-该乐谱网站也对播放器进行了换代-停用了旧的flash播放器-改用安装版的exe播放器-同时exe播放器不再使用flash用的ypa2格式播放器文件-且删除了所有ypa2资源-并采用新的ypdx文件-新格式的文件flash无法播放-因此破解exe版本的播放器又被放在日程上了">至此已经彻底解决Flash停用的影响了, 但是仍然存在另一个问题, Adobe禁用Flash之后, 该乐谱网站也对播放器进行了换代, 停用了旧的Flash播放器, 改用安装版的exe播放器, 同时exe播放器不再使用Flash用的&lt;code>.ypa2&lt;/code>格式播放器文件, 且删除了所有&lt;code>.ypa2&lt;/code>资源, 并采用新的&lt;code>.ypdx&lt;/code>文件, 新格式的文件Flash无法播放, 因此破解exe版本的播放器又被放在日程上了&amp;hellip;&lt;/h2></description></item></channel></rss>
+&lt;/code>&lt;/pre>&lt;h2 id="至此已经彻底解决flash停用的影响了-但是仍然存在另一个问题-adobe禁用flash之后-某琴吧也对播放器进行了换代-停用了旧的flash播放器-改用安装版的exe播放器-同时exe播放器不再使用flash用的ypa2格式播放器文件-且删除了所有ypa2资源-并采用新的ypdx文件-新格式的文件flash无法播放-因此破解exe版本的播放器又被放在日程上了">至此已经彻底解决Flash停用的影响了, 但是仍然存在另一个问题, Adobe禁用Flash之后, 某琴吧也对播放器进行了换代, 停用了旧的Flash播放器, 改用安装版的exe播放器, 同时exe播放器不再使用Flash用的&lt;code>.ypa2&lt;/code>格式播放器文件, 且删除了所有&lt;code>.ypa2&lt;/code>资源, 并采用新的&lt;code>.ypdx&lt;/code>文件, 新格式的文件Flash无法播放, 因此破解exe版本的播放器又被放在日程上了&amp;hellip;&lt;/h2></description></item></channel></rss>
