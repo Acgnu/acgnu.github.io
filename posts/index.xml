@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Acgnu+</title><link>https://example.com/posts/</link><description>Recent content in Posts on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 26 May 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>某琴吧EXE播放器破解记录</title><link>https://example.com/posts/hack/xtan/exe/</link><pubDate>Wed, 26 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/exe/</guid><description>背景 本文接另一篇文章 某琴吧Flash播放器破解记录
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Acgnu+</title><link>https://example.com/posts/</link><description>Recent content in Posts on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 10 Jun 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>某加APP破解去除认证和更新</title><link>https://example.com/posts/hack/xplus/</link><pubDate>Thu, 10 Jun 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xplus/</guid><description>背景 由于某些需要, 进入某大楼的时候必须用他们物业指定的APP刷门禁, 我安装的时候是6.5.0版本, 这会儿启动速度也还可以, 也没太多花里胡哨的功能. 然而没过多久就迎来了一波强制版本更新, 更新后的版本启动速度慢到令人发指, 且增加了商城, 我就怒了, 区区门禁软件竟然这样肆意妄为, 开工!
+目标 破解某加(版本: 6.5.0)去除更新检查, 去掉实名认证
+某加在7.0.0版本更名为某品, 破解版本为6.5.0, 在此保持称呼其为某加
+某加APP(版本6.5.0)界面
+首页
+开始破解 首先尝试使用Android反编译大杀器Jadx, 打开Jadx, 直接把某加安装包即.apk文件拖进去, 发现软件没有加壳, 可以看到Jadx顺利反编译出了某加的源码
+7.0版本开始APP加了壳, 没记错的话是某数字安全软件的壳, 脱壳过于麻烦于是使用6.5.0版本破解
+JADX-源码
+直接按 Ctrl + S 将源码全部保存, 然后导入IDEA, 开始分析代码
+禁用强制升级 首先根据弹窗文字&amp;quot;发现新版本&amp;quot;搜索代码
+更新弹窗
+发现全文匹配的仅有一处, 位于布局文件dialog_check_update.xml
+结果1
+查找使用该布局文件的地方, 仅有一个类UpdateNoticeDialog
+结果2
+查看UpdateNoticeDialog的代码, 可以看出这是一个自定义的对话框, 和APP显示的更新弹出框一致
+结果3
+接着查找使用到了UpdateNoticeDialog类的地方, 发现多处引用
+结果4</description></item><item><title>某鱼APP破解去广告</title><link>https://example.com/posts/hack/xfish/</link><pubDate>Tue, 08 Jun 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xfish/</guid><description>背景 作为一个家徒四壁的打工人, 在某鱼上购买二手的闲置商品便成了我实现梦想的捷径, 但某鱼经过多次升级改版已经相当流氓, 在我搜索出想要的商品的结果页, 嵌入识别度很低的广告, 导致我经常手滑点错, 然后直接跳转启动某宝, 某宝的启动速度又慢的令人发指, 最终还得按下多次返回才能再次回到某鱼的搜索结果页, 忍无可忍的我只能对它做一些不可描述的事了
+目标 破解某鱼(版本: 6.7.40)并去除搜索结果页的广告, 同时去掉每次启动就弹窗的恼人的更新提示
+某鱼的搜索结果页 某鱼广告
+PS:一个屏幕总共就6个展位, 某鱼你这三个广告位良心不会痛吗
+开始破解 首先尝试使用Android反编译大杀器Jadx, 打开Jadx, 直接把某鱼安装包即.apk文件拖进去, 发现软件没有加壳, 可以看到Jadx顺利反编译出了某鱼的源码
+JADX-源码
+直接按 Ctrl + S 将源码全部保存, 然后导入IDEA, 开始分析代码
+首先从输入搜索目标后, 点击搜索的按钮开始入手
+搜索面板
+在代码中查找&amp;quot;搜索&amp;quot;关键字, 发现有多处匹配, 结合搜索面板底下的历史搜索布局, 推测该面板的布局文件应该是search_mid.xml
+面板代码
+搜索布局文件引用的地方, 发现其在SearchMidActivity中被使用
+布局使用
+再查看布局文件代码, 搜索按钮的组件ID为search_button, 在SearchMidActivity中查找相关引用
+搜索点击1
+搜索点击2
+可以看出按钮点击后, 首先会调用searchKeyAction, 再经过层层调用最后到达searchNormal, 之后就会通过 gotoResultActivity 跳转到结果页, 继续跟踪gotoResultActivity方法</description></item><item><title>某琴吧EXE播放器破解记录</title><link>https://example.com/posts/hack/xtan/exe/</link><pubDate>Wed, 26 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/exe/</guid><description>背景 本文接另一篇文章 某琴吧Flash播放器破解记录
 由于某琴吧改版正式使用exe播放器之后, 删除了所有的.ypa2资源, 导致我没有及时下载的乐谱都无法继续使用Flash播放器播放了, 忍不了, 只能破解exe播放器了
 目标 破解该站的exe播放器, 使其能够免费播放VIP乐谱, 且可以完全脱机使用
 开始破解 首先安装网站的乐谱播放器, 打开安装目录发现文件结构如下

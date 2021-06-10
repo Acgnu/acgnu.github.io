@@ -1,4 +1,550 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>https://example.com/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 26 May 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml"/><item><title>某琴吧EXE播放器破解记录</title><link>https://example.com/posts/hack/xtan/exe/</link><pubDate>Wed, 26 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/exe/</guid><description>&lt;img src="https://example.com/posts/hack/xtan/exe/cover.png" alt="Featured image of post 某琴吧EXE播放器破解记录" />&lt;h2 id="背景">背景&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>https://example.com/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 10 Jun 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml"/><item><title>某加APP破解去除认证和更新</title><link>https://example.com/posts/hack/xplus/</link><pubDate>Thu, 10 Jun 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xplus/</guid><description>&lt;img src="https://example.com/posts/hack/xplus/cover.png" alt="Featured image of post 某加APP破解去除认证和更新" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>由于某些需要, 进入某大楼的时候必须用他们物业指定的APP刷门禁, 我安装的时候是6.5.0版本, 这会儿启动速度也还可以, 也没太多花里胡哨的功能. 然而没过多久就迎来了一波强制版本更新, 更新后的版本启动速度慢到令人发指, 且增加了商城, 我就怒了, 区区门禁软件竟然这样肆意妄为, 开工!&lt;/p>
+&lt;h2 id="目标">目标&lt;/h2>
+&lt;p>破解某加(版本: 6.5.0)去除更新检查, 去掉实名认证&lt;/p>
+&lt;blockquote>
+&lt;p>某加在7.0.0版本更名为某品, 破解版本为6.5.0, 在此保持称呼其为某加&lt;/p>
+&lt;/blockquote>
+&lt;p>某加APP(版本6.5.0)界面&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 48; flex-basis: 116px">
+&lt;a href="https://example.com/posts/hack/xplus/1.jpg" data-size="428x879">&lt;img src="https://example.com/posts/hack/xplus/1.jpg"
+srcset="https://example.com/posts/hack/xplus/1_hu2d95ec83e3d4d01752f97536c451549d_53428_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/1_hu2d95ec83e3d4d01752f97536c451549d_53428_1024x0_resize_q75_box.jpg 1024w"
+width="428"
+height="879"
+loading="lazy"
+alt="首页">
+&lt;/a>
+&lt;figcaption>首页&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="开始破解">开始破解&lt;/h2>
+&lt;p>首先尝试使用Android反编译大杀器&lt;a class="link" href="https://github.com/skylot/jadx" target="_blank" rel="noopener"
+>Jadx&lt;/a>, 打开&lt;code>Jadx&lt;/code>, 直接把某加安装包即&lt;code>.apk&lt;/code>文件拖进去, 发现软件没有加壳, 可以看到&lt;code>Jadx&lt;/code>顺利反编译出了某加的源码&lt;/p>
+&lt;blockquote>
+&lt;p>7.0版本开始APP加了壳, 没记错的话是某数字安全软件的壳, 脱壳过于麻烦于是使用6.5.0版本破解&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;figure style="flex-grow: 146; flex-basis: 350px">
+&lt;a href="https://example.com/posts/hack/xplus/2.jpg" data-size="969x663">&lt;img src="https://example.com/posts/hack/xplus/2.jpg"
+srcset="https://example.com/posts/hack/xplus/2_hu349652975c97a7c5fc2ef7ec56ba8aea_76881_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/2_hu349652975c97a7c5fc2ef7ec56ba8aea_76881_1024x0_resize_q75_box.jpg 1024w"
+width="969"
+height="663"
+loading="lazy"
+alt="JADX-源码">
+&lt;/a>
+&lt;figcaption>JADX-源码&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>直接按 &lt;code>Ctrl + S&lt;/code> 将源码全部保存, 然后导入&lt;code>IDEA&lt;/code>, 开始分析代码&lt;/p>
+&lt;h2 id="禁用强制升级">禁用强制升级&lt;/h2>
+&lt;p>首先根据弹窗文字&amp;quot;发现新版本&amp;quot;搜索代码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 133; flex-basis: 320px">
+&lt;a href="https://example.com/posts/hack/xplus/3.jpg" data-size="516x387">&lt;img src="https://example.com/posts/hack/xplus/3.jpg"
+srcset="https://example.com/posts/hack/xplus/3_huecfdf6804dc5656d1adc2869cf9b626f_14908_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/3_huecfdf6804dc5656d1adc2869cf9b626f_14908_1024x0_resize_q75_box.jpg 1024w"
+width="516"
+height="387"
+loading="lazy"
+alt="更新弹窗">
+&lt;/a>
+&lt;figcaption>更新弹窗&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>发现全文匹配的仅有一处, 位于布局文件&lt;code>dialog_check_update.xml&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 374; flex-basis: 897px">
+&lt;a href="https://example.com/posts/hack/xplus/4.jpg" data-size="606x162">&lt;img src="https://example.com/posts/hack/xplus/4.jpg"
+srcset="https://example.com/posts/hack/xplus/4_hue4475e29c1a510e088031ebe8ac250a6_13878_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/4_hue4475e29c1a510e088031ebe8ac250a6_13878_1024x0_resize_q75_box.jpg 1024w"
+width="606"
+height="162"
+loading="lazy"
+alt="结果1">
+&lt;/a>
+&lt;figcaption>结果1&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>查找使用该布局文件的地方, 仅有一个类&lt;code>UpdateNoticeDialog&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 327; flex-basis: 786px">
+&lt;a href="https://example.com/posts/hack/xplus/5.jpg" data-size="845x258">&lt;img src="https://example.com/posts/hack/xplus/5.jpg"
+srcset="https://example.com/posts/hack/xplus/5_hua4120d517d4567fa7454cfab4a402f5d_39648_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/5_hua4120d517d4567fa7454cfab4a402f5d_39648_1024x0_resize_q75_box.jpg 1024w"
+width="845"
+height="258"
+loading="lazy"
+alt="结果2">
+&lt;/a>
+&lt;figcaption>结果2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>查看&lt;code>UpdateNoticeDialog&lt;/code>的代码, 可以看出这是一个自定义的对话框, 和APP显示的更新弹出框一致&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 264; flex-basis: 633px">
+&lt;a href="https://example.com/posts/hack/xplus/6.jpg" data-size="470x178">&lt;img src="https://example.com/posts/hack/xplus/6.jpg"
+srcset="https://example.com/posts/hack/xplus/6_hue4b7d0705f3de3ef847d77bbc0819788_12612_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/6_hue4b7d0705f3de3ef847d77bbc0819788_12612_1024x0_resize_q75_box.jpg 1024w"
+width="470"
+height="178"
+loading="lazy"
+alt="结果3">
+&lt;/a>
+&lt;figcaption>结果3&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>接着查找使用到了&lt;code>UpdateNoticeDialog&lt;/code>类的地方, 发现多处引用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 236; flex-basis: 567px">
+&lt;a href="https://example.com/posts/hack/xplus/7.jpg" data-size="605x256">&lt;img src="https://example.com/posts/hack/xplus/7.jpg"
+srcset="https://example.com/posts/hack/xplus/7_hu6e22dec133ef02ae33ed651f7531c52c_26368_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/7_hu6e22dec133ef02ae33ed651f7531c52c_26368_1024x0_resize_q75_box.jpg 1024w"
+width="605"
+height="256"
+loading="lazy"
+alt="结果4">
+&lt;/a>
+&lt;figcaption>结果4&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>而APP弹出更新提示的时候, 我正位于APP的首页, 可以推断出&lt;code>HomeActivity&lt;/code>应该就是我要寻找的弹框处, 查看&lt;code>HomeActivity&lt;/code>的代码如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 108; flex-basis: 261px">
+&lt;a href="https://example.com/posts/hack/xplus/8.jpg" data-size="800x735">&lt;img src="https://example.com/posts/hack/xplus/8.jpg"
+srcset="https://example.com/posts/hack/xplus/8_hu0d04ef7bf6568aeec0b7dc1a72e4ac07_78371_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/8_hu0d04ef7bf6568aeec0b7dc1a72e4ac07_78371_1024x0_resize_q75_box.jpg 1024w"
+width="800"
+height="735"
+loading="lazy"
+alt="首页">
+&lt;/a>
+&lt;figcaption>首页&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到这里将&lt;code>UpdateNoticeDialog&lt;/code>定义为成员变量, 然后在&lt;code>checkUpdate&lt;/code>中对&lt;code>UpdateNoticeDialog&lt;/code>赋值, 且其他操作都位于&lt;code>checkUpdate&lt;/code>中, 现在看看&lt;code>checkUpdate&lt;/code>完整代码如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 140; flex-basis: 338px">
+&lt;a href="https://example.com/posts/hack/xplus/9.jpg" data-size="710x504">&lt;img src="https://example.com/posts/hack/xplus/9.jpg"
+srcset="https://example.com/posts/hack/xplus/9_hu0a58a8411c4b0c4596961a24b6ef84f2_53536_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/9_hu0a58a8411c4b0c4596961a24b6ef84f2_53536_1024x0_resize_q75_box.jpg 1024w"
+width="710"
+height="504"
+loading="lazy"
+alt="检查更新">
+&lt;/a>
+&lt;figcaption>检查更新&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>这个方法并没有做除了更新检查以外的事, 那么我只需要在&lt;code>Xposed&lt;/code>中替换这个方法就可以了, 这样当APP调用&lt;code>checkUpdate&lt;/code>时, 将执行我定义的方法, &lt;code>Xposed&lt;/code>模块代码如下&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(&amp;quot;com.马赛克.马赛克.home.HomeActivity&amp;quot;, loadPackageParam.classLoader,
+&amp;quot;checkUpdate&amp;quot;,
+new XC_MethodReplacement() {
+@Override
+protected Object replaceHookedMethod(MethodHookParam param) throws Throwable {
+return null;
+}
+});
+&lt;/code>&lt;/pre>&lt;p>这里直接使用&lt;code>replaceHookedMethod&lt;/code>, 用自己定义的方法代替&lt;code>checkUpdate&lt;/code>执行, &lt;strong>写好后重新运行可以发现首页更新弹窗已经被屏蔽了.&lt;/strong>&lt;/p>
+&lt;p>然而后来手贱不小心退出登录了, 再启动APP时发现登录的时候也有更新认证, 现在可行的方法有二, 一是找到登录界面, 用同样的方法去除更新, 但是这样一来繁琐, 二来他可能还有其他的地方有更新检查, 所以使用第二种方法&lt;/p>
+&lt;p>根据Android开发文档可以得知, &lt;strong>可以在APP的&lt;code>AndroidManifest.xml&lt;/code>中可以定义当前APP的版本号, 然后可以在&lt;code>Java&lt;/code>代码中使用&lt;code>PackageInfo&lt;/code>来获得当前APP的版本信息, 而定义版本主要分为版本号&lt;code>versionCode&lt;/code>和版本名&lt;code>versionName&lt;/code>, 一般使用&lt;code>versionCode&lt;/code>大小来判断是否需要更新, 而&lt;code>versionName&lt;/code>则主要用作展示&lt;/strong>, 查看某加APP的&lt;code>AndroidManifest.xml&lt;/code>文件, 发现其版本定义如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 451; flex-basis: 1082px">
+&lt;a href="https://example.com/posts/hack/xplus/10.jpg" data-size="546x121">&lt;img src="https://example.com/posts/hack/xplus/10.jpg"
+srcset="https://example.com/posts/hack/xplus/10_hu96277694f98aa3c45610a16b3673614a_9450_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/10_hu96277694f98aa3c45610a16b3673614a_9450_1024x0_resize_q75_box.jpg 1024w"
+width="546"
+height="121"
+loading="lazy"
+alt="版本">
+&lt;/a>
+&lt;figcaption>版本&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>那么一般的做法只要将&lt;code>versionCode&lt;/code>的值修改成足够大, 就能达到免更新的目的, 但是实际操作下来发现这APP比较鸡贼, 判断版本是否更新并不是简单通过&lt;code>versionCode&lt;/code>大小来判断, 不过当时为了偷懒也没有进一步分析版本检查代码, 我只知道最新版本的&lt;code>versionName&lt;/code>是7.0.0, 所以直接使用&lt;code>Xposed&lt;/code>将返回的&lt;code>versionName&lt;/code>修改为固定的7.0.0&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(&amp;quot;android.app.ApplicationPackageManager&amp;quot;, loadPackageParam.classLoader,
+&amp;quot;getPackageInfo&amp;quot;,
+String.class,
+int.class,
+new XC_MethodHook() {
+@Override
+protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+PackageInfo packageInfo = (PackageInfo) param.getResult();
+if (null != packageInfo &amp;amp;&amp;amp; getTargetPackage().equals(packageInfo.packageName)) {
+packageInfo.versionCode = Integer.MAX_VALUE;
+packageInfo.versionName = &amp;quot;7.0.0&amp;quot;;
+}
+}
+});
+&lt;/code>&lt;/pre>&lt;p>此处使用&lt;code>Xposed&lt;/code>直接&lt;code>Hook&lt;/code> Android系统的包管理器, 当某加需要获取版本名时, 直接返回7.0.0, 不过这样做的缺点是如果某加未来版本更新到7.0.0以上时, 需要修改代码, 然而从2020年12月破解至今, 某加都没有再发布过版本更新, 省了我不少事&lt;/p>
+&lt;p>&lt;strong>至此重新打包运行, 发现登录的更新检查也被去除了&lt;/strong>&lt;/p>
+&lt;p>然而新的风暴又出现了, 由于刚才的不慎退出, 现在需要重新上传实名认证资料了, 包括身份证号和照片, 由于我之前已经填过一次, 而且上传后需要重新审核, 所以不愿意再次填写, 于是开始寻找认证部分的代码&lt;/p>
+&lt;h2 id="跳过实名认证">跳过实名认证&lt;/h2>
+&lt;p>认证弹窗如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 56; flex-basis: 136px">
+&lt;a href="https://example.com/posts/hack/xplus/11.jpg" data-size="530x931">&lt;img src="https://example.com/posts/hack/xplus/11.jpg"
+srcset="https://example.com/posts/hack/xplus/11_hu96f99dea830a15ed6bd30d3c0d69bfe0_47957_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/11_hu96f99dea830a15ed6bd30d3c0d69bfe0_47957_1024x0_resize_q75_box.jpg 1024w"
+width="530"
+height="931"
+loading="lazy"
+alt="实名认证弹窗">
+&lt;/a>
+&lt;figcaption>实名认证弹窗&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>当我点击右下角的显示门禁卡二维码按钮的时候, 就会弹出认证弹窗, 我们知道&lt;code>Activity&lt;/code>会通过&lt;code>setContentView&lt;/code>加载一个布局文件, 此页面为APP首页, 所以在&lt;code>HomeActivity&lt;/code>中搜索&lt;code>setContentView&lt;/code>, 发现并没有结果&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 318; flex-basis: 765px">
+&lt;a href="https://example.com/posts/hack/xplus/12.jpg" data-size="679x213">&lt;img src="https://example.com/posts/hack/xplus/12.jpg"
+srcset="https://example.com/posts/hack/xplus/12_hu82614e200c2ca9e6d3cff5f090370c74_23860_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/12_hu82614e200c2ca9e6d3cff5f090370c74_23860_1024x0_resize_q75_box.jpg 1024w"
+width="679"
+height="213"
+loading="lazy"
+alt="首页2">
+&lt;/a>
+&lt;figcaption>首页2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>但是&lt;code>HomeActivity&lt;/code>继承自&lt;code>BaseActivity_2019_8_22&lt;/code>, 于是在父类中找到了&lt;code>setContentView&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 251; flex-basis: 602px">
+&lt;a href="https://example.com/posts/hack/xplus/13.jpg" data-size="663x264">&lt;img src="https://example.com/posts/hack/xplus/13.jpg"
+srcset="https://example.com/posts/hack/xplus/13_huc3f0c228985f9b08ea6c4fb72996e418_31164_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/13_huc3f0c228985f9b08ea6c4fb72996e418_31164_1024x0_resize_q75_box.jpg 1024w"
+width="663"
+height="264"
+loading="lazy"
+alt="设置布局">
+&lt;/a>
+&lt;figcaption>设置布局&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到这里加载的布局是&lt;code>activity_only_linear_layout.xml&lt;/code>, 查看这个布局文件, 里面的代码非常简单&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 332; flex-basis: 798px">
+&lt;a href="https://example.com/posts/hack/xplus/14.jpg" data-size="892x268">&lt;img src="https://example.com/posts/hack/xplus/14.jpg"
+srcset="https://example.com/posts/hack/xplus/14_hu18df4b0c8e4b20856bb7a5a1a40ccba6_38292_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/14_hu18df4b0c8e4b20856bb7a5a1a40ccba6_38292_1024x0_resize_q75_box.jpg 1024w"
+width="892"
+height="268"
+loading="lazy"
+alt="布局">
+&lt;/a>
+&lt;figcaption>布局&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>根据名称可以很容易的推断出id为&lt;code>fab_show_qr_code&lt;/code>的按钮组件就是首页显示二维码的组件, 搜索这个id查看他的点击事件&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 143; flex-basis: 344px">
+&lt;a href="https://example.com/posts/hack/xplus/15.jpg" data-size="724x504">&lt;img src="https://example.com/posts/hack/xplus/15.jpg"
+srcset="https://example.com/posts/hack/xplus/15_hub70308bebefecd263604d35c1664b3cc_48846_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/15_hub70308bebefecd263604d35c1664b3cc_48846_1024x0_resize_q75_box.jpg 1024w"
+width="724"
+height="504"
+loading="lazy"
+alt="点击事件">
+&lt;/a>
+&lt;figcaption>点击事件&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>根据判断逻辑, 如果&lt;code>CacheUtils.getStatus()&lt;/code>返回为1, 就展示二维码弹窗, 不为1则执行&lt;code>checkStatus()&lt;/code>, 以防万一, 看看&lt;code>checkStatus()&lt;/code>的代码如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 390; flex-basis: 936px">
+&lt;a href="https://example.com/posts/hack/xplus/16.jpg" data-size="730x187">&lt;img src="https://example.com/posts/hack/xplus/16.jpg"
+srcset="https://example.com/posts/hack/xplus/16_hu30e72add66bab6b7193b471be38a9d9a_17295_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/16_hu30e72add66bab6b7193b471be38a9d9a_17295_1024x0_resize_q75_box.jpg 1024w"
+width="730"
+height="187"
+loading="lazy"
+alt="检查状态">
+&lt;/a>
+&lt;figcaption>检查状态&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>显然&lt;code>checkIdentityStatus()&lt;/code>这名字就很直白的告诉我这个就是用来检查身份认证的了, 在回来看看&lt;code>CacheUtils.getStatus()&lt;/code>代码如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 294; flex-basis: 706px">
+&lt;a href="https://example.com/posts/hack/xplus/17.jpg" data-size="645x219">&lt;img src="https://example.com/posts/hack/xplus/17.jpg"
+srcset="https://example.com/posts/hack/xplus/17_hub29dfd1774778c08e0d4594a749914d2_20243_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/17_hub29dfd1774778c08e0d4594a749914d2_20243_1024x0_resize_q75_box.jpg 1024w"
+width="645"
+height="219"
+loading="lazy"
+alt="获取状态">
+&lt;/a>
+&lt;figcaption>获取状态&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>这里的逻辑也很简单, 就是从登录信息中获取认证状态, 那么我只要用&lt;code>Xposed&lt;/code>将&lt;code>getStatus()&lt;/code>的返回值修改为1就可以了, &lt;code>Xposed&lt;/code>代码如下&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(&amp;quot;com.excegroup.community.utils.CacheUtils&amp;quot;, loadPackageParam.classLoader, &amp;quot;getStatus&amp;quot;,
+String.class,
+new XC_MethodHook() {
+@Override
+protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+param.setResult(&amp;quot;1&amp;quot;);
+}
+});
+&lt;/code>&lt;/pre>&lt;p>&lt;code>Hook&lt;/code>代码将在&lt;code>getStatus()&lt;/code>执行之后执行, 将其返回值为修改为1, 现在重新运行, &lt;strong>程序一切正常, 也没有身份认证弹窗了, 点击显示二维码按钮正常显示门禁二维码&lt;/strong>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 64; flex-basis: 155px">
+&lt;a href="https://example.com/posts/hack/xplus/18.jpg" data-size="524x811">&lt;img src="https://example.com/posts/hack/xplus/18.jpg"
+srcset="https://example.com/posts/hack/xplus/18_hu8be23d8c5d36ba9786790ce525914933_44600_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/18_hu8be23d8c5d36ba9786790ce525914933_44600_1024x0_resize_q75_box.jpg 1024w"
+width="524"
+height="811"
+loading="lazy"
+alt="ok">
+&lt;/a>
+&lt;figcaption>ok&lt;/figcaption>
+&lt;/figure>&lt;/p></description></item><item><title>某鱼APP破解去广告</title><link>https://example.com/posts/hack/xfish/</link><pubDate>Tue, 08 Jun 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xfish/</guid><description>&lt;img src="https://example.com/posts/hack/xfish/cover.png" alt="Featured image of post 某鱼APP破解去广告" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>作为一个家徒四壁的打工人, 在某鱼上购买二手的闲置商品便成了我实现梦想的捷径, 但某鱼经过多次升级改版已经相当流氓, 在我搜索出想要的商品的结果页, 嵌入识别度很低的广告, 导致我经常手滑点错, 然后直接跳转启动某宝, 某宝的启动速度又慢的令人发指, 最终还得按下多次返回才能再次回到某鱼的搜索结果页, 忍无可忍的我只能对它做一些不可描述的事了&lt;/p>
+&lt;h2 id="目标">目标&lt;/h2>
+&lt;p>破解某鱼(版本: 6.7.40)并去除搜索结果页的广告, 同时去掉每次启动就弹窗的恼人的更新提示&lt;/p>
+&lt;h2 id="某鱼的搜索结果页">某鱼的搜索结果页&lt;/h2>
+&lt;p>&lt;figure style="flex-grow: 56; flex-basis: 134px">
+&lt;a href="https://example.com/posts/hack/xfish/adpage.jpg" data-size="540x961">&lt;img src="https://example.com/posts/hack/xfish/adpage.jpg"
+srcset="https://example.com/posts/hack/xfish/adpage_hu1ba7e09bc24973772dcedd1129f840e8_86307_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/adpage_hu1ba7e09bc24973772dcedd1129f840e8_86307_1024x0_resize_q75_box.jpg 1024w"
+width="540"
+height="961"
+loading="lazy"
+alt="某鱼广告">
+&lt;/a>
+&lt;figcaption>某鱼广告&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;blockquote>
+&lt;p>PS:一个屏幕总共就6个展位, 某鱼你这三个广告位良心不会痛吗&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="开始破解">开始破解&lt;/h2>
+&lt;p>首先尝试使用Android反编译大杀器&lt;a class="link" href="https://github.com/skylot/jadx" target="_blank" rel="noopener"
+>Jadx&lt;/a>, 打开&lt;code>Jadx&lt;/code>, 直接把某鱼安装包即&lt;code>.apk&lt;/code>文件拖进去, 发现软件没有加壳, 可以看到&lt;code>Jadx&lt;/code>顺利反编译出了某鱼的源码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 139; flex-basis: 334px">
+&lt;a href="https://example.com/posts/hack/xfish/jadx_source.jpg" data-size="1173x842">&lt;img src="https://example.com/posts/hack/xfish/jadx_source.jpg"
+srcset="https://example.com/posts/hack/xfish/jadx_source_hud0af3715194ff4882a261e5347d833be_127929_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/jadx_source_hud0af3715194ff4882a261e5347d833be_127929_1024x0_resize_q75_box.jpg 1024w"
+width="1173"
+height="842"
+loading="lazy"
+alt="JADX-源码">
+&lt;/a>
+&lt;figcaption>JADX-源码&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>直接按 &lt;code>Ctrl + S&lt;/code> 将源码全部保存, 然后导入&lt;code>IDEA&lt;/code>, 开始分析代码&lt;/p>
+&lt;p>&lt;strong>首先从输入搜索目标后, 点击搜索的按钮开始入手&lt;/strong>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 249; flex-basis: 599px">
+&lt;a href="https://example.com/posts/hack/xfish/search.jpg" data-size="537x215">&lt;img src="https://example.com/posts/hack/xfish/search.jpg"
+srcset="https://example.com/posts/hack/xfish/search_hubb017e4f37f205bfbcd52d21910b75ab_11320_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/search_hubb017e4f37f205bfbcd52d21910b75ab_11320_1024x0_resize_q75_box.jpg 1024w"
+width="537"
+height="215"
+loading="lazy"
+alt="搜索面板">
+&lt;/a>
+&lt;figcaption>搜索面板&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>在代码中查找&amp;quot;搜索&amp;quot;关键字, 发现有多处匹配, 结合搜索面板底下的历史搜索布局, 推测该面板的布局文件应该是&lt;code>search_mid.xml&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 212; flex-basis: 510px">
+&lt;a href="https://example.com/posts/hack/xfish/searchlayout.jpg" data-size="1078x507">&lt;img src="https://example.com/posts/hack/xfish/searchlayout.jpg"
+srcset="https://example.com/posts/hack/xfish/searchlayout_hu165f087e67dd8c3f20528ecb83d1223f_83048_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchlayout_hu165f087e67dd8c3f20528ecb83d1223f_83048_1024x0_resize_q75_box.jpg 1024w"
+width="1078"
+height="507"
+loading="lazy"
+alt="面板代码">
+&lt;/a>
+&lt;figcaption>面板代码&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>搜索布局文件引用的地方, 发现其在&lt;code>SearchMidActivity&lt;/code>中被使用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 342; flex-basis: 821px">
+&lt;a href="https://example.com/posts/hack/xfish/uselayout.jpg" data-size="606x177">&lt;img src="https://example.com/posts/hack/xfish/uselayout.jpg"
+srcset="https://example.com/posts/hack/xfish/uselayout_huf0a2434a3d7d0179055128c7c7a27089_13700_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/uselayout_huf0a2434a3d7d0179055128c7c7a27089_13700_1024x0_resize_q75_box.jpg 1024w"
+width="606"
+height="177"
+loading="lazy"
+alt="布局使用">
+&lt;/a>
+&lt;figcaption>布局使用&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>再查看布局文件代码, 搜索按钮的组件ID为&lt;code>search_button&lt;/code>, 在&lt;code>SearchMidActivity&lt;/code>中查找相关引用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 316; flex-basis: 758px">
+&lt;a href="https://example.com/posts/hack/xfish/searchbtn1.jpg" data-size="351x111">&lt;img src="https://example.com/posts/hack/xfish/searchbtn1.jpg"
+srcset="https://example.com/posts/hack/xfish/searchbtn1_hud7caf3cc5e731a5a19c2db74ba6f7cd8_6010_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn1_hud7caf3cc5e731a5a19c2db74ba6f7cd8_6010_1024x0_resize_q75_box.jpg 1024w"
+width="351"
+height="111"
+loading="lazy"
+alt="搜索点击1">
+&lt;/a>
+&lt;figcaption>搜索点击1&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 277; flex-basis: 667px">
+&lt;a href="https://example.com/posts/hack/xfish/searchbtn2.jpg" data-size="795x286">&lt;img src="https://example.com/posts/hack/xfish/searchbtn2.jpg"
+srcset="https://example.com/posts/hack/xfish/searchbtn2_hu43e90636119c85769bcd2cb8b226da7a_24664_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn2_hu43e90636119c85769bcd2cb8b226da7a_24664_1024x0_resize_q75_box.jpg 1024w"
+width="795"
+height="286"
+loading="lazy"
+alt="搜索点击2">
+&lt;/a>
+&lt;figcaption>搜索点击2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看出按钮点击后, 首先会调用&lt;code>searchKeyAction&lt;/code>, 再经过层层调用最后到达&lt;code>searchNormal&lt;/code>, 之后就会通过 &lt;code>gotoResultActivity&lt;/code> 跳转到结果页, 继续跟踪&lt;code>gotoResultActivity&lt;/code>方法&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 700; flex-basis: 1680px">
+&lt;a href="https://example.com/posts/hack/xfish/searchbtn3.jpg" data-size="525x75">&lt;img src="https://example.com/posts/hack/xfish/searchbtn3.jpg"
+srcset="https://example.com/posts/hack/xfish/searchbtn3_hu5fb2147c87591b6c85c08e2046a0c2df_6451_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn3_hu5fb2147c87591b6c85c08e2046a0c2df_6451_1024x0_resize_q75_box.jpg 1024w"
+width="525"
+height="75"
+loading="lazy"
+alt="搜索点击3">
+&lt;/a>
+&lt;figcaption>搜索点击3&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>此处出现&lt;code>searchresult&lt;/code>字符, 搜索这个字符&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 469; flex-basis: 1127px">
+&lt;a href="https://example.com/posts/hack/xfish/searchbtn4.jpg" data-size="780x166">&lt;img src="https://example.com/posts/hack/xfish/searchbtn4.jpg"
+srcset="https://example.com/posts/hack/xfish/searchbtn4_hu3064fae03e259149ff91124b7637e5f8_29435_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn4_hu3064fae03e259149ff91124b7637e5f8_29435_1024x0_resize_q75_box.jpg 1024w"
+width="780"
+height="166"
+loading="lazy"
+alt="搜索点击4">
+&lt;/a>
+&lt;figcaption>搜索点击4&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看出这个字符串对应的页面应该是 &lt;code>SearchResultActivity&lt;/code>, 打开这个类之后一眼看不出什么重要的东西, 然后线索就这么中断了&lt;/p>
+&lt;p>线索中断之后, 可以用&lt;code>Xposed&lt;/code>对某些可疑方法&lt;code>Hook&lt;/code>, 然后通过打印调用堆栈的方法, 继续分析, 比如此我找到的&lt;code>SearchResultInterrupter&lt;/code>中的&lt;code>checkInterrupt&lt;/code>方法&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>Xposed&lt;/code>是一款&lt;code>Android&lt;/code>底层的框架, 能够从虚拟机层拦截系统所有执行代码, 而&lt;code>Xposed&lt;/code>模块是使用&lt;code>Xposed&lt;/code>提供的&lt;code>SDK&lt;/code>所开发的&lt;code>Android&lt;/code>应用, 能够借助&lt;code>Xposed&lt;/code>实现对所有关心代码的拦截, 详情请戳&lt;a class="link" href="https://repo.xposed.info/" target="_blank" rel="noopener"
+>Xposed官网&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;pre>&lt;code>Throwable ex = new Throwable();
+StackTraceElement[] stackElements = ex.getStackTrace();
+if (stackElements != null) {
+MyLog.log(&amp;quot;调用堆栈:--------------------&amp;quot;, true);
+for (int i = 0; i &amp;lt; stackElements.length; i++) {
+MyLog.log(stackElements[i].getClassName() + &amp;quot; -&amp;gt; &amp;quot; +
+stackElements[i].getMethodName() + &amp;quot;()&amp;quot;
+, true);
+}
+}
+&lt;/code>&lt;/pre>&lt;p>不过这样比较麻烦而且也不好找. 于是换个思路, 安装&lt;code>Xposed&lt;/code>模块&lt;a class="link" href="https://github.com/Palatis/XAppDebug" target="_blank" rel="noopener"
+>XAppDebug&lt;/a>, 为某鱼强制开启&lt;code>Debug&lt;/code>模式, 此时查看控制台会显示所有某鱼打印的日志信息, 现在控制台显示了包括网络请求在内的日志信息&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 379; flex-basis: 911px">
+&lt;a href="https://example.com/posts/hack/xfish/motp.jpg" data-size="1136x299">&lt;img src="https://example.com/posts/hack/xfish/motp.jpg"
+srcset="https://example.com/posts/hack/xfish/motp_hu728bdb3602c9c0a190a3b046fde1f8dd_69023_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/motp_hu728bdb3602c9c0a190a3b046fde1f8dd_69023_1024x0_resize_q75_box.jpg 1024w"
+width="1136"
+height="299"
+loading="lazy"
+alt="MTOP">
+&lt;/a>
+&lt;figcaption>MTOP&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>最终找到可疑类&lt;code>MtopResponse&lt;/code>, 分析代码可以推测这个类应该是一个封装了网络响应的类, 其成员变量&lt;code>bytedata&lt;/code>是主要数据源, &lt;code>bytedata&lt;/code>将会被转换成&lt;code>dataJsonObject&lt;/code>的&lt;code>JSON&lt;/code>对象储存, 然后被使用, 因此找到&lt;code>bytedata&lt;/code>赋值的方法&lt;code>setBytedata&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 287; flex-basis: 691px">
+&lt;a href="https://example.com/posts/hack/xfish/rep.jpg" data-size="478x166">&lt;img src="https://example.com/posts/hack/xfish/rep.jpg"
+srcset="https://example.com/posts/hack/xfish/rep_huaa9da268be2d331c855d2c964a90ed3f_10820_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/rep_huaa9da268be2d331c855d2c964a90ed3f_10820_1024x0_resize_q75_box.jpg 1024w"
+width="478"
+height="166"
+loading="lazy"
+alt="响应模型">
+&lt;/a>
+&lt;figcaption>响应模型&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;blockquote>
+&lt;p>破解时间于2020年8月, 文章编辑时间为2021年6月, 我也不记得当初是不是这样找到&lt;code>MtopResponse&lt;/code>类的, 没有记录下来是我的失误也是我的损失, 现在能找到这个类是因为当时开发&lt;code>Xposed&lt;/code>模块中的代码有这一段. 如果某天我突然想起来了或者有兴致花时间重新找的话, 会回来补充的&lt;/p>
+&lt;/blockquote>
+&lt;p>使用&lt;code>Xposed&lt;/code>拦截此函数, 并打印入参&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(&amp;quot;mtopsdk.mtop.domain.MtopResponse&amp;quot;, loadPackageParam.classLoader,
+&amp;quot;setBytedata&amp;quot;,
+byte[].class,
+new XC_MethodHook() {
+@Override
+protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+String content = new String((byte[]) param.args[0]);
+MyLog.log(content);
+}
+});
+&lt;/code>&lt;/pre>&lt;p>得到入参截取如下&lt;/p>
+&lt;pre>&lt;code>&amp;quot;data&amp;quot;: {
+&amp;quot;item&amp;quot;: {
+...
+&amp;quot;main&amp;quot;: {
+&amp;quot;clickParam&amp;quot;: {
+&amp;quot;arg1&amp;quot;: &amp;quot;Item&amp;quot;,
+&amp;quot;args&amp;quot;: {
+...
+&amp;quot;tagname&amp;quot;: &amp;quot;全新\/极好\/298人想要&amp;quot;,
+&amp;quot;wantNum&amp;quot;: &amp;quot;298&amp;quot;,
+&amp;quot;id&amp;quot;: &amp;quot;619312410203&amp;quot;,
+&amp;quot;tag&amp;quot;: &amp;quot;new\/credit-6\/wantnum-298&amp;quot;,
+&amp;quot;scm&amp;quot;: &amp;quot;1007.32845.224895.0&amp;quot;,
+&amp;quot;publishTime&amp;quot;: &amp;quot;1590461455000&amp;quot;,
+&amp;quot;i2i&amp;quot;: &amp;quot;相似&amp;quot;,
+&amp;quot;search_tab_from&amp;quot;: null,
+&amp;quot;item_id&amp;quot;: &amp;quot;619312410203&amp;quot;,
+&amp;quot;biz_type&amp;quot;: &amp;quot;item&amp;quot;, //破解重点
+&amp;quot;q&amp;quot;: &amp;quot;10700k&amp;quot;,
+...
+},
+&amp;quot;page&amp;quot;: &amp;quot;Page_xySearchResult&amp;quot;
+},
+...
+}
+}
+...
+}
+...
+&lt;/code>&lt;/pre>&lt;p>此处截取了一条记录展示, 实际拦截到的参数中是一个数组, 包含本次结果页的所有商品, 其中就包括了搜索的商品, 广告商品, 推荐商品等, 通过对比发现, &lt;strong>搜索的商品数据在节点&lt;code>args&lt;/code> &amp;gt; &lt;code>biz_type&lt;/code> 的取值为 &lt;code>item&lt;/code>, 而广告等商品取值为&lt;code>ad&lt;/code>, &lt;code>Bagtag&lt;/code>, &lt;code>聚合卡片&lt;/code>&lt;/strong>, 那么接下来要做的事就很明确了, &lt;strong>解析这个字符串, 如果发现是广告商品则从数据中删除这条数据&lt;/strong>, 修改对&lt;code>setBytedate&lt;/code>的&lt;code>Hook&lt;/code>代码如下&lt;/p>
+&lt;pre>&lt;code>...
+protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+if (null == param.args[0] || ((byte[]) param.args[0]).length == 0) {
+return;
+}
+String content = new String((byte[]) param.args[0]);
+JSONObject jsonContent = new JSONObject(content);
+JSONObject jsonData = jsonContent.optJSONObject(&amp;quot;data&amp;quot;);
+if (null == jsonData || !jsonData.has(&amp;quot;resultList&amp;quot;)) {
+return;
+}
+JSONArray resultList = jsonData.getJSONArray(&amp;quot;resultList&amp;quot;);
+List&amp;lt;String&amp;gt; filterList = Arrays.asList(&amp;quot;ad&amp;quot;, &amp;quot;Bagtag&amp;quot;, &amp;quot;聚合卡片&amp;quot;);
+for (int i = 0; i &amp;lt; resultList.length(); i++) {
+JSONObject listItem = resultList.getJSONObject(i);
+String bizType = listItem.getJSONObject(&amp;quot;data&amp;quot;).getJSONObject(&amp;quot;item&amp;quot;)
+.getJSONObject(&amp;quot;main&amp;quot;).getJSONObject(&amp;quot;clickParam&amp;quot;).getJSONObject(&amp;quot;args&amp;quot;)
+.getString(&amp;quot;biz_type&amp;quot;);
+if (filterList.contains(bizType)) {
+if (Build.VERSION.SDK_INT &amp;gt;= Build.VERSION_CODES.KITKAT) {
+resultList.remove(i);
+i--;
+}
+}
+}
+param.args[0] = jsonContent.toString().getBytes();
+}
+...
+&lt;/code>&lt;/pre>&lt;p>上述代码首先将&lt;code>byte&lt;/code>数组转换为&lt;code>json&lt;/code>对象, 然后遍历所有商品, 将找到的广告商品移除, 再将处理过后的字符串重新转换为&lt;code>byte&lt;/code>数组, 最后赋值给原始参数, 这样当某鱼实际代码&lt;code>setBytedata&lt;/code>得到的参数将会是我修改后的参数. 编译验证后可以看到广告已经不会再显示了&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 56; flex-basis: 136px">
+&lt;a href="https://example.com/posts/hack/xfish/noadresult.jpg" data-size="529x933">&lt;img src="https://example.com/posts/hack/xfish/noadresult.jpg"
+srcset="https://example.com/posts/hack/xfish/noadresult_hufb7fc091ad8dd52f3bb83e2bc584be96_75816_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/noadresult_hufb7fc091ad8dd52f3bb83e2bc584be96_75816_1024x0_resize_q75_box.jpg 1024w"
+width="529"
+height="933"
+loading="lazy"
+alt="哇塞">
+&lt;/a>
+&lt;figcaption>哇塞&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="禁用恼人的升级弹窗">禁用恼人的升级弹窗&lt;/h2>
+&lt;p>&lt;strong>由于本人不爱更新, 且破解后如果更新版本, 可能导致破解失效, 所以必须禁用更新&lt;/strong>&lt;/p>
+&lt;p>首先根据弹窗文字搜索代码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 128; flex-basis: 309px">
+&lt;a href="https://example.com/posts/hack/xfish/updateprop.jpg" data-size="487x378">&lt;img src="https://example.com/posts/hack/xfish/updateprop.jpg"
+srcset="https://example.com/posts/hack/xfish/updateprop_huc83cba95d5fbda156357bc25e87590dc_41270_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updateprop_huc83cba95d5fbda156357bc25e87590dc_41270_1024x0_resize_q75_box.jpg 1024w"
+width="487"
+height="378"
+loading="lazy"
+alt="更新弹窗">
+&lt;/a>
+&lt;figcaption>更新弹窗&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>发现仅有一处, 位于&lt;code>BaseUpgradeHandler&lt;/code>类的&lt;code>onUpgradeNeed()&lt;/code>方法&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 136; flex-basis: 327px">
+&lt;a href="https://example.com/posts/hack/xfish/updatecode.jpg" data-size="609x446">&lt;img src="https://example.com/posts/hack/xfish/updatecode.jpg"
+srcset="https://example.com/posts/hack/xfish/updatecode_hue08c2e2c8268d22c9b70d5b029bd39b2_29411_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updatecode_hue08c2e2c8268d22c9b70d5b029bd39b2_29411_1024x0_resize_q75_box.jpg 1024w"
+width="609"
+height="446"
+loading="lazy"
+alt="更新代码">
+&lt;/a>
+&lt;figcaption>更新代码&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>跟踪方法调用, 在&lt;code>com.马赛克.马赛克fish.upgrade.traceable.Upgrade&lt;/code>类的&lt;code>c&lt;/code>方法中被调用, 而&lt;code>c&lt;/code>则被&lt;code>b&lt;/code>调用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 189; flex-basis: 454px">
+&lt;a href="https://example.com/posts/hack/xfish/updatecall1.jpg" data-size="705x372">&lt;img src="https://example.com/posts/hack/xfish/updatecall1.jpg"
+srcset="https://example.com/posts/hack/xfish/updatecall1_hu44c789f25140b4297b45caa6517061ba_31907_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updatecall1_hu44c789f25140b4297b45caa6517061ba_31907_1024x0_resize_q75_box.jpg 1024w"
+width="705"
+height="372"
+loading="lazy"
+alt="更新1">
+&lt;/a>
+&lt;figcaption>更新1&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 290; flex-basis: 696px">
+&lt;a href="https://example.com/posts/hack/xfish/updatecall2.jpg" data-size="708x244">&lt;img src="https://example.com/posts/hack/xfish/updatecall2.jpg"
+srcset="https://example.com/posts/hack/xfish/updatecall2_hu8b4e53f6efc16eee43e3c0879d76ef38_23057_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updatecall2_hu8b4e53f6efc16eee43e3c0879d76ef38_23057_1024x0_resize_q75_box.jpg 1024w"
+width="708"
+height="244"
+loading="lazy"
+alt="更新2">
+&lt;/a>
+&lt;figcaption>更新2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>重点代码摘要如下:&lt;/p>
+&lt;pre>&lt;code>private void c(final UpgradeHandler handler) {
+if (handler != null) {
+...
+handler.onUpgradeNeed(info, tracer);
+...
+}
+}
+&lt;/code>&lt;/pre>&lt;p>&lt;code>c&lt;/code>中的代码的突破点在于, &lt;strong>如果传入的&lt;code>handler&lt;/code>不为&lt;code>null&lt;/code>, 才会执行更新检测并弹窗的方法&lt;/strong>, 那么我只需要让传入的&lt;code>handler&lt;/code>为&lt;code>null&lt;/code>就可以了. 在&lt;code>Xposed&lt;/code>模块中对&lt;code>Upgrade&lt;/code>类的&lt;code>b&lt;/code>方法&lt;code>Hook&lt;/code>, 将入参设置为&lt;code>null&lt;/code>&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(&amp;quot;com.马赛克.马赛克fish.upgrade.traceable.Upgrade&amp;quot;,loadPackageParam.classLoader,
+&amp;quot;b&amp;quot;,
+&amp;quot;com.马赛克.马赛克fish.upgrade.traceable.UpgradeHandler&amp;quot;,
+new XC_MethodHook() {
+@Override
+protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+//这里将入参设置为null
+param.args[0] = null;
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>重新进行测试, &lt;strong>一切正常且启动之后不再有更新弹窗了&lt;/strong>&lt;/p></description></item><item><title>某琴吧EXE播放器破解记录</title><link>https://example.com/posts/hack/xtan/exe/</link><pubDate>Wed, 26 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/exe/</guid><description>&lt;img src="https://example.com/posts/hack/xtan/exe/cover.png" alt="Featured image of post 某琴吧EXE播放器破解记录" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>本文接另一篇文章 &lt;a class="link" href="../xtan_flash_hack/index.md" >某琴吧Flash播放器破解记录&lt;/a>&lt;/p>
 &lt;p>由于某琴吧改版正式使用exe播放器之后, 删除了所有的&lt;code>.ypa2&lt;/code>资源, 导致我没有及时下载的乐谱都无法继续使用Flash播放器播放了, 忍不了, 只能破解exe播放器了&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
