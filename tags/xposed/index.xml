@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Xposed on Acgnu+</title><link>https://example.com/tags/xposed/</link><description>Recent content in Xposed on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 10 Jun 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/tags/xposed/index.xml" rel="self" type="application/rss+xml"/><item><title>某加APP破解去除认证和更新</title><link>https://example.com/posts/hack/xplus/</link><pubDate>Thu, 10 Jun 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xplus/</guid><description>背景 由于某些需要, 进入某大楼的时候必须用他们物业指定的APP刷门禁, 我安装的时候是6.5.0版本, 这会儿启动速度也还可以, 也没太多花里胡哨的功能. 然而没过多久就迎来了一波强制版本更新, 更新后的版本启动速度慢到令人发指, 且增加了商城, 我就怒了, 区区门禁软件竟然这样肆意妄为, 开工!
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Xposed on Acgnu+</title><link>/tags/xposed/</link><description>Recent content in Xposed on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 10 Jun 2021 00:50:44 +0800</lastBuildDate><atom:link href="/tags/xposed/index.xml" rel="self" type="application/rss+xml"/><item><title>某加APP破解去除认证和更新</title><link>/posts/hack/xplus/</link><pubDate>Thu, 10 Jun 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xplus/</guid><description>背景 由于某些需要, 进入某大楼的时候必须用他们物业指定的APP刷门禁, 我安装的时候是6.5.0版本, 这会儿启动速度也还可以, 也没太多花里胡哨的功能. 然而没过多久就迎来了一波强制版本更新, 更新后的版本启动速度慢到令人发指, 且增加了商城, 我就怒了, 区区门禁软件竟然这样肆意妄为, 开工!
 目标 破解某加(版本: 6.5.0)去除更新检查, 去掉实名认证
 某加在7.0.0版本更名为某品, 破解版本为6.5.0, 在此保持称呼其为某加
 某加APP(版本6.5.0)界面
@@ -16,7 +16,7 @@ JADX-源码
 查看UpdateNoticeDialog的代码, 可以看出这是一个自定义的对话框, 和APP显示的更新弹出框一致
 结果3
 接着查找使用到了UpdateNoticeDialog类的地方, 发现多处引用
-结果4</description></item><item><title>某鱼APP破解去广告</title><link>https://example.com/posts/hack/xfish/</link><pubDate>Tue, 08 Jun 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xfish/</guid><description>背景 作为一个家徒四壁的打工人, 在某鱼上购买二手的闲置商品便成了我实现梦想的捷径, 但某鱼经过多次升级改版已经相当流氓, 在我搜索出想要的商品的结果页, 嵌入识别度很低的广告, 导致我经常手滑点错, 然后直接跳转启动某宝, 某宝的启动速度又慢的令人发指, 最终还得按下多次返回才能再次回到某鱼的搜索结果页, 忍无可忍的我只能对它做一些不可描述的事了
+结果4</description></item><item><title>某鱼APP破解去广告</title><link>/posts/hack/xfish/</link><pubDate>Tue, 08 Jun 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xfish/</guid><description>背景 作为一个家徒四壁的打工人, 在某鱼上购买二手的闲置商品便成了我实现梦想的捷径, 但某鱼经过多次升级改版已经相当流氓, 在我搜索出想要的商品的结果页, 嵌入识别度很低的广告, 导致我经常手滑点错, 然后直接跳转启动某宝, 某宝的启动速度又慢的令人发指, 最终还得按下多次返回才能再次回到某鱼的搜索结果页, 忍无可忍的我只能对它做一些不可描述的事了
 目标 破解某鱼(版本: 6.7.40)并去除搜索结果页的广告, 同时去掉每次启动就弹窗的恼人的更新提示
 某鱼的搜索结果页 某鱼广告
 PS:一个屏幕总共就6个展位, 某鱼你这三个广告位良心不会痛吗

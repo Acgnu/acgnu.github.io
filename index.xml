@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>https://example.com/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 10 Jun 2021 00:50:44 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml"/><item><title>某加APP破解去除认证和更新</title><link>https://example.com/posts/hack/xplus/</link><pubDate>Thu, 10 Jun 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xplus/</guid><description>&lt;img src="https://example.com/posts/hack/xplus/cover.png" alt="Featured image of post 某加APP破解去除认证和更新" />&lt;h2 id="背景">背景&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 10 Jun 2021 00:50:44 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>某加APP破解去除认证和更新</title><link>/posts/hack/xplus/</link><pubDate>Thu, 10 Jun 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xplus/</guid><description>&lt;img src="/posts/hack/xplus/cover.png" alt="Featured image of post 某加APP破解去除认证和更新" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>由于某些需要, 进入某大楼的时候必须用他们物业指定的APP刷门禁, 我安装的时候是6.5.0版本, 这会儿启动速度也还可以, 也没太多花里胡哨的功能. 然而没过多久就迎来了一波强制版本更新, 更新后的版本启动速度慢到令人发指, 且增加了商城, 我就怒了, 区区门禁软件竟然这样肆意妄为, 开工!&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
 &lt;p>破解某加(版本: 6.5.0)去除更新检查, 去掉实名认证&lt;/p>
@@ -7,8 +7,8 @@
 &lt;/blockquote>
 &lt;p>某加APP(版本6.5.0)界面&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 48; flex-basis: 116px">
-&lt;a href="https://example.com/posts/hack/xplus/1.jpg" data-size="428x879">&lt;img src="https://example.com/posts/hack/xplus/1.jpg"
-srcset="https://example.com/posts/hack/xplus/1_hu2d95ec83e3d4d01752f97536c451549d_53428_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/1_hu2d95ec83e3d4d01752f97536c451549d_53428_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/1.jpg" data-size="428x879">&lt;img src="/posts/hack/xplus/1.jpg"
+srcset="/posts/hack/xplus/1_hu2d95ec83e3d4d01752f97536c451549d_53428_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/1_hu2d95ec83e3d4d01752f97536c451549d_53428_1024x0_resize_q75_box.jpg 1024w"
 width="428"
 height="879"
 loading="lazy"
@@ -23,8 +23,8 @@ alt="首页">
 &lt;p>7.0版本开始APP加了壳, 没记错的话是某数字安全软件的壳, 脱壳过于麻烦于是使用6.5.0版本破解&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;figure style="flex-grow: 146; flex-basis: 350px">
-&lt;a href="https://example.com/posts/hack/xplus/2.jpg" data-size="969x663">&lt;img src="https://example.com/posts/hack/xplus/2.jpg"
-srcset="https://example.com/posts/hack/xplus/2_hu349652975c97a7c5fc2ef7ec56ba8aea_76881_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/2_hu349652975c97a7c5fc2ef7ec56ba8aea_76881_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/2.jpg" data-size="969x663">&lt;img src="/posts/hack/xplus/2.jpg"
+srcset="/posts/hack/xplus/2_hu349652975c97a7c5fc2ef7ec56ba8aea_76881_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/2_hu349652975c97a7c5fc2ef7ec56ba8aea_76881_1024x0_resize_q75_box.jpg 1024w"
 width="969"
 height="663"
 loading="lazy"
@@ -36,8 +36,8 @@ alt="JADX-源码">
 &lt;h2 id="禁用强制升级">禁用强制升级&lt;/h2>
 &lt;p>首先根据弹窗文字&amp;quot;发现新版本&amp;quot;搜索代码&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 133; flex-basis: 320px">
-&lt;a href="https://example.com/posts/hack/xplus/3.jpg" data-size="516x387">&lt;img src="https://example.com/posts/hack/xplus/3.jpg"
-srcset="https://example.com/posts/hack/xplus/3_huecfdf6804dc5656d1adc2869cf9b626f_14908_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/3_huecfdf6804dc5656d1adc2869cf9b626f_14908_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/3.jpg" data-size="516x387">&lt;img src="/posts/hack/xplus/3.jpg"
+srcset="/posts/hack/xplus/3_huecfdf6804dc5656d1adc2869cf9b626f_14908_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/3_huecfdf6804dc5656d1adc2869cf9b626f_14908_1024x0_resize_q75_box.jpg 1024w"
 width="516"
 height="387"
 loading="lazy"
@@ -47,8 +47,8 @@ alt="更新弹窗">
 &lt;/figure>&lt;/p>
 &lt;p>发现全文匹配的仅有一处, 位于布局文件&lt;code>dialog_check_update.xml&lt;/code>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 374; flex-basis: 897px">
-&lt;a href="https://example.com/posts/hack/xplus/4.jpg" data-size="606x162">&lt;img src="https://example.com/posts/hack/xplus/4.jpg"
-srcset="https://example.com/posts/hack/xplus/4_hue4475e29c1a510e088031ebe8ac250a6_13878_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/4_hue4475e29c1a510e088031ebe8ac250a6_13878_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/4.jpg" data-size="606x162">&lt;img src="/posts/hack/xplus/4.jpg"
+srcset="/posts/hack/xplus/4_hue4475e29c1a510e088031ebe8ac250a6_13878_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/4_hue4475e29c1a510e088031ebe8ac250a6_13878_1024x0_resize_q75_box.jpg 1024w"
 width="606"
 height="162"
 loading="lazy"
@@ -58,8 +58,8 @@ alt="结果1">
 &lt;/figure>&lt;/p>
 &lt;p>查找使用该布局文件的地方, 仅有一个类&lt;code>UpdateNoticeDialog&lt;/code>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 327; flex-basis: 786px">
-&lt;a href="https://example.com/posts/hack/xplus/5.jpg" data-size="845x258">&lt;img src="https://example.com/posts/hack/xplus/5.jpg"
-srcset="https://example.com/posts/hack/xplus/5_hua4120d517d4567fa7454cfab4a402f5d_39648_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/5_hua4120d517d4567fa7454cfab4a402f5d_39648_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/5.jpg" data-size="845x258">&lt;img src="/posts/hack/xplus/5.jpg"
+srcset="/posts/hack/xplus/5_hua4120d517d4567fa7454cfab4a402f5d_39648_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/5_hua4120d517d4567fa7454cfab4a402f5d_39648_1024x0_resize_q75_box.jpg 1024w"
 width="845"
 height="258"
 loading="lazy"
@@ -69,8 +69,8 @@ alt="结果2">
 &lt;/figure>&lt;/p>
 &lt;p>查看&lt;code>UpdateNoticeDialog&lt;/code>的代码, 可以看出这是一个自定义的对话框, 和APP显示的更新弹出框一致&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 264; flex-basis: 633px">
-&lt;a href="https://example.com/posts/hack/xplus/6.jpg" data-size="470x178">&lt;img src="https://example.com/posts/hack/xplus/6.jpg"
-srcset="https://example.com/posts/hack/xplus/6_hue4b7d0705f3de3ef847d77bbc0819788_12612_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/6_hue4b7d0705f3de3ef847d77bbc0819788_12612_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/6.jpg" data-size="470x178">&lt;img src="/posts/hack/xplus/6.jpg"
+srcset="/posts/hack/xplus/6_hue4b7d0705f3de3ef847d77bbc0819788_12612_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/6_hue4b7d0705f3de3ef847d77bbc0819788_12612_1024x0_resize_q75_box.jpg 1024w"
 width="470"
 height="178"
 loading="lazy"
@@ -80,8 +80,8 @@ alt="结果3">
 &lt;/figure>&lt;/p>
 &lt;p>接着查找使用到了&lt;code>UpdateNoticeDialog&lt;/code>类的地方, 发现多处引用&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 236; flex-basis: 567px">
-&lt;a href="https://example.com/posts/hack/xplus/7.jpg" data-size="605x256">&lt;img src="https://example.com/posts/hack/xplus/7.jpg"
-srcset="https://example.com/posts/hack/xplus/7_hu6e22dec133ef02ae33ed651f7531c52c_26368_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/7_hu6e22dec133ef02ae33ed651f7531c52c_26368_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/7.jpg" data-size="605x256">&lt;img src="/posts/hack/xplus/7.jpg"
+srcset="/posts/hack/xplus/7_hu6e22dec133ef02ae33ed651f7531c52c_26368_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/7_hu6e22dec133ef02ae33ed651f7531c52c_26368_1024x0_resize_q75_box.jpg 1024w"
 width="605"
 height="256"
 loading="lazy"
@@ -91,8 +91,8 @@ alt="结果4">
 &lt;/figure>&lt;/p>
 &lt;p>而APP弹出更新提示的时候, 我正位于APP的首页, 可以推断出&lt;code>HomeActivity&lt;/code>应该就是我要寻找的弹框处, 查看&lt;code>HomeActivity&lt;/code>的代码如下&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 108; flex-basis: 261px">
-&lt;a href="https://example.com/posts/hack/xplus/8.jpg" data-size="800x735">&lt;img src="https://example.com/posts/hack/xplus/8.jpg"
-srcset="https://example.com/posts/hack/xplus/8_hu0d04ef7bf6568aeec0b7dc1a72e4ac07_78371_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/8_hu0d04ef7bf6568aeec0b7dc1a72e4ac07_78371_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/8.jpg" data-size="800x735">&lt;img src="/posts/hack/xplus/8.jpg"
+srcset="/posts/hack/xplus/8_hu0d04ef7bf6568aeec0b7dc1a72e4ac07_78371_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/8_hu0d04ef7bf6568aeec0b7dc1a72e4ac07_78371_1024x0_resize_q75_box.jpg 1024w"
 width="800"
 height="735"
 loading="lazy"
@@ -102,8 +102,8 @@ alt="首页">
 &lt;/figure>&lt;/p>
 &lt;p>可以看到这里将&lt;code>UpdateNoticeDialog&lt;/code>定义为成员变量, 然后在&lt;code>checkUpdate&lt;/code>中对&lt;code>UpdateNoticeDialog&lt;/code>赋值, 且其他操作都位于&lt;code>checkUpdate&lt;/code>中, 现在看看&lt;code>checkUpdate&lt;/code>完整代码如下&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 140; flex-basis: 338px">
-&lt;a href="https://example.com/posts/hack/xplus/9.jpg" data-size="710x504">&lt;img src="https://example.com/posts/hack/xplus/9.jpg"
-srcset="https://example.com/posts/hack/xplus/9_hu0a58a8411c4b0c4596961a24b6ef84f2_53536_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/9_hu0a58a8411c4b0c4596961a24b6ef84f2_53536_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/9.jpg" data-size="710x504">&lt;img src="/posts/hack/xplus/9.jpg"
+srcset="/posts/hack/xplus/9_hu0a58a8411c4b0c4596961a24b6ef84f2_53536_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/9_hu0a58a8411c4b0c4596961a24b6ef84f2_53536_1024x0_resize_q75_box.jpg 1024w"
 width="710"
 height="504"
 loading="lazy"
@@ -124,8 +124,8 @@ return null;
 &lt;p>然而后来手贱不小心退出登录了, 再启动APP时发现登录的时候也有更新认证, 现在可行的方法有二, 一是找到登录界面, 用同样的方法去除更新, 但是这样一来繁琐, 二来他可能还有其他的地方有更新检查, 所以使用第二种方法&lt;/p>
 &lt;p>根据Android开发文档可以得知, &lt;strong>可以在APP的&lt;code>AndroidManifest.xml&lt;/code>中可以定义当前APP的版本号, 然后可以在&lt;code>Java&lt;/code>代码中使用&lt;code>PackageInfo&lt;/code>来获得当前APP的版本信息, 而定义版本主要分为版本号&lt;code>versionCode&lt;/code>和版本名&lt;code>versionName&lt;/code>, 一般使用&lt;code>versionCode&lt;/code>大小来判断是否需要更新, 而&lt;code>versionName&lt;/code>则主要用作展示&lt;/strong>, 查看某加APP的&lt;code>AndroidManifest.xml&lt;/code>文件, 发现其版本定义如下&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 451; flex-basis: 1082px">
-&lt;a href="https://example.com/posts/hack/xplus/10.jpg" data-size="546x121">&lt;img src="https://example.com/posts/hack/xplus/10.jpg"
-srcset="https://example.com/posts/hack/xplus/10_hu96277694f98aa3c45610a16b3673614a_9450_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/10_hu96277694f98aa3c45610a16b3673614a_9450_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/10.jpg" data-size="546x121">&lt;img src="/posts/hack/xplus/10.jpg"
+srcset="/posts/hack/xplus/10_hu96277694f98aa3c45610a16b3673614a_9450_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/10_hu96277694f98aa3c45610a16b3673614a_9450_1024x0_resize_q75_box.jpg 1024w"
 width="546"
 height="121"
 loading="lazy"
@@ -154,8 +154,8 @@ packageInfo.versionName = &amp;quot;7.0.0&amp;quot;;
 &lt;h2 id="跳过实名认证">跳过实名认证&lt;/h2>
 &lt;p>认证弹窗如下&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 56; flex-basis: 136px">
-&lt;a href="https://example.com/posts/hack/xplus/11.jpg" data-size="530x931">&lt;img src="https://example.com/posts/hack/xplus/11.jpg"
-srcset="https://example.com/posts/hack/xplus/11_hu96f99dea830a15ed6bd30d3c0d69bfe0_47957_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/11_hu96f99dea830a15ed6bd30d3c0d69bfe0_47957_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/11.jpg" data-size="530x931">&lt;img src="/posts/hack/xplus/11.jpg"
+srcset="/posts/hack/xplus/11_hu96f99dea830a15ed6bd30d3c0d69bfe0_47957_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/11_hu96f99dea830a15ed6bd30d3c0d69bfe0_47957_1024x0_resize_q75_box.jpg 1024w"
 width="530"
 height="931"
 loading="lazy"
@@ -165,8 +165,8 @@ alt="实名认证弹窗">
 &lt;/figure>&lt;/p>
 &lt;p>当我点击右下角的显示门禁卡二维码按钮的时候, 就会弹出认证弹窗, 我们知道&lt;code>Activity&lt;/code>会通过&lt;code>setContentView&lt;/code>加载一个布局文件, 此页面为APP首页, 所以在&lt;code>HomeActivity&lt;/code>中搜索&lt;code>setContentView&lt;/code>, 发现并没有结果&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 318; flex-basis: 765px">
-&lt;a href="https://example.com/posts/hack/xplus/12.jpg" data-size="679x213">&lt;img src="https://example.com/posts/hack/xplus/12.jpg"
-srcset="https://example.com/posts/hack/xplus/12_hu82614e200c2ca9e6d3cff5f090370c74_23860_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/12_hu82614e200c2ca9e6d3cff5f090370c74_23860_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/12.jpg" data-size="679x213">&lt;img src="/posts/hack/xplus/12.jpg"
+srcset="/posts/hack/xplus/12_hu82614e200c2ca9e6d3cff5f090370c74_23860_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/12_hu82614e200c2ca9e6d3cff5f090370c74_23860_1024x0_resize_q75_box.jpg 1024w"
 width="679"
 height="213"
 loading="lazy"
@@ -176,8 +176,8 @@ alt="首页2">
 &lt;/figure>&lt;/p>
 &lt;p>但是&lt;code>HomeActivity&lt;/code>继承自&lt;code>BaseActivity_2019_8_22&lt;/code>, 于是在父类中找到了&lt;code>setContentView&lt;/code>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 251; flex-basis: 602px">
-&lt;a href="https://example.com/posts/hack/xplus/13.jpg" data-size="663x264">&lt;img src="https://example.com/posts/hack/xplus/13.jpg"
-srcset="https://example.com/posts/hack/xplus/13_huc3f0c228985f9b08ea6c4fb72996e418_31164_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/13_huc3f0c228985f9b08ea6c4fb72996e418_31164_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/13.jpg" data-size="663x264">&lt;img src="/posts/hack/xplus/13.jpg"
+srcset="/posts/hack/xplus/13_huc3f0c228985f9b08ea6c4fb72996e418_31164_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/13_huc3f0c228985f9b08ea6c4fb72996e418_31164_1024x0_resize_q75_box.jpg 1024w"
 width="663"
 height="264"
 loading="lazy"
@@ -187,8 +187,8 @@ alt="设置布局">
 &lt;/figure>&lt;/p>
 &lt;p>可以看到这里加载的布局是&lt;code>activity_only_linear_layout.xml&lt;/code>, 查看这个布局文件, 里面的代码非常简单&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 332; flex-basis: 798px">
-&lt;a href="https://example.com/posts/hack/xplus/14.jpg" data-size="892x268">&lt;img src="https://example.com/posts/hack/xplus/14.jpg"
-srcset="https://example.com/posts/hack/xplus/14_hu18df4b0c8e4b20856bb7a5a1a40ccba6_38292_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/14_hu18df4b0c8e4b20856bb7a5a1a40ccba6_38292_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/14.jpg" data-size="892x268">&lt;img src="/posts/hack/xplus/14.jpg"
+srcset="/posts/hack/xplus/14_hu18df4b0c8e4b20856bb7a5a1a40ccba6_38292_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/14_hu18df4b0c8e4b20856bb7a5a1a40ccba6_38292_1024x0_resize_q75_box.jpg 1024w"
 width="892"
 height="268"
 loading="lazy"
@@ -198,8 +198,8 @@ alt="布局">
 &lt;/figure>&lt;/p>
 &lt;p>根据名称可以很容易的推断出id为&lt;code>fab_show_qr_code&lt;/code>的按钮组件就是首页显示二维码的组件, 搜索这个id查看他的点击事件&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 143; flex-basis: 344px">
-&lt;a href="https://example.com/posts/hack/xplus/15.jpg" data-size="724x504">&lt;img src="https://example.com/posts/hack/xplus/15.jpg"
-srcset="https://example.com/posts/hack/xplus/15_hub70308bebefecd263604d35c1664b3cc_48846_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/15_hub70308bebefecd263604d35c1664b3cc_48846_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/15.jpg" data-size="724x504">&lt;img src="/posts/hack/xplus/15.jpg"
+srcset="/posts/hack/xplus/15_hub70308bebefecd263604d35c1664b3cc_48846_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/15_hub70308bebefecd263604d35c1664b3cc_48846_1024x0_resize_q75_box.jpg 1024w"
 width="724"
 height="504"
 loading="lazy"
@@ -209,8 +209,8 @@ alt="点击事件">
 &lt;/figure>&lt;/p>
 &lt;p>根据判断逻辑, 如果&lt;code>CacheUtils.getStatus()&lt;/code>返回为1, 就展示二维码弹窗, 不为1则执行&lt;code>checkStatus()&lt;/code>, 以防万一, 看看&lt;code>checkStatus()&lt;/code>的代码如下&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 390; flex-basis: 936px">
-&lt;a href="https://example.com/posts/hack/xplus/16.jpg" data-size="730x187">&lt;img src="https://example.com/posts/hack/xplus/16.jpg"
-srcset="https://example.com/posts/hack/xplus/16_hu30e72add66bab6b7193b471be38a9d9a_17295_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/16_hu30e72add66bab6b7193b471be38a9d9a_17295_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/16.jpg" data-size="730x187">&lt;img src="/posts/hack/xplus/16.jpg"
+srcset="/posts/hack/xplus/16_hu30e72add66bab6b7193b471be38a9d9a_17295_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/16_hu30e72add66bab6b7193b471be38a9d9a_17295_1024x0_resize_q75_box.jpg 1024w"
 width="730"
 height="187"
 loading="lazy"
@@ -220,8 +220,8 @@ alt="检查状态">
 &lt;/figure>&lt;/p>
 &lt;p>显然&lt;code>checkIdentityStatus()&lt;/code>这名字就很直白的告诉我这个就是用来检查身份认证的了, 在回来看看&lt;code>CacheUtils.getStatus()&lt;/code>代码如下&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 294; flex-basis: 706px">
-&lt;a href="https://example.com/posts/hack/xplus/17.jpg" data-size="645x219">&lt;img src="https://example.com/posts/hack/xplus/17.jpg"
-srcset="https://example.com/posts/hack/xplus/17_hub29dfd1774778c08e0d4594a749914d2_20243_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/17_hub29dfd1774778c08e0d4594a749914d2_20243_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/17.jpg" data-size="645x219">&lt;img src="/posts/hack/xplus/17.jpg"
+srcset="/posts/hack/xplus/17_hub29dfd1774778c08e0d4594a749914d2_20243_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/17_hub29dfd1774778c08e0d4594a749914d2_20243_1024x0_resize_q75_box.jpg 1024w"
 width="645"
 height="219"
 loading="lazy"
@@ -240,22 +240,22 @@ param.setResult(&amp;quot;1&amp;quot;);
 });
 &lt;/code>&lt;/pre>&lt;p>&lt;code>Hook&lt;/code>代码将在&lt;code>getStatus()&lt;/code>执行之后执行, 将其返回值为修改为1, 现在重新运行, &lt;strong>程序一切正常, 也没有身份认证弹窗了, 点击显示二维码按钮正常显示门禁二维码&lt;/strong>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 64; flex-basis: 155px">
-&lt;a href="https://example.com/posts/hack/xplus/18.jpg" data-size="524x811">&lt;img src="https://example.com/posts/hack/xplus/18.jpg"
-srcset="https://example.com/posts/hack/xplus/18_hu8be23d8c5d36ba9786790ce525914933_44600_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xplus/18_hu8be23d8c5d36ba9786790ce525914933_44600_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xplus/18.jpg" data-size="524x811">&lt;img src="/posts/hack/xplus/18.jpg"
+srcset="/posts/hack/xplus/18_hu8be23d8c5d36ba9786790ce525914933_44600_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/18_hu8be23d8c5d36ba9786790ce525914933_44600_1024x0_resize_q75_box.jpg 1024w"
 width="524"
 height="811"
 loading="lazy"
 alt="ok">
 &lt;/a>
 &lt;figcaption>ok&lt;/figcaption>
-&lt;/figure>&lt;/p></description></item><item><title>某鱼APP破解去广告</title><link>https://example.com/posts/hack/xfish/</link><pubDate>Tue, 08 Jun 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xfish/</guid><description>&lt;img src="https://example.com/posts/hack/xfish/cover.png" alt="Featured image of post 某鱼APP破解去广告" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;/figure>&lt;/p></description></item><item><title>某鱼APP破解去广告</title><link>/posts/hack/xfish/</link><pubDate>Tue, 08 Jun 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xfish/</guid><description>&lt;img src="/posts/hack/xfish/cover.png" alt="Featured image of post 某鱼APP破解去广告" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>作为一个家徒四壁的打工人, 在某鱼上购买二手的闲置商品便成了我实现梦想的捷径, 但某鱼经过多次升级改版已经相当流氓, 在我搜索出想要的商品的结果页, 嵌入识别度很低的广告, 导致我经常手滑点错, 然后直接跳转启动某宝, 某宝的启动速度又慢的令人发指, 最终还得按下多次返回才能再次回到某鱼的搜索结果页, 忍无可忍的我只能对它做一些不可描述的事了&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
 &lt;p>破解某鱼(版本: 6.7.40)并去除搜索结果页的广告, 同时去掉每次启动就弹窗的恼人的更新提示&lt;/p>
 &lt;h2 id="某鱼的搜索结果页">某鱼的搜索结果页&lt;/h2>
 &lt;p>&lt;figure style="flex-grow: 56; flex-basis: 134px">
-&lt;a href="https://example.com/posts/hack/xfish/adpage.jpg" data-size="540x961">&lt;img src="https://example.com/posts/hack/xfish/adpage.jpg"
-srcset="https://example.com/posts/hack/xfish/adpage_hu1ba7e09bc24973772dcedd1129f840e8_86307_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/adpage_hu1ba7e09bc24973772dcedd1129f840e8_86307_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/adpage.jpg" data-size="540x961">&lt;img src="/posts/hack/xfish/adpage.jpg"
+srcset="/posts/hack/xfish/adpage_hu1ba7e09bc24973772dcedd1129f840e8_86307_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/adpage_hu1ba7e09bc24973772dcedd1129f840e8_86307_1024x0_resize_q75_box.jpg 1024w"
 width="540"
 height="961"
 loading="lazy"
@@ -270,8 +270,8 @@ alt="某鱼广告">
 &lt;p>首先尝试使用Android反编译大杀器&lt;a class="link" href="https://github.com/skylot/jadx" target="_blank" rel="noopener"
 >Jadx&lt;/a>, 打开&lt;code>Jadx&lt;/code>, 直接把某鱼安装包即&lt;code>.apk&lt;/code>文件拖进去, 发现软件没有加壳, 可以看到&lt;code>Jadx&lt;/code>顺利反编译出了某鱼的源码&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 139; flex-basis: 334px">
-&lt;a href="https://example.com/posts/hack/xfish/jadx_source.jpg" data-size="1173x842">&lt;img src="https://example.com/posts/hack/xfish/jadx_source.jpg"
-srcset="https://example.com/posts/hack/xfish/jadx_source_hud0af3715194ff4882a261e5347d833be_127929_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/jadx_source_hud0af3715194ff4882a261e5347d833be_127929_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/jadx_source.jpg" data-size="1173x842">&lt;img src="/posts/hack/xfish/jadx_source.jpg"
+srcset="/posts/hack/xfish/jadx_source_hud0af3715194ff4882a261e5347d833be_127929_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/jadx_source_hud0af3715194ff4882a261e5347d833be_127929_1024x0_resize_q75_box.jpg 1024w"
 width="1173"
 height="842"
 loading="lazy"
@@ -282,8 +282,8 @@ alt="JADX-源码">
 &lt;p>直接按 &lt;code>Ctrl + S&lt;/code> 将源码全部保存, 然后导入&lt;code>IDEA&lt;/code>, 开始分析代码&lt;/p>
 &lt;p>&lt;strong>首先从输入搜索目标后, 点击搜索的按钮开始入手&lt;/strong>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 249; flex-basis: 599px">
-&lt;a href="https://example.com/posts/hack/xfish/search.jpg" data-size="537x215">&lt;img src="https://example.com/posts/hack/xfish/search.jpg"
-srcset="https://example.com/posts/hack/xfish/search_hubb017e4f37f205bfbcd52d21910b75ab_11320_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/search_hubb017e4f37f205bfbcd52d21910b75ab_11320_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/search.jpg" data-size="537x215">&lt;img src="/posts/hack/xfish/search.jpg"
+srcset="/posts/hack/xfish/search_hubb017e4f37f205bfbcd52d21910b75ab_11320_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/search_hubb017e4f37f205bfbcd52d21910b75ab_11320_1024x0_resize_q75_box.jpg 1024w"
 width="537"
 height="215"
 loading="lazy"
@@ -293,8 +293,8 @@ alt="搜索面板">
 &lt;/figure>&lt;/p>
 &lt;p>在代码中查找&amp;quot;搜索&amp;quot;关键字, 发现有多处匹配, 结合搜索面板底下的历史搜索布局, 推测该面板的布局文件应该是&lt;code>search_mid.xml&lt;/code>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 212; flex-basis: 510px">
-&lt;a href="https://example.com/posts/hack/xfish/searchlayout.jpg" data-size="1078x507">&lt;img src="https://example.com/posts/hack/xfish/searchlayout.jpg"
-srcset="https://example.com/posts/hack/xfish/searchlayout_hu165f087e67dd8c3f20528ecb83d1223f_83048_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchlayout_hu165f087e67dd8c3f20528ecb83d1223f_83048_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/searchlayout.jpg" data-size="1078x507">&lt;img src="/posts/hack/xfish/searchlayout.jpg"
+srcset="/posts/hack/xfish/searchlayout_hu165f087e67dd8c3f20528ecb83d1223f_83048_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/searchlayout_hu165f087e67dd8c3f20528ecb83d1223f_83048_1024x0_resize_q75_box.jpg 1024w"
 width="1078"
 height="507"
 loading="lazy"
@@ -304,8 +304,8 @@ alt="面板代码">
 &lt;/figure>&lt;/p>
 &lt;p>搜索布局文件引用的地方, 发现其在&lt;code>SearchMidActivity&lt;/code>中被使用&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 342; flex-basis: 821px">
-&lt;a href="https://example.com/posts/hack/xfish/uselayout.jpg" data-size="606x177">&lt;img src="https://example.com/posts/hack/xfish/uselayout.jpg"
-srcset="https://example.com/posts/hack/xfish/uselayout_huf0a2434a3d7d0179055128c7c7a27089_13700_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/uselayout_huf0a2434a3d7d0179055128c7c7a27089_13700_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/uselayout.jpg" data-size="606x177">&lt;img src="/posts/hack/xfish/uselayout.jpg"
+srcset="/posts/hack/xfish/uselayout_huf0a2434a3d7d0179055128c7c7a27089_13700_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/uselayout_huf0a2434a3d7d0179055128c7c7a27089_13700_1024x0_resize_q75_box.jpg 1024w"
 width="606"
 height="177"
 loading="lazy"
@@ -315,8 +315,8 @@ alt="布局使用">
 &lt;/figure>&lt;/p>
 &lt;p>再查看布局文件代码, 搜索按钮的组件ID为&lt;code>search_button&lt;/code>, 在&lt;code>SearchMidActivity&lt;/code>中查找相关引用&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 316; flex-basis: 758px">
-&lt;a href="https://example.com/posts/hack/xfish/searchbtn1.jpg" data-size="351x111">&lt;img src="https://example.com/posts/hack/xfish/searchbtn1.jpg"
-srcset="https://example.com/posts/hack/xfish/searchbtn1_hud7caf3cc5e731a5a19c2db74ba6f7cd8_6010_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn1_hud7caf3cc5e731a5a19c2db74ba6f7cd8_6010_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/searchbtn1.jpg" data-size="351x111">&lt;img src="/posts/hack/xfish/searchbtn1.jpg"
+srcset="/posts/hack/xfish/searchbtn1_hud7caf3cc5e731a5a19c2db74ba6f7cd8_6010_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/searchbtn1_hud7caf3cc5e731a5a19c2db74ba6f7cd8_6010_1024x0_resize_q75_box.jpg 1024w"
 width="351"
 height="111"
 loading="lazy"
@@ -325,8 +325,8 @@ alt="搜索点击1">
 &lt;figcaption>搜索点击1&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 277; flex-basis: 667px">
-&lt;a href="https://example.com/posts/hack/xfish/searchbtn2.jpg" data-size="795x286">&lt;img src="https://example.com/posts/hack/xfish/searchbtn2.jpg"
-srcset="https://example.com/posts/hack/xfish/searchbtn2_hu43e90636119c85769bcd2cb8b226da7a_24664_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn2_hu43e90636119c85769bcd2cb8b226da7a_24664_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/searchbtn2.jpg" data-size="795x286">&lt;img src="/posts/hack/xfish/searchbtn2.jpg"
+srcset="/posts/hack/xfish/searchbtn2_hu43e90636119c85769bcd2cb8b226da7a_24664_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/searchbtn2_hu43e90636119c85769bcd2cb8b226da7a_24664_1024x0_resize_q75_box.jpg 1024w"
 width="795"
 height="286"
 loading="lazy"
@@ -336,8 +336,8 @@ alt="搜索点击2">
 &lt;/figure>&lt;/p>
 &lt;p>可以看出按钮点击后, 首先会调用&lt;code>searchKeyAction&lt;/code>, 再经过层层调用最后到达&lt;code>searchNormal&lt;/code>, 之后就会通过 &lt;code>gotoResultActivity&lt;/code> 跳转到结果页, 继续跟踪&lt;code>gotoResultActivity&lt;/code>方法&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 700; flex-basis: 1680px">
-&lt;a href="https://example.com/posts/hack/xfish/searchbtn3.jpg" data-size="525x75">&lt;img src="https://example.com/posts/hack/xfish/searchbtn3.jpg"
-srcset="https://example.com/posts/hack/xfish/searchbtn3_hu5fb2147c87591b6c85c08e2046a0c2df_6451_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn3_hu5fb2147c87591b6c85c08e2046a0c2df_6451_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/searchbtn3.jpg" data-size="525x75">&lt;img src="/posts/hack/xfish/searchbtn3.jpg"
+srcset="/posts/hack/xfish/searchbtn3_hu5fb2147c87591b6c85c08e2046a0c2df_6451_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/searchbtn3_hu5fb2147c87591b6c85c08e2046a0c2df_6451_1024x0_resize_q75_box.jpg 1024w"
 width="525"
 height="75"
 loading="lazy"
@@ -347,8 +347,8 @@ alt="搜索点击3">
 &lt;/figure>&lt;/p>
 &lt;p>此处出现&lt;code>searchresult&lt;/code>字符, 搜索这个字符&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 469; flex-basis: 1127px">
-&lt;a href="https://example.com/posts/hack/xfish/searchbtn4.jpg" data-size="780x166">&lt;img src="https://example.com/posts/hack/xfish/searchbtn4.jpg"
-srcset="https://example.com/posts/hack/xfish/searchbtn4_hu3064fae03e259149ff91124b7637e5f8_29435_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/searchbtn4_hu3064fae03e259149ff91124b7637e5f8_29435_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/searchbtn4.jpg" data-size="780x166">&lt;img src="/posts/hack/xfish/searchbtn4.jpg"
+srcset="/posts/hack/xfish/searchbtn4_hu3064fae03e259149ff91124b7637e5f8_29435_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/searchbtn4_hu3064fae03e259149ff91124b7637e5f8_29435_1024x0_resize_q75_box.jpg 1024w"
 width="780"
 height="166"
 loading="lazy"
@@ -375,8 +375,8 @@ stackElements[i].getMethodName() + &amp;quot;()&amp;quot;
 &lt;/code>&lt;/pre>&lt;p>不过这样比较麻烦而且也不好找. 于是换个思路, 安装&lt;code>Xposed&lt;/code>模块&lt;a class="link" href="https://github.com/Palatis/XAppDebug" target="_blank" rel="noopener"
 >XAppDebug&lt;/a>, 为某鱼强制开启&lt;code>Debug&lt;/code>模式, 此时查看控制台会显示所有某鱼打印的日志信息, 现在控制台显示了包括网络请求在内的日志信息&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 379; flex-basis: 911px">
-&lt;a href="https://example.com/posts/hack/xfish/motp.jpg" data-size="1136x299">&lt;img src="https://example.com/posts/hack/xfish/motp.jpg"
-srcset="https://example.com/posts/hack/xfish/motp_hu728bdb3602c9c0a190a3b046fde1f8dd_69023_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/motp_hu728bdb3602c9c0a190a3b046fde1f8dd_69023_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/motp.jpg" data-size="1136x299">&lt;img src="/posts/hack/xfish/motp.jpg"
+srcset="/posts/hack/xfish/motp_hu728bdb3602c9c0a190a3b046fde1f8dd_69023_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/motp_hu728bdb3602c9c0a190a3b046fde1f8dd_69023_1024x0_resize_q75_box.jpg 1024w"
 width="1136"
 height="299"
 loading="lazy"
@@ -386,8 +386,8 @@ alt="MTOP">
 &lt;/figure>&lt;/p>
 &lt;p>最终找到可疑类&lt;code>MtopResponse&lt;/code>, 分析代码可以推测这个类应该是一个封装了网络响应的类, 其成员变量&lt;code>bytedata&lt;/code>是主要数据源, &lt;code>bytedata&lt;/code>将会被转换成&lt;code>dataJsonObject&lt;/code>的&lt;code>JSON&lt;/code>对象储存, 然后被使用, 因此找到&lt;code>bytedata&lt;/code>赋值的方法&lt;code>setBytedata&lt;/code>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 287; flex-basis: 691px">
-&lt;a href="https://example.com/posts/hack/xfish/rep.jpg" data-size="478x166">&lt;img src="https://example.com/posts/hack/xfish/rep.jpg"
-srcset="https://example.com/posts/hack/xfish/rep_huaa9da268be2d331c855d2c964a90ed3f_10820_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/rep_huaa9da268be2d331c855d2c964a90ed3f_10820_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/rep.jpg" data-size="478x166">&lt;img src="/posts/hack/xfish/rep.jpg"
+srcset="/posts/hack/xfish/rep_huaa9da268be2d331c855d2c964a90ed3f_10820_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/rep_huaa9da268be2d331c855d2c964a90ed3f_10820_1024x0_resize_q75_box.jpg 1024w"
 width="478"
 height="166"
 loading="lazy"
@@ -470,8 +470,8 @@ param.args[0] = jsonContent.toString().getBytes();
 ...
 &lt;/code>&lt;/pre>&lt;p>上述代码首先将&lt;code>byte&lt;/code>数组转换为&lt;code>json&lt;/code>对象, 然后遍历所有商品, 将找到的广告商品移除, 再将处理过后的字符串重新转换为&lt;code>byte&lt;/code>数组, 最后赋值给原始参数, 这样当某鱼实际代码&lt;code>setBytedata&lt;/code>得到的参数将会是我修改后的参数. 编译验证后可以看到广告已经不会再显示了&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 56; flex-basis: 136px">
-&lt;a href="https://example.com/posts/hack/xfish/noadresult.jpg" data-size="529x933">&lt;img src="https://example.com/posts/hack/xfish/noadresult.jpg"
-srcset="https://example.com/posts/hack/xfish/noadresult_hufb7fc091ad8dd52f3bb83e2bc584be96_75816_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/noadresult_hufb7fc091ad8dd52f3bb83e2bc584be96_75816_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/noadresult.jpg" data-size="529x933">&lt;img src="/posts/hack/xfish/noadresult.jpg"
+srcset="/posts/hack/xfish/noadresult_hufb7fc091ad8dd52f3bb83e2bc584be96_75816_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/noadresult_hufb7fc091ad8dd52f3bb83e2bc584be96_75816_1024x0_resize_q75_box.jpg 1024w"
 width="529"
 height="933"
 loading="lazy"
@@ -483,8 +483,8 @@ alt="哇塞">
 &lt;p>&lt;strong>由于本人不爱更新, 且破解后如果更新版本, 可能导致破解失效, 所以必须禁用更新&lt;/strong>&lt;/p>
 &lt;p>首先根据弹窗文字搜索代码&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 128; flex-basis: 309px">
-&lt;a href="https://example.com/posts/hack/xfish/updateprop.jpg" data-size="487x378">&lt;img src="https://example.com/posts/hack/xfish/updateprop.jpg"
-srcset="https://example.com/posts/hack/xfish/updateprop_huc83cba95d5fbda156357bc25e87590dc_41270_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updateprop_huc83cba95d5fbda156357bc25e87590dc_41270_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/updateprop.jpg" data-size="487x378">&lt;img src="/posts/hack/xfish/updateprop.jpg"
+srcset="/posts/hack/xfish/updateprop_huc83cba95d5fbda156357bc25e87590dc_41270_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/updateprop_huc83cba95d5fbda156357bc25e87590dc_41270_1024x0_resize_q75_box.jpg 1024w"
 width="487"
 height="378"
 loading="lazy"
@@ -494,8 +494,8 @@ alt="更新弹窗">
 &lt;/figure>&lt;/p>
 &lt;p>发现仅有一处, 位于&lt;code>BaseUpgradeHandler&lt;/code>类的&lt;code>onUpgradeNeed()&lt;/code>方法&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 136; flex-basis: 327px">
-&lt;a href="https://example.com/posts/hack/xfish/updatecode.jpg" data-size="609x446">&lt;img src="https://example.com/posts/hack/xfish/updatecode.jpg"
-srcset="https://example.com/posts/hack/xfish/updatecode_hue08c2e2c8268d22c9b70d5b029bd39b2_29411_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updatecode_hue08c2e2c8268d22c9b70d5b029bd39b2_29411_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/updatecode.jpg" data-size="609x446">&lt;img src="/posts/hack/xfish/updatecode.jpg"
+srcset="/posts/hack/xfish/updatecode_hue08c2e2c8268d22c9b70d5b029bd39b2_29411_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/updatecode_hue08c2e2c8268d22c9b70d5b029bd39b2_29411_1024x0_resize_q75_box.jpg 1024w"
 width="609"
 height="446"
 loading="lazy"
@@ -505,8 +505,8 @@ alt="更新代码">
 &lt;/figure>&lt;/p>
 &lt;p>跟踪方法调用, 在&lt;code>com.马赛克.马赛克fish.upgrade.traceable.Upgrade&lt;/code>类的&lt;code>c&lt;/code>方法中被调用, 而&lt;code>c&lt;/code>则被&lt;code>b&lt;/code>调用&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 189; flex-basis: 454px">
-&lt;a href="https://example.com/posts/hack/xfish/updatecall1.jpg" data-size="705x372">&lt;img src="https://example.com/posts/hack/xfish/updatecall1.jpg"
-srcset="https://example.com/posts/hack/xfish/updatecall1_hu44c789f25140b4297b45caa6517061ba_31907_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updatecall1_hu44c789f25140b4297b45caa6517061ba_31907_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/updatecall1.jpg" data-size="705x372">&lt;img src="/posts/hack/xfish/updatecall1.jpg"
+srcset="/posts/hack/xfish/updatecall1_hu44c789f25140b4297b45caa6517061ba_31907_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/updatecall1_hu44c789f25140b4297b45caa6517061ba_31907_1024x0_resize_q75_box.jpg 1024w"
 width="705"
 height="372"
 loading="lazy"
@@ -515,8 +515,8 @@ alt="更新1">
 &lt;figcaption>更新1&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 290; flex-basis: 696px">
-&lt;a href="https://example.com/posts/hack/xfish/updatecall2.jpg" data-size="708x244">&lt;img src="https://example.com/posts/hack/xfish/updatecall2.jpg"
-srcset="https://example.com/posts/hack/xfish/updatecall2_hu8b4e53f6efc16eee43e3c0879d76ef38_23057_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xfish/updatecall2_hu8b4e53f6efc16eee43e3c0879d76ef38_23057_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xfish/updatecall2.jpg" data-size="708x244">&lt;img src="/posts/hack/xfish/updatecall2.jpg"
+srcset="/posts/hack/xfish/updatecall2_hu8b4e53f6efc16eee43e3c0879d76ef38_23057_480x0_resize_q75_box.jpg 480w, /posts/hack/xfish/updatecall2_hu8b4e53f6efc16eee43e3c0879d76ef38_23057_1024x0_resize_q75_box.jpg 1024w"
 width="708"
 height="244"
 loading="lazy"
@@ -544,7 +544,7 @@ param.args[0] = null;
 }
 }
 );
-&lt;/code>&lt;/pre>&lt;p>重新进行测试, &lt;strong>一切正常且启动之后不再有更新弹窗了&lt;/strong>&lt;/p></description></item><item><title>某琴吧EXE播放器破解记录</title><link>https://example.com/posts/hack/xtan/exe/</link><pubDate>Wed, 26 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/exe/</guid><description>&lt;img src="https://example.com/posts/hack/xtan/exe/cover.png" alt="Featured image of post 某琴吧EXE播放器破解记录" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;/code>&lt;/pre>&lt;p>重新进行测试, &lt;strong>一切正常且启动之后不再有更新弹窗了&lt;/strong>&lt;/p></description></item><item><title>某琴吧EXE播放器破解记录</title><link>/posts/hack/xtan/exe/</link><pubDate>Wed, 26 May 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xtan/exe/</guid><description>&lt;img src="/posts/hack/xtan/exe/cover.png" alt="Featured image of post 某琴吧EXE播放器破解记录" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>本文接另一篇文章 &lt;a class="link" href="../xtan_flash_hack/index.md" >某琴吧Flash播放器破解记录&lt;/a>&lt;/p>
 &lt;p>由于某琴吧改版正式使用exe播放器之后, 删除了所有的&lt;code>.ypa2&lt;/code>资源, 导致我没有及时下载的乐谱都无法继续使用Flash播放器播放了, 忍不了, 只能破解exe播放器了&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
@@ -552,8 +552,8 @@ param.args[0] = null;
 &lt;h2 id="开始破解">开始破解&lt;/h2>
 &lt;p>首先安装网站的乐谱播放器, 打开安装目录发现文件结构如下&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 78; flex-basis: 188px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/3.jpg" data-size="246x313">&lt;img src="https://example.com/posts/hack/xtan/exe/3.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/3_hue232319cf432e7036953df257266796c_12330_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/3_hue232319cf432e7036953df257266796c_12330_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/3.jpg" data-size="246x313">&lt;img src="/posts/hack/xtan/exe/3.jpg"
+srcset="/posts/hack/xtan/exe/3_hue232319cf432e7036953df257266796c_12330_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/3_hue232319cf432e7036953df257266796c_12330_1024x0_resize_q75_box.jpg 1024w"
 width="246"
 height="313"
 loading="lazy"
@@ -563,8 +563,8 @@ alt="image-3">
 &lt;/figure>&lt;/p>
 &lt;p>其中&lt;code>xxxchrome.exe&lt;/code>相当于一个浏览器, 可以访问某琴吧, 点击&amp;quot;客户端播放&amp;quot;按钮即可打开播放器, 如下图&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 151; flex-basis: 363px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/2.jpg" data-size="1116x736">&lt;img src="https://example.com/posts/hack/xtan/exe/2.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/2_hu497f65295a89ad86247035b74338bec2_76064_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/2_hu497f65295a89ad86247035b74338bec2_76064_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/2.jpg" data-size="1116x736">&lt;img src="/posts/hack/xtan/exe/2.jpg"
+srcset="/posts/hack/xtan/exe/2_hu497f65295a89ad86247035b74338bec2_76064_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/2_hu497f65295a89ad86247035b74338bec2_76064_1024x0_resize_q75_box.jpg 1024w"
 width="1116"
 height="736"
 loading="lazy"
@@ -574,8 +574,8 @@ alt="image-2">
 &lt;/figure>&lt;/p>
 &lt;p>而&lt;code>xxplayer.exe&lt;/code>才是播放器, 播放器启动后, 可以从任务管理器看到新增的进程&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 128; flex-basis: 307px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/1.jpg" data-size="926x722">&lt;img src="https://example.com/posts/hack/xtan/exe/1.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/1_hud35c019f213a619ddd7799f1e0fa3f93_112502_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/1_hud35c019f213a619ddd7799f1e0fa3f93_112502_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/1.jpg" data-size="926x722">&lt;img src="/posts/hack/xtan/exe/1.jpg"
+srcset="/posts/hack/xtan/exe/1_hud35c019f213a619ddd7799f1e0fa3f93_112502_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/1_hud35c019f213a619ddd7799f1e0fa3f93_112502_1024x0_resize_q75_box.jpg 1024w"
 width="926"
 height="722"
 loading="lazy"
@@ -586,8 +586,8 @@ alt="image-1">
 &lt;p>剩下的安装文件和库文件还有配置文件, 就不介绍了.&lt;/p>
 &lt;p>首先播放一个免费的乐谱, 在任务管理器中查看一下&lt;code>xxplayer.exe&lt;/code>的启动参数&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 610; flex-basis: 1464px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/4.jpg" data-size="946x155">&lt;img src="https://example.com/posts/hack/xtan/exe/4.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/4_hub8c1251db8423eeb57a6a376306d634c_30464_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/4_hub8c1251db8423eeb57a6a376306d634c_30464_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/4.jpg" data-size="946x155">&lt;img src="/posts/hack/xtan/exe/4.jpg"
+srcset="/posts/hack/xtan/exe/4_hub8c1251db8423eeb57a6a376306d634c_30464_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/4_hub8c1251db8423eeb57a6a376306d634c_30464_1024x0_resize_q75_box.jpg 1024w"
 width="946"
 height="155"
 loading="lazy"
@@ -606,8 +606,8 @@ alt="image-4">
 &lt;/ul>
 &lt;p>如果从&lt;code>xxxchrome.exe&lt;/code>打开一个VIP乐谱, 则会显示&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 103; flex-basis: 249px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/5.jpg" data-size="441x425">&lt;img src="https://example.com/posts/hack/xtan/exe/5.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/5_hua261adef9b482683046becfc9484b40d_36483_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/5_hua261adef9b482683046becfc9484b40d_36483_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/5.jpg" data-size="441x425">&lt;img src="/posts/hack/xtan/exe/5.jpg"
+srcset="/posts/hack/xtan/exe/5_hua261adef9b482683046becfc9484b40d_36483_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/5_hua261adef9b482683046becfc9484b40d_36483_1024x0_resize_q75_box.jpg 1024w"
 width="441"
 height="425"
 loading="lazy"
@@ -620,8 +620,8 @@ alt="image-5">
 &lt;pre>&lt;code>xxplayer.exe &amp;quot;file=http://www.马赛克.com/open_yp.php?ypid=33418&amp;amp;uid=999999999&amp;amp;token=4c6930a47090c3f04c7e9db3bf214078&amp;quot;
 &lt;/code>&lt;/pre>&lt;p>启动&lt;code>xxplayer.exe&lt;/code>之后如下&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 128; flex-basis: 307px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/6.jpg" data-size="926x722">&lt;img src="https://example.com/posts/hack/xtan/exe/6.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/6_hu611ebb7a50cb9110ffdfa4a2b0b1f4b7_52562_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/6_hu611ebb7a50cb9110ffdfa4a2b0b1f4b7_52562_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/6.jpg" data-size="926x722">&lt;img src="/posts/hack/xtan/exe/6.jpg"
+srcset="/posts/hack/xtan/exe/6_hu611ebb7a50cb9110ffdfa4a2b0b1f4b7_52562_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/6_hu611ebb7a50cb9110ffdfa4a2b0b1f4b7_52562_1024x0_resize_q75_box.jpg 1024w"
 width="926"
 height="722"
 loading="lazy"
@@ -631,8 +631,8 @@ alt="image-6">
 &lt;/figure>&lt;/p>
 &lt;p>非常的正常, 但是至少验证了 &lt;strong>&lt;code>xxplayer.exe&lt;/code>是可以脱离&lt;code>xxxchrome.exe&lt;/code>独立运行的&lt;/strong>, 那么既然要鉴权, 不请求服务器肯定是不行的吧? 于是打开&lt;code>Charles&lt;/code>开始抓包, 首先用命令行打开一个免费的乐谱, 捕获到网络请求如下&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 217; flex-basis: 520px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/7.jpg" data-size="1109x511">&lt;img src="https://example.com/posts/hack/xtan/exe/7.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/7_hu0c0894aaf992bb2895aba54aaa8c3e13_42004_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/7_hu0c0894aaf992bb2895aba54aaa8c3e13_42004_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/7.jpg" data-size="1109x511">&lt;img src="/posts/hack/xtan/exe/7.jpg"
+srcset="/posts/hack/xtan/exe/7_hu0c0894aaf992bb2895aba54aaa8c3e13_42004_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/7_hu0c0894aaf992bb2895aba54aaa8c3e13_42004_1024x0_resize_q75_box.jpg 1024w"
 width="1109"
 height="511"
 loading="lazy"
@@ -667,8 +667,8 @@ alt="image-7">
 &lt;/code>&lt;/pre>&lt;p>&lt;strong>最后再请求资源地址&lt;code>http:\/\/马赛克.马赛克.com\/yuepuku\/148\/74205\/74205_cfcbahia.ypdx&lt;/code>, 得到&lt;code>.ypdx&lt;/code>格式的播放文件&lt;/strong>&lt;/p>
 &lt;p>现在再来通过命令行启动一个VIP乐谱,看看请求和响应会是怎样的&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 253; flex-basis: 609px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/8.jpg" data-size="1421x560">&lt;img src="https://example.com/posts/hack/xtan/exe/8.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/8_hu3f37fa29dc05402f585297533b7b83ee_37005_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/8_hu3f37fa29dc05402f585297533b7b83ee_37005_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/8.jpg" data-size="1421x560">&lt;img src="/posts/hack/xtan/exe/8.jpg"
+srcset="/posts/hack/xtan/exe/8_hu3f37fa29dc05402f585297533b7b83ee_37005_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/8_hu3f37fa29dc05402f585297533b7b83ee_37005_1024x0_resize_q75_box.jpg 1024w"
 width="1421"
 height="560"
 loading="lazy"
@@ -680,8 +680,8 @@ alt="image-8">
 &lt;p>&lt;strong>如果我将篡改请求的响应,播放器应该就会认为我是有权限的,那不就可以播放了吗?&lt;/strong>&lt;/p>
 &lt;p>首先使用&lt;code>Charles&lt;/code>进行断点, 针对&lt;code>m=index&lt;/code>的请求, 修改播放器请求VIP乐谱的返回值&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 297; flex-basis: 713px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/9.jpg" data-size="1457x490">&lt;img src="https://example.com/posts/hack/xtan/exe/9.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/9_hu7ca9ec15f72904f15f25adfa64967b6c_45120_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/9_hu7ca9ec15f72904f15f25adfa64967b6c_45120_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/9.jpg" data-size="1457x490">&lt;img src="/posts/hack/xtan/exe/9.jpg"
+srcset="/posts/hack/xtan/exe/9_hu7ca9ec15f72904f15f25adfa64967b6c_45120_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/9_hu7ca9ec15f72904f15f25adfa64967b6c_45120_1024x0_resize_q75_box.jpg 1024w"
 width="1457"
 height="490"
 loading="lazy"
@@ -711,8 +711,8 @@ http://oss.马赛克.com/yuepuku/115/57806/57806_hhdafigb.ypdx
 }
 &lt;/code>&lt;/pre>&lt;p>再次测试, &lt;strong>成功打开VIP乐谱, 并开始播放, 所有功能正常!&lt;/strong>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 172; flex-basis: 412px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/10.jpg" data-size="917x533">&lt;img src="https://example.com/posts/hack/xtan/exe/10.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/10_hud8451ede4dc6fa64d83d0d25cd237bd1_87539_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/10_hud8451ede4dc6fa64d83d0d25cd237bd1_87539_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/10.jpg" data-size="917x533">&lt;img src="/posts/hack/xtan/exe/10.jpg"
+srcset="/posts/hack/xtan/exe/10_hud8451ede4dc6fa64d83d0d25cd237bd1_87539_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/10_hud8451ede4dc6fa64d83d0d25cd237bd1_87539_1024x0_resize_q75_box.jpg 1024w"
 width="917"
 height="533"
 loading="lazy"
@@ -723,8 +723,8 @@ alt="image-10">
 &lt;p>确定伪造响应的方案确定可行之后, 下一步就是要让播放器请求我指定的地址了, 因为刚才是通过&lt;code>Charles&lt;/code>修改响应的, 但我不可能每次都使用&lt;code>Charles&lt;/code>断点, 我需要反编译&lt;code>xxplayer.exe&lt;/code>, 并修改服务请求地址为我监听的地址, 然后由我监听的地址返回所需数据&lt;/p>
 &lt;p>使用&lt;code>OllyDbg&lt;/code>(以下简称&lt;code>OD&lt;/code>)反汇编&lt;code>xxplayer.exe&lt;/code>, 在菜单栏依次点击 &amp;ldquo;插件&amp;rdquo; -&amp;gt; &amp;ldquo;中文搜索引擎&amp;rdquo; -&amp;gt; &amp;ldquo;搜索UNICODE&amp;rdquo;, 以&lt;code>Charles&lt;/code>捕获到的url中的关键字&lt;code>codeindex&lt;/code>搜索, 发现一共有三处&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 157; flex-basis: 377px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/11.jpg" data-size="873x555">&lt;img src="https://example.com/posts/hack/xtan/exe/11.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/11_huffee53a5592e1e02a42fb8e5ded3cf0f_112355_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/11_huffee53a5592e1e02a42fb8e5ded3cf0f_112355_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/11.jpg" data-size="873x555">&lt;img src="/posts/hack/xtan/exe/11.jpg"
+srcset="/posts/hack/xtan/exe/11_huffee53a5592e1e02a42fb8e5ded3cf0f_112355_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/11_huffee53a5592e1e02a42fb8e5ded3cf0f_112355_1024x0_resize_q75_box.jpg 1024w"
 width="873"
 height="555"
 loading="lazy"
@@ -737,8 +737,8 @@ alt="iamge-11">
 &lt;/blockquote>
 &lt;p>双击搜索到的第一处字符串, 跳转到引用代码段, 通过字符串格式可以看出, 其中&lt;code>%s&lt;/code>是要用参数替换的, 且通过前面的&lt;code>push&lt;/code>可以看出, 它自身也是作为参数被传递的, 那么只要跟踪下方离他最近的&lt;code>call&lt;/code>之前的变量, 就能确定需要修改哪一行了, 在可疑的&lt;code>push&lt;/code>处按&lt;code>F2&lt;/code>断点, &lt;code>F8&lt;/code>单步调试后, 发现&lt;code>push [local.7]&lt;/code>正是请求的域名&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 247; flex-basis: 593px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/12.jpg" data-size="1382x559">&lt;img src="https://example.com/posts/hack/xtan/exe/12.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/12_hu2c3187806ba888f67c6ef154a52910a6_103478_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/12_hu2c3187806ba888f67c6ef154a52910a6_103478_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/12.jpg" data-size="1382x559">&lt;img src="/posts/hack/xtan/exe/12.jpg"
+srcset="/posts/hack/xtan/exe/12_hu2c3187806ba888f67c6ef154a52910a6_103478_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/12_hu2c3187806ba888f67c6ef154a52910a6_103478_1024x0_resize_q75_box.jpg 1024w"
 width="1382"
 height="559"
 loading="lazy"
@@ -756,8 +756,8 @@ alt="image-12">
 &lt;/blockquote>
 &lt;p>这里暂时不知道&lt;code>[local.7]&lt;/code>哪儿来的, 所以我选择第二种方式, 查看&lt;code>OD&lt;/code>左下角数据面板, 拉到最下面, 找到程序空白处, 双击空白地址, 在弹出的编辑窗口中取消勾选&amp;quot;Keep size&amp;quot;, 在&lt;code>UNICODE&lt;/code>栏输入&lt;code>localhost:7777&lt;/code>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 141; flex-basis: 338px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/13.jpg" data-size="877x621">&lt;img src="https://example.com/posts/hack/xtan/exe/13.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/13_hudbbd87ddb0f3a147db74e9958487c023_140223_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/13_hudbbd87ddb0f3a147db74e9958487c023_140223_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/13.jpg" data-size="877x621">&lt;img src="/posts/hack/xtan/exe/13.jpg"
+srcset="/posts/hack/xtan/exe/13_hudbbd87ddb0f3a147db74e9958487c023_140223_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/13_hudbbd87ddb0f3a147db74e9958487c023_140223_1024x0_resize_q75_box.jpg 1024w"
 width="877"
 height="621"
 loading="lazy"
@@ -766,8 +766,8 @@ alt="image-13">
 &lt;figcaption>image-13&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 183; flex-basis: 440px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/14.jpg" data-size="674x367">&lt;img src="https://example.com/posts/hack/xtan/exe/14.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/14_hu04bc64c292e419c662d490484458d11b_82404_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/14_hu04bc64c292e419c662d490484458d11b_82404_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/14.jpg" data-size="674x367">&lt;img src="/posts/hack/xtan/exe/14.jpg"
+srcset="/posts/hack/xtan/exe/14_hu04bc64c292e419c662d490484458d11b_82404_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/14_hu04bc64c292e419c662d490484458d11b_82404_1024x0_resize_q75_box.jpg 1024w"
 width="674"
 height="367"
 loading="lazy"
@@ -792,8 +792,8 @@ alt="image-14">
 &lt;p>由于修改后的代码较之前的代码更少, 需要勾选&amp;quot;Fill with NOP`s&amp;quot;来保持长度一致&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;figure style="flex-grow: 468; flex-basis: 1125px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/15.jpg" data-size="661x141">&lt;img src="https://example.com/posts/hack/xtan/exe/15.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/15_hu57c63b4afeb55ac5b9b491851fbce9ac_27836_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/15_hu57c63b4afeb55ac5b9b491851fbce9ac_27836_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/15.jpg" data-size="661x141">&lt;img src="/posts/hack/xtan/exe/15.jpg"
+srcset="/posts/hack/xtan/exe/15_hu57c63b4afeb55ac5b9b491851fbce9ac_27836_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/15_hu57c63b4afeb55ac5b9b491851fbce9ac_27836_1024x0_resize_q75_box.jpg 1024w"
 width="661"
 height="141"
 loading="lazy"
@@ -803,8 +803,8 @@ alt="image-15">
 &lt;/figure>&lt;/p>
 &lt;p>可以看到在汇编面板右侧已经自动显示了标记, 提示当前&lt;code>push&lt;/code>的值为&lt;code>localhost:7777&lt;/code>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 494; flex-basis: 1187px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/16.jpg" data-size="757x153">&lt;img src="https://example.com/posts/hack/xtan/exe/16.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/16_hu9bfdeefc21eab2638c1ebf03797105d7_27361_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/16_hu9bfdeefc21eab2638c1ebf03797105d7_27361_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/16.jpg" data-size="757x153">&lt;img src="/posts/hack/xtan/exe/16.jpg"
+srcset="/posts/hack/xtan/exe/16_hu9bfdeefc21eab2638c1ebf03797105d7_27361_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/16_hu9bfdeefc21eab2638c1ebf03797105d7_27361_1024x0_resize_q75_box.jpg 1024w"
 width="757"
 height="153"
 loading="lazy"
@@ -814,8 +814,8 @@ alt="image-16">
 &lt;/figure>&lt;/p>
 &lt;p>现在选中刚才在数据面板添加的字符串十六进制代码块, 右键点击&amp;quot;复制到可执行文件&amp;quot;, 再选中汇编面板所有修改的行, 右键点击&amp;quot;复制到可执行文件&amp;quot; -&amp;gt; &amp;ldquo;选中行&amp;rdquo;, 在弹出的面板中右键&amp;quot;备份&amp;quot; -&amp;gt; &amp;ldquo;保存数据到文件&amp;quot;即可保存修改后的exe文件&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 169; flex-basis: 406px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/36.jpg" data-size="490x289">&lt;img src="https://example.com/posts/hack/xtan/exe/36.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/36_hu404fc96720b3b7e3a08d11e39c71c904_39522_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/36_hu404fc96720b3b7e3a08d11e39c71c904_39522_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/36.jpg" data-size="490x289">&lt;img src="/posts/hack/xtan/exe/36.jpg"
+srcset="/posts/hack/xtan/exe/36_hu404fc96720b3b7e3a08d11e39c71c904_39522_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/36_hu404fc96720b3b7e3a08d11e39c71c904_39522_1024x0_resize_q75_box.jpg 1024w"
 width="490"
 height="289"
 loading="lazy"
@@ -825,8 +825,8 @@ alt="image-36">
 &lt;/figure>&lt;/p>
 &lt;p>执行修改后的程序, 发现程序异常退出, 用&lt;code>OD&lt;/code>打开修改后的文件, 再次找到刚才修改&lt;code>push&lt;/code>的地方, 发现右侧没有显示&lt;code>localhost:7777&lt;/code>的标记&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 792; flex-basis: 1900px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/17.jpg" data-size="800x101">&lt;img src="https://example.com/posts/hack/xtan/exe/17.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/17_huf607ca71409b4fad60df0a0bf04883f0_25000_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/17_huf607ca71409b4fad60df0a0bf04883f0_25000_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/17.jpg" data-size="800x101">&lt;img src="/posts/hack/xtan/exe/17.jpg"
+srcset="/posts/hack/xtan/exe/17_huf607ca71409b4fad60df0a0bf04883f0_25000_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/17_huf607ca71409b4fad60df0a0bf04883f0_25000_1024x0_resize_q75_box.jpg 1024w"
 width="800"
 height="101"
 loading="lazy"
@@ -836,8 +836,8 @@ alt="image-17">
 &lt;/figure>&lt;/p>
 &lt;p>再看看跳转地址&lt;code>0x11808E4&lt;/code>, 也不是刚才修改的字符串内容&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 223; flex-basis: 535px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/18.jpg" data-size="705x316">&lt;img src="https://example.com/posts/hack/xtan/exe/18.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/18_hu399d950736d8f788e6f1fac9c27f058c_68183_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/18_hu399d950736d8f788e6f1fac9c27f058c_68183_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/18.jpg" data-size="705x316">&lt;img src="/posts/hack/xtan/exe/18.jpg"
+srcset="/posts/hack/xtan/exe/18_hu399d950736d8f788e6f1fac9c27f058c_68183_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/18_hu399d950736d8f788e6f1fac9c27f058c_68183_1024x0_resize_q75_box.jpg 1024w"
 width="705"
 height="316"
 loading="lazy"
@@ -851,8 +851,8 @@ alt="image-18">
 &lt;pre>&lt;code>file=http://www.baidu.com/open_yp.php?ypid=73981&amp;amp;uid=999999999&amp;amp;token=fbf0ab24ee47bfa1cb460e41c1f61fdb&amp;amp;ypid=73981
 &lt;/code>&lt;/pre>&lt;p>重新运行, 抓包发现它真的去请求百度的&lt;code>/codeindex.php&lt;/code>接口了&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 246; flex-basis: 591px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/19.jpg" data-size="1201x487">&lt;img src="https://example.com/posts/hack/xtan/exe/19.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/19_hu0b7b1ef1c2d34dbfa1585c7679051785_39521_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/19_hu0b7b1ef1c2d34dbfa1585c7679051785_39521_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/19.jpg" data-size="1201x487">&lt;img src="/posts/hack/xtan/exe/19.jpg"
+srcset="/posts/hack/xtan/exe/19_hu0b7b1ef1c2d34dbfa1585c7679051785_39521_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/19_hu0b7b1ef1c2d34dbfa1585c7679051785_39521_1024x0_resize_q75_box.jpg 1024w"
 width="1201"
 height="487"
 loading="lazy"
@@ -862,8 +862,8 @@ alt="image-19">
 &lt;/figure>&lt;/p>
 &lt;p>于是我再将参数换成&lt;code>localhost:7777&lt;/code>, 重新运行, 结果发现程序异常退出, 进行跟踪调试发现&lt;code>[local.7]&lt;/code>的实际值被截取了不包含端口号的部分, 为&lt;code>localhost&lt;/code>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 698; flex-basis: 1676px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/20.jpg" data-size="433x62">&lt;img src="https://example.com/posts/hack/xtan/exe/20.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/20_hu440de6aaab4215e0c9aec32fa24ecc7b_7055_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/20_hu440de6aaab4215e0c9aec32fa24ecc7b_7055_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/20.jpg" data-size="433x62">&lt;img src="/posts/hack/xtan/exe/20.jpg"
+srcset="/posts/hack/xtan/exe/20_hu440de6aaab4215e0c9aec32fa24ecc7b_7055_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/20_hu440de6aaab4215e0c9aec32fa24ecc7b_7055_1024x0_resize_q75_box.jpg 1024w"
 width="433"
 height="62"
 loading="lazy"
@@ -876,8 +876,8 @@ alt="image-20">
 &lt;/code>&lt;/pre>&lt;p>中第二个&lt;code>%s&lt;/code>直接替换成&lt;code>localhost:7777&lt;/code>不就可以了? 但是这样就少了一个&lt;code>%s&lt;/code>, 参数对不上后面的代码一定会报错, 于是我想到在&lt;code>?&lt;/code>后面再加一个参数, 参数名随意, 参数值就用&lt;code>[local.7]&lt;/code>, 反正对于串来说, &lt;code>%s&lt;/code>的数量能够对应参数的数量即可, 而对于HTTP请求来说, 多一个参数也没什么影响. 不过修改后字符串的长度就对不上了, 所以还是在程序空白处添加了一个新的字符串如下&lt;/p>
 &lt;pre>&lt;code>%s://localhost:7777/codeindex.php?a=%s&amp;amp;d=api&amp;amp;c=check马赛克playerPower&amp;amp;m=%s&amp;amp;ypid=%d&amp;amp;uid=%d&amp;amp;token=%s
 &lt;/code>&lt;/pre>&lt;p>&lt;figure style="flex-grow: 153; flex-basis: 367px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/21.jpg" data-size="889x580">&lt;img src="https://example.com/posts/hack/xtan/exe/21.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/21_hu1c54f487ac9664d7c79f770f2f649700_141375_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/21_hu1c54f487ac9664d7c79f770f2f649700_141375_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/21.jpg" data-size="889x580">&lt;img src="/posts/hack/xtan/exe/21.jpg"
+srcset="/posts/hack/xtan/exe/21_hu1c54f487ac9664d7c79f770f2f649700_141375_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/21_hu1c54f487ac9664d7c79f770f2f649700_141375_1024x0_resize_q75_box.jpg 1024w"
 width="889"
 height="580"
 loading="lazy"
@@ -887,8 +887,8 @@ alt="image-21">
 &lt;/figure>&lt;/p>
 &lt;p>其中&lt;code>a&lt;/code>就是新增的无用参数, &lt;code>a&lt;/code>后面跟的&lt;code>%s&lt;/code>将会被&lt;code>[local.7]&lt;/code>的值替换, 这样一来无论启动参数中的域名是什么都无所谓了. 记录新字符串的地址为&lt;code>0x11808E4&lt;/code>, 找到&lt;code>push&lt;/code>原来字符串的汇编代码, 修改&lt;code>push&lt;/code>地址为新的字符串地址&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 375; flex-basis: 901px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/22.jpg" data-size="781x208">&lt;img src="https://example.com/posts/hack/xtan/exe/22.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/22_hue1957260a927d0c5dbb86391d75e28e1_43919_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/22_hue1957260a927d0c5dbb86391d75e28e1_43919_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/22.jpg" data-size="781x208">&lt;img src="/posts/hack/xtan/exe/22.jpg"
+srcset="/posts/hack/xtan/exe/22_hue1957260a927d0c5dbb86391d75e28e1_43919_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/22_hue1957260a927d0c5dbb86391d75e28e1_43919_1024x0_resize_q75_box.jpg 1024w"
 width="781"
 height="208"
 loading="lazy"
@@ -898,8 +898,8 @@ alt="image-22">
 &lt;/figure>&lt;/p>
 &lt;p>再次保存执行, 程序还是异常退出, 用&lt;code>OD&lt;/code>打开修改后的程序发现地址正确, 字符串正确, 但是还是会报错, 于是我怀疑不能用&lt;code>localhost&lt;/code>作为域名. 将&lt;code>localhost:7777&lt;/code>修改为&lt;code>127.0.0.1:7777&lt;/code>, 再次运行, 这次终于在后台收到了来自播放器的HTTP请求!&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 142; flex-basis: 341px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/23.jpg" data-size="588x413">&lt;img src="https://example.com/posts/hack/xtan/exe/23.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/23_hue6d1dcff70949874743239655fec497d_58860_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/23_hue6d1dcff70949874743239655fec497d_58860_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/23.jpg" data-size="588x413">&lt;img src="/posts/hack/xtan/exe/23.jpg"
+srcset="/posts/hack/xtan/exe/23_hue6d1dcff70949874743239655fec497d_58860_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/23_hue6d1dcff70949874743239655fec497d_58860_1024x0_resize_q75_box.jpg 1024w"
 width="588"
 height="413"
 loading="lazy"
@@ -925,8 +925,8 @@ alt="image-23">
 &lt;h2 id="继续破解">继续破解&lt;/h2>
 &lt;p>&lt;strong>现在虽然播放曲谱没有问题了, 但是现在还有如下几个VIP功能用不了, 要白嫖就白嫖到极致&lt;/strong>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 143; flex-basis: 345px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/24.jpg" data-size="233x162">&lt;img src="https://example.com/posts/hack/xtan/exe/24.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/24_hu900d4ace8f5f7a408779743848e939c7_8586_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/24_hu900d4ace8f5f7a408779743848e939c7_8586_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/24.jpg" data-size="233x162">&lt;img src="/posts/hack/xtan/exe/24.jpg"
+srcset="/posts/hack/xtan/exe/24_hu900d4ace8f5f7a408779743848e939c7_8586_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/24_hu900d4ace8f5f7a408779743848e939c7_8586_1024x0_resize_q75_box.jpg 1024w"
 width="233"
 height="162"
 loading="lazy"
@@ -936,8 +936,8 @@ alt="image-24">
 &lt;/figure>&lt;/p>
 &lt;p>从音源开始下手, 点击&amp;quot;音源&amp;rdquo; -&amp;gt; &amp;ldquo;浏览&amp;quot;后, 播放器弹出没有权限的提示&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 204; flex-basis: 491px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/25.jpg" data-size="346x169">&lt;img src="https://example.com/posts/hack/xtan/exe/25.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/25_hu59dd44e7ae9f17fbaea053064c4a0a8f_7285_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/25_hu59dd44e7ae9f17fbaea053064c4a0a8f_7285_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/25.jpg" data-size="346x169">&lt;img src="/posts/hack/xtan/exe/25.jpg"
+srcset="/posts/hack/xtan/exe/25_hu59dd44e7ae9f17fbaea053064c4a0a8f_7285_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/25_hu59dd44e7ae9f17fbaea053064c4a0a8f_7285_1024x0_resize_q75_box.jpg 1024w"
 width="346"
 height="169"
 loading="lazy"
@@ -956,8 +956,8 @@ alt="image-25">
 &lt;p>参考正常响应中&lt;code>openPower&lt;/code>为1, 其他的为0, 因此把后台响应中所有为0改为1, 再次点击音源, 发现可以正常选择了&lt;/p>
 &lt;pre>&lt;code>{&amp;quot;responseCode&amp;quot;:&amp;quot;1000&amp;quot;,&amp;quot;message&amp;quot;:&amp;quot;\u6b63\u5e38&amp;quot;,&amp;quot;power&amp;quot;:{&amp;quot;openPower&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;printPower&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;printCount&amp;quot;:&amp;quot;30&amp;quot;,&amp;quot;vstPower&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;pdfPower&amp;quot;:&amp;quot;1&amp;quot;}}
 &lt;/code>&lt;/pre>&lt;p>&lt;figure style="flex-grow: 279; flex-basis: 669px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/26.jpg" data-size="960x344">&lt;img src="https://example.com/posts/hack/xtan/exe/26.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/26_hu1bf099da9e3265a9d42b774a7d669a1d_27932_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/26_hu1bf099da9e3265a9d42b774a7d669a1d_27932_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/26.jpg" data-size="960x344">&lt;img src="/posts/hack/xtan/exe/26.jpg"
+srcset="/posts/hack/xtan/exe/26_hu1bf099da9e3265a9d42b774a7d669a1d_27932_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/26_hu1bf099da9e3265a9d42b774a7d669a1d_27932_1024x0_resize_q75_box.jpg 1024w"
 width="960"
 height="344"
 loading="lazy"
@@ -967,8 +967,8 @@ alt="image-26">
 &lt;/figure>&lt;/p>
 &lt;p>接下来看看点击转换PDF功能, 通过&lt;code>Charles&lt;/code>发现会发送一个权限请求&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 235; flex-basis: 565px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/27.jpg" data-size="1355x575">&lt;img src="https://example.com/posts/hack/xtan/exe/27.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/27_hu4561b2c4374e5a889b57d6ec9aab22e2_42292_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/27_hu4561b2c4374e5a889b57d6ec9aab22e2_42292_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/27.jpg" data-size="1355x575">&lt;img src="/posts/hack/xtan/exe/27.jpg"
+srcset="/posts/hack/xtan/exe/27_hu4561b2c4374e5a889b57d6ec9aab22e2_42292_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/27_hu4561b2c4374e5a889b57d6ec9aab22e2_42292_1024x0_resize_q75_box.jpg 1024w"
 width="1355"
 height="575"
 loading="lazy"
@@ -978,8 +978,8 @@ alt="image-27">
 &lt;/figure>&lt;/p>
 &lt;p>其中接口仍然是&lt;code>/codeindex.php&lt;/code>, 但本次&lt;code>m&lt;/code>取值为&lt;code>addDynamic&lt;/code>, 在&lt;code>OD&lt;/code>中发现就是刚才上文&lt;code>codeindex&lt;/code>搜索结果中的第三处&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 326; flex-basis: 784px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/28.jpg" data-size="1232x377">&lt;img src="https://example.com/posts/hack/xtan/exe/28.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/28_hu916247033dd02548bff370c15f18cd50_79605_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/28_hu916247033dd02548bff370c15f18cd50_79605_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/28.jpg" data-size="1232x377">&lt;img src="/posts/hack/xtan/exe/28.jpg"
+srcset="/posts/hack/xtan/exe/28_hu916247033dd02548bff370c15f18cd50_79605_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/28_hu916247033dd02548bff370c15f18cd50_79605_1024x0_resize_q75_box.jpg 1024w"
 width="1232"
 height="377"
 loading="lazy"
@@ -989,8 +989,8 @@ alt="image-28">
 &lt;/figure>&lt;/p>
 &lt;p>双击搜索结果字符串转到汇编代码,&lt;code>00F63EAE&lt;/code> 处的&lt;code>push&lt;/code>地址就是将要用来替换成请求域名的参数, 这个地址指向了某琴吧的域名, 所以这里采用同样的办法, 先在程序空白处添加字符串&lt;code>127.0.0.1:7777&lt;/code>, 然后修改&lt;code>push&lt;/code>原来串的地址修改为新增的字符串地址&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 121; flex-basis: 291px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/29.jpg" data-size="863x711">&lt;img src="https://example.com/posts/hack/xtan/exe/29.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/29_hu38430dc1e6439a03884f24c857dc3df5_158665_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/29_hu38430dc1e6439a03884f24c857dc3df5_158665_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/29.jpg" data-size="863x711">&lt;img src="/posts/hack/xtan/exe/29.jpg"
+srcset="/posts/hack/xtan/exe/29_hu38430dc1e6439a03884f24c857dc3df5_158665_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/29_hu38430dc1e6439a03884f24c857dc3df5_158665_1024x0_resize_q75_box.jpg 1024w"
 width="863"
 height="711"
 loading="lazy"
@@ -1005,8 +1005,8 @@ alt="image-29">
 &lt;pre>&lt;code>{&amp;quot;data&amp;quot;:{&amp;quot;code&amp;quot;:&amp;quot;1000&amp;quot;,&amp;quot;message&amp;quot;:&amp;quot;\u6b63\u5e38&amp;quot;,&amp;quot;result&amp;quot;:{&amp;quot;printCount&amp;quot;:&amp;quot;30&amp;quot;}}}
 &lt;/code>&lt;/pre>&lt;p>重新打开运行PDF保存, 发现可以转换并保存了&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 134; flex-basis: 323px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/30.jpg" data-size="820x608">&lt;img src="https://example.com/posts/hack/xtan/exe/30.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/30_hu8e914918ef7e0abf8766f87cc7afd2fe_39001_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/30_hu8e914918ef7e0abf8766f87cc7afd2fe_39001_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/30.jpg" data-size="820x608">&lt;img src="/posts/hack/xtan/exe/30.jpg"
+srcset="/posts/hack/xtan/exe/30_hu8e914918ef7e0abf8766f87cc7afd2fe_39001_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/30_hu8e914918ef7e0abf8766f87cc7afd2fe_39001_1024x0_resize_q75_box.jpg 1024w"
 width="820"
 height="608"
 loading="lazy"
@@ -1019,8 +1019,8 @@ alt="image-30">
 &lt;h2 id="但是尚不完美">但是尚不完美&lt;/h2>
 &lt;p>最后做脱机测试的时候发现播放器会先检查网络连接状态, 没有网络连接则无法播放&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 138; flex-basis: 332px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/31.jpg" data-size="234x169">&lt;img src="https://example.com/posts/hack/xtan/exe/31.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/31_hua7620923e16ce59bf6ec472d077d4bf8_5366_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/31_hua7620923e16ce59bf6ec472d077d4bf8_5366_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/31.jpg" data-size="234x169">&lt;img src="/posts/hack/xtan/exe/31.jpg"
+srcset="/posts/hack/xtan/exe/31_hua7620923e16ce59bf6ec472d077d4bf8_5366_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/31_hua7620923e16ce59bf6ec472d077d4bf8_5366_1024x0_resize_q75_box.jpg 1024w"
 width="234"
 height="169"
 loading="lazy"
@@ -1030,8 +1030,8 @@ alt="image-31">
 &lt;/figure>&lt;/p>
 &lt;p>但是我的目标是播放器能够脱机使用, 而且实际上播放器被我修改后已经不需要再连上互联网, 只需要请求乐谱工具的HTTP服务地址就可以, 因此根据弹窗搜索字符串, 定位到相关代码&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 356; flex-basis: 854px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/32.jpg" data-size="755x212">&lt;img src="https://example.com/posts/hack/xtan/exe/32.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/32_huc5c8a523870c7cfbc55a7f4c1592a244_51730_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/32_huc5c8a523870c7cfbc55a7f4c1592a244_51730_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/32.jpg" data-size="755x212">&lt;img src="/posts/hack/xtan/exe/32.jpg"
+srcset="/posts/hack/xtan/exe/32_huc5c8a523870c7cfbc55a7f4c1592a244_51730_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/32_huc5c8a523870c7cfbc55a7f4c1592a244_51730_1024x0_resize_q75_box.jpg 1024w"
 width="755"
 height="212"
 loading="lazy"
@@ -1041,8 +1041,8 @@ alt="image-32">
 &lt;/figure>&lt;/p>
 &lt;p>可以看到播放器在&lt;code>00F693E2&lt;/code>处调用系统接口得到网络连接状态, 在&lt;code>00F693EC&lt;/code>处, 如果有网络连接则会跳转到&lt;code>00F6940A&lt;/code>处继续, 没有网络连接则会显示并中断运行, 那我只需要让这个判断失效就可以了, 双击&lt;code>00F693EC&lt;/code>打开编辑窗口, 将&lt;code>jnz&lt;/code> (不等于0则跳转) 修改为&lt;code>jmp&lt;/code> (无条件跳转), 这样运行至此的时候将不会判断网络连接状态, 直接运行后面的代码&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 258; flex-basis: 621px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/34.jpg" data-size="725x280">&lt;img src="https://example.com/posts/hack/xtan/exe/34.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/34_hu97a16d2494720619905afeac8c214e7e_58677_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/34_hu97a16d2494720619905afeac8c214e7e_58677_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/34.jpg" data-size="725x280">&lt;img src="/posts/hack/xtan/exe/34.jpg"
+srcset="/posts/hack/xtan/exe/34_hu97a16d2494720619905afeac8c214e7e_58677_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/34_hu97a16d2494720619905afeac8c214e7e_58677_1024x0_resize_q75_box.jpg 1024w"
 width="725"
 height="280"
 loading="lazy"
@@ -1051,8 +1051,8 @@ alt="image-34">
 &lt;figcaption>image-34&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 424; flex-basis: 1018px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/35.jpg" data-size="734x173">&lt;img src="https://example.com/posts/hack/xtan/exe/35.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/35_hua827e34f01cf28e04ef01c9d17be5ee7_41039_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/35_hua827e34f01cf28e04ef01c9d17be5ee7_41039_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/35.jpg" data-size="734x173">&lt;img src="/posts/hack/xtan/exe/35.jpg"
+srcset="/posts/hack/xtan/exe/35_hua827e34f01cf28e04ef01c9d17be5ee7_41039_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/35_hua827e34f01cf28e04ef01c9d17be5ee7_41039_1024x0_resize_q75_box.jpg 1024w"
 width="734"
 height="173"
 loading="lazy"
@@ -1062,8 +1062,8 @@ alt="image-35">
 &lt;/figure>&lt;/p>
 &lt;p>同样的, 在使用转换PDF功能时还会检测网络状态, 然后弹窗提示&amp;quot;没有检测到网络!&amp;rdquo;, 找到代码运行处, 修改&lt;code>00F75DDE&lt;/code>处的&lt;code>jnz&lt;/code>为&lt;code>jmp&lt;/code>即可&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 529; flex-basis: 1271px">
-&lt;a href="https://example.com/posts/hack/xtan/exe/33.jpg" data-size="694x131">&lt;img src="https://example.com/posts/hack/xtan/exe/33.jpg"
-srcset="https://example.com/posts/hack/xtan/exe/33_huf3b00aaa9378afd32a3c2a50a118f246_35895_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/exe/33_huf3b00aaa9378afd32a3c2a50a118f246_35895_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/exe/33.jpg" data-size="694x131">&lt;img src="/posts/hack/xtan/exe/33.jpg"
+srcset="/posts/hack/xtan/exe/33_huf3b00aaa9378afd32a3c2a50a118f246_35895_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/exe/33_huf3b00aaa9378afd32a3c2a50a118f246_35895_1024x0_resize_q75_box.jpg 1024w"
 width="694"
 height="131"
 loading="lazy"
@@ -1072,15 +1072,15 @@ alt="image-33">
 &lt;figcaption>image-33&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>保存后重新运行, 现在脱机情况下播放器能够正常打开并请求乐谱工具的HTTP服务并正常播放乐谱了, 转存PDF文件等VIP功能也能够正常使用&lt;/p>
-&lt;h2 id="至此exe版本宣告完美破解">至此exe版本宣告完美破解&lt;/h2></description></item><item><title>某琴吧Flash播放器破解记录</title><link>https://example.com/posts/hack/xtan/flash/</link><pubDate>Tue, 25 May 2021 00:50:44 +0800</pubDate><guid>https://example.com/posts/hack/xtan/flash/</guid><description>&lt;img src="https://example.com/posts/hack/xtan/flash/cover.png" alt="Featured image of post 某琴吧Flash播放器破解记录" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;h2 id="至此exe版本宣告完美破解">至此exe版本宣告完美破解&lt;/h2></description></item><item><title>某琴吧Flash播放器破解记录</title><link>/posts/hack/xtan/flash/</link><pubDate>Tue, 25 May 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xtan/flash/</guid><description>&lt;img src="/posts/hack/xtan/flash/cover.png" alt="Featured image of post 某琴吧Flash播放器破解记录" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>2019年的某月, 某琴吧将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.&lt;/p>
 &lt;p>同年, 得知Adobe公司将于2020年年末彻底停用Flash, 遂产生破解其Flash播放器并本地化的想法.&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
 &lt;p>破解该站的Flash播放器, 使其能够免费下载并播放VIP乐谱, 并将乐谱保存至本地硬盘, 同时使播放器可以脱离浏览器且可以脱机使用&lt;/p>
 &lt;h2 id="网站乐谱页">网站乐谱页&lt;/h2>
 &lt;p>&lt;figure style="flex-grow: 105; flex-basis: 252px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/1.jpg" data-size="829x789">&lt;img src="https://example.com/posts/hack/xtan/flash/1.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/1_hu7d519fa7cc6e6f603ce1301045ffe678_62992_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/1_hu7d519fa7cc6e6f603ce1301045ffe678_62992_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/1.jpg" data-size="829x789">&lt;img src="/posts/hack/xtan/flash/1.jpg"
+srcset="/posts/hack/xtan/flash/1_hu7d519fa7cc6e6f603ce1301045ffe678_62992_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/1_hu7d519fa7cc6e6f603ce1301045ffe678_62992_1024x0_resize_q75_box.jpg 1024w"
 width="829"
 height="789"
 loading="lazy"
@@ -1105,8 +1105,8 @@ alt="image-1">
 >jpexs-decompiler&lt;/a>, 顺利反编译出&lt;code>player.swf&lt;/code>代码, 用IDEA新建为&lt;code>Flex&lt;/code>项目打开, 再百度其中的一些&lt;code>package&lt;/code>名称, 发现代码可基于 &lt;code>flex_sdk_3.6a&lt;/code> 的SDK运行, 再从Adobe官网下载官方的Flash调试工具 &lt;a class="link" href="https://www.flash.cn/cdm/latest/flashplayer_sa_debug.exe" target="_blank" rel="noopener"
 >flash_player_debugger&lt;/a>, 配合IDEA编译后可直接运行调试, 反编译出来的代码如下:&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 120; flex-basis: 288px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/2.jpg" data-size="965x803">&lt;img src="https://example.com/posts/hack/xtan/flash/2.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/2_hu9a1d963a635d7c3fe6b355f33f6e6f72_118163_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/2_hu9a1d963a635d7c3fe6b355f33f6e6f72_118163_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/2.jpg" data-size="965x803">&lt;img src="/posts/hack/xtan/flash/2.jpg"
+srcset="/posts/hack/xtan/flash/2_hu9a1d963a635d7c3fe6b355f33f6e6f72_118163_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/2_hu9a1d963a635d7c3fe6b355f33f6e6f72_118163_1024x0_resize_q75_box.jpg 1024w"
 width="965"
 height="803"
 loading="lazy"
@@ -1118,8 +1118,8 @@ alt="image-2">
 &lt;pre>&lt;code>player.swf?id=1
 &lt;/code>&lt;/pre>&lt;p>而配置类&lt;code>Config&lt;/code>定义了服务端接口地址:&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 167; flex-basis: 402px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/3.png" data-size="825x492">&lt;img src="https://example.com/posts/hack/xtan/flash/3.png"
-srcset="https://example.com/posts/hack/xtan/flash/3_hub3691062b2e8682742c3a0f382173200_262924_480x0_resize_box_2.png 480w, https://example.com/posts/hack/xtan/flash/3_hub3691062b2e8682742c3a0f382173200_262924_1024x0_resize_box_2.png 1024w"
+&lt;a href="/posts/hack/xtan/flash/3.png" data-size="825x492">&lt;img src="/posts/hack/xtan/flash/3.png"
+srcset="/posts/hack/xtan/flash/3_hub3691062b2e8682742c3a0f382173200_262924_480x0_resize_box_2.png 480w, /posts/hack/xtan/flash/3_hub3691062b2e8682742c3a0f382173200_262924_1024x0_resize_box_2.png 1024w"
 width="825"
 height="492"
 loading="lazy"
@@ -1129,8 +1129,8 @@ alt="image-3">
 &lt;/figure>&lt;/p>
 &lt;p>但是很遗憾在&lt;code>player.swf&lt;/code>中的代码没有发现第四步获取乐谱信息的接口地址, 那么只能找其他突破口, 这时&lt;code>Sounds.swf&lt;/code>就很可疑了, 通过阅读&lt;code>player.swf&lt;/code>的代码发现&lt;code>Sounds.swf&lt;/code>是点击播放按钮之后, 作为一个函数库被加载进来的, 这里&lt;code>load&lt;/code>的地址就是&lt;code>Config&lt;/code>里定义了&lt;code>Sounds.swf&lt;/code>资源地址&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 699; flex-basis: 1677px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/4.jpg" data-size="734x105">&lt;img src="https://example.com/posts/hack/xtan/flash/4.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/4_hucd33810a9373f5b4f2b4d4125da2b238_18828_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/4_hucd33810a9373f5b4f2b4d4125da2b238_18828_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/4.jpg" data-size="734x105">&lt;img src="/posts/hack/xtan/flash/4.jpg"
+srcset="/posts/hack/xtan/flash/4_hucd33810a9373f5b4f2b4d4125da2b238_18828_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/4_hucd33810a9373f5b4f2b4d4125da2b238_18828_1024x0_resize_q75_box.jpg 1024w"
 width="734"
 height="105"
 loading="lazy"
@@ -1140,8 +1140,8 @@ alt="image-4">
 &lt;/figure>&lt;/p>
 &lt;p>请求响应之后通过回调函数&lt;code>onSwComplete&lt;/code>将其载入并储存到&lt;code>Clib&lt;/code>类的成员变量&lt;code>clib&lt;/code>中&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 318; flex-basis: 764px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/5.jpg" data-size="771x242">&lt;img src="https://example.com/posts/hack/xtan/flash/5.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/5_hu7dd1148387811415828b0c5367c0c670_28650_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/5_hu7dd1148387811415828b0c5367c0c670_28650_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/5.jpg" data-size="771x242">&lt;img src="/posts/hack/xtan/flash/5.jpg"
+srcset="/posts/hack/xtan/flash/5_hu7dd1148387811415828b0c5367c0c670_28650_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/5_hu7dd1148387811415828b0c5367c0c670_28650_1024x0_resize_q75_box.jpg 1024w"
 width="771"
 height="242"
 loading="lazy"
@@ -1151,8 +1151,8 @@ alt="image-5">
 &lt;/figure>&lt;/p>
 &lt;p>然后就可以通过&lt;code>utils.Clib.clib.xxx&lt;/code>的方式调用函数, 再深入跟踪代码, 发现&lt;code>Clib&lt;/code>中的&lt;code>getURL&lt;/code>非常可疑&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 379; flex-basis: 910px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/6.jpg" data-size="353x93">&lt;img src="https://example.com/posts/hack/xtan/flash/6.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/6_hue5a4a1589d6a6a188c0c5873cbc35fd2_5299_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/6_hue5a4a1589d6a6a188c0c5873cbc35fd2_5299_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/6.jpg" data-size="353x93">&lt;img src="/posts/hack/xtan/flash/6.jpg"
+srcset="/posts/hack/xtan/flash/6_hue5a4a1589d6a6a188c0c5873cbc35fd2_5299_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/6_hue5a4a1589d6a6a188c0c5873cbc35fd2_5299_1024x0_resize_q75_box.jpg 1024w"
 width="353"
 height="93"
 loading="lazy"
@@ -1162,8 +1162,8 @@ alt="image-6">
 &lt;/figure>&lt;/p>
 &lt;p>找到他被调用的地方, 加一行日志跟踪一下输出&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 555; flex-basis: 1333px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/7.jpg" data-size="400x72">&lt;img src="https://example.com/posts/hack/xtan/flash/7.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/7_hu8629b41a250b233303861c7394ae8dd6_6344_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/7_hu8629b41a250b233303861c7394ae8dd6_6344_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/7.jpg" data-size="400x72">&lt;img src="/posts/hack/xtan/flash/7.jpg"
+srcset="/posts/hack/xtan/flash/7_hu8629b41a250b233303861c7394ae8dd6_6344_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/7_hu8629b41a250b233303861c7394ae8dd6_6344_1024x0_resize_q75_box.jpg 1024w"
 width="400"
 height="72"
 loading="lazy"
@@ -1173,8 +1173,8 @@ alt="image-7">
 &lt;/figure>&lt;/p>
 &lt;p>调试运行之后输出的字符串为:&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 469; flex-basis: 1127px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/14.jpg" data-size="902x192">&lt;img src="https://example.com/posts/hack/xtan/flash/14.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/14_hu3210bbc216cfc300e53c7acd4064fc13_28157_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/14_hu3210bbc216cfc300e53c7acd4064fc13_28157_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/14.jpg" data-size="902x192">&lt;img src="/posts/hack/xtan/flash/14.jpg"
+srcset="/posts/hack/xtan/flash/14_hu3210bbc216cfc300e53c7acd4064fc13_28157_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/14_hu3210bbc216cfc300e53c7acd4064fc13_28157_1024x0_resize_q75_box.jpg 1024w"
 width="902"
 height="192"
 loading="lazy"
@@ -1184,8 +1184,8 @@ alt="image-14">
 &lt;/figure>&lt;/p>
 &lt;p>&lt;strong>这个地址跟第四步的请求地址就是同一个地址!&lt;/strong> 这就是我要找的东西, 现在只需要反编译&lt;code>Sounds.swf&lt;/code>, 把&lt;code>getURL&lt;/code>的算法抄下来就可以了! 想法很美好, 但现实很骨感, &lt;code>Sounds.swf&lt;/code>反编译后发现经过了加密混淆, 反编译出来的代码是这样的&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 116; flex-basis: 280px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/8.jpg" data-size="821x702">&lt;img src="https://example.com/posts/hack/xtan/flash/8.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/8_hu43be67c00b60669f820dce2f971712aa_63579_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/8_hu43be67c00b60669f820dce2f971712aa_63579_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/8.jpg" data-size="821x702">&lt;img src="/posts/hack/xtan/flash/8.jpg"
+srcset="/posts/hack/xtan/flash/8_hu43be67c00b60669f820dce2f971712aa_63579_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/8_hu43be67c00b60669f820dce2f971712aa_63579_1024x0_resize_q75_box.jpg 1024w"
 width="821"
 height="702"
 loading="lazy"
@@ -1195,8 +1195,8 @@ alt="image-8">
 &lt;/figure>&lt;/p>
 &lt;p>这代码别说放进去编译了, 甚至难以阅读, 但是在我坚持不懈的寻找下, 还是发现了一丝蛛丝马迹&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 327; flex-basis: 786px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/9.jpg" data-size="678x207">&lt;img src="https://example.com/posts/hack/xtan/flash/9.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/9_hu182ee99ffd16f1fcbe68bcb75ca899e7_23076_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/9_hu182ee99ffd16f1fcbe68bcb75ca899e7_23076_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/9.jpg" data-size="678x207">&lt;img src="/posts/hack/xtan/flash/9.jpg"
+srcset="/posts/hack/xtan/flash/9_hu182ee99ffd16f1fcbe68bcb75ca899e7_23076_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/9_hu182ee99ffd16f1fcbe68bcb75ca899e7_23076_1024x0_resize_q75_box.jpg 1024w"
 width="678"
 height="207"
 loading="lazy"
@@ -1207,8 +1207,8 @@ alt="image-9">
 &lt;p>这url不就是刚才输出的地址吗, 显然此处的代码是将url中的&lt;code>%s&lt;/code>, &lt;code>%d&lt;/code>替换成对应的参数, 但参数值到底是怎么来的, 仍然无法查明, 于是我决定换个思路, 虽然我无法知道生成参数的具体算法, 但是别忘了这个&lt;code>Sounds.swf&lt;/code>是一个函数库, 那我是不是可以写一个外部代码, 通过外部去调用&lt;code>getURL&lt;/code>这个函数, 直接返回整个url? 这样所达到的最终目的仍然是一样的, 于是开始查询&lt;code>ActionScript&lt;/code>资料, 发现可以通过&lt;code>ExternalInterface&lt;/code>, 让&lt;code>.swf&lt;/code>将接口暴露出来提供外部Flash容器调用, 对于&lt;code>player.swf&lt;/code>来说, 容器就是浏览器, 而我不通过浏览器的话, 则可以使用&lt;code>WinForm&lt;/code>的&lt;code>Shockwave Flash&lt;/code>组件.&lt;/p>
 &lt;p>于是修改&lt;code>player.swf&lt;/code>的源码, 在&lt;code>Main&lt;/code>中定义一段可供外部调用的函数&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 210; flex-basis: 505px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/10.jpg" data-size="825x392">&lt;img src="https://example.com/posts/hack/xtan/flash/10.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/10_hu36f4b6c22103002f7c5a2ad98378fba6_27639_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/10_hu36f4b6c22103002f7c5a2ad98378fba6_27639_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/10.jpg" data-size="825x392">&lt;img src="/posts/hack/xtan/flash/10.jpg"
+srcset="/posts/hack/xtan/flash/10_hu36f4b6c22103002f7c5a2ad98378fba6_27639_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/10_hu36f4b6c22103002f7c5a2ad98378fba6_27639_1024x0_resize_q75_box.jpg 1024w"
 width="825"
 height="392"
 loading="lazy"
@@ -1261,8 +1261,8 @@ return;
 }
 &lt;/code>&lt;/pre>&lt;p>最后在&lt;code>Mian&lt;/code>类的初始化函数&lt;code>init1&lt;/code>中调用&lt;code>myLoadSwf&lt;/code>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 190; flex-basis: 456px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/12.jpg" data-size="574x302">&lt;img src="https://example.com/posts/hack/xtan/flash/12.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/12_hufd0f78f234cc4632a6b5bd4b8255d81a_26583_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/12_hufd0f78f234cc4632a6b5bd4b8255d81a_26583_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/12.jpg" data-size="574x302">&lt;img src="/posts/hack/xtan/flash/12.jpg"
+srcset="/posts/hack/xtan/flash/12_hufd0f78f234cc4632a6b5bd4b8255d81a_26583_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/12_hufd0f78f234cc4632a6b5bd4b8255d81a_26583_1024x0_resize_q75_box.jpg 1024w"
 width="574"
 height="302"
 loading="lazy"
@@ -1311,8 +1311,8 @@ public static const flash_sound_lib_URL:String = &amp;quot;http://localhost:7777
 &lt;p>乐谱工具是我基于&lt;code>C#&lt;/code>开发的一款桌面应用, 其中包括乐谱管理功能, 可以管理所有下载的乐谱并调用Flash播放器播放, 同时开启了一个HTTP监听服务, 监听所有来自&lt;code>localhost:7777&lt;/code>的HTTP请求&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;figure style="flex-grow: 101; flex-basis: 243px">
-&lt;a href="https://example.com/posts/hack/xtan/flash/13.jpg" data-size="602x593">&lt;img src="https://example.com/posts/hack/xtan/flash/13.jpg"
-srcset="https://example.com/posts/hack/xtan/flash/13_hu2908833c875ad89b3b6b9b88cf245112_47260_480x0_resize_q75_box.jpg 480w, https://example.com/posts/hack/xtan/flash/13_hu2908833c875ad89b3b6b9b88cf245112_47260_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="/posts/hack/xtan/flash/13.jpg" data-size="602x593">&lt;img src="/posts/hack/xtan/flash/13.jpg"
+srcset="/posts/hack/xtan/flash/13_hu2908833c875ad89b3b6b9b88cf245112_47260_480x0_resize_q75_box.jpg 480w, /posts/hack/xtan/flash/13_hu2908833c875ad89b3b6b9b88cf245112_47260_1024x0_resize_q75_box.jpg 1024w"
 width="602"
 height="593"
 loading="lazy"
