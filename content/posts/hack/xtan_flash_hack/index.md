@@ -1,5 +1,5 @@
 ---
-title: 某乐谱网站Flash播放器破解记录
+title: 某琴吧Flash播放器破解记录
 date: 2021-05-25T00:50:44+08:00
 slug: xtan/flash
 image: cover.png
@@ -15,7 +15,7 @@ tags:
 
 背景
 ---
-2019年的某月, 某乐谱网站将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.
+2019年的某月, 某琴吧将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.
 
 同年, 得知Adobe公司将于2020年年末彻底停用Flash, 遂产生破解其Flash播放器并本地化的想法.
 
@@ -190,7 +190,7 @@ public static const flash_sound_lib_URL:String = "http://localhost:7777/yuepu/fl
 gstaticInitter.asciz = "http://localhost:7777/yuepu/info?ypid=%d&sccode=%s&r1=%d&r2=%d&input=%s";
 ```
 
->此处`Sounds.swf`修改url后, 调用`getURL`返回的url已经不再是乐谱网站域名了, 需要将返回的localhost域名修改回为乐谱网站域名之后再请求
+>此处`Sounds.swf`修改url后, 调用`getURL`返回的url已经不再是某琴吧域名了, 需要将返回的localhost域名修改回为某琴吧域名之后再请求
 
 最后在乐谱工具中开启一个端口为`7777`的HTTP的服务, 监听播放器请求的地址, 返回之前下载过来的的对应资源就行了
 
@@ -230,7 +230,7 @@ E:\flash\bin-debug
 
 **所以, 我只需要为乐谱工具所在的文件夹也创建信任文件, 内容为乐谱工具完整路径, 就能正常打开并请求`localhost`了**
 
- 现在解决了乐谱无法播放的问题, 但是由于[flash_player_debugger](https://www.flash.cn/cdm/latest/flashplayer_sa_debug.exe)不支持`ExternalInterface`, 因此需要通过其他方式获取乐谱信息url, 于是我想到在播放器启动的时候, 根据传入的乐谱ID, 直接调用`getURL`获取乐谱信息url, 并通过HTTP将url中的参数作为请求参数, 发送到乐谱工具开启的HTTP监听服务中, 再根据得到的参数请求乐谱网站获取乐谱详细信息.
+ 现在解决了乐谱无法播放的问题, 但是由于[flash_player_debugger](https://www.flash.cn/cdm/latest/flashplayer_sa_debug.exe)不支持`ExternalInterface`, 因此需要通过其他方式获取乐谱信息url, 于是我想到在播放器启动的时候, 根据传入的乐谱ID, 直接调用`getURL`获取乐谱信息url, 并通过HTTP将url中的参数作为请求参数, 发送到乐谱工具开启的HTTP监听服务中, 再根据得到的参数请求某琴吧获取乐谱详细信息.
 
 首先删除会引起报错的`player.swf`中使用`ExternalInterface`定义的接口`swfExtGetypURL`, 修改 `myLoadSwf`中定义的回调函数 `onSoundsReady`, 在此前初始化`clib`的基础上加上调用`getURL`返回的url, 并提取参数请求`localhost:7777`, 修改后的代码如下:
 
@@ -276,4 +276,4 @@ Process.Start(new ProcessStartInfo()
     Arguments = "Main.swf?id=64",
 })
 ```
-## 至此已经彻底解决Flash停用的影响了, 但是仍然存在另一个问题, Adobe禁用Flash之后, 该乐谱网站也对播放器进行了换代, 停用了旧的Flash播放器, 改用安装版的exe播放器, 同时exe播放器不再使用Flash用的`.ypa2`格式播放器文件, 且删除了所有`.ypa2`资源, 并采用新的`.ypdx`文件, 新格式的文件Flash无法播放, 因此破解exe版本的播放器又被放在日程上了...
+## 至此已经彻底解决Flash停用的影响了, 但是仍然存在另一个问题, Adobe禁用Flash之后, 某琴吧也对播放器进行了换代, 停用了旧的Flash播放器, 改用安装版的exe播放器, 同时exe播放器不再使用Flash用的`.ypa2`格式播放器文件, 且删除了所有`.ypa2`资源, 并采用新的`.ypdx`文件, 新格式的文件Flash无法播放, 因此破解exe版本的播放器又被放在日程上了...
