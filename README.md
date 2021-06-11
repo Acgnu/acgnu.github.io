@@ -1,1 +1,1 @@
-[Personal Blog](https://acgnu.github.io/)
+[博客首页请戳](https://acgnu.github.io/)

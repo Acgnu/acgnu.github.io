@@ -1,12 +1,14 @@
-+++
-title = "Amazing"
-description = "低调低调"
-date = "2021-05-25"
-aliases = ["about-me", "contact"]
-author = "Acgnu+"
-license = "GUESS?"
-lastmod = "2021-05-25T23:43:00+08:00"
-+++
+---
+title : "Amazing"
+description : "低调低调"
+date : "2021-05-25"
+aliases : ["about-me", "contact"]
+author : "Acgnu+"
+license : "GUESS?"
+lastmod : "2021-05-25T23:43:00+08:00"
+layout: "about"
+slug: "about"
+---
 
 我
 ---

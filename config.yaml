@@ -1,4 +1,4 @@
-baseurl: https://example.com
+baseurl: /
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
@@ -99,23 +99,23 @@ menu:
           weight: -100
           pre: home
 
-        - identifier: about
-          name: About
-          url: about
-          weight: -90
-          pre: user
-
         - identifier: archives
           name: Archives
-          url: archives
-          weight: -70
+          url: /archives
+          weight: -90
           pre: archives
 
         - identifier: search
           name: Search
-          url: search
-          weight: -60
+          url: /search
+          weight: -70
           pre: search
+
+        - identifier: about
+          name: About
+          url: /about
+          weight: -60
+          pre: user
 
 related:
     includeNewer: true
