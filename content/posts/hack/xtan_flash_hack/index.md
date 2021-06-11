@@ -15,13 +15,13 @@ tags:
 
 背景
 ---
-2019年的某月, 某钢乐谱网站将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.
+2019年的某月, 某乐谱网站将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.
 
 同年, 得知Adobe公司将于2020年年末彻底停用Flash, 遂产生破解其Flash播放器并本地化的想法.
 
 目标
 ---
-破解该站的Flash播放器, 使其能够免费下载并播放VIP乐谱, 并将乐谱保存至本地, 同时使播放器可以脱离浏览器且可以脱机使用
+破解该站的Flash播放器, 使其能够免费下载并播放VIP乐谱, 并将乐谱保存至本地硬盘, 同时使播放器可以脱离浏览器且可以脱机使用
 
 网站乐谱页
 --
@@ -36,7 +36,7 @@ tags:
 4. 播放器请求接口 `/flash_get_yp_info.php` 获取乐谱详细信息, 包括谱名称, 页数, 作者, 余下的乐谱页资源地址, 播放文件地址
 5. 播放器下载并载入余下的 `.png` 格式乐谱图片, 并加载 `.ypa2` 格式的播放文件, 即可开始播放
 
->由于文章编辑于2020年5月, 该网站已经改版移除了Flash版本播放器, 因此当时调用的服务器接口没有被记录下来, 文章没有该部分请求的截图
+>由于文章编辑于2021年5月, 该网站已经改版移除了Flash版本播放器, 因此当时调用的服务器接口没有被记录下来, 文章没有该部分请求的截图
 
 **基本过程已经明确了, 而所有的请求接口中, 只有第四步的`/flash_get_yp_info.php`是需要对入参`sccode`, `r1`, `r2`, 进行校验, 那我只需要反编译出播放器的源码, 再根据代码仿写一个凭证生成的算法, 不就可以调用接口并得到资源地址了?**
 
@@ -175,7 +175,7 @@ ypad_url=<ypad_url>http://www.手动马赛克.com//yuepuku/0/64/64_bidea.ypad</y
 
 >由于通过对浏览器Network的跟踪, 可以发现请求的资源地址和响应的乐谱信息资源地址高度相似, 由此可以推论出解析方式以及拼接方式
 
-以上即完成了白嫖VIP乐谱的方式, 但播放器仍然会请求官方服务器地址, 达不到脱机使用的目的, 因此, 还需要对`player.swf`和`Sounds.swf`做一些修改, 首先修改`player.swf`的`Config`类, 把其中关键的加载`Sounds.swf`和获取封面的地址修改为本地地址
+以上即完成了白嫖VIP乐谱的方式, 但播放器仍然会请求官方服务器地址, 达不到脱机使用的目的, 因此, 还需要对`player.swf`和`Sounds.swf`做一些修改, 首先修改`player.swf`的`Config`类, 把其中关键的加载`Sounds.swf`和获取封面的地址修改为`localhost:7777`
 
 ```
 //获取曲谱封面的地址
@@ -185,7 +185,7 @@ public static const flash_prev_yp_info_URL:String = "http://localhost:7777/yuepu
 public static const flash_sound_lib_URL:String = "http://localhost:7777/yuepu/flash/sound";
 ```
 
-然后修改`Sounds.swf`在上文查找到的生成url串, 把串的前缀修改为本地
+然后修改`Sounds.swf`在上文查找到的生成url串, 把串的前缀修改为`localhost:7777`
 ```
 gstaticInitter.asciz = "http://localhost:7777/yuepu/info?ypid=%d&sccode=%s&r1=%d&r2=%d&input=%s";
 ```
@@ -232,7 +232,7 @@ E:\flash\bin-debug
 
  现在解决了乐谱无法播放的问题, 但是由于[flash_player_debugger](https://www.flash.cn/cdm/latest/flashplayer_sa_debug.exe)不支持`ExternalInterface`, 因此需要通过其他方式获取乐谱信息url, 于是我想到在播放器启动的时候, 根据传入的乐谱ID, 直接调用`getURL`获取乐谱信息url, 并通过HTTP将url中的参数作为请求参数, 发送到乐谱工具开启的HTTP监听服务中, 再根据得到的参数请求乐谱网站获取乐谱详细信息.
 
-首先删除会引起报错的`player.swf`中使用`ExternalInterface`定义的接口`swfExtGetypURL`, 修改 `myLoadSwf`中定义的回调函数 `onSoundsReady`, 在此前初始化`clib`的基础上加上调用`getURL`返回的url, 并提取参数请求本地HTTP服务, 修改后的代码如下:
+首先删除会引起报错的`player.swf`中使用`ExternalInterface`定义的接口`swfExtGetypURL`, 修改 `myLoadSwf`中定义的回调函数 `onSoundsReady`, 在此前初始化`clib`的基础上加上调用`getURL`返回的url, 并提取参数请求`localhost:7777`, 修改后的代码如下:
 
 ```
 internal static function onSoundsReady(arg1:Event) : void
@@ -252,7 +252,7 @@ internal static function onSoundsReady(arg1:Event) : void
 ```
 >`utils.Func.ypadId`中存储了播放器启动时传入的乐谱ID参数
 
-此时当`clib`初始化完成之后, 会使用传入的乐谱ID直接调用`getURL`, 截取返回url的参数部分, 再将参数通过HTTP请求上报到本地监听的地址. 监听地址收到请求后, 首先判断该ID的乐谱是否已经下载, 如果没有下载则会开启下载任务, 这样就解决了乐谱下载的问题
+此时当`clib`初始化完成之后, 会使用传入的乐谱ID直接调用`getURL`, 截取返回url的参数部分, 再将参数通过HTTP请求上报到`localhost:7777`. 收到请求后, 首先判断该ID的乐谱是否已经下载, 如果没有下载则会开启下载任务, 这样就解决了乐谱下载的问题
 
 ```
 //监听曲谱地址
