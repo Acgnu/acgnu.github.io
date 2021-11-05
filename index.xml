@@ -1,4 +1,176 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 23 Aug 2021 00:50:44 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>三星ONEUI修改记录</title><link>/posts/hack/xrom/oneui/</link><pubDate>Mon, 23 Aug 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xrom/oneui/</guid><description>&lt;img src="/posts/hack/xrom/oneui/cover.png" alt="Featured image of post 三星ONEUI修改记录" />&lt;h2 id="背景">背景&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 05 Nov 2021 00:50:44 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>XStellio Player破解专业版</title><link>/posts/hack/xstellio/</link><pubDate>Fri, 05 Nov 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xstellio/</guid><description>&lt;img src="/posts/hack/xstellio/cover.png" alt="Featured image of post XStellio Player破解专业版" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>最近发现一直在用的某抑云音乐越来越不行了, 没版权下架歌曲我可以理解, 但下架了也不告诉具体下架了哪些歌曲, 害得我都不知道该怎么找. 更无语的是我自己上传到某易云盘的歌曲都会因为版权问题无法添加到歌单, 而它自身的本地播放功能做的又太垃圾, 于是只能另谋出路, 在&lt;a class="link" href="https://play.google.com" target="_blank" rel="noopener"
+>Google Play&lt;/a>上找到一款本地播放器, 兼顾美观和功能简单实用, 不过免费版有点小广告, 然后试了几款去广告的插件, 都不能完美去除, 而我作为强迫症决定一定要处理掉&lt;/p>
+&lt;h2 id="目标">目标&lt;/h2>
+&lt;p>去掉各处的广告以及订购按钮&lt;/p>
+&lt;h2 id="app界面以及广告">APP界面以及广告&lt;/h2>
+&lt;p>&lt;figure style="flex-grow: 99; flex-basis: 237px">
+&lt;a href="/posts/hack/xstellio/1.jpg" data-size="1000x1009">&lt;img src="/posts/hack/xstellio/1.jpg"
+srcset="/posts/hack/xstellio/1_hu84a6b4f4679fa88e6820ec89f2ede010_102806_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/1_hu84a6b4f4679fa88e6820ec89f2ede010_102806_1024x0_resize_q75_box.jpg 1024w"
+width="1000"
+height="1009"
+loading="lazy"
+alt="image-1">
+&lt;/a>
+&lt;figcaption>image-1&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="开始破解">开始破解&lt;/h2>
+&lt;p>打开&lt;a class="link" href="https://github.com/skylot/jadx" target="_blank" rel="noopener"
+>Jadx&lt;/a>, 直接把安装包即&lt;code>.apk&lt;/code>文件拖进去, 发现软件没有加壳, 顺利反编译出了播放器源码, 然后直接按 &lt;code>Ctrl + S&lt;/code> 将源码全部保存, 然后导入&lt;code>IDEA&lt;/code>, 开始分析代码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 163; flex-basis: 392px">
+&lt;a href="/posts/hack/xstellio/2.jpg" data-size="987x603">&lt;img src="/posts/hack/xstellio/2.jpg"
+srcset="/posts/hack/xstellio/2_hu5986480b0f5e8dfb017c4fbe2792392b_64316_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/2_hu5986480b0f5e8dfb017c4fbe2792392b_64316_1024x0_resize_q75_box.jpg 1024w"
+width="987"
+height="603"
+loading="lazy"
+alt="源码">
+&lt;/a>
+&lt;figcaption>源码&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到虽然源码没有加壳, 但还是有做混淆的, 不过问题不大, 首先通过&lt;a class="link" href="https://developer.android.google.cn/studio/profile/monitor" target="_blank" rel="noopener"
+>Android Device Monitor&lt;/a>解析一下当前页面的布局&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 141; flex-basis: 340px">
+&lt;a href="/posts/hack/xstellio/3.jpg" data-size="1066x752">&lt;img src="/posts/hack/xstellio/3.jpg"
+srcset="/posts/hack/xstellio/3_hub75a98e0be4b7366ef30cfe4edbf1c62_89568_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/3_hub75a98e0be4b7366ef30cfe4edbf1c62_89568_1024x0_resize_q75_box.jpg 1024w"
+width="1066"
+height="752"
+loading="lazy"
+alt="布局">
+&lt;/a>
+&lt;figcaption>布局&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>发现主界面中的歌曲列表部分组件的&lt;code>id&lt;/code>为&lt;code>content&lt;/code>, 于是全局搜索&lt;code>@+id/content&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 147; flex-basis: 353px">
+&lt;a href="/posts/hack/xstellio/4.jpg" data-size="927x630">&lt;img src="/posts/hack/xstellio/4.jpg"
+srcset="/posts/hack/xstellio/4_hu5862e1bc09ddd38b5cf2cb54b8300228_88949_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/4_hu5862e1bc09ddd38b5cf2cb54b8300228_88949_1024x0_resize_q75_box.jpg 1024w"
+width="927"
+height="630"
+loading="lazy"
+alt="content">
+&lt;/a>
+&lt;figcaption>content&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>发现多处搜索结果, 根据当前APP所在界面以及布局文件命名推测&lt;code>mian_layout&lt;/code>应该是其布局文件, 分别看看上面的&lt;code>viewAnim&lt;/code>和&lt;code>viewAnimWithoutBackground&lt;/code>, 这两个&lt;code>id&lt;/code>在当前&lt;a class="link" href="https://developer.android.google.cn/studio/profile/monitor" target="_blank" rel="noopener"
+>Android Device Monitor&lt;/a>解析的界面中都能找到对应节点, 验证了猜想, 如下图&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 170; flex-basis: 408px">
+&lt;a href="/posts/hack/xstellio/5.jpg" data-size="1037x609">&lt;img src="/posts/hack/xstellio/5.jpg"
+srcset="/posts/hack/xstellio/5_huce05d117b1ebe37ea498858ca09bf3a9_67148_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/5_huce05d117b1ebe37ea498858ca09bf3a9_67148_1024x0_resize_q75_box.jpg 1024w"
+width="1037"
+height="609"
+loading="lazy"
+alt="DDMS">
+&lt;/a>
+&lt;figcaption>DDMS&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>现在要找展示广告的组件了, 通过刚才的搜索结果可以看到, 在&lt;code>main_layout&lt;/code>中并没有存在疑似专门用于展示广告的节点, 所以还是很有可能是在运行过程中动态添加的, 于是我们直接搜索&lt;code>main_layout&lt;/code>, 找到使用到此布局的&lt;code>MainActivity&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 661; flex-basis: 1587px">
+&lt;a href="/posts/hack/xstellio/6.jpg" data-size="926x140">&lt;img src="/posts/hack/xstellio/6.jpg"
+srcset="/posts/hack/xstellio/6_hu8f009634a94c4a26e265e35517db6303_13865_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/6_hu8f009634a94c4a26e265e35517db6303_13865_1024x0_resize_q75_box.jpg 1024w"
+width="926"
+height="140"
+loading="lazy"
+alt="搜索Activity">
+&lt;/a>
+&lt;figcaption>搜索Activity&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>由于暂时没有其他线索, 先看看&lt;code>onCreate&lt;/code>源码能不能发现什么&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 214; flex-basis: 515px">
+&lt;a href="/posts/hack/xstellio/7.jpg" data-size="702x327">&lt;img src="/posts/hack/xstellio/7.jpg"
+srcset="/posts/hack/xstellio/7_hua2df446cae231cd1121fceeecb7400c6_22936_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/7_hua2df446cae231cd1121fceeecb7400c6_22936_1024x0_resize_q75_box.jpg 1024w"
+width="702"
+height="327"
+loading="lazy"
+alt="onCreate">
+&lt;/a>
+&lt;figcaption>onCreate&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到实现比较简单, 再看看在父类的代码, 来到&lt;code>D2&lt;/code>方法, 有多个实现, 这里看&lt;code>MainActivity&lt;/code>的实现&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 138; flex-basis: 332px">
+&lt;a href="/posts/hack/xstellio/9.jpg" data-size="642x464">&lt;img src="/posts/hack/xstellio/9.jpg"
+srcset="/posts/hack/xstellio/9_hud1b50cad1b408b933a257718d87e64da_37282_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/9_hud1b50cad1b408b933a257718d87e64da_37282_1024x0_resize_q75_box.jpg 1024w"
+width="642"
+height="464"
+loading="lazy"
+alt="D2">
+&lt;/a>
+&lt;figcaption>D2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>都是一些混淆代码, 咱也看不懂, 凭直觉都过一下, 此时在&lt;code>D2&lt;/code>中就发现可疑类&lt;code>GooglePlayPurchaseChecker&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 223; flex-basis: 536px">
+&lt;a href="/posts/hack/xstellio/10.jpg" data-size="798x357">&lt;img src="/posts/hack/xstellio/10.jpg"
+srcset="/posts/hack/xstellio/10_hu94a6d72fd6ef877b1ce6ac936a94f3df_36817_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/10_hu94a6d72fd6ef877b1ce6ac936a94f3df_36817_1024x0_resize_q75_box.jpg 1024w"
+width="798"
+height="357"
+loading="lazy"
+alt="D2实现">
+&lt;/a>
+&lt;figcaption>D2实现&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>考虑到APP是从&lt;a class="link" href="https://play.google.com" target="_blank" rel="noopener"
+>Google Play&lt;/a>上下载的, 可以在&lt;a class="link" href="https://play.google.com" target="_blank" rel="noopener"
+>Google Play&lt;/a>上购买进行解锁, 那么这个类名就显得很可疑了, 跟踪进去看看都写了啥&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 457; flex-basis: 1098px">
+&lt;a href="/posts/hack/xstellio/11.jpg" data-size="888x194">&lt;img src="/posts/hack/xstellio/11.jpg"
+srcset="/posts/hack/xstellio/11_hu6c81857d4a3858f4a5b853d12fbb51ba_15222_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/11_hu6c81857d4a3858f4a5b853d12fbb51ba_15222_1024x0_resize_q75_box.jpg 1024w"
+width="888"
+height="194"
+loading="lazy"
+alt="checker-1">
+&lt;/a>
+&lt;figcaption>checker-1&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>首先直接内部调用 &lt;code>aVar.g&lt;/code>, 继续跟踪&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 153; flex-basis: 368px">
+&lt;a href="/posts/hack/xstellio/12.jpg" data-size="740x482">&lt;img src="/posts/hack/xstellio/12.jpg"
+srcset="/posts/hack/xstellio/12_huc8ee2600bafdd860fa8d7688126cf3f6_42566_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/12_huc8ee2600bafdd860fa8d7688126cf3f6_42566_1024x0_resize_q75_box.jpg 1024w"
+width="740"
+height="482"
+loading="lazy"
+alt="checker-2">
+&lt;/a>
+&lt;figcaption>checker-2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>发现这里的&lt;code>LinkedHashMap&lt;/code>中存放了名为&lt;code>stellio_all_inclusive&lt;/code>和&lt;code>stellio_premium&lt;/code>的键, 首先这俩键的名字就很可疑, 而他们的值存储为布尔, 此时注意到有枚举&lt;code>ResolvedLicense&lt;/code>用于分辨APP解锁状态&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 215; flex-basis: 517px">
+&lt;a href="/posts/hack/xstellio/14.jpg" data-size="591x274">&lt;img src="/posts/hack/xstellio/14.jpg"
+srcset="/posts/hack/xstellio/14_hu3787dc1eafc6c9c262e5e0d0fbf885d0_14878_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/14_hu3787dc1eafc6c9c262e5e0d0fbf885d0_14878_1024x0_resize_q75_box.jpg 1024w"
+width="591"
+height="274"
+loading="lazy"
+alt="枚举">
+&lt;/a>
+&lt;figcaption>枚举&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;strong>综合起来推测这个&lt;code>Map&lt;/code>应该就是用于初始化一个授权值的, 以给定键的布尔值是否为&lt;code>true&lt;/code>来判断应用是否已经购买, 那么我只要在初始化的时候把这个&lt;code>Map&lt;/code>的值固定写死成&lt;code>true&lt;/code>, 应该就可以让APP认为已经购买过了, 编写&lt;code>Xposed&lt;/code>代码如下&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>findAndHookConstructor(&amp;quot;air.stellio.player.Helpers.GooglePlayPurchaseChecker&amp;quot;,
+loadPackageParam.classLoader,
+&amp;quot;air.stellio.player.Activities.u&amp;quot;,
+&amp;quot;org.solovyev.android.checkout.F&amp;quot;,
+Map.class, new XC_MethodHook() {
+@Override
+protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+MyLog.log(&amp;quot;hookin GooglePlayPurchaseChecker()&amp;quot;, doLog);
+Map&amp;lt;String, Boolean&amp;gt; arg3 = (Map&amp;lt;String, Boolean&amp;gt;) param.args[2];
+if(null == arg3) {
+arg3 = new LinkedHashMap&amp;lt;&amp;gt;();
+param.args[2] = arg3;
+}
+arg3.put(&amp;quot;stellio_all_inclusive&amp;quot;, true);
+arg3.put(&amp;quot;stellio_premium&amp;quot;, true);
+}
+});
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>观察&lt;code>GooglePlayPurchaseChecker&lt;/code>类中的赋值代码可以发现, 主要是通过构造函数将&lt;code>Map&lt;/code>的值存储的, 因此使用&lt;code>Xposed&lt;/code>的&lt;code>findAndHookConstructor&lt;/code>去挂钩&lt;code>GooglePlayPurchaseChecker&lt;/code>的构造函数, 在构造函数执行之前, 修改传入的第三个参数&lt;code>Map&lt;/code>, 把键为&lt;code>stellio_premium&lt;/code>和&lt;code>stellio_all_inclusive&lt;/code>的值存为&lt;code>true&lt;/code>, 这样当构造函数执行的时候, 会永远认为这是已订购的了&lt;/strong>&lt;/p>
+&lt;p>安装模块并运行, 此时可以发现APP中的广告以及订购按钮都没有了&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 98; flex-basis: 236px">
+&lt;a href="/posts/hack/xstellio/15.jpg" data-size="956x970">&lt;img src="/posts/hack/xstellio/15.jpg"
+srcset="/posts/hack/xstellio/15_hud7213b12b55b97141f54d09bb78f35c7_90789_480x0_resize_q75_box.jpg 480w, /posts/hack/xstellio/15_hud7213b12b55b97141f54d09bb78f35c7_90789_1024x0_resize_q75_box.jpg 1024w"
+width="956"
+height="970"
+loading="lazy"
+alt="Yeah">
+&lt;/a>
+&lt;figcaption>Yeah&lt;/figcaption>
+&lt;/figure>&lt;/p></description></item><item><title>三星ONEUI修改记录</title><link>/posts/hack/xrom/oneui/</link><pubDate>Mon, 23 Aug 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xrom/oneui/</guid><description>&lt;img src="/posts/hack/xrom/oneui/cover.png" alt="Featured image of post 三星ONEUI修改记录" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>由于个人喜好, 比较喜欢直角屏的手机, 但市面上的手机放眼望去只有三星Note系列符合我的爱好, 遂购买三星Note 10御用, 然而这手机虽然造型是方方正正的, 但是UI却跟S系列一样到处都是圆角, 这让我很不舒服, 于是有了此文章&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
 &lt;p>将系统UI的圆角修改为直角&lt;/p>

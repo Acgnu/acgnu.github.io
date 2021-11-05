@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Xposed on Acgnu+</title><link>/tags/xposed/</link><description>Recent content in Xposed on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 10 Jun 2021 00:50:44 +0800</lastBuildDate><atom:link href="/tags/xposed/index.xml" rel="self" type="application/rss+xml"/><item><title>某加APP破解去除认证和更新</title><link>/posts/hack/xplus/</link><pubDate>Thu, 10 Jun 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xplus/</guid><description>背景 由于某些需要, 进入某大楼的时候必须用他们物业指定的APP刷门禁, 我安装的时候是6.5.0版本, 这会儿启动速度也还可以, 也没太多花里胡哨的功能. 然而没过多久就迎来了一波强制版本更新, 更新后的版本启动速度慢到令人发指, 且增加了商城, 我就怒了, 区区门禁软件竟然这样肆意妄为, 开工!
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Xposed on Acgnu+</title><link>/tags/xposed/</link><description>Recent content in Xposed on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 05 Nov 2021 00:50:44 +0800</lastBuildDate><atom:link href="/tags/xposed/index.xml" rel="self" type="application/rss+xml"/><item><title>XStellio Player破解专业版</title><link>/posts/hack/xstellio/</link><pubDate>Fri, 05 Nov 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xstellio/</guid><description>背景 最近发现一直在用的某抑云音乐越来越不行了, 没版权下架歌曲我可以理解, 但下架了也不告诉具体下架了哪些歌曲, 害得我都不知道该怎么找. 更无语的是我自己上传到某易云盘的歌曲都会因为版权问题无法添加到歌单, 而它自身的本地播放功能做的又太垃圾, 于是只能另谋出路, 在Google Play上找到一款本地播放器, 兼顾美观和功能简单实用, 不过免费版有点小广告, 然后试了几款去广告的插件, 都不能完美去除, 而我作为强迫症决定一定要处理掉
+目标 去掉各处的广告以及订购按钮
+APP界面以及广告 image-1
+开始破解 打开Jadx, 直接把安装包即.apk文件拖进去, 发现软件没有加壳, 顺利反编译出了播放器源码, 然后直接按 Ctrl + S 将源码全部保存, 然后导入IDEA, 开始分析代码
+源码
+可以看到虽然源码没有加壳, 但还是有做混淆的, 不过问题不大, 首先通过Android Device Monitor解析一下当前页面的布局
+布局
+发现主界面中的歌曲列表部分组件的id为content, 于是全局搜索@+id/content
+content
+发现多处搜索结果, 根据当前APP所在界面以及布局文件命名推测mian_layout应该是其布局文件, 分别看看上面的viewAnim和viewAnimWithoutBackground, 这两个id在当前Android Device Monitor解析的界面中都能找到对应节点, 验证了猜想, 如下图
+DDMS
+现在要找展示广告的组件了, 通过刚才的搜索结果可以看到, 在main_layout中并没有存在疑似专门用于展示广告的节点, 所以还是很有可能是在运行过程中动态添加的, 于是我们直接搜索main_layout, 找到使用到此布局的MainActivity
+搜索Activity</description></item><item><title>某加APP破解去除认证和更新</title><link>/posts/hack/xplus/</link><pubDate>Thu, 10 Jun 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xplus/</guid><description>背景 由于某些需要, 进入某大楼的时候必须用他们物业指定的APP刷门禁, 我安装的时候是6.5.0版本, 这会儿启动速度也还可以, 也没太多花里胡哨的功能. 然而没过多久就迎来了一波强制版本更新, 更新后的版本启动速度慢到令人发指, 且增加了商城, 我就怒了, 区区门禁软件竟然这样肆意妄为, 开工!
 目标 破解某加(版本: 6.5.0)去除更新检查, 去掉实名认证
 某加在7.0.0版本更名为某品, 破解版本为6.5.0, 在此保持称呼其为某加
 某加APP(版本6.5.0)界面
