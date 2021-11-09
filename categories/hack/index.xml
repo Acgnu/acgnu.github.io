@@ -1,5 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hack on Acgnu+</title><link>/categories/hack/</link><description>Recent content in Hack on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 05 Nov 2021 00:50:44 +0800</lastBuildDate><atom:link href="/categories/hack/index.xml" rel="self" type="application/rss+xml"/><item><title>XStellio Player破解专业版</title><link>/posts/hack/xstellio/</link><pubDate>Fri, 05 Nov 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xstellio/</guid><description>背景 最近发现一直在用的某抑云音乐越来越不行了, 没版权下架歌曲我可以理解, 但下架了也不告诉具体下架了哪些歌曲, 害得我都不知道该怎么找. 更无语的是我自己上传到某易云盘的歌曲都会因为版权问题无法添加到歌单, 而它自身的本地播放功能做的又太垃圾, 于是只能另谋出路, 在Google Play上找到一款本地播放器, 兼顾美观和功能简单实用, 不过免费版有点小广告, 然后试了几款去广告的插件, 都不能完美去除, 而我作为强迫症决定一定要处理掉
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hack on Acgnu+</title><link>/categories/hack/</link><description>Recent content in Hack on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 09 Nov 2021 00:50:44 +0800</lastBuildDate><atom:link href="/categories/hack/index.xml" rel="self" type="application/rss+xml"/><item><title>某抑云音乐破解简化UI去广告去更新</title><link>/posts/hack/xeasemusic/</link><pubDate>Tue, 09 Nov 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xeasemusic/</guid><description>背景 某抑云音乐随着版本更新, 加入了越来越多的垃圾功能和广告, 严重影响体验, 而且在歌单播放按钮上添加了购买VIP按钮, 不仅比播放按钮大, 还是延迟显示的, 非常容易误按, 就很生气, 于是决定干掉它们
+目标 精简某易云UI, 只留下自己需要的部分, 同时各个地方的广告和更新提示
+受害者版本 V7.2.10.782837
+APP界面概览 image-1
+开始破解 直接用反编译工具Jadx, 打开安装包即.apk, 发现软件没有加壳, 可以顺利反编译出源码, 直接按 Ctrl + S 将源码全部保存, 然后导入IDEA, 开始分析代码
+虽然没有加壳, 但是经过了混淆, 阅读性非常差, 而且绝大部分字符串都经过了加密, 无法直接搜索, 可以说是非常猥琐了
+image-2
+1.去除多余标签 首先去除本人用不上的标签页, 只需要留下&amp;quot;我的&amp;quot;标签页就行
+image-3
+首先全局搜索文字&amp;quot;我的&amp;quot;
+image-4
+发现能够完全匹配标签栏四组文字的, 在一个arrays.xml文本里, 其中节点的name为ap, 于是搜索R.array.ap
+image-5
+可以发现一处搜索结果, 位于MainActivity, 应该就是需要找的目标了, 看看这个b方法的实现
+image-6
+发现此方法只是把xml里的数组保存, 那么我只需要把这个入参的值修改一下, 应该就可以实现去除多余标签的作用了, 编写xposed模块代码如下</description></item><item><title>Stellio Player破解专业版</title><link>/posts/hack/xstellio/</link><pubDate>Fri, 05 Nov 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xstellio/</guid><description>背景 最近发现一直在用的某抑云音乐越来越不行了, 没版权下架歌曲我可以理解, 但下架了也不告诉具体下架了哪些歌曲, 害得我都不知道该怎么找. 更无语的是我自己上传到某易云盘的歌曲都会因为版权问题无法添加到歌单, 而它自身的本地播放功能做的又太垃圾, 于是只能另谋出路, 在Google Play上找到一款本地播放器, 兼顾美观和功能简单实用, 不过免费版有点小广告, 然后试了几款去广告的插件, 都不能完美去除, 而我作为强迫症决定一定要处理掉
 目标 去掉各处的广告以及订购按钮
+受害者版本 V.6.2.15
 APP界面以及广告 image-1
 开始破解 打开Jadx, 直接把安装包即.apk文件拖进去, 发现软件没有加壳, 顺利反编译出了播放器源码, 然后直接按 Ctrl + S 将源码全部保存, 然后导入IDEA, 开始分析代码
 源码
@@ -17,9 +33,9 @@ DDMS
 1. 安卓系统的UI构成
 安卓系统的界面呈现都是由内置在系统的APP构成的, 其APP一般位于 /system/app 和 /system/priv-app, 还有一个系统APP引用的公共框架APP, 位于 /system/framework/framework-res.apk, 部分系统例如Flyme在此目录还会有另外一个自己的框架APP, 命名通常以自家OS命名, 此处不作过多介绍, 界面中比较常见的APP如下 framework-res.apk 系统应用引用的界面, 例如提示信息弹窗 SystemUI.apk 系统通知栏界面, 通知弹窗界面 Settings.apk 系统设置界面, OneUI中此APP名称为 SecSettings.apk Messages.apk 短信界面, OneUI中为SamsungMessages_11.apk Gallery.apk 相册界面, OneUI中为SamsungGallery2018.apk Dialer.apk 拨号器,通话记录,联系人界面, OneUI中为SamsungDialer.apk Clock.apk 时钟,闹钟,计时器界面, OneUI中为ClockPackage.apk Finder.apk OneUI启动器(桌面)独有的搜索组件 2. 安卓实现圆角的基本方式
 简单的实现安卓圆角可以通过&amp;lt;Shape&amp;gt;来实现, 其中&amp;lt;Corner&amp;gt;节点的属性xxxRadius为关键属性, 例如bottomRightRadius 通常是APP开发者为了减少代码重复率, 会定义一个统一风格而定义的一个统一的资源文件dimens.xml, 所有用到同样值的地方都会引用这个文件, 方便修改和风格统一 开始修改 首先修改framework-res.</description></item><item><title>某加APP破解去除认证和更新</title><link>/posts/hack/xplus/</link><pubDate>Thu, 10 Jun 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xplus/</guid><description>背景 由于某些需要, 进入某大楼的时候必须用他们物业指定的APP刷门禁, 我安装的时候是6.5.0版本, 这会儿启动速度也还可以, 也没太多花里胡哨的功能. 然而没过多久就迎来了一波强制版本更新, 更新后的版本启动速度慢到令人发指, 且增加了商城, 我就怒了, 区区门禁软件竟然这样肆意妄为, 开工!
-目标 破解某加(版本: 6.5.0)去除更新检查, 去掉实名认证
+目标 去除更新检查, 去掉实名认证
 某加在7.0.0版本更名为某品, 破解版本为6.5.0, 在此保持称呼其为某加
-某加APP(版本6.5.0)界面
+受害者版本 6.5.0
 首页
 开始破解 首先尝试使用Android反编译大杀器Jadx, 打开Jadx, 直接把某加安装包即.apk文件拖进去, 发现软件没有加壳, 可以看到Jadx顺利反编译出了某加的源码
 7.0版本开始APP加了壳, 没记错的话是某数字安全软件的壳, 脱壳过于麻烦于是使用6.5.0版本破解
@@ -35,7 +51,8 @@ JADX-源码
 结果3
 接着查找使用到了UpdateNoticeDialog类的地方, 发现多处引用
 结果4</description></item><item><title>某鱼APP破解去广告</title><link>/posts/hack/xfish/</link><pubDate>Tue, 08 Jun 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xfish/</guid><description>背景 作为一个家徒四壁的打工人, 在某鱼上购买二手的闲置商品便成了我实现梦想的捷径, 但某鱼经过多次升级改版已经相当流氓, 在我搜索出想要的商品的结果页, 嵌入识别度很低的广告, 导致我经常手滑点错, 然后直接跳转启动某宝, 某宝的启动速度又慢的令人发指, 最终还得按下多次返回才能再次回到某鱼的搜索结果页, 忍无可忍的我只能对它做一些不可描述的事了
-目标 破解某鱼(版本: 6.7.40)并去除搜索结果页的广告, 同时去掉每次启动就弹窗的恼人的更新提示
+目标 去除搜索结果页的广告, 同时去掉每次启动就弹窗的恼人的更新提示
+受害者版本 6.7.40
 某鱼的搜索结果页 某鱼广告
 PS:一个屏幕总共就6个展位, 某鱼你这三个广告位良心不会痛吗
 开始破解 首先尝试使用Android反编译大杀器Jadx, 打开Jadx, 直接把某鱼安装包即.apk文件拖进去, 发现软件没有加壳, 可以看到Jadx顺利反编译出了某鱼的源码

@@ -1,8 +1,732 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 05 Nov 2021 00:50:44 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>XStellio Player破解专业版</title><link>/posts/hack/xstellio/</link><pubDate>Fri, 05 Nov 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xstellio/</guid><description>&lt;img src="/posts/hack/xstellio/cover.png" alt="Featured image of post XStellio Player破解专业版" />&lt;h2 id="背景">背景&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 09 Nov 2021 00:50:44 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>某抑云音乐破解简化UI去广告去更新</title><link>/posts/hack/xeasemusic/</link><pubDate>Tue, 09 Nov 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xeasemusic/</guid><description>&lt;img src="/posts/hack/xeasemusic/cover.png" alt="Featured image of post 某抑云音乐破解简化UI去广告去更新" />&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>某抑云音乐随着版本更新, 加入了越来越多的垃圾功能和广告, 严重影响体验, 而且在歌单播放按钮上添加了购买VIP按钮, 不仅比播放按钮大, 还是延迟显示的, 非常容易误按, 就很生气, 于是决定干掉它们&lt;/p>
+&lt;h2 id="目标">目标&lt;/h2>
+&lt;p>精简某易云UI, 只留下自己需要的部分, 同时各个地方的广告和更新提示&lt;/p>
+&lt;h2 id="受害者版本">受害者版本&lt;/h2>
+&lt;p>V7.2.10.782837&lt;/p>
+&lt;h2 id="app界面概览">APP界面概览&lt;/h2>
+&lt;p>&lt;figure style="flex-grow: 173; flex-basis: 417px">
+&lt;a href="/posts/hack/xeasemusic/1.jpg" data-size="1000x575">&lt;img src="/posts/hack/xeasemusic/1.jpg"
+srcset="/posts/hack/xeasemusic/1_hu394211d721ec1e75a700144baf4ad841_84090_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/1_hu394211d721ec1e75a700144baf4ad841_84090_1024x0_resize_q75_box.jpg 1024w"
+width="1000"
+height="575"
+loading="lazy"
+alt="image-1">
+&lt;/a>
+&lt;figcaption>image-1&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="开始破解">开始破解&lt;/h2>
+&lt;p>直接用反编译工具&lt;a class="link" href="https://github.com/skylot/jadx" target="_blank" rel="noopener"
+>Jadx&lt;/a>, 打开安装包即&lt;code>.apk&lt;/code>, 发现软件没有加壳, 可以顺利反编译出源码, 直接按 &lt;code>Ctrl + S&lt;/code> 将源码全部保存, 然后导入&lt;code>IDEA&lt;/code>, 开始分析代码&lt;/p>
+&lt;blockquote>
+&lt;p>虽然没有加壳, 但是经过了混淆, 阅读性非常差, 而且绝大部分字符串都经过了加密, 无法直接搜索, 可以说是非常猥琐了&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;figure style="flex-grow: 148; flex-basis: 357px">
+&lt;a href="/posts/hack/xeasemusic/2.jpg" data-size="892x599">&lt;img src="/posts/hack/xeasemusic/2.jpg"
+srcset="/posts/hack/xeasemusic/2_hu0089b3dbce7d597175082fa79a450d13_52285_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/2_hu0089b3dbce7d597175082fa79a450d13_52285_1024x0_resize_q75_box.jpg 1024w"
+width="892"
+height="599"
+loading="lazy"
+alt="image-2">
+&lt;/a>
+&lt;figcaption>image-2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="1去除多余标签">1.去除多余标签&lt;/h2>
+&lt;p>首先去除本人用不上的标签页, 只需要留下&amp;quot;我的&amp;quot;标签页就行&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 316; flex-basis: 759px">
+&lt;a href="/posts/hack/xeasemusic/3.jpg" data-size="462x146">&lt;img src="/posts/hack/xeasemusic/3.jpg"
+srcset="/posts/hack/xeasemusic/3_hu406b6e60d83a327970afdc698b27c2a9_7407_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/3_hu406b6e60d83a327970afdc698b27c2a9_7407_1024x0_resize_q75_box.jpg 1024w"
+width="462"
+height="146"
+loading="lazy"
+alt="image-3">
+&lt;/a>
+&lt;figcaption>image-3&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>首先全局搜索文字&amp;quot;我的&amp;quot;&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 141; flex-basis: 339px">
+&lt;a href="/posts/hack/xeasemusic/4.jpg" data-size="641x453">&lt;img src="/posts/hack/xeasemusic/4.jpg"
+srcset="/posts/hack/xeasemusic/4_hu9caf4385ce48b002b831ac272cd33a9e_25881_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/4_hu9caf4385ce48b002b831ac272cd33a9e_25881_1024x0_resize_q75_box.jpg 1024w"
+width="641"
+height="453"
+loading="lazy"
+alt="image-4">
+&lt;/a>
+&lt;figcaption>image-4&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>发现能够完全匹配标签栏四组文字的, 在一个&lt;code>arrays.xml&lt;/code>文本里, 其中节点的&lt;code>name&lt;/code>为&lt;code>ap&lt;/code>, 于是搜索&lt;code>R.array.ap&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 168; flex-basis: 404px">
+&lt;a href="/posts/hack/xeasemusic/5.jpg" data-size="650x386">&lt;img src="/posts/hack/xeasemusic/5.jpg"
+srcset="/posts/hack/xeasemusic/5_hufa6fa374304e0e6fc4f95f0a44dcc12d_32751_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/5_hufa6fa374304e0e6fc4f95f0a44dcc12d_32751_1024x0_resize_q75_box.jpg 1024w"
+width="650"
+height="386"
+loading="lazy"
+alt="image-5">
+&lt;/a>
+&lt;figcaption>image-5&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以发现一处搜索结果, 位于&lt;code>MainActivity&lt;/code>, 应该就是需要找的目标了, 看看这个&lt;code>b&lt;/code>方法的实现&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 371; flex-basis: 891px">
+&lt;a href="/posts/hack/xeasemusic/6.jpg" data-size="297x80">&lt;img src="/posts/hack/xeasemusic/6.jpg"
+srcset="/posts/hack/xeasemusic/6_hubcf35791e8005caf432b6c4d673f5320_3500_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/6_hubcf35791e8005caf432b6c4d673f5320_3500_1024x0_resize_q75_box.jpg 1024w"
+width="297"
+height="80"
+loading="lazy"
+alt="image-6">
+&lt;/a>
+&lt;figcaption>image-6&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;strong>发现此方法只是把&lt;code>xml&lt;/code>里的数组保存, 那么我只需要把这个入参的值修改一下, 应该就可以实现去除多余标签的作用了&lt;/strong>, 编写&lt;code>xposed&lt;/code>模块代码如下&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(
+&amp;quot;com.马赛克ease.马赛克music.activity.r&amp;quot;,
+loadPackageParam.classLoader,
+&amp;quot;b&amp;quot;,
+String[].class,
+new XC_MethodHook() {
+@Override
+protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+param.args[0] = new String[]{&amp;quot;我的&amp;quot;};
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>此代码将在&lt;code>b&lt;/code>方法执行前执行, 将原本带有4个节点的数组重新赋值为只有一个的数组, 实际执行效果如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 385; flex-basis: 926px">
+&lt;a href="/posts/hack/xeasemusic/7.jpg" data-size="548x142">&lt;img src="/posts/hack/xeasemusic/7.jpg"
+srcset="/posts/hack/xeasemusic/7_hu76efc633ffd4f100cda63de540a6c11c_5217_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/7_hu76efc633ffd4f100cda63de540a6c11c_5217_1024x0_resize_q75_box.jpg 1024w"
+width="548"
+height="142"
+loading="lazy"
+alt="image-7">
+&lt;/a>
+&lt;figcaption>image-7&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到除了&amp;quot;我的&amp;quot;以外的标签, 其他的都已经不再显示了&lt;/p>
+&lt;h2 id="2去除用户vip信息">2.去除用户VIP信息&lt;/h2>
+&lt;p>用户VIP信息如下, 纯属占位置又无用的一块节点&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 240; flex-basis: 576px">
+&lt;a href="/posts/hack/xeasemusic/8.jpg" data-size="389x162">&lt;img src="/posts/hack/xeasemusic/8.jpg"
+srcset="/posts/hack/xeasemusic/8_hu3c8b24f48ba4b556a63204eb0d0c716b_7178_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/8_hu3c8b24f48ba4b556a63204eb0d0c716b_7178_1024x0_resize_q75_box.jpg 1024w"
+width="389"
+height="162"
+loading="lazy"
+alt="image-8">
+&lt;/a>
+&lt;figcaption>image-8&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>首先在&lt;a class="link" href="https://developer.android.google.cn/studio/profile/monitor" target="_blank" rel="noopener"
+>Android Device Monitor&lt;/a>查看一下VIP信息中头像节点的父节点&lt;code>id&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 292; flex-basis: 701px">
+&lt;a href="/posts/hack/xeasemusic/12.jpg" data-size="1216x416">&lt;img src="/posts/hack/xeasemusic/12.jpg"
+srcset="/posts/hack/xeasemusic/12_hu0c1a689cde821f071fb93ef8ea2299de_61354_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/12_hu0c1a689cde821f071fb93ef8ea2299de_61354_1024x0_resize_q75_box.jpg 1024w"
+width="1216"
+height="416"
+loading="lazy"
+alt="image-12">
+&lt;/a>
+&lt;figcaption>image-12&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到&lt;code>id&lt;/code>为&lt;code>headerMyInfo&lt;/code>, 在源码中全局搜索&lt;code>headerMyInfo&lt;/code>, 找到&lt;code>HeaderEntryListViewHolder&lt;/code>中有一处实际调用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 169; flex-basis: 407px">
+&lt;a href="/posts/hack/xeasemusic/11.jpg" data-size="665x392">&lt;img src="/posts/hack/xeasemusic/11.jpg"
+srcset="/posts/hack/xeasemusic/11_hu832e869c1f67da6028994494a950c04c_45118_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/11_hu832e869c1f67da6028994494a950c04c_45118_1024x0_resize_q75_box.jpg 1024w"
+width="665"
+height="392"
+loading="lazy"
+alt="image-11">
+&lt;/a>
+&lt;figcaption>image-11&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;strong>此处将&lt;code>headerMyInfo&lt;/code>的&lt;code>view&lt;/code>传入&lt;code>MyVipInfoViewHolder&lt;/code>作为参数, 之后创建了&lt;code>MyVipInfoViewHolder&lt;/code>, 因此只需要修改一下传入的&lt;code>headerMyInfo&lt;/code>布局参数, 即可隐藏这个节点&lt;/strong>, 编写&lt;code>xposed&lt;/code>代码如下:&lt;/p>
+&lt;pre>&lt;code>findAndHookConstructor(
+&amp;quot;com.马赛克ease.马赛克music.module.mymusic.headerentry.MyVipInfoViewHolder&amp;quot;, loadPackageParam.classLoader,
+View.class,
+&amp;quot;com.马赛克ease.马赛克music.module.mymusic.k&amp;quot;,
+new XC_MethodHook() {
+@Override
+protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+View view = (View) param.args[0];
+view.setVisibility(View.GONE);
+}
+}
+)
+&lt;/code>&lt;/pre>&lt;p>此代码拦截&lt;code>MyVipInfoViewHolder&lt;/code>的构造函数, 并将传入的参数&lt;code>headerMyInfo&lt;/code>修改显示方式为&lt;code>View.GONE&lt;/code>, 以达到隐藏的目的. 编写完后运行结果如下, 可以看到VIP节点已经成功隐藏&lt;/p>
+&lt;blockquote>
+&lt;p>注: 一个界面节点在创建之后可能会被多次调用, 直接删除节点可能会引起报错, 因为隐藏节点最为妥当&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;figure style="flex-grow: 216; flex-basis: 520px">
+&lt;a href="/posts/hack/xeasemusic/13.jpg" data-size="375x173">&lt;img src="/posts/hack/xeasemusic/13.jpg"
+srcset="/posts/hack/xeasemusic/13_hu0695848f27144fc461faaa8c0baacc9f_3905_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/13_hu0695848f27144fc461faaa8c0baacc9f_3905_1024x0_resize_q75_box.jpg 1024w"
+width="375"
+height="173"
+loading="lazy"
+alt="image-13">
+&lt;/a>
+&lt;figcaption>image-13&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="3隐藏小程序标题以及小程序列表">3.隐藏小程序标题以及小程序列表&lt;/h2>
+&lt;p>此处小程序列表本人也是从来不用, 而其所占位置之大令人发指&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 137; flex-basis: 330px">
+&lt;a href="/posts/hack/xeasemusic/14.jpg" data-size="368x267">&lt;img src="/posts/hack/xeasemusic/14.jpg"
+srcset="/posts/hack/xeasemusic/14_hu5ca81e96b348e5ca80fafffff0e83929_13108_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/14_hu5ca81e96b348e5ca80fafffff0e83929_13108_1024x0_resize_q75_box.jpg 1024w"
+width="368"
+height="267"
+loading="lazy"
+alt="image-14">
+&lt;/a>
+&lt;figcaption>image-14&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>在&lt;a class="link" href="https://developer.android.google.cn/studio/profile/monitor" target="_blank" rel="noopener"
+>Android Device Monitor&lt;/a>中看到标题节点的父节点&lt;code>id&lt;/code>为&lt;code>miniAppListSection&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 343; flex-basis: 825px">
+&lt;a href="/posts/hack/xeasemusic/17.jpg" data-size="1169x340">&lt;img src="/posts/hack/xeasemusic/17.jpg"
+srcset="/posts/hack/xeasemusic/17_hu7de6e24118f7a4c3d6f38753608cd1d4_54708_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/17_hu7de6e24118f7a4c3d6f38753608cd1d4_54708_1024x0_resize_q75_box.jpg 1024w"
+width="1169"
+height="340"
+loading="lazy"
+alt="image-17">
+&lt;/a>
+&lt;figcaption>image-17&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>搜索这个&lt;code>id&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 161; flex-basis: 387px">
+&lt;a href="/posts/hack/xeasemusic/15.jpg" data-size="645x399">&lt;img src="/posts/hack/xeasemusic/15.jpg"
+srcset="/posts/hack/xeasemusic/15_hu1a128ee9791f0657a00d6c1cec64d39d_46174_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/15_hu1a128ee9791f0657a00d6c1cec64d39d_46174_1024x0_resize_q75_box.jpg 1024w"
+width="645"
+height="399"
+loading="lazy"
+alt="image-15">
+&lt;/a>
+&lt;figcaption>image-15&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>发现其在&lt;code>SimpleSectionViewHolder&lt;/code>的构造函数中被调用, 该构造函数代码如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 418; flex-basis: 1003px">
+&lt;a href="/posts/hack/xeasemusic/16.jpg" data-size="393x94">&lt;img src="/posts/hack/xeasemusic/16.jpg"
+srcset="/posts/hack/xeasemusic/16_hubad3e495962fbe1d107e61b82a970315_6020_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/16_hubad3e495962fbe1d107e61b82a970315_6020_1024x0_resize_q75_box.jpg 1024w"
+width="393"
+height="94"
+loading="lazy"
+alt="image-16">
+&lt;/a>
+&lt;figcaption>image-16&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看出这里和刚才的VIP信息代码几乎一致, 因此可以采用刚才的方式进行隐藏, 但不同的是&lt;code>SimpleSectionViewHolder&lt;/code>这个类有多处调用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 424; flex-basis: 1019px">
+&lt;a href="/posts/hack/xeasemusic/18.jpg" data-size="603x142">&lt;img src="/posts/hack/xeasemusic/18.jpg"
+srcset="/posts/hack/xeasemusic/18_huaaf2c9083ce854493f125c511512c4bb_16409_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/18_huaaf2c9083ce854493f125c511512c4bb_16409_1024x0_resize_q75_box.jpg 1024w"
+width="603"
+height="142"
+loading="lazy"
+alt="image-18">
+&lt;/a>
+&lt;figcaption>image-18&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;strong>为了保证我们隐藏的&lt;code>view&lt;/code>参数是小程序的标题, 因此需要查看一下传入&lt;code>miniAppListSection&lt;/code>节点的资源&lt;code>id&lt;/code>&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>资源&lt;code>id&lt;/code>是安卓应用在编译后对应每个节点生成的唯一&lt;code>id&lt;/code>, 在编译期间可以使用&lt;code>R.id&lt;/code>/&lt;code>R.array&lt;/code>/&lt;code>R.layout&lt;/code>等其实都是引用了这个&lt;code>id&lt;/code>, 在编译后会生成在&lt;code>R.java&lt;/code>中, 还有一个&lt;code>public.xml&lt;/code>中存在一个同样的值与之对应&lt;/p>
+&lt;/blockquote>
+&lt;p>点击调用&lt;code>SimpleSectionViewHolder&lt;/code>构造函数中参数&lt;code>R.id.miniAppListSection&lt;/code>可以跳转到&lt;code>R.java&lt;/code>, &lt;strong>此时看到的资源&lt;code>id&lt;/code>为&lt;code>2131299470&lt;/code>&lt;/strong>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 992; flex-basis: 2381px">
+&lt;a href="/posts/hack/xeasemusic/19.jpg" data-size="387x39">&lt;img src="/posts/hack/xeasemusic/19.jpg"
+srcset="/posts/hack/xeasemusic/19_hu19c3c30341cb02fc2539b98fb2cb0e45_4174_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/19_hu19c3c30341cb02fc2539b98fb2cb0e45_4174_1024x0_resize_q75_box.jpg 1024w"
+width="387"
+height="39"
+loading="lazy"
+alt="image-19">
+&lt;/a>
+&lt;figcaption>image-19&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>现在可以编写&lt;code>xposed&lt;/code>代码如下&lt;/p>
+&lt;pre>&lt;code>findAndHookConstructor(
+&amp;quot;com.马赛克ease.马赛克music.module.mymusic.SimpleSectionViewHolder&amp;quot;, loadPackageParam.classLoader,
+View.class,
+&amp;quot;com.马赛克ease.马赛克music.module.mymusic.k&amp;quot;,
+new XC_MethodHook() {
+@Override
+protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+RelativeLayout layout = (RelativeLayout) param.args[0];
+if (layout.getId() == 2131299470) {
+layout.setVisibility(View.GONE);
+}
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>这里拦截&lt;code>SimpleSectionViewHolder&lt;/code>的构造函数, 当资源节点的&lt;code>id&lt;/code>为&lt;code>2131299470&lt;/code>时, 将节点隐藏&lt;/p>
+&lt;p>继续寻找小程序卡片的布局, 这里卡片节点没有合适的节点&lt;code>id&lt;/code>用于搜索, 因此找到他的父节点&lt;code>id&lt;/code>为&lt;code>myMusicRecyclerView&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 227; flex-basis: 547px">
+&lt;a href="/posts/hack/xeasemusic/20.jpg" data-size="1224x537">&lt;img src="/posts/hack/xeasemusic/20.jpg"
+srcset="/posts/hack/xeasemusic/20_hu6f26467958821e7a80072ee8126fa0f6_88317_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/20_hu6f26467958821e7a80072ee8126fa0f6_88317_1024x0_resize_q75_box.jpg 1024w"
+width="1224"
+height="537"
+loading="lazy"
+alt="image-20">
+&lt;/a>
+&lt;figcaption>image-20&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>全局搜索&lt;code>myMusicRecyclerView&lt;/code>, 得到多处结果, &lt;strong>但位于&lt;code>com.马赛克ease.马赛克music.module.mymusic.k&lt;/code>中因为使用到了类&lt;code>MiniAppListLinearViewHolder&lt;/code>, 根据名称推测&lt;code>MiniAppListLinearViewHolder&lt;/code>应该是用于创建卡片父节点列表的&lt;/strong>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 106; flex-basis: 256px">
+&lt;a href="/posts/hack/xeasemusic/21.jpg" data-size="642x601">&lt;img src="/posts/hack/xeasemusic/21.jpg"
+srcset="/posts/hack/xeasemusic/21_hud3841ee369b293e4fcd2b0e740582ef5_81633_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/21_hud3841ee369b293e4fcd2b0e740582ef5_81633_1024x0_resize_q75_box.jpg 1024w"
+width="642"
+height="601"
+loading="lazy"
+alt="image-21">
+&lt;/a>
+&lt;figcaption>image-21&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>其中&lt;code>bindType&lt;/code>调用了&lt;code>MiniAppListLinearViewHolder.a()&lt;/code>, &lt;strong>跳转进去可以看到内部调用了构造函数&lt;/strong>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 317; flex-basis: 762px">
+&lt;a href="/posts/hack/xeasemusic/23.jpg" data-size="788x248">&lt;img src="/posts/hack/xeasemusic/23.jpg"
+srcset="/posts/hack/xeasemusic/23_hueb1128d6c6eb0ca2b720c46bdf53de21_27859_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/23_hueb1128d6c6eb0ca2b720c46bdf53de21_27859_1024x0_resize_q75_box.jpg 1024w"
+width="788"
+height="248"
+loading="lazy"
+alt="image-23">
+&lt;/a>
+&lt;figcaption>image-23&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>看一眼&lt;code>MiniAppListLinearViewHolder&lt;/code>的构造函数代码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 380; flex-basis: 913px">
+&lt;a href="/posts/hack/xeasemusic/22.jpg" data-size="514x135">&lt;img src="/posts/hack/xeasemusic/22.jpg"
+srcset="/posts/hack/xeasemusic/22_huf74679e539d3245467a8975b6f5f594e_11770_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/22_huf74679e539d3245467a8975b6f5f594e_11770_1024x0_resize_q75_box.jpg 1024w"
+width="514"
+height="135"
+loading="lazy"
+alt="image-22">
+&lt;/a>
+&lt;figcaption>image-22&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>实现也非常简单, 推测可以使用刚才的方式将隐藏, 编写&lt;code>xposed&lt;/code>代码如下:&lt;/p>
+&lt;pre>&lt;code>findAndHookConstructor(
+&amp;quot;com.马赛克ease.马赛克music.module.mymusic.miniapp.linear.MiniAppListLinearViewHolder&amp;quot;, loadPackageParam.classLoader,
+View.class,
+&amp;quot;com.马赛克ease.马赛克music.module.mymusic.k&amp;quot;,
+int.class,
+int.class,
+new XC_MethodHook() {
+@Override
+protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+View miniAppListView = (View) param.args[0];
+ViewGroup.LayoutParams layoutParams = miniAppListView.getLayoutParams();
+layoutParams.height = 0;
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>这里拦截&lt;code>MiniAppListLinearViewHolder&lt;/code>的构造函数, 并将布局高度改为0, 达到隐藏的目的, 运行效果如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 212; flex-basis: 511px">
+&lt;a href="/posts/hack/xeasemusic/25.jpg" data-size="313x147">&lt;img src="/posts/hack/xeasemusic/25.jpg"
+srcset="/posts/hack/xeasemusic/25_hu8332141b9c0de66db381fde3d6b1b944_6333_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/25_hu8332141b9c0de66db381fde3d6b1b944_6333_1024x0_resize_q75_box.jpg 1024w"
+width="313"
+height="147"
+loading="lazy"
+alt="image-25">
+&lt;/a>
+&lt;figcaption>image-25&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>在隐藏了这么多节点之后, 布局出现了一点问题&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 167; flex-basis: 402px">
+&lt;a href="/posts/hack/xeasemusic/26.jpg" data-size="544x324">&lt;img src="/posts/hack/xeasemusic/26.jpg"
+srcset="/posts/hack/xeasemusic/26_hu233a6adfa9ef11599db90c0c279167f9_10234_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/26_hu233a6adfa9ef11599db90c0c279167f9_10234_1024x0_resize_q75_box.jpg 1024w"
+width="544"
+height="324"
+loading="lazy"
+alt="image-26">
+&lt;/a>
+&lt;figcaption>image-26&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到&amp;quot;本地音乐&amp;quot;这一栏的按钮偏下了, 需要调整一下位置. 首先查看一下这一栏按钮父节点&lt;code>id&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 254; flex-basis: 609px">
+&lt;a href="/posts/hack/xeasemusic/27.jpg" data-size="1123x442">&lt;img src="/posts/hack/xeasemusic/27.jpg"
+srcset="/posts/hack/xeasemusic/27_hu1fa50c1c6e036cca9d008cdb718b15a0_67341_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/27_hu1fa50c1c6e036cca9d008cdb718b15a0_67341_1024x0_resize_q75_box.jpg 1024w"
+width="1123"
+height="442"
+loading="lazy"
+alt="image-27">
+&lt;/a>
+&lt;figcaption>image-27&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到父节点&lt;code>id&lt;/code>为&lt;code>centerContainer&lt;/code>, 全局搜索后可以找到一处调用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 124; flex-basis: 299px">
+&lt;a href="/posts/hack/xeasemusic/28.jpg" data-size="650x521">&lt;img src="/posts/hack/xeasemusic/28.jpg"
+srcset="/posts/hack/xeasemusic/28_huc5e658d31af1f3bc559b839b22a97849_53411_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/28_huc5e658d31af1f3bc559b839b22a97849_53411_1024x0_resize_q75_box.jpg 1024w"
+width="650"
+height="521"
+loading="lazy"
+alt="image-28">
+&lt;/a>
+&lt;figcaption>image-28&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;strong>这个节点被赋值为成员变量&lt;code>f15898e&lt;/code>, 而这个变量名是由反编译工具改名而来, 可以看到反编译提示原本变量名为&lt;code>e&lt;/code>&lt;/strong>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 677; flex-basis: 1624px">
+&lt;a href="/posts/hack/xeasemusic/29.jpg" data-size="501x74">&lt;img src="/posts/hack/xeasemusic/29.jpg"
+srcset="/posts/hack/xeasemusic/29_hu14c4180027ad19686f63197c810992d3_5308_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/29_hu14c4180027ad19686f63197c810992d3_5308_1024x0_resize_q75_box.jpg 1024w"
+width="501"
+height="74"
+loading="lazy"
+alt="image-29">
+&lt;/a>
+&lt;figcaption>image-29&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>下面需要修改这个节点的布局参数, 编写&lt;code>xposed&lt;/code>代码如下&lt;/p>
+&lt;pre>&lt;code>findAndHookConstructor(
+&amp;quot;com.马赛克ease.马赛克music.module.mymusic.headerentry.HeaderEntryListViewHolder&amp;quot;, loadPackageParam.classLoader,
+View.class,
+&amp;quot;com.马赛克ease.马赛克music.module.mymusic.k&amp;quot;,
+new XC_MethodHook() {
+@Override
+protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+LinearLayout view = (LinearLayout) getObjectField(param.thisObject, &amp;quot;e&amp;quot;);
+FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
+layoutParams.bottomMargin = 50;
+layoutParams.gravity = Gravity.BOTTOM;
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>此处拦截赋值部分的方法, 在&lt;code>HeaderEntryListViewHolder&lt;/code>的构造方法执行之后, 获取到成员变量&lt;code>e&lt;/code>并修改其布局为&lt;code>Gravity.BOTTOM&lt;/code>, 将节点靠底排列, &lt;code>bottomMargin=50&lt;/code>, 距离底部50个边距, 编译后运行效果如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 109; flex-basis: 262px">
+&lt;a href="/posts/hack/xeasemusic/30.jpg" data-size="304x278">&lt;img src="/posts/hack/xeasemusic/30.jpg"
+srcset="/posts/hack/xeasemusic/30_hu58f7ec5dbed2a5e311d503194b581b98_8743_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/30_hu58f7ec5dbed2a5e311d503194b581b98_8743_1024x0_resize_q75_box.jpg 1024w"
+width="304"
+height="278"
+loading="lazy"
+alt="image-30">
+&lt;/a>
+&lt;figcaption>image-30&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到按钮正常排列了&lt;/p>
+&lt;blockquote>
+&lt;p>按钮上方留白一段距离主要是为了设置背景的时候可以看到&lt;/p>
+&lt;/blockquote>
+&lt;p>至此, 首页全部整改完毕, 完整效果图如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 49; flex-basis: 117px">
+&lt;a href="/posts/hack/xeasemusic/31.jpg" data-size="308x627">&lt;img src="/posts/hack/xeasemusic/31.jpg"
+srcset="/posts/hack/xeasemusic/31_hu9b7acd5e3bb53edc812211b1adceecc9_21973_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/31_hu9b7acd5e3bb53edc812211b1adceecc9_21973_1024x0_resize_q75_box.jpg 1024w"
+width="308"
+height="627"
+loading="lazy"
+alt="image-31">
+&lt;/a>
+&lt;figcaption>image-31&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="4去除播放列表顶部广告按钮">4.去除播放列表顶部广告按钮&lt;/h2>
+&lt;p>这个该死的广告按钮和播放按钮放一块非常容易误触&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 120; flex-basis: 290px">
+&lt;a href="/posts/hack/xeasemusic/32.jpg" data-size="370x306">&lt;img src="/posts/hack/xeasemusic/32.jpg"
+srcset="/posts/hack/xeasemusic/32_hu08659f642f1645c8da8481d4193472c9_17738_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/32_hu08659f642f1645c8da8481d4193472c9_17738_1024x0_resize_q75_box.jpg 1024w"
+width="370"
+height="306"
+loading="lazy"
+alt="image-32">
+&lt;/a>
+&lt;figcaption>image-32&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>首先查看节点&lt;code>id&lt;/code>, 得到&lt;code>exposureGuideIcon&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 394; flex-basis: 945px">
+&lt;a href="/posts/hack/xeasemusic/33.jpg" data-size="1190x302">&lt;img src="/posts/hack/xeasemusic/33.jpg"
+srcset="/posts/hack/xeasemusic/33_hu2b6f7c4011a2e048b3897d0ec08d26c5_48296_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/33_hu2b6f7c4011a2e048b3897d0ec08d26c5_48296_1024x0_resize_q75_box.jpg 1024w"
+width="1190"
+height="302"
+loading="lazy"
+alt="image-33">
+&lt;/a>
+&lt;figcaption>image-33&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>全局搜索, 发现在构造函数中有一处引用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 127; flex-basis: 305px">
+&lt;a href="/posts/hack/xeasemusic/34.jpg" data-size="641x504">&lt;img src="/posts/hack/xeasemusic/34.jpg"
+srcset="/posts/hack/xeasemusic/34_hu38cdb4460f6736c4127d1c61595aa739_45810_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/34_hu38cdb4460f6736c4127d1c61595aa739_45810_1024x0_resize_q75_box.jpg 1024w"
+width="641"
+height="504"
+loading="lazy"
+alt="image-34">
+&lt;/a>
+&lt;figcaption>image-34&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>通过搜索&lt;code>new ExposureGuideView&lt;/code>查看实例被创建的地方, 找到两处, 但当前界面是播放列表, 因此关注&lt;code>PlayListFragment&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 173; flex-basis: 416px">
+&lt;a href="/posts/hack/xeasemusic/35.jpg" data-size="877x505">&lt;img src="/posts/hack/xeasemusic/35.jpg"
+srcset="/posts/hack/xeasemusic/35_hu558718252af24ad66769987c7a3947aa_48012_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/35_hu558718252af24ad66769987c7a3947aa_48012_1024x0_resize_q75_box.jpg 1024w"
+width="877"
+height="505"
+loading="lazy"
+alt="image-35">
+&lt;/a>
+&lt;figcaption>image-35&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>实例在&lt;code>PlayListFragment&lt;/code>的&lt;code>cl&lt;/code>方法中被创建, 查看一下&lt;code>cl&lt;/code>的完整代码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 104; flex-basis: 249px">
+&lt;a href="/posts/hack/xeasemusic/36.jpg" data-size="707x679">&lt;img src="/posts/hack/xeasemusic/36.jpg"
+srcset="/posts/hack/xeasemusic/36_hu47f624dd0aba93576ea00791222c361a_54606_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/36_hu47f624dd0aba93576ea00791222c361a_54606_1024x0_resize_q75_box.jpg 1024w"
+width="707"
+height="679"
+loading="lazy"
+alt="image-36">
+&lt;/a>
+&lt;figcaption>image-36&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>初步分析基本上都是干的和广告相关的事, 因此直接拦截取缔这个方法, 编写&lt;code>xposed&lt;/code>代码如下&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(
+&amp;quot;com.马赛克ease.马赛克music.fragment.PlayListFragment&amp;quot;,
+loadPackageParam.classLoader,
+&amp;quot;cl&amp;quot;,
+new XC_MethodReplacement() {
+@Override
+protected Object replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable {
+return null;
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>此处代码直接替换原有方法执行, 不做任何事, 之后运行效果如下&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 160; flex-basis: 385px">
+&lt;a href="/posts/hack/xeasemusic/37.jpg" data-size="535x333">&lt;img src="/posts/hack/xeasemusic/37.jpg"
+srcset="/posts/hack/xeasemusic/37_hubf45c5b4a1a70a21657ac1a835f43ece_13167_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/37_hubf45c5b4a1a70a21657ac1a835f43ece_13167_1024x0_resize_q75_box.jpg 1024w"
+width="535"
+height="333"
+loading="lazy"
+alt="image-37">
+&lt;/a>
+&lt;figcaption>image-37&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到广告已经被移除了&lt;/p>
+&lt;h2 id="5去除开屏广告">5.去除开屏广告&lt;/h2>
+&lt;p>开屏广告非常烦人, 且严重影响启动速度, 必须移除&lt;/p>
+&lt;blockquote>
+&lt;p>以下修改均为2019年期间, 我也不记得当时具体是怎么找的了, 只能以现有结果大致推测&lt;/p>
+&lt;/blockquote>
+&lt;p>首先从启动类入手, 查看&lt;code>AndroidManifest.xml&lt;/code>, 找到&lt;code>intent-filter&lt;/code>为&lt;code>android.intent.category.LAUNCHER&lt;/code>的一项&lt;code>Actvity&lt;/code>即为启动类, 这里为&lt;code>LoadingActivity&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 321; flex-basis: 771px">
+&lt;a href="/posts/hack/xeasemusic/38.jpg" data-size="765x238">&lt;img src="/posts/hack/xeasemusic/38.jpg"
+srcset="/posts/hack/xeasemusic/38_hud4fce15e6959bece632e25be2b6d88f0_31103_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/38_hud4fce15e6959bece632e25be2b6d88f0_31103_1024x0_resize_q75_box.jpg 1024w"
+width="765"
+height="238"
+loading="lazy"
+alt="image-38">
+&lt;/a>
+&lt;figcaption>image-38&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>查阅&lt;code>LoadingActivity&lt;/code>的代码, 会发现其重写了&lt;code>onActivityResult&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 238; flex-basis: 572px">
+&lt;a href="/posts/hack/xeasemusic/39.jpg" data-size="453x190">&lt;img src="/posts/hack/xeasemusic/39.jpg"
+srcset="/posts/hack/xeasemusic/39_hu3a68a8189dc04981b9d1b247ad6c58e1_10309_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/39_hu3a68a8189dc04981b9d1b247ad6c58e1_10309_1024x0_resize_q75_box.jpg 1024w"
+width="453"
+height="190"
+loading="lazy"
+alt="image-39">
+&lt;/a>
+&lt;figcaption>image-39&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>接着深入查看一下&lt;code>h&lt;/code>方法&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 132; flex-basis: 317px">
+&lt;a href="/posts/hack/xeasemusic/40.jpg" data-size="200x151">&lt;img src="/posts/hack/xeasemusic/40.jpg"
+srcset="/posts/hack/xeasemusic/40_hue291cbe0877007806e7e8c4444a30946_4005_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/40_hue291cbe0877007806e7e8c4444a30946_4005_1024x0_resize_q75_box.jpg 1024w"
+width="200"
+height="151"
+loading="lazy"
+alt="image-40">
+&lt;/a>
+&lt;figcaption>image-40&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>再看看&lt;code>i&lt;/code>方法&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 202; flex-basis: 485px">
+&lt;a href="/posts/hack/xeasemusic/41.jpg" data-size="615x304">&lt;img src="/posts/hack/xeasemusic/41.jpg"
+srcset="/posts/hack/xeasemusic/41_hu440009b23bcc71c983ca2877fb9cac68_30177_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/41_hu440009b23bcc71c983ca2877fb9cac68_30177_1024x0_resize_q75_box.jpg 1024w"
+width="615"
+height="304"
+loading="lazy"
+alt="image-41">
+&lt;/a>
+&lt;figcaption>image-41&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;strong>这里出现了一个关键的类 &lt;code>LoadingAdFragment&lt;/code>, 看名字就像是一个读取广告的, 点进去查看一下类的代码可以看到, 在&lt;code>onCreate&lt;/code>的时候从&lt;code>Bundle&lt;/code>里尝试读取&lt;code>AdInfo&lt;/code>&lt;/strong>, 这越看越像广告&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 160; flex-basis: 385px">
+&lt;a href="/posts/hack/xeasemusic/44.jpg" data-size="432x269">&lt;img src="/posts/hack/xeasemusic/44.jpg"
+srcset="/posts/hack/xeasemusic/44_hue92639689ceb27d8dc11563d32b4fc4e_16869_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/44_hue92639689ceb27d8dc11563d32b4fc4e_16869_1024x0_resize_q75_box.jpg 1024w"
+width="432"
+height="269"
+loading="lazy"
+alt="image-44">
+&lt;/a>
+&lt;figcaption>image-44&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>那么看一下取的&lt;code>key&lt;/code>名称, 也就是变量&lt;code>f5823d&lt;/code>的值&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 293; flex-basis: 705px">
+&lt;a href="/posts/hack/xeasemusic/43.jpg" data-size="476x162">&lt;img src="/posts/hack/xeasemusic/43.jpg"
+srcset="/posts/hack/xeasemusic/43_hu07b44b2ae8472fff98065399b87b3e1a_13397_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/43_hu07b44b2ae8472fff98065399b87b3e1a_13397_1024x0_resize_q75_box.jpg 1024w"
+width="476"
+height="162"
+loading="lazy"
+alt="image-43">
+&lt;/a>
+&lt;figcaption>image-43&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;strong>可以看到这个键的名称也是叫做&lt;code>adInfo&lt;/code>, 那么根据&lt;code>onCreate&lt;/code>里的代码来看,如果取不到&lt;code>adInfo&lt;/code>, 那应该就不会展示广告了吧&lt;/strong>, 而&lt;code>arguments&lt;/code>参数是从&lt;code>getArguments()&lt;/code>方法中获取的, 点进去看一下这个方法的实现&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 206; flex-basis: 495px">
+&lt;a href="/posts/hack/xeasemusic/45.jpg" data-size="504x244">&lt;img src="/posts/hack/xeasemusic/45.jpg"
+srcset="/posts/hack/xeasemusic/45_hu6325548375b8a613a6d3076fa4d99c71_18813_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/45_hu6325548375b8a613a6d3076fa4d99c71_18813_1024x0_resize_q75_box.jpg 1024w"
+width="504"
+height="244"
+loading="lazy"
+alt="image-45">
+&lt;/a>
+&lt;figcaption>image-45&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>可以看到&lt;code>getArguments()&lt;/code>只是返回了&lt;code>this.mArguments&lt;/code>, 而&lt;code>this.mArguments&lt;/code>是从&lt;code>setArguments(Bundle bundle)&lt;/code>赋值的, &lt;strong>那我只要拦截赋值方法将&lt;code>adInfo&lt;/code>这个广告过滤掉就可以了&lt;/strong>&lt;/p>
+&lt;p>于是编写&lt;code>xposed&lt;/code>代码如下&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(
+&amp;quot;androidx.fragment.app.Fragment&amp;quot;,
+loadPackageParam.classLoader,
+&amp;quot;setArguments&amp;quot;,
+Bundle.class,
+new XC_MethodHook() {
+@Override
+protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+Bundle arg = (Bundle) param.args[0];
+if (arg == null || !arg.containsKey(&amp;quot;adInfo&amp;quot;)) {
+return;
+}
+arg.putSerializable(&amp;quot;adInfo&amp;quot;, null);
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>这里拦截了&lt;code>setArguments&lt;/code>, 判断传入的参数是否包含键为&lt;code>adInfo&lt;/code>的参数, 如果有的话, 把这个&lt;code>bundle&lt;/code>设置为&lt;code>null&lt;/code>&lt;/p>
+&lt;p>但这并不完美, 因为只是隐藏了广告, 请求广告的代码任然会执行, 浪费资源, 因此继续深入追踪代码, 再经过一番我也不记得当时怎么找到现在也因为很复杂懒得找的寻找之后, 最终确定到&lt;code>com.马赛克ease.马赛克music.module.ad.a.a&lt;/code>类中的&lt;code>a(int, string)&lt;/code>是实际执行请求广告的代码, 如下:&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 421; flex-basis: 1012px">
+&lt;a href="/posts/hack/xeasemusic/46.jpg" data-size="1004x238">&lt;img src="/posts/hack/xeasemusic/46.jpg"
+srcset="/posts/hack/xeasemusic/46_hu169fb9caf5cc741615e5f8bd116b3726_26246_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/46_hu169fb9caf5cc741615e5f8bd116b3726_26246_1024x0_resize_q75_box.jpg 1024w"
+width="1004"
+height="238"
+loading="lazy"
+alt="image-46">
+&lt;/a>
+&lt;figcaption>image-46&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>这一部分代码无法反编译出来, 但问题不大, 反正不需要执行这部分代码, 直接编写&lt;code>xposed&lt;/code>代码如下&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(
+&amp;quot;com.马赛克ease.马赛克music.module.ad.a&amp;quot;,
+loadPackageParam.classLoader,
+&amp;quot;a&amp;quot;,
+int.class,
+String.class,
+new XC_MethodReplacement() {
+@Override
+protected Object replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable {
+return null;
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>直接拦截并替换掉目标方法, 不做任何事情, 这样一来就不会再请求广告了, 编译后运行发现进入速度变快了也没有烦人的开屏广告了&lt;/p>
+&lt;h2 id="6去除更新检查">6.去除更新检查&lt;/h2>
+&lt;p>更新弹窗非常烦人, 必须干掉. 首先一般更新检查都是调用的同一个地方的代码, 直接来到APP的&amp;quot;关于&amp;quot;界面, 找到更新检查按钮, 通过&lt;a class="link" href="https://developer.android.google.cn/studio/profile/monitor" target="_blank" rel="noopener"
+>Android Device Monitor&lt;/a>可以看到更新按钮的&lt;code>id&lt;/code>为&lt;code>updateVersionArea&lt;/code>&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 226; flex-basis: 544px">
+&lt;a href="/posts/hack/xeasemusic/47.jpg" data-size="1197x528">&lt;img src="/posts/hack/xeasemusic/47.jpg"
+srcset="/posts/hack/xeasemusic/47_hud947ccd3a7c7b7136eb52056bb56732d_61563_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/47_hud947ccd3a7c7b7136eb52056bb56732d_61563_1024x0_resize_q75_box.jpg 1024w"
+width="1197"
+height="528"
+loading="lazy"
+alt="image-47">
+&lt;/a>
+&lt;figcaption>image-47&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>全局搜索这个&lt;code>id&lt;/code>, 在&lt;code>setOnClickListener&lt;/code>处有调用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 127; flex-basis: 306px">
+&lt;a href="/posts/hack/xeasemusic/48.jpg" data-size="646x506">&lt;img src="/posts/hack/xeasemusic/48.jpg"
+srcset="/posts/hack/xeasemusic/48_hue442558403451ff61162f07f30f426d4_45011_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/48_hue442558403451ff61162f07f30f426d4_45011_1024x0_resize_q75_box.jpg 1024w"
+width="646"
+height="506"
+loading="lazy"
+alt="image-48">
+&lt;/a>
+&lt;figcaption>image-48&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>这里直接通过调用方法传入了参数, 一路跟踪这个方法, 都是比较简单的调用, 这里的分支查看&lt;code>super.a(z)&lt;/code>的代码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 502; flex-basis: 1206px">
+&lt;a href="/posts/hack/xeasemusic/50.jpg" data-size="754x150">&lt;img src="/posts/hack/xeasemusic/50.jpg"
+srcset="/posts/hack/xeasemusic/50_hu3c01c65140aac6ca3e8e56aaa092b83a_11725_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/50_hu3c01c65140aac6ca3e8e56aaa092b83a_11725_1024x0_resize_q75_box.jpg 1024w"
+width="754"
+height="150"
+loading="lazy"
+alt="image-50">
+&lt;/a>
+&lt;figcaption>image-50&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>最终会来到&lt;code>com.马赛克ease.马赛克music.appupdate.a.a&lt;/code>类, 看这个包名推测确实没找错地方, 而最终调用的&lt;code>a(boolean)&lt;/code>应该就是检查更新的核心代码&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 143; flex-basis: 345px">
+&lt;a href="/posts/hack/xeasemusic/49.jpg" data-size="640x445">&lt;img src="/posts/hack/xeasemusic/49.jpg"
+srcset="/posts/hack/xeasemusic/49_hu39405a5d90059febad4cd7ce50059634_31986_480x0_resize_q75_box.jpg 480w, /posts/hack/xeasemusic/49_hu39405a5d90059febad4cd7ce50059634_31986_1024x0_resize_q75_box.jpg 1024w"
+width="640"
+height="445"
+loading="lazy"
+alt="image-49">
+&lt;/a>
+&lt;figcaption>image-49&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>不多说直接编写&lt;code>xposed&lt;/code>代码进行拦截, 代码如下&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(
+&amp;quot;com.马赛克ease.马赛克music.appupdate.a&amp;quot;,
+loadPackageParam.classLoader,
+&amp;quot;a&amp;quot;,
+boolean.class,
+new XC_MethodReplacement() {
+@Override
+protected Object replaceHookedMethod(MethodHookParam methodHookParam) throws Throwable {
+return null;
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>直接将拦截目标方法替换掉, 不执行任何业务, 编译后再次打开APP会发现已经去除了更新检查, 至此, 所有该整改都已经完成&lt;/p>
+&lt;h2 id="附录">附录&lt;/h2>
+&lt;hr>
+&lt;ul>
+&lt;li>&lt;em>由于这APP将所有字符串加密, 因此很多节点无法直接通过文本搜索, &lt;strong>经发现其解密部分的代码位于&lt;code>a.auu.a&lt;/code>的&lt;code>c(string)&lt;/code>方法&lt;/strong>, 可以通过&lt;code>xposed&lt;/code>拦截前后参数来获得解密前和解密后的数据, 代码如下&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>findAndHookMethod(
+&amp;quot;a.auu.a&amp;quot;, loadPackageParam.classLoader,
+&amp;quot;c&amp;quot;,
+String.class,
+new XC_MethodHook() {
+@Override
+protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+strBeforeDec = param.args[0];
+}
+@Override
+protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+MyLog.log(strBeforeDec.toString(), param.getResult().toString(), doLog);
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>该代码先拦截入参, 把参数记录一下, 在解密方法执行完之后打印入参和出参, 除此之外, 也可以使用&lt;code>xposed&lt;/code>去主动调用解密方法, 代码如下&lt;/p>
+&lt;pre>&lt;code>Class[] argCls = new Class[]{String.class};
+Object result = callStaticMethod(findClass(&amp;quot;a.auu.a&amp;quot;, loadPackageParam.classLoader), &amp;quot;c&amp;quot;, argCls, &amp;quot;待解密&amp;quot;);
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>&lt;em>拦截存储目录&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>可以通过以下代码拦截APP能够获取到的储存目录&lt;/p>
+&lt;pre>&lt;code>findAndHookMethod(
+&amp;quot;com.马赛克ease.马赛克music.utils.马赛克easeMusicUtils&amp;quot;,
+loadPackageParam.classLoader,
+&amp;quot;c&amp;quot;,
+boolean.class,
+new XC_MethodHook() {
+@Override
+protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+}
+@Override
+protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+}
+}
+);
+&lt;/code>&lt;/pre>&lt;p>&lt;code>马赛克easeMusicUtils&lt;/code>工具类包含读取内置存储目录的方法, 可以在这里拦截并修改对应参数使得APP读取指定的目录&lt;/p>
+&lt;blockquote>
+&lt;p>当初是因为APP总是读取到我音乐文件夹以外的文件夹, APP自带的过滤器又没有效果, 只能我自己改了&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="结语">结语&lt;/h2>
+&lt;p>不得不说这混淆确实增加了很多麻烦, 尤其是当初找广告代码的时候, 不过随着经验的增加现在找起来比以前快了很多, 另外国产APP真就一个比一个流氓, 越更新越是增加乱七八糟的功能, 因为可以同步歌单才一直没卸载, 但随着版权越抓越紧, 它已经越来越不好用了, 现在移动端已经卸载换了一个纯粹的本地播放器, 希望PC端能够保持初心吧&lt;/p></description></item><item><title>Stellio Player破解专业版</title><link>/posts/hack/xstellio/</link><pubDate>Fri, 05 Nov 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xstellio/</guid><description>&lt;img src="/posts/hack/xstellio/cover.png" alt="Featured image of post Stellio Player破解专业版" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>最近发现一直在用的某抑云音乐越来越不行了, 没版权下架歌曲我可以理解, 但下架了也不告诉具体下架了哪些歌曲, 害得我都不知道该怎么找. 更无语的是我自己上传到某易云盘的歌曲都会因为版权问题无法添加到歌单, 而它自身的本地播放功能做的又太垃圾, 于是只能另谋出路, 在&lt;a class="link" href="https://play.google.com" target="_blank" rel="noopener"
 >Google Play&lt;/a>上找到一款本地播放器, 兼顾美观和功能简单实用, 不过免费版有点小广告, 然后试了几款去广告的插件, 都不能完美去除, 而我作为强迫症决定一定要处理掉&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
 &lt;p>去掉各处的广告以及订购按钮&lt;/p>
+&lt;h2 id="受害者版本">受害者版本&lt;/h2>
+&lt;p>V.6.2.15&lt;/p>
 &lt;h2 id="app界面以及广告">APP界面以及广告&lt;/h2>
 &lt;p>&lt;figure style="flex-grow: 99; flex-basis: 237px">
 &lt;a href="/posts/hack/xstellio/1.jpg" data-size="1000x1009">&lt;img src="/posts/hack/xstellio/1.jpg"
@@ -142,11 +866,13 @@ alt="枚举">
 &lt;figcaption>枚举&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>&lt;strong>综合起来推测这个&lt;code>Map&lt;/code>应该就是用于初始化一个授权值的, 以给定键的布尔值是否为&lt;code>true&lt;/code>来判断应用是否已经购买, 那么我只要在初始化的时候把这个&lt;code>Map&lt;/code>的值固定写死成&lt;code>true&lt;/code>, 应该就可以让APP认为已经购买过了, 编写&lt;code>Xposed&lt;/code>代码如下&lt;/strong>&lt;/p>
-&lt;pre>&lt;code>findAndHookConstructor(&amp;quot;air.stellio.player.Helpers.GooglePlayPurchaseChecker&amp;quot;,
+&lt;pre>&lt;code>findAndHookConstructor(
+&amp;quot;air.stellio.player.Helpers.GooglePlayPurchaseChecker&amp;quot;,
 loadPackageParam.classLoader,
 &amp;quot;air.stellio.player.Activities.u&amp;quot;,
 &amp;quot;org.solovyev.android.checkout.F&amp;quot;,
-Map.class, new XC_MethodHook() {
+Map.class,
+new XC_MethodHook() {
 @Override
 protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
 MyLog.log(&amp;quot;hookin GooglePlayPurchaseChecker()&amp;quot;, doLog);
@@ -158,7 +884,8 @@ param.args[2] = arg3;
 arg3.put(&amp;quot;stellio_all_inclusive&amp;quot;, true);
 arg3.put(&amp;quot;stellio_premium&amp;quot;, true);
 }
-});
+}
+);
 &lt;/code>&lt;/pre>&lt;p>&lt;strong>观察&lt;code>GooglePlayPurchaseChecker&lt;/code>类中的赋值代码可以发现, 主要是通过构造函数将&lt;code>Map&lt;/code>的值存储的, 因此使用&lt;code>Xposed&lt;/code>的&lt;code>findAndHookConstructor&lt;/code>去挂钩&lt;code>GooglePlayPurchaseChecker&lt;/code>的构造函数, 在构造函数执行之前, 修改传入的第三个参数&lt;code>Map&lt;/code>, 把键为&lt;code>stellio_premium&lt;/code>和&lt;code>stellio_all_inclusive&lt;/code>的值存为&lt;code>true&lt;/code>, 这样当构造函数执行的时候, 会永远认为这是已订购的了&lt;/strong>&lt;/p>
 &lt;p>安装模块并运行, 此时可以发现APP中的广告以及订购按钮都没有了&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 98; flex-basis: 236px">
@@ -466,11 +1193,12 @@ show_progress(0.100000, 0);
 &lt;p>由于安卓的开源特性使得安卓的可玩性和定制性非常高, 我所入手的每一部安卓手机都会进行ROOT并做一定程度的修改, 最开始的时候参考前辈的教程修改了系统APK的各种背景, 特效, 音效, 性能调优, 开机动画之类的, 随着手机UI越来越美观功能以及本人时间精力越来越有限, 现在对这种定制需要也已经越来越少了, 加之谷歌对安卓开源的策略调整以厂商的限制, 进行定制也越来越麻烦了, 但我仍会继续热爱安卓, 希望安卓开放的特性能够保持下去&lt;/p></description></item><item><title>某加APP破解去除认证和更新</title><link>/posts/hack/xplus/</link><pubDate>Thu, 10 Jun 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xplus/</guid><description>&lt;img src="/posts/hack/xplus/cover.png" alt="Featured image of post 某加APP破解去除认证和更新" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>由于某些需要, 进入某大楼的时候必须用他们物业指定的APP刷门禁, 我安装的时候是6.5.0版本, 这会儿启动速度也还可以, 也没太多花里胡哨的功能. 然而没过多久就迎来了一波强制版本更新, 更新后的版本启动速度慢到令人发指, 且增加了商城, 我就怒了, 区区门禁软件竟然这样肆意妄为, 开工!&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
-&lt;p>破解某加(版本: 6.5.0)去除更新检查, 去掉实名认证&lt;/p>
+&lt;p>去除更新检查, 去掉实名认证&lt;/p>
 &lt;blockquote>
 &lt;p>某加在7.0.0版本更名为某品, 破解版本为6.5.0, 在此保持称呼其为某加&lt;/p>
 &lt;/blockquote>
-&lt;p>某加APP(版本6.5.0)界面&lt;/p>
+&lt;h2 id="受害者版本">受害者版本&lt;/h2>
+&lt;p>6.5.0&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 48; flex-basis: 116px">
 &lt;a href="/posts/hack/xplus/1.jpg" data-size="428x879">&lt;img src="/posts/hack/xplus/1.jpg"
 srcset="/posts/hack/xplus/1_hu2d95ec83e3d4d01752f97536c451549d_53428_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/1_hu2d95ec83e3d4d01752f97536c451549d_53428_1024x0_resize_q75_box.jpg 1024w"
@@ -613,7 +1341,7 @@ packageInfo.versionName = &amp;quot;7.0.0&amp;quot;;
 }
 }
 });
-&lt;/code>&lt;/pre>&lt;p>此处使用&lt;code>Xposed&lt;/code>直接&lt;code>Hook&lt;/code> Android系统的包管理器, 当某加需要获取版本名时, 直接返回7.0.0, 不过这样做的缺点是如果某加未来版本更新到7.0.0以上时, 需要修改代码, 然而从2020年12月破解至今, 某加都没有再发布过版本更新, 省了我不少事&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>此处使用&lt;code>Xposed&lt;/code>直接拦截Android系统的包管理器, 当某加需要获取版本名时, 直接返回7.0.0, 不过这样做的缺点是如果某加未来版本更新到7.0.0以上时, 需要修改代码, 然而从2020年12月破解至今, 某加都没有再发布过版本更新, 省了我不少事&lt;/p>
 &lt;p>&lt;strong>至此重新打包运行, 发现登录的更新检查也被去除了&lt;/strong>&lt;/p>
 &lt;p>然而新的风暴又出现了, 由于刚才的不慎退出, 现在需要重新上传实名认证资料了, 包括身份证号和照片, 由于我之前已经填过一次, 而且上传后需要重新审核, 所以不愿意再次填写, 于是开始寻找认证部分的代码&lt;/p>
 &lt;h2 id="跳过实名认证">跳过实名认证&lt;/h2>
@@ -703,7 +1431,7 @@ protected void afterHookedMethod(MethodHookParam param) throws Throwable {
 param.setResult(&amp;quot;1&amp;quot;);
 }
 });
-&lt;/code>&lt;/pre>&lt;p>&lt;code>Hook&lt;/code>代码将在&lt;code>getStatus()&lt;/code>执行之后执行, 将其返回值为修改为1, 现在重新运行, &lt;strong>程序一切正常, 也没有身份认证弹窗了, 点击显示二维码按钮正常显示门禁二维码&lt;/strong>&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>拦截代码将在&lt;code>getStatus()&lt;/code>执行之后执行, 将其返回值为修改为1, 现在重新运行, &lt;strong>程序一切正常, 也没有身份认证弹窗了, 点击显示二维码按钮正常显示门禁二维码&lt;/strong>&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 64; flex-basis: 155px">
 &lt;a href="/posts/hack/xplus/18.jpg" data-size="524x811">&lt;img src="/posts/hack/xplus/18.jpg"
 srcset="/posts/hack/xplus/18_hu8be23d8c5d36ba9786790ce525914933_44600_480x0_resize_q75_box.jpg 480w, /posts/hack/xplus/18_hu8be23d8c5d36ba9786790ce525914933_44600_1024x0_resize_q75_box.jpg 1024w"
@@ -716,7 +1444,9 @@ alt="ok">
 &lt;/figure>&lt;/p></description></item><item><title>某鱼APP破解去广告</title><link>/posts/hack/xfish/</link><pubDate>Tue, 08 Jun 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xfish/</guid><description>&lt;img src="/posts/hack/xfish/cover.png" alt="Featured image of post 某鱼APP破解去广告" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>作为一个家徒四壁的打工人, 在某鱼上购买二手的闲置商品便成了我实现梦想的捷径, 但某鱼经过多次升级改版已经相当流氓, 在我搜索出想要的商品的结果页, 嵌入识别度很低的广告, 导致我经常手滑点错, 然后直接跳转启动某宝, 某宝的启动速度又慢的令人发指, 最终还得按下多次返回才能再次回到某鱼的搜索结果页, 忍无可忍的我只能对它做一些不可描述的事了&lt;/p>
 &lt;h2 id="目标">目标&lt;/h2>
-&lt;p>破解某鱼(版本: 6.7.40)并去除搜索结果页的广告, 同时去掉每次启动就弹窗的恼人的更新提示&lt;/p>
+&lt;p>去除搜索结果页的广告, 同时去掉每次启动就弹窗的恼人的更新提示&lt;/p>
+&lt;h2 id="受害者版本">受害者版本&lt;/h2>
+&lt;p>6.7.40&lt;/p>
 &lt;h2 id="某鱼的搜索结果页">某鱼的搜索结果页&lt;/h2>
 &lt;p>&lt;figure style="flex-grow: 56; flex-basis: 134px">
 &lt;a href="/posts/hack/xfish/adpage.jpg" data-size="540x961">&lt;img src="/posts/hack/xfish/adpage.jpg"
@@ -822,7 +1552,7 @@ alt="搜索点击4">
 &lt;figcaption>搜索点击4&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>可以看出这个字符串对应的页面应该是 &lt;code>SearchResultActivity&lt;/code>, 打开这个类之后一眼看不出什么重要的东西, 然后线索就这么中断了&lt;/p>
-&lt;p>线索中断之后, 可以用&lt;code>Xposed&lt;/code>对某些可疑方法&lt;code>Hook&lt;/code>, 然后通过打印调用堆栈的方法, 继续分析, 比如此我找到的&lt;code>SearchResultInterrupter&lt;/code>中的&lt;code>checkInterrupt&lt;/code>方法&lt;/p>
+&lt;p>线索中断之后, 可以用&lt;code>Xposed&lt;/code>拦截某些可疑方法, 然后通过打印调用堆栈的方法, 继续分析, 比如此我找到的&lt;code>SearchResultInterrupter&lt;/code>中的&lt;code>checkInterrupt&lt;/code>方法&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;code>Xposed&lt;/code>是一款&lt;code>Android&lt;/code>底层的框架, 能够从虚拟机层拦截系统所有执行代码, 而&lt;code>Xposed&lt;/code>模块是使用&lt;code>Xposed&lt;/code>提供的&lt;code>SDK&lt;/code>所开发的&lt;code>Android&lt;/code>应用, 能够借助&lt;code>Xposed&lt;/code>实现对所有关心代码的拦截, 详情请戳&lt;a class="link" href="https://repo.xposed.info/" target="_blank" rel="noopener"
 >Xposed官网&lt;/a>&lt;/p>
@@ -830,7 +1560,6 @@ alt="搜索点击4">
 &lt;pre>&lt;code>Throwable ex = new Throwable();
 StackTraceElement[] stackElements = ex.getStackTrace();
 if (stackElements != null) {
-MyLog.log(&amp;quot;调用堆栈:--------------------&amp;quot;, true);
 for (int i = 0; i &amp;lt; stackElements.length; i++) {
 MyLog.log(stackElements[i].getClassName() + &amp;quot; -&amp;gt; &amp;quot; +
 stackElements[i].getMethodName() + &amp;quot;()&amp;quot;
@@ -904,7 +1633,7 @@ MyLog.log(content);
 ...
 }
 ...
-&lt;/code>&lt;/pre>&lt;p>此处截取了一条记录展示, 实际拦截到的参数中是一个数组, 包含本次结果页的所有商品, 其中就包括了搜索的商品, 广告商品, 推荐商品等, 通过对比发现, &lt;strong>搜索的商品数据在节点&lt;code>args&lt;/code> &amp;gt; &lt;code>biz_type&lt;/code> 的取值为 &lt;code>item&lt;/code>, 而广告等商品取值为&lt;code>ad&lt;/code>, &lt;code>Bagtag&lt;/code>, &lt;code>聚合卡片&lt;/code>&lt;/strong>, 那么接下来要做的事就很明确了, &lt;strong>解析这个字符串, 如果发现是广告商品则从数据中删除这条数据&lt;/strong>, 修改对&lt;code>setBytedate&lt;/code>的&lt;code>Hook&lt;/code>代码如下&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>此处截取了一条记录展示, 实际拦截到的参数中是一个数组, 包含本次结果页的所有商品, 其中就包括了搜索的商品, 广告商品, 推荐商品等, 通过对比发现, &lt;strong>搜索的商品数据在节点&lt;code>args&lt;/code> &amp;gt; &lt;code>biz_type&lt;/code> 的取值为 &lt;code>item&lt;/code>, 而广告等商品取值为&lt;code>ad&lt;/code>, &lt;code>Bagtag&lt;/code>, &lt;code>聚合卡片&lt;/code>&lt;/strong>, 那么接下来要做的事就很明确了, &lt;strong>解析这个字符串, 如果发现是广告商品则从数据中删除这条数据&lt;/strong>, 修改对&lt;code>setBytedate&lt;/code>的拦截代码如下&lt;/p>
 &lt;pre>&lt;code>...
 protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
 if (null == param.args[0] || ((byte[]) param.args[0]).length == 0) {
@@ -997,7 +1726,7 @@ handler.onUpgradeNeed(info, tracer);
 ...
 }
 }
-&lt;/code>&lt;/pre>&lt;p>&lt;code>c&lt;/code>中的代码的突破点在于, &lt;strong>如果传入的&lt;code>handler&lt;/code>不为&lt;code>null&lt;/code>, 才会执行更新检测并弹窗的方法&lt;/strong>, 那么我只需要让传入的&lt;code>handler&lt;/code>为&lt;code>null&lt;/code>就可以了. 在&lt;code>Xposed&lt;/code>模块中对&lt;code>Upgrade&lt;/code>类的&lt;code>b&lt;/code>方法&lt;code>Hook&lt;/code>, 将入参设置为&lt;code>null&lt;/code>&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>&lt;code>c&lt;/code>中的代码的突破点在于, &lt;strong>如果传入的&lt;code>handler&lt;/code>不为&lt;code>null&lt;/code>, 才会执行更新检测并弹窗的方法&lt;/strong>, 那么我只需要让传入的&lt;code>handler&lt;/code>为&lt;code>null&lt;/code>就可以了. 在&lt;code>Xposed&lt;/code>模块中拦截&lt;code>Upgrade&lt;/code>类的&lt;code>b&lt;/code>方法, 将入参设置为&lt;code>null&lt;/code>&lt;/p>
 &lt;pre>&lt;code>findAndHookMethod(&amp;quot;com.马赛克.马赛克fish.upgrade.traceable.Upgrade&amp;quot;,loadPackageParam.classLoader,
 &amp;quot;b&amp;quot;,
 &amp;quot;com.马赛克.马赛克fish.upgrade.traceable.UpgradeHandler&amp;quot;,
