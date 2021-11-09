@@ -1,5 +1,5 @@
 ---
-title: XStellio Player破解专业版
+title: Stellio Player破解专业版
 date: 2021-11-05T00:50:44+08:00
 slug: xstellio
 image: cover.png
@@ -11,20 +11,24 @@ tags:
     - Xposed
 ---
 
-背景
----
+## 背景
+
 最近发现一直在用的某抑云音乐越来越不行了, 没版权下架歌曲我可以理解, 但下架了也不告诉具体下架了哪些歌曲, 害得我都不知道该怎么找. 更无语的是我自己上传到某易云盘的歌曲都会因为版权问题无法添加到歌单, 而它自身的本地播放功能做的又太垃圾, 于是只能另谋出路, 在[Google Play](https://play.google.com)上找到一款本地播放器, 兼顾美观和功能简单实用, 不过免费版有点小广告, 然后试了几款去广告的插件, 都不能完美去除, 而我作为强迫症决定一定要处理掉
 
-目标
----
+## 目标
+
 去掉各处的广告以及订购按钮
 
-APP界面以及广告
---
+## 受害者版本
+
+V.6.2.15
+
+## APP界面以及广告
+
 ![image-1](1.jpg)
 
-开始破解
----
+## 开始破解
+
 打开[Jadx](https://github.com/skylot/jadx), 直接把安装包即`.apk`文件拖进去, 发现软件没有加壳, 顺利反编译出了播放器源码, 然后直接按 `Ctrl + S` 将源码全部保存, 然后导入`IDEA`, 开始分析代码
 
 ![源码](2.jpg)
@@ -72,11 +76,13 @@ APP界面以及广告
 **综合起来推测这个`Map`应该就是用于初始化一个授权值的, 以给定键的布尔值是否为`true`来判断应用是否已经购买, 那么我只要在初始化的时候把这个`Map`的值固定写死成`true`, 应该就可以让APP认为已经购买过了, 编写`Xposed`代码如下**
 
 ```
-findAndHookConstructor("air.stellio.player.Helpers.GooglePlayPurchaseChecker",
+findAndHookConstructor(
+    "air.stellio.player.Helpers.GooglePlayPurchaseChecker",
     loadPackageParam.classLoader,
     "air.stellio.player.Activities.u",
     "org.solovyev.android.checkout.F",
-    Map.class, new XC_MethodHook() {
+    Map.class, 
+    new XC_MethodHook() {
         @Override
         protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
             MyLog.log("hookin GooglePlayPurchaseChecker()", doLog);
@@ -88,7 +94,8 @@ findAndHookConstructor("air.stellio.player.Helpers.GooglePlayPurchaseChecker",
             arg3.put("stellio_all_inclusive", true);
             arg3.put("stellio_premium", true);
         }
-});
+    }
+);
 ```
 
 **观察`GooglePlayPurchaseChecker`类中的赋值代码可以发现, 主要是通过构造函数将`Map`的值存储的, 因此使用`Xposed`的`findAndHookConstructor`去挂钩`GooglePlayPurchaseChecker`的构造函数, 在构造函数执行之前, 修改传入的第三个参数`Map`, 把键为`stellio_premium`和`stellio_all_inclusive`的值存为`true`, 这样当构造函数执行的时候, 会永远认为这是已订购的了**

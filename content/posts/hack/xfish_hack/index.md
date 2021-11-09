@@ -11,23 +11,26 @@ tags:
     - Xposed
 ---
 
-背景
----
+## 背景
+
 作为一个家徒四壁的打工人, 在某鱼上购买二手的闲置商品便成了我实现梦想的捷径, 但某鱼经过多次升级改版已经相当流氓, 在我搜索出想要的商品的结果页, 嵌入识别度很低的广告, 导致我经常手滑点错, 然后直接跳转启动某宝, 某宝的启动速度又慢的令人发指, 最终还得按下多次返回才能再次回到某鱼的搜索结果页, 忍无可忍的我只能对它做一些不可描述的事了
 
-目标
----
-破解某鱼(版本: 6.7.40)并去除搜索结果页的广告, 同时去掉每次启动就弹窗的恼人的更新提示
+## 目标
 
-某鱼的搜索结果页
----
+去除搜索结果页的广告, 同时去掉每次启动就弹窗的恼人的更新提示
+
+## 受害者版本
+
+6.7.40
+
+## 某鱼的搜索结果页
 
 ![某鱼广告](adpage.jpg)
 
 > PS:一个屏幕总共就6个展位, 某鱼你这三个广告位良心不会痛吗
 
-开始破解
----
+## 开始破解
+
 首先尝试使用Android反编译大杀器[Jadx](https://github.com/skylot/jadx), 打开`Jadx`, 直接把某鱼安装包即`.apk`文件拖进去, 发现软件没有加壳, 可以看到`Jadx`顺利反编译出了某鱼的源码
 
 ![JADX-源码](jadx_source.jpg)
@@ -62,7 +65,7 @@ tags:
 
 可以看出这个字符串对应的页面应该是 `SearchResultActivity`, 打开这个类之后一眼看不出什么重要的东西, 然后线索就这么中断了
 
-线索中断之后, 可以用`Xposed`对某些可疑方法`Hook`, 然后通过打印调用堆栈的方法, 继续分析, 比如此我找到的`SearchResultInterrupter`中的`checkInterrupt`方法
+线索中断之后, 可以用`Xposed`拦截某些可疑方法, 然后通过打印调用堆栈的方法, 继续分析, 比如此我找到的`SearchResultInterrupter`中的`checkInterrupt`方法
 
 > `Xposed`是一款`Android`底层的框架, 能够从虚拟机层拦截系统所有执行代码, 而`Xposed`模块是使用`Xposed`提供的`SDK`所开发的`Android`应用, 能够借助`Xposed`实现对所有关心代码的拦截, 详情请戳[Xposed官网](https://repo.xposed.info/)
 
@@ -70,7 +73,6 @@ tags:
 Throwable ex = new Throwable();
 StackTraceElement[] stackElements = ex.getStackTrace();
 if (stackElements != null) {
-    MyLog.log("调用堆栈:--------------------", true);
     for (int i = 0; i < stackElements.length; i++) {
     MyLog.log(stackElements[i].getClassName() + " -> " +
             stackElements[i].getMethodName() + "()"
@@ -137,7 +139,7 @@ findAndHookMethod("mtopsdk.mtop.domain.MtopResponse", loadPackageParam.classLoad
 }
 ...
 ```
-此处截取了一条记录展示, 实际拦截到的参数中是一个数组, 包含本次结果页的所有商品, 其中就包括了搜索的商品, 广告商品, 推荐商品等, 通过对比发现, **搜索的商品数据在节点`args` > `biz_type` 的取值为 `item`, 而广告等商品取值为`ad`, `Bagtag`, `聚合卡片`**, 那么接下来要做的事就很明确了, **解析这个字符串, 如果发现是广告商品则从数据中删除这条数据**, 修改对`setBytedate`的`Hook`代码如下
+此处截取了一条记录展示, 实际拦截到的参数中是一个数组, 包含本次结果页的所有商品, 其中就包括了搜索的商品, 广告商品, 推荐商品等, 通过对比发现, **搜索的商品数据在节点`args` > `biz_type` 的取值为 `item`, 而广告等商品取值为`ad`, `Bagtag`, `聚合卡片`**, 那么接下来要做的事就很明确了, **解析这个字符串, 如果发现是广告商品则从数据中删除这条数据**, 修改对`setBytedate`的拦截代码如下
 
 ```
 ...
@@ -174,8 +176,7 @@ protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
 
 ![哇塞](noadresult.jpg)
 
-禁用恼人的升级弹窗
----
+## 禁用恼人的升级弹窗
 
 **由于本人不爱更新, 且破解后如果更新版本, 可能导致破解失效, 所以必须禁用更新**
 
@@ -205,7 +206,7 @@ private void c(final UpgradeHandler handler) {
 }
 ```
 
-`c`中的代码的突破点在于, **如果传入的`handler`不为`null`, 才会执行更新检测并弹窗的方法**, 那么我只需要让传入的`handler`为`null`就可以了. 在`Xposed`模块中对`Upgrade`类的`b`方法`Hook`, 将入参设置为`null`
+`c`中的代码的突破点在于, **如果传入的`handler`不为`null`, 才会执行更新检测并弹窗的方法**, 那么我只需要让传入的`handler`为`null`就可以了. 在`Xposed`模块中拦截`Upgrade`类的`b`方法, 将入参设置为`null`
 
 ```
 findAndHookMethod("com.马赛克.马赛克fish.upgrade.traceable.Upgrade",loadPackageParam.classLoader,
