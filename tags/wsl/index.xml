@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>WSL on Acgnu+</title><link>/tags/wsl/</link><description>Recent content in WSL on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 03 Mar 2023 00:50:44 +0800</lastBuildDate><atom:link href="/tags/wsl/index.xml" rel="self" type="application/rss+xml"/><item><title>在Windows上使用基于WSL的Ubuntu搭建MIPSEL架构的C语言交叉编译环境</title><link>/posts/embeded/mipsel/</link><pubDate>Fri, 03 Mar 2023 00:50:44 +0800</pubDate><guid>/posts/embeded/mipsel/</guid><description>目录 硬件准备 Windows上的开发环境准备 使用Ubuntu安装MIPSEL架构的交叉编译器 使用C编写Hello Word!测试 过程中遇到的问题 一点感想 硬件准备 一台基于Linux内核, 采用MIPS架构CPU的路由器, 我的是小米AC2100, 刷了Padavan系统 一台支持Windows子系统(WSL)的Windows 10的电脑 Windows上的开发环境准备 安装Visual Studio 2019.9 或以上版本
+为Visual Studio添加Linux开发环境工具集 (安装时已勾选的可跳过)
+在开始菜单中打开「Visual Studio Installer」 找到刚刚安装的Visual Studio 2019, 点击右侧的「修改」按钮 找到「使用C++的Linux开发」, 并勾选保存 参考资料: 如何修改开发工具集?
+为Windows开启子系统(WSL)并安装Ubuntu
+在Windows功能中启用 「适用于Linux的Windows子系统」和「虚拟机平台」 在Microsoft Store中搜索 Ubuntu, 下载一个Linux发行版, 我的是22.04.2 安装后, 可按照自己需要修改root密码, 设置默认以root启动, 修改镜像源等 参考资料: 如何启用Win10的WSL?
+为Visual Studio配置跨平台编译 具体配置方式可参考微软官方教程</description></item></channel></rss>

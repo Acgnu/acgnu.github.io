@@ -1,0 +1,170 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="目录  需求 准备工作 基本思路 编写服务端 编写客户端 测试效果 遇到的问题  需求 由于有时需要远程家里的电脑所以是24小时待机的, 然而大部分时间其实都是用不上的, 后来发现家里电费居高不下跟电脑有很大的关系, 财库已空的我决定设置一套网络唤醒
+首先, 需要购买专用的唤醒设备例如网卡, 开关, 支持WOL的路由器之类的就不考虑了, 家里也没有多余的设备, 于是打算给路由器刷第三方系统之后由路由器来唤醒, 我的路由器是小米的AC2100, 刷了Padavan, 刷完后自带两个内网管理插件
+ DDNS插件: 因为申请不到公网IP, 所以用不了 Zerotier内网穿透插件: 配置后家里的网络连不上Zerotier服务, 查了一下说是被某些运营商屏蔽了(无语), 所以也用不了  虽然可以考虑刷支持其他内网穿透工具的固件, 但不想一个一个试, 且免费的内网穿透稳定性和速率通常都不太行, 最终决定自行编写一个WOL程序放到路由器执行
+准备工作   一台支持运行三方程序的路由器, OpenWRT或Padavan等. 在路由器「DHCP」管理页中为需要唤醒的电脑设置固定IP以及「ARP绑定」
+  电脑设置启用网络唤醒. 如何设置网络唤醒? 以我的设备为例:
+主板「B460M AORUS ELITE (rev. 1.0) 」默认开启了网络唤醒, 无需修改任何设置.
+网卡「Intel(R) Ethernet Connection (12) I219-V」设置如下:
+ 关闭「以太网节能」, 可以解决关机时间过长后无法唤醒的问题, 其他唤醒相关设置均已默认开启, 无需改动
+ 1219v     测试效果."><title>基于Padavan路由器系统的远程网络唤醒(WOL)工具开发</title><link rel=canonical href=/posts/embeded/wol/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="基于Padavan路由器系统的远程网络唤醒(WOL)工具开发"><meta property="og:description" content="目录  需求 准备工作 基本思路 编写服务端 编写客户端 测试效果 遇到的问题  需求 由于有时需要远程家里的电脑所以是24小时待机的, 然而大部分时间其实都是用不上的, 后来发现家里电费居高不下跟电脑有很大的关系, 财库已空的我决定设置一套网络唤醒
+首先, 需要购买专用的唤醒设备例如网卡, 开关, 支持WOL的路由器之类的就不考虑了, 家里也没有多余的设备, 于是打算给路由器刷第三方系统之后由路由器来唤醒, 我的路由器是小米的AC2100, 刷了Padavan, 刷完后自带两个内网管理插件
+ DDNS插件: 因为申请不到公网IP, 所以用不了 Zerotier内网穿透插件: 配置后家里的网络连不上Zerotier服务, 查了一下说是被某些运营商屏蔽了(无语), 所以也用不了  虽然可以考虑刷支持其他内网穿透工具的固件, 但不想一个一个试, 且免费的内网穿透稳定性和速率通常都不太行, 最终决定自行编写一个WOL程序放到路由器执行
+准备工作   一台支持运行三方程序的路由器, OpenWRT或Padavan等. 在路由器「DHCP」管理页中为需要唤醒的电脑设置固定IP以及「ARP绑定」
+  电脑设置启用网络唤醒. 如何设置网络唤醒? 以我的设备为例:
+主板「B460M AORUS ELITE (rev. 1.0) 」默认开启了网络唤醒, 无需修改任何设置.
+网卡「Intel(R) Ethernet Connection (12) I219-V」设置如下:
+ 关闭「以太网节能」, 可以解决关机时间过长后无法唤醒的问题, 其他唤醒相关设置均已默认开启, 无需改动
+ 1219v     测试效果."><meta property="og:url" content="/posts/embeded/wol/"><meta property="og:site_name" content="Acgnu+"><meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="Embeded"><meta property="article:tag" content="Padavan"><meta property="article:tag" content="Linux"><meta property="article:tag" content="C"><meta property="article:tag" content="Go"><meta property="article:tag" content="HTTP"><meta property="article:published_time" content="2023-03-06T00:50:44+08:00"><meta property="article:modified_time" content="2023-03-06T00:50:44+08:00"><meta property="og:image" content="/posts/embeded/wol/cover.png"><meta name=twitter:title content="基于Padavan路由器系统的远程网络唤醒(WOL)工具开发"><meta name=twitter:description content="目录  需求 准备工作 基本思路 编写服务端 编写客户端 测试效果 遇到的问题  需求 由于有时需要远程家里的电脑所以是24小时待机的, 然而大部分时间其实都是用不上的, 后来发现家里电费居高不下跟电脑有很大的关系, 财库已空的我决定设置一套网络唤醒
+首先, 需要购买专用的唤醒设备例如网卡, 开关, 支持WOL的路由器之类的就不考虑了, 家里也没有多余的设备, 于是打算给路由器刷第三方系统之后由路由器来唤醒, 我的路由器是小米的AC2100, 刷了Padavan, 刷完后自带两个内网管理插件
+ DDNS插件: 因为申请不到公网IP, 所以用不了 Zerotier内网穿透插件: 配置后家里的网络连不上Zerotier服务, 查了一下说是被某些运营商屏蔽了(无语), 所以也用不了  虽然可以考虑刷支持其他内网穿透工具的固件, 但不想一个一个试, 且免费的内网穿透稳定性和速率通常都不太行, 最终决定自行编写一个WOL程序放到路由器执行
+准备工作   一台支持运行三方程序的路由器, OpenWRT或Padavan等. 在路由器「DHCP」管理页中为需要唤醒的电脑设置固定IP以及「ARP绑定」
+  电脑设置启用网络唤醒. 如何设置网络唤醒? 以我的设备为例:
+主板「B460M AORUS ELITE (rev. 1.0) 」默认开启了网络唤醒, 无需修改任何设置.
+网卡「Intel(R) Ethernet Connection (12) I219-V」设置如下:
+ 关闭「以太网节能」, 可以解决关机时间过长后无法唤醒的问题, 其他唤醒相关设置均已默认开启, 无需改动
+ 1219v     测试效果."><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="/posts/embeded/wol/cover.png"><link rel="shortcut icon" href=/favicon.ico></head><body class="article-page keep-sidebar"><script>(function(){const colorSchemeKey='StackColorScheme';if(!localStorage.getItem(colorSchemeKey)){localStorage.setItem(colorSchemeKey,"auto");}})();</script><script>(function(){const colorSchemeKey='StackColorScheme';const colorSchemeItem=localStorage.getItem(colorSchemeKey);const supportDarkMode=window.matchMedia('(prefers-color-scheme: dark)').matches===true;if(colorSchemeItem=='dark'||colorSchemeItem==='auto'&&supportDarkMode){document.body.dataset.scheme='dark';}else{document.body.dataset.scheme='light';}})();</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header class=site-info><figure class=site-avatar><img src=/img/avatar_hu3a9833e4ebdcf9e444b7caf140fa72b8_113624_300x0_resize_q75_box.jpg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+<span class=emoji>😎</span></figure><h1 class=site-name><a href=/>Acgnu+</a></h1><h2 class=site-description>時間はいつも足りない</h2></header><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li><a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></ol></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/posts/embeded/wol/><img src=/posts/embeded/wol/cover_hu18a0dfe24013f6b0b7ee4adfea89b908_1280697_800x0_resize_box_2.png srcset="/posts/embeded/wol/cover_hu18a0dfe24013f6b0b7ee4adfea89b908_1280697_800x0_resize_box_2.png 800w, /posts/embeded/wol/cover_hu18a0dfe24013f6b0b7ee4adfea89b908_1280697_1600x0_resize_box_2.png 1600w" width=800 height=476 loading=lazy alt="Featured image of post 基于Padavan路由器系统的远程网络唤醒(WOL)工具开发"></a></div><div class=article-details><header class=article-category><a href=/categories/embeded/>Embeded</a></header><h2 class=article-title><a href=/posts/embeded/wol/>基于Padavan路由器系统的远程网络唤醒(WOL)工具开发</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Mar 06, 2023</time></footer></div></header><section class=article-content><h2 id=目录>目录</h2><ol><li><a class=link href=#1>需求</a></li><li><a class=link href=#2>准备工作</a></li><li><a class=link href=#3>基本思路</a></li><li><a class=link href=#4>编写服务端</a></li><li><a class=link href=#5>编写客户端</a></li><li><a class=link href=#6>测试效果</a></li><li><a class=link href=#7>遇到的问题</a></li></ol><h2 id=1>需求</h2><p>由于有时需要远程家里的电脑所以是24小时待机的, 然而大部分时间其实都是用不上的, 后来发现家里电费居高不下跟电脑有很大的关系, 财库已空的我决定设置一套网络唤醒</p><p>首先, 需要购买专用的唤醒设备例如网卡, 开关, 支持WOL的路由器之类的就不考虑了, 家里也没有多余的设备, 于是打算给路由器刷第三方系统之后由路由器来唤醒, 我的路由器是小米的AC2100, 刷了Padavan, 刷完后自带两个内网管理插件</p><ul><li>DDNS插件: 因为申请不到公网IP, 所以用不了</li><li>Zerotier内网穿透插件: 配置后家里的网络连不上Zerotier服务, 查了一下说是被某些运营商屏蔽了(无语), 所以也用不了</li></ul><p>虽然可以考虑刷支持其他内网穿透工具的固件, 但不想一个一个试, 且免费的内网穿透稳定性和速率通常都不太行, 最终决定自行编写一个WOL程序放到路由器执行</p><h2 id=2>准备工作</h2><ol><li><p>一台支持运行三方程序的路由器, OpenWRT或Padavan等. 在路由器「DHCP」管理页中为需要唤醒的电脑设置<strong>固定IP</strong>以及「<strong>ARP绑定</strong>」</p></li><li><p>电脑设置启用网络唤醒. <a class=link href=https://post.smzdm.com/p/a7d70m4g/ target=_blank rel=noopener>如何设置网络唤醒?</a> 以我的设备为例:<br>主板「B460M AORUS ELITE (rev. 1.0) 」默认开启了网络唤醒, 无需修改任何设置.<br>网卡「Intel(R) Ethernet Connection (12) I219-V」设置如下:</p><ul><li>关闭「以太网节能」, <strong>可以解决关机时间过长后无法唤醒的问题</strong>, 其他唤醒相关设置均已默认开启, 无需改动<br><figure style=flex-grow:144;flex-basis:347px><a href=/posts/embeded/wol/1219v.png data-size=434x300><img src=/posts/embeded/wol/1219v.png srcset="/posts/embeded/wol/1219v_hu86d9bce053bbd32edebd40d8cbe0794b_94779_480x0_resize_box_2.png 480w, /posts/embeded/wol/1219v_hu86d9bce053bbd32edebd40d8cbe0794b_94779_1024x0_resize_box_2.png 1024w" width=434 height=300 loading=lazy alt=1219v></a><figcaption>1219v</figcaption></figure></li></ul></li><li><p>测试效果. 反复关机测试并不方便, 我们可以下载<a class=link href=http://www.cmsoft.cn/resource/102.html target=_blank rel=noopener>网络调试助手(NetAssist)</a>在开机状态下模拟接收</p><ul><li>协议类型选UDP</li><li>本机主机地址填本机IP地址 (例: 192.168.1.123)</li><li>端口填9, 因为魔术包是通过9端口收发的</li></ul><p>当收到数据包时就会展示在右侧<figure style=flex-grow:117;flex-basis:282px><a href=/posts/embeded/wol/test.png data-size=664x565><img src=/posts/embeded/wol/test.png srcset="/posts/embeded/wol/test_huf6163f6eeade4c09a9bd5914ed7e17df_32695_480x0_resize_box_2.png 480w, /posts/embeded/wol/test_huf6163f6eeade4c09a9bd5914ed7e17df_32695_1024x0_resize_box_2.png 1024w" width=664 height=565 loading=lazy alt=NetAssist></a><figcaption>NetAssist</figcaption></figure>然后可以在手机上微信搜索小程序「网络唤醒WakeOnLan」, 确保手机与电脑出于同一个网络, 如下图所示<strong>填写真实IP和MAC</strong><figure style=flex-grow:53;flex-basis:127px><a href=/posts/embeded/wol/wc_wol.png data-size=414x780><img src=/posts/embeded/wol/wc_wol.png srcset="/posts/embeded/wol/wc_wol_hud09f46f92c69fb9aff47413dc4456e66_38256_480x0_resize_box_2.png 480w, /posts/embeded/wol/wc_wol_hud09f46f92c69fb9aff47413dc4456e66_38256_1024x0_resize_box_2.png 1024w" width=414 height=780 loading=lazy alt=测试效果></a><figcaption>测试效果</figcaption></figure>点击「唤醒WakeUp」即可看到电脑收到数据包了, 收包没有问题后可以关闭电脑测试</p></li><li><p>一台云服务器 (我这里用的是 <a class=link href=https://bilib.cn target=_blank rel=noopener>神秘哥们</a> 的服务器, 再次感谢 <a class=link href=https://bilib.cn target=_blank rel=noopener>神秘哥们</a> 的免费赞助)</p><blockquote><p>没有云服务器? 也可以, 例如在代码托管网站上传一个文本文件, 编写的程序去请求这个文件并解析内容, 0代表不需要开机, 1代表需要. 需要开机的时候登录托管网站修改内容即可</p></blockquote></li><li><p>搭建开发环境. 我的路由器是MIPS架构处理器, 需要<a class=link href=../mipsel>搭建MIPS交叉编译环境</a>, 其他架构自行查阅资料</p></li></ol><h2 id=3>基本思路</h2><p>由于开机需求对时效性要求并不高, 所以程序周期执行即可, 由以下三部分组成:<figure style=flex-grow:150;flex-basis:360px><a href=/posts/embeded/wol/framework.png data-size=600x400><img src=/posts/embeded/wol/framework.png srcset="/posts/embeded/wol/framework_hud0745bef77914fa43b619abfd6d606fe_76772_480x0_resize_box_2.png 480w, /posts/embeded/wol/framework_hud0745bef77914fa43b619abfd6d606fe_76772_1024x0_resize_box_2.png 1024w" width=600 height=400 loading=lazy alt=方案></a><figcaption>方案</figcaption></figure></p><ol><li><strong>服务端</strong>: 即云服务器上运行的HTTP服务, 提供两个接口<ul><li>接收命令: 接收来自控制端的命令</li><li>查询命令: 提供查询最新的命令的接口给客户端</li></ul></li><li><strong>客户端</strong>: 运行在路由器上, 由crontab周期执行, 需要开机时唤醒电脑, Padavan可以在管理页面直接设置crontab, 如图所示, 填写 <code>*/1 * * * * /var/wol</code> 表示每隔一分钟执行 <code>/var</code> 目录下的「wol」程序<figure style=flex-grow:95;flex-basis:228px><a href=/posts/embeded/wol/padavan-cron.png data-size=869x912><img src=/posts/embeded/wol/padavan-cron.png srcset="/posts/embeded/wol/padavan-cron_hu77bca711fb0c121b8016295804c3abc6_386739_480x0_resize_box_2.png 480w, /posts/embeded/wol/padavan-cron_hu77bca711fb0c121b8016295804c3abc6_386739_1024x0_resize_box_2.png 1024w" width=869 height=912 loading=lazy alt=crontab></a><figcaption>crontab</figcaption></figure></li></ol><blockquote><p>据说路由器重启后crontab会失效, 相关帖子: <a class=link href=https://www.right.com.cn/forum/thread-5763615-1-1.html target=_blank rel=noopener>关于padavan的crontab</a>, 如果不放心的话, 配置好crontab后在图示位置点击「提交」即可<figure style=flex-grow:103;flex-basis:248px><a href=/posts/embeded/wol/save_storage.png data-size=869x838><img src=/posts/embeded/wol/save_storage.png srcset="/posts/embeded/wol/save_storage_hu870c801a1cd1cc22cf8f63a91295f4c3_362621_480x0_resize_box_2.png 480w, /posts/embeded/wol/save_storage_hu870c801a1cd1cc22cf8f63a91295f4c3_362621_1024x0_resize_box_2.png 1024w" width=869 height=838 loading=lazy alt=storage></a><figcaption>storage</figcaption></figure></p></blockquote><ol start=3><li><strong>控制端</strong>: 由于接收命令是HTTP接口, 所以控制端可以用任何实现, 本文不提供实现, 仅通过<code>curl</code>命令执行</li></ol><h2 id=4>编写服务端</h2><p>服务端业务简单, 综合开发速度和服务器资源采用Go语言开发, 新建<strong>wol-server</strong>项目, 添加main.go, 完整代码如下:</p><pre><code>package main
+
+import &quot;fmt&quot;
+import &quot;net/http&quot;
+
+var wol = 0
+
+func main() {
+	http.HandleFunc(&quot;/command/wol/push&quot;, PushCommand)
+	http.HandleFunc(&quot;/command/wol/fetch&quot;, FetchCommand)
+	http.ListenAndServe(&quot;:9080&quot;, nil)
+}
+
+func FetchCommand(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, &quot;%v&quot;, wol)
+	wol = 0
+}
+
+func PushCommand(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPut {
+		http.Error(w, &quot;0&quot;, http.StatusMethodNotAllowed)
+		return
+	}
+	wol = 1
+	fmt.Fprintf(w, &quot;%v&quot;, wol)
+}
+</code></pre><p>代码很少简单说明一下</p><ul><li>在9080端口开启HTTP服务, 暴露两个接口<code>/command/wol/push</code>和<code>/command/wol/fetch</code>, 分别对应实现<code>PushCommand</code>和<code>PushCommand</code></li><li><code>PushCommand</code>将由控制端调用, 为避免在浏览器误操作限制了一下请求方式只能为PUT, 收到请求后会将开机标识<code>wol</code>设置为1</li><li><code>FetchCommand</code>将由路由器调用, 收到请求后会首先返回开机标识<code>wol</code>, 然后把<code>wol</code>再次设置为0, 避免重复触发</li></ul><p>云服务器是Linux 64位系统, 而开发环境是Windows 64, 我们需要交叉编译为Liunx的可执行文件</p><ol><li>在PowerShell中执行<code>$Env:GOOS="linux"</code>命令将目标系统设置为Linux</li><li>在开发工具终端中进入项目目录, 执行<code>go build</code>编译得到<strong>wol-server</strong>可执行文件<figure style=flex-grow:435;flex-basis:1046px><a href=/posts/embeded/wol/term.png data-size=170x39><img src=/posts/embeded/wol/term.png srcset="/posts/embeded/wol/term_hu5a740896c23e062e205783a2c9d27d61_2096_480x0_resize_box_2.png 480w, /posts/embeded/wol/term_hu5a740896c23e062e205783a2c9d27d61_2096_1024x0_resize_box_2.png 1024w" width=170 height=39 loading=lazy alt=build></a><figcaption>build</figcaption></figure></li><li>复制<strong>wol-server</strong>到Linux中并执行<code>./wol-server</code>启动服务</li><li>在CMD中执行命令<code>curl http://服务器IP:9080/command/wol/fetch</code>预览效果</li></ol><p><figure style=flex-grow:409;flex-basis:983px><a href=/posts/embeded/wol/serve.png data-size=586x143><img src=/posts/embeded/wol/serve.png srcset="/posts/embeded/wol/serve_hue3ad21d217f365254d21bfd7fa6a91db_4681_480x0_resize_box_2.png 480w, /posts/embeded/wol/serve_hue3ad21d217f365254d21bfd7fa6a91db_4681_1024x0_resize_box_2.png 1024w" width=586 height=143 loading=lazy alt=preview1></a><figcaption>preview1</figcaption></figure></p><p>参考资料: <a class=link href=https://www.jianshu.com/p/1853a02cb440 target=_blank rel=noopener>GO的交叉编译</a></p><h2 id=5>编写路由器客户端</h2><p>路由器容量和内存都很小, 所以客户端程序使用C来实现, 由于我刷入的Padavan系统支持<code>curl</code>命令, 所以网络请求的部分直接调用<code>curl</code>, 若想通过HTTP实现, 可以参考文章: <a class=link href=https://www.cnblogs.com/chorm590/p/c_http_get_201905081356.html target=_blank rel=noopener>如何使用C语言实现HTTP请求</a></p><p>创建CMake项目<strong>wol-client</strong>并添加源文件<strong>wol.c</strong>, 本文假设需要唤醒的电脑IP及MAC如下:<br><strong>IP</strong> 192.168.1.123<br><strong>MAC</strong> AA:BB:CC:DD:EE:FF</p><ol><li><strong>使用<code>ping</code>命令检测电脑是否在线</strong><br>因为程序每分钟会被执行一次, 我们可以使用函数<code>system()</code>去调用<code>ping</code>命令来判断电脑是否在线, 当电脑在线的时候就没有必要从服务器查询开机命令了, 但<code>system()</code>函数无法直接获取命令执行结果, 我们可以使用 <code>></code> 将输出结果存入文本文件, 再通过读取文件内容判断电脑是否在线</li></ol><pre><code>system(&quot;ping -c 1 -W 1 192.168.1.123 | grep -c \&quot;100% packet loss\&quot; &gt; wol_temp&quot;);
+</code></pre><p>解释一下各项参数</p><ul><li><code>-c</code> 表示ping的次数, 这里我们只ping一次</li><li><code>-W</code> 表示等待回复的超时时间, Linux上单位为秒, 这里设定成1秒, 因为局域网内在线的机器通常一秒内都能回复</li><li><code>gerp</code> 的 <code>-c</code> 表示只打印找到目标文本的行号, 这里我们使用<code>gerp</code>查找「100% packet loss」这段字符, 如果目标不在线, 那么行号会等于1, 反之行号等于0</li><li>最后使用 <code>></code> 将<code>gerp</code>查找到的行号结果存入<strong>wol_temp</strong>文件中</li></ul><ol start=2><li><strong>使用文件函数读取结果</strong></li></ol><pre><code>FILE *file = fopen(&quot;wol_temp&quot;, &quot;r&quot;);
+char cmd_value = getc(file);
+fclose(file);
+</code></pre><ul><li><code>getc()</code>读取文件的第一个字符, 在<strong>wol_temp</strong>文件中读取到的结果只会是0或1</li></ul><ol start=3><li><strong>使用<code>curl</code>命令查询服务端数据, 同样将结果存入文件, 再次读取文件判断是否需要开机</strong></li></ol><pre><code>system(&quot;curl http://服务器IP:9080/command/wol/fetch &gt; wol_temp&quot;);
+</code></pre><ol start=4><li><strong>实现发送魔术包函数, 并通过UDP发送, 唤醒电脑</strong></li></ol><pre><code>/// &lt;summary&gt;
+/// UDP方式发送魔术包
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;mac&quot;&gt;网卡的物理地址, 格式 XX:XX:XX:XX:XX:XX&lt;/param&gt;
+/// &lt;param name=&quot;ip&quot;&gt;局域网内的IP地址, 格式 XXX.XXX.XXX.XXX&lt;/param&gt;
+/// &lt;returns&gt;&lt;/returns&gt;
+int send_magic_pack(const char* mac, const char* ip)
+{
+    int ret = -1;
+    int send_length = -1;
+    unsigned char packet[102] = { 0 };
+    struct sockaddr_in addr;
+    int sockfd, i, j, option_value = 1;
+    unsigned char mactohex[6] = { 0 };
+
+    sscanf(mac, &quot;%02x:%02x:%02x:%02x:%02x:%02x&quot;,
+        (unsigned int*)&amp;mactohex[0],
+        (unsigned int*)&amp;mactohex[1],
+        (unsigned int*)&amp;mactohex[2],
+        (unsigned int*)&amp;mactohex[3],
+        (unsigned int*)&amp;mactohex[4],
+        (unsigned int*)&amp;mactohex[5]);
+
+    //构建magic packet
+    for (i = 0; i &lt; 6; i++) { //6对“FF”前缀
+        packet[i] = 0xFF;
+    }
+    for (i = 1; i &lt; 17; i++) { //目标计算机的MAC地址，重复16次
+        for (j = 0; j &lt; 6; j++) {
+            packet[i * 6 + j] = mactohex[j];
+        }
+    }
+
+    //UDP
+    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    //广播
+    ret = setsockopt(sockfd, SOL_SOCKET, SO_BROADCAST, &amp;option_value, sizeof(option_value));
+    if (ret &lt; 0) {
+        //printf(&quot;set socket opt failed, errno=%d\n&quot;, errno);
+        close(sockfd);
+        return ret;
+    }
+
+    memset((void*)&amp;addr, 0, sizeof(addr));
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(9);
+    addr.sin_addr.s_addr = inet_addr(ip);//UDP广播地址
+
+    //发送广播
+    send_length = sendto(sockfd, packet, sizeof(packet), 0, (struct sockaddr*)&amp;addr, sizeof(addr));
+    close(sockfd);
+    return ret;
+}
+</code></pre><p>之后在<code>mian()</code>函数中调用即可. 参考资料: <a class=link href=https://blog.csdn.net/a18359388932/article/details/126949062 target=_blank rel=noopener>魔术包和C语言实现</a></p><p>其他部分完整代码如下</p><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;unistd.h&gt;
+
+int send_magic_pack(const char* mac, const char* ip);
+
+int main(int argc, char *argv[])
+{
+	FILE *file;
+	int code = system(&quot;ping -c 1 -W 1 192.168.1.123 | grep -c \&quot;100% packet loss\&quot; &gt; wol_temp&quot;);
+	if (code &lt; 0 || code == 127) 
+	{
+		puts(&quot;ping执行出错&quot;);
+		return -1;
+	}
+	file = fopen(&quot;wol_temp&quot;, &quot;r&quot;);
+	char cmd_value = getc(file);
+	fclose(file);
+	if (cmd_value == '0')
+	{
+		puts(&quot;电脑在线, 无需唤醒&quot;);
+		return 0;
+	}
+	code = system(&quot;curl http://服务器IP:9080/command/wol/fetch &gt; wol_temp&quot;);
+	if (code &lt; 0 || code == 127)
+	{
+		puts(&quot;curl命令执行失败&quot;);
+		return -1;
+	}
+
+	file = fopen(&quot;wol_temp&quot;, &quot;r&quot;);
+	cmd_value = getc(file);
+	fclose(file);
+	if (cmd_value == '0')
+	{
+		puts(&quot;当前无开机命令&quot;);
+		return 0;
+	}
+
+	puts(&quot;收到开机命令, 执行开机...&quot;);
+    int ret = send_magic_pack(&quot;AA:BB:CC:DD:EE:FF&quot;, &quot;192.168.1.255&quot;);
+    if (ret == 0)
+        puts(&quot;唤醒包已发送&quot;);
+	return 0;
+}
+</code></pre><blockquote><p>注意: 函数<code>send_magic_pack()</code>目标IP参数可以是192.168.1.123, 但我这里传广播地址 192.168.1.255, 原因见后文</p></blockquote><ol start=5><li><strong>编译</strong><br>在Linux中导航到源文件所在目录, 执行命令<code>mipsel-linux-gnu-gcc wol.c -o wol -static</code>, 得到可执行文件<strong>wol</strong></li></ol><blockquote><p>注意: 执行<code>mipsel-linux-gnu-gcc</code>命令需要先<a class=link href=../mipsel>搭建MIPS架构交叉编译环境</a></p></blockquote><h2 id=6>测试效果</h2><p>全部编写好后, 将服务端发布到云服务器上并启动. 客户端可以通过WinSCP复制到路由器<code>/var</code>目录并配置好crontab (方法参考上文). 然后关闭电脑</p><p>此时用另一台电脑打开CMD, 输入<code>curl -X PUT http://服务器IP:9080/command/wol/push</code>, 正常的话就可以看到电脑在一分钟内启动了</p><p>如果此时没有另一台电脑, 也可以用手机打开终端(Android), 或者其他任意能够以PUT方式发送HTTP请求到服务器的也是一样的</p><h2 id=7>遇到的问题</h2><p><strong>关机时间久了(大于1分钟)之后无法唤醒</strong><br>可能的原因如下:</p><ol><li>网卡没有禁用节能, 例如我的网卡需要关闭「以太网节能」, 参考上文. 另外我的路由器没有开启APR绑定, 在路由器管理页设置「APR绑定」或许也能解决</li><li>UDP发送的IP地址不对, 例如开始的时候发送包的目标IP是192.168.1.123, 刚关机可以唤醒, 但几分钟后就无法唤醒了, 后改成192.168.1.255后唤醒成功, 区别在于后者是广播地址, 关于广播的详细介绍可参考: <a class=link href=https://blog.csdn.net/weixin_47783699/article/details/127937448 target=_blank rel=noopener>UDP广播</a></li></ol><p>还有一个很奇怪的现象, 当时用自己编写的程序(以下简称WOL), 对比微信小程序「网络唤醒WakeOnLan」(以下简称小程序) 进行测试</p><p>刚关机几分钟内, 通过小程序以及WOL都能够唤醒电脑. 当关机几分钟后, 使用小程序能够唤醒成功, 但是通过WOL就不能. 使用网络调试助手对比过两者发送的魔术包数据是完全一致的.</p><p>后来将WOL发送的目标IP地址改成广播地址192.168.1.255之后就可以唤醒了, 但作为对比的小程序不论填192.168.1.123还是192.168.1.255还是255.255.255.255都可以唤醒, 推测可能还是因为没有设置「APR绑定」, 释放了IP, 而小程序有做特殊处理, 发送的也是广播IP</p></section><footer class=article-footer><section class=article-tags><a href=/tags/embeded/>Embeded</a>
+<a href=/tags/padavan/>Padavan</a>
+<a href=/tags/linux/>Linux</a>
+<a href=/tags/c/>C</a>
+<a href=/tags/go/>Go</a>
+<a href=/tags/http/>HTTP</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><footer class=site-footer><section class=copyright>&copy;
+2021 -
+2023 Acgnu+</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.3.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const customFont=document.createElement('link');customFont.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";customFont.type="text/css";customFont.rel="stylesheet";document.head.appendChild(customFont);}());</script></body></html>

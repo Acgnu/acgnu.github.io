@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C on Acgnu+</title><link>/tags/c/</link><description>Recent content in C on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 06 Mar 2023 00:50:44 +0800</lastBuildDate><atom:link href="/tags/c/index.xml" rel="self" type="application/rss+xml"/><item><title>基于Padavan路由器系统的远程网络唤醒(WOL)工具开发</title><link>/posts/embeded/wol/</link><pubDate>Mon, 06 Mar 2023 00:50:44 +0800</pubDate><guid>/posts/embeded/wol/</guid><description>目录 需求 准备工作 基本思路 编写服务端 编写客户端 测试效果 遇到的问题 需求 由于有时需要远程家里的电脑所以是24小时待机的, 然而大部分时间其实都是用不上的, 后来发现家里电费居高不下跟电脑有很大的关系, 财库已空的我决定设置一套网络唤醒
+首先, 需要购买专用的唤醒设备例如网卡, 开关, 支持WOL的路由器之类的就不考虑了, 家里也没有多余的设备, 于是打算给路由器刷第三方系统之后由路由器来唤醒, 我的路由器是小米的AC2100, 刷了Padavan, 刷完后自带两个内网管理插件
+DDNS插件: 因为申请不到公网IP, 所以用不了 Zerotier内网穿透插件: 配置后家里的网络连不上Zerotier服务, 查了一下说是被某些运营商屏蔽了(无语), 所以也用不了 虽然可以考虑刷支持其他内网穿透工具的固件, 但不想一个一个试, 且免费的内网穿透稳定性和速率通常都不太行, 最终决定自行编写一个WOL程序放到路由器执行
+准备工作 一台支持运行三方程序的路由器, OpenWRT或Padavan等. 在路由器「DHCP」管理页中为需要唤醒的电脑设置固定IP以及「ARP绑定」
+电脑设置启用网络唤醒. 如何设置网络唤醒? 以我的设备为例:
+主板「B460M AORUS ELITE (rev. 1.0) 」默认开启了网络唤醒, 无需修改任何设置.
+网卡「Intel(R) Ethernet Connection (12) I219-V」设置如下:
+关闭「以太网节能」, 可以解决关机时间过长后无法唤醒的问题, 其他唤醒相关设置均已默认开启, 无需改动
+1219v 测试效果.</description></item><item><title>在Windows上使用基于WSL的Ubuntu搭建MIPSEL架构的C语言交叉编译环境</title><link>/posts/embeded/mipsel/</link><pubDate>Fri, 03 Mar 2023 00:50:44 +0800</pubDate><guid>/posts/embeded/mipsel/</guid><description>目录 硬件准备 Windows上的开发环境准备 使用Ubuntu安装MIPSEL架构的交叉编译器 使用C编写Hello Word!测试 过程中遇到的问题 一点感想 硬件准备 一台基于Linux内核, 采用MIPS架构CPU的路由器, 我的是小米AC2100, 刷了Padavan系统 一台支持Windows子系统(WSL)的Windows 10的电脑 Windows上的开发环境准备 安装Visual Studio 2019.9 或以上版本
+为Visual Studio添加Linux开发环境工具集 (安装时已勾选的可跳过)
+在开始菜单中打开「Visual Studio Installer」 找到刚刚安装的Visual Studio 2019, 点击右侧的「修改」按钮 找到「使用C++的Linux开发」, 并勾选保存 参考资料: 如何修改开发工具集?
+为Windows开启子系统(WSL)并安装Ubuntu
+在Windows功能中启用 「适用于Linux的Windows子系统」和「虚拟机平台」 在Microsoft Store中搜索 Ubuntu, 下载一个Linux发行版, 我的是22.04.2 安装后, 可按照自己需要修改root密码, 设置默认以root启动, 修改镜像源等 参考资料: 如何启用Win10的WSL?
+为Visual Studio配置跨平台编译 具体配置方式可参考微软官方教程</description></item></channel></rss>
