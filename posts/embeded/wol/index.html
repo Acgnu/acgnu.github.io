@@ -50,11 +50,10 @@ func PushCommand(w http.ResponseWriter, r *http.Request) {
 	wol = 1
 	fmt.Fprintf(w, &quot;%v&quot;, wol)
 }
-</code></pre><p>代码很少简单说明一下</p><ul><li>在9080端口开启HTTP服务, 暴露两个接口<code>/command/wol/push</code>和<code>/command/wol/fetch</code>, 分别对应实现<code>PushCommand</code>和<code>PushCommand</code></li><li><code>PushCommand</code>将由控制端调用, 为避免在浏览器误操作限制了一下请求方式只能为PUT, 收到请求后会将开机标识<code>wol</code>设置为1</li><li><code>FetchCommand</code>将由路由器调用, 收到请求后会首先返回开机标识<code>wol</code>, 然后把<code>wol</code>再次设置为0, 避免重复触发</li></ul><p>云服务器是Linux 64位系统, 而开发环境是Windows 64, 我们需要交叉编译为Liunx的可执行文件</p><ol><li>在PowerShell中执行<code>$Env:GOOS="linux"</code>命令将目标系统设置为Linux</li><li>在开发工具终端中进入项目目录, 执行<code>go build</code>编译得到<strong>wol-server</strong>可执行文件<figure style=flex-grow:435;flex-basis:1046px><a href=/posts/embeded/wol/term.png data-size=170x39><img src=/posts/embeded/wol/term.png srcset="/posts/embeded/wol/term_hu5a740896c23e062e205783a2c9d27d61_2096_480x0_resize_box_2.png 480w, /posts/embeded/wol/term_hu5a740896c23e062e205783a2c9d27d61_2096_1024x0_resize_box_2.png 1024w" width=170 height=39 loading=lazy alt=build></a><figcaption>build</figcaption></figure></li><li>复制<strong>wol-server</strong>到Linux中并执行<code>./wol-server</code>启动服务</li><li>在CMD中执行命令<code>curl http://服务器IP:9080/command/wol/fetch</code>预览效果</li></ol><p><figure style=flex-grow:409;flex-basis:983px><a href=/posts/embeded/wol/serve.png data-size=586x143><img src=/posts/embeded/wol/serve.png srcset="/posts/embeded/wol/serve_hue3ad21d217f365254d21bfd7fa6a91db_4681_480x0_resize_box_2.png 480w, /posts/embeded/wol/serve_hue3ad21d217f365254d21bfd7fa6a91db_4681_1024x0_resize_box_2.png 1024w" width=586 height=143 loading=lazy alt=preview1></a><figcaption>preview1</figcaption></figure></p><p>参考资料: <a class=link href=https://www.jianshu.com/p/1853a02cb440 target=_blank rel=noopener>GO的交叉编译</a></p><h2 id=5>编写路由器客户端</h2><p>路由器容量和内存都很小, 所以客户端程序使用C来实现, 由于我刷入的Padavan系统支持<code>curl</code>命令, 所以网络请求的部分直接调用<code>curl</code>, 若想通过HTTP实现, 可以参考文章: <a class=link href=https://www.cnblogs.com/chorm590/p/c_http_get_201905081356.html target=_blank rel=noopener>如何使用C语言实现HTTP请求</a></p><p>创建CMake项目<strong>wol-client</strong>并添加源文件<strong>wol.c</strong>, 本文假设需要唤醒的电脑IP及MAC如下:<br><strong>IP</strong> 192.168.1.123<br><strong>MAC</strong> AA:BB:CC:DD:EE:FF</p><ol><li><strong>使用<code>ping</code>命令检测电脑是否在线</strong><br>因为程序每分钟会被执行一次, 我们可以使用函数<code>system()</code>去调用<code>ping</code>命令来判断电脑是否在线, 当电脑在线的时候就没有必要从服务器查询开机命令了, 但<code>system()</code>函数无法直接获取命令执行结果, 我们可以使用 <code>></code> 将输出结果存入文本文件, 再通过读取文件内容判断电脑是否在线</li></ol><pre><code>system(&quot;ping -c 1 -W 1 192.168.1.123 | grep -c \&quot;100% packet loss\&quot; &gt; wol_temp&quot;);
-</code></pre><p>解释一下各项参数</p><ul><li><code>-c</code> 表示ping的次数, 这里我们只ping一次</li><li><code>-W</code> 表示等待回复的超时时间, Linux上单位为秒, 这里设定成1秒, 因为局域网内在线的机器通常一秒内都能回复</li><li><code>gerp</code> 的 <code>-c</code> 表示只打印找到目标文本的行号, 这里我们使用<code>gerp</code>查找「100% packet loss」这段字符, 如果目标不在线, 那么行号会等于1, 反之行号等于0</li><li>最后使用 <code>></code> 将<code>gerp</code>查找到的行号结果存入<strong>wol_temp</strong>文件中</li></ul><ol start=2><li><strong>使用文件函数读取结果</strong></li></ol><pre><code>FILE *file = fopen(&quot;wol_temp&quot;, &quot;r&quot;);
-char cmd_value = getc(file);
-fclose(file);
-</code></pre><ul><li><code>getc()</code>读取文件的第一个字符, 在<strong>wol_temp</strong>文件中读取到的结果只会是0或1</li></ul><ol start=3><li><strong>使用<code>curl</code>命令查询服务端数据, 同样将结果存入文件, 再次读取文件判断是否需要开机</strong></li></ol><pre><code>system(&quot;curl http://服务器IP:9080/command/wol/fetch &gt; wol_temp&quot;);
+</code></pre><p>代码很少简单说明一下</p><ul><li>在9080端口开启HTTP服务, 暴露两个接口<code>/command/wol/push</code>和<code>/command/wol/fetch</code>, 分别对应实现<code>PushCommand</code>和<code>PushCommand</code></li><li><code>PushCommand</code>将由控制端调用, 为避免在浏览器误操作限制了一下请求方式只能为PUT, 收到请求后会将开机标识<code>wol</code>设置为1</li><li><code>FetchCommand</code>将由路由器调用, 收到请求后会首先返回开机标识<code>wol</code>, 然后把<code>wol</code>再次设置为0, 避免重复触发</li></ul><p>云服务器是Linux 64位系统, 而开发环境是Windows 64, 我们需要交叉编译为Liunx的可执行文件</p><ol><li>在PowerShell中执行<code>$Env:GOOS="linux"</code>命令将目标系统设置为Linux</li><li>在开发工具终端中进入项目目录, 执行<code>go build</code>编译得到<strong>wol-server</strong>可执行文件<figure style=flex-grow:435;flex-basis:1046px><a href=/posts/embeded/wol/term.png data-size=170x39><img src=/posts/embeded/wol/term.png srcset="/posts/embeded/wol/term_hu5a740896c23e062e205783a2c9d27d61_2096_480x0_resize_box_2.png 480w, /posts/embeded/wol/term_hu5a740896c23e062e205783a2c9d27d61_2096_1024x0_resize_box_2.png 1024w" width=170 height=39 loading=lazy alt=build></a><figcaption>build</figcaption></figure></li><li>复制<strong>wol-server</strong>到Linux中并执行<code>./wol-server</code>启动服务</li><li>在CMD中执行命令<code>curl http://服务器IP:9080/command/wol/fetch</code>预览效果</li></ol><p><figure style=flex-grow:409;flex-basis:983px><a href=/posts/embeded/wol/serve.png data-size=586x143><img src=/posts/embeded/wol/serve.png srcset="/posts/embeded/wol/serve_hue3ad21d217f365254d21bfd7fa6a91db_4681_480x0_resize_box_2.png 480w, /posts/embeded/wol/serve_hue3ad21d217f365254d21bfd7fa6a91db_4681_1024x0_resize_box_2.png 1024w" width=586 height=143 loading=lazy alt=preview1></a><figcaption>preview1</figcaption></figure></p><p>参考资料: <a class=link href=https://www.jianshu.com/p/1853a02cb440 target=_blank rel=noopener>GO的交叉编译</a></p><h2 id=5>编写路由器客户端</h2><p>路由器容量和内存都很小, 所以客户端程序使用C来实现, 由于我刷入的Padavan系统支持<code>curl</code>命令, 所以网络请求的部分直接调用<code>curl</code>, 若想通过HTTP实现, 可以参考文章: <a class=link href=https://www.cnblogs.com/chorm590/p/c_http_get_201905081356.html target=_blank rel=noopener>如何使用C语言实现HTTP请求</a></p><p>创建CMake项目<strong>wol-client</strong>并添加源文件<strong>wol.c</strong>, 本文假设需要唤醒的电脑IP及MAC如下:<br><strong>IP</strong> 192.168.1.123<br><strong>MAC</strong> AA:BB:CC:DD:EE:FF</p><ol><li><strong>使用<code>ping</code>命令检测电脑是否在线</strong><br>因为程序每分钟会被执行一次, 我们可以通过函数<code>popen()</code>去调用<code>ping</code>命令来判断电脑是否在线, 当电脑在线的时候就没有必要从服务器查询开机命令了</li></ol><pre><code>FILE* file = popen(&quot;ping -c 1 -W 1 192.168.1.123 | grep -c \&quot;100% packet loss\&quot;&quot;, &quot;r&quot;);
+</code></pre><p>解释一下各项参数</p><ul><li><code>-c</code> 表示ping的次数, 这里我们只ping一次</li><li><code>-W</code> 表示等待回复的超时时间, Linux上单位为秒, 这里设定成1秒, 因为局域网内在线的机器通常一秒内都能回复</li><li><code>gerp</code> 的 <code>-c</code> 表示只打印找到目标文本的行号, 这里我们使用<code>gerp</code>查找「100% packet loss」这段字符, 如果目标不在线, 那么行号会等于1, 反之行号等于0</li></ul><blockquote><p>提示: 也可以通过<code>system()</code>函数调用命令, 在命令中配合 <code>></code> 将输出结果存入文本文件, 然后再读取文件内容即可</p></blockquote><ol start=2><li><strong>读取命令执行结果</strong></li></ol><pre><code>char cmd_value = getc(file);
+pclose(file);
+</code></pre><ul><li><code>getc()</code>读取文件的第一个字符, 在上面<code>ping</code>命令中读取到的结果只会是0或1</li></ul><ol start=3><li><strong>使用<code>curl</code>命令查询服务端数据, 同样将结果存入文件, 再次读取文件内容判断是否需要开机</strong></li></ol><pre><code>file = popen(&quot;curl http://服务器IP:9080/command/wol/fetch&quot;, &quot;r&quot;);
 </code></pre><ol start=4><li><strong>实现发送魔术包函数, 并通过UDP发送, 唤醒电脑</strong></li></ol><pre><code>/// &lt;summary&gt;
 /// UDP方式发送魔术包
 /// &lt;/summary&gt;
@@ -119,35 +118,23 @@ int send_magic_pack(const char* mac, const char* ip);
 
 int main(int argc, char *argv[])
 {
-	FILE *file;
-	int code = system(&quot;ping -c 1 -W 1 192.168.1.123 | grep -c \&quot;100% packet loss\&quot; &gt; wol_temp&quot;);
-	if (code &lt; 0 || code == 127) 
-	{
-		puts(&quot;ping执行出错&quot;);
-		return -1;
-	}
-	file = fopen(&quot;wol_temp&quot;, &quot;r&quot;);
-	char cmd_value = getc(file);
-	fclose(file);
+    //使用ping命令检测目标主机是否存在, -c 1 只ping一次, -W 1 超时时间1秒, gerp查找ping结果中100% packet loss字符, -c 只显示找到的行号
+    FILE* file = popen(&quot;ping -c 1 -W 1 192.168.1.123 | grep -c \&quot;100% packet loss\&quot;&quot;, &quot;r&quot;);
+    char cmd_value = getc(file);
+    pclose(file);
 	if (cmd_value == '0')
 	{
-		puts(&quot;电脑在线, 无需唤醒&quot;);
+		puts(&quot;目标主机在线, 无需唤醒&quot;);
 		return 0;
 	}
-	code = system(&quot;curl http://服务器IP:9080/command/wol/fetch &gt; wol_temp&quot;);
-	if (code &lt; 0 || code == 127)
-	{
-		puts(&quot;curl命令执行失败&quot;);
-		return -1;
-	}
 
-	file = fopen(&quot;wol_temp&quot;, &quot;r&quot;);
-	cmd_value = getc(file);
-	fclose(file);
+    file = popen(&quot;curl http://服务器IP:9080/command/wol/fetch&quot;, &quot;r&quot;);
+    cmd_value = getc(file);
+    pclose(file);
 	if (cmd_value == '0')
 	{
 		puts(&quot;当前无开机命令&quot;);
-		return 0;
+		return 0;		//命令标记=0说明不需要开机
 	}
 
 	puts(&quot;收到开机命令, 执行开机...&quot;);
