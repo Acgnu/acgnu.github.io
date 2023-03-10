@@ -129,28 +129,27 @@ func PushCommand(w http.ResponseWriter, r *http.Request) {
 
 
 1. **使用`ping`命令检测电脑是否在线**  
-因为程序每分钟会被执行一次, 我们可以使用函数`system()`去调用`ping`命令来判断电脑是否在线, 当电脑在线的时候就没有必要从服务器查询开机命令了, 但`system()`函数无法直接获取命令执行结果, 我们可以使用 `>` 将输出结果存入文本文件, 再通过读取文件内容判断电脑是否在线
+因为程序每分钟会被执行一次, 我们可以通过函数`popen()`去调用`ping`命令来判断电脑是否在线, 当电脑在线的时候就没有必要从服务器查询开机命令了
 ```
-system("ping -c 1 -W 1 192.168.1.123 | grep -c \"100% packet loss\" > wol_temp");
+FILE* file = popen("ping -c 1 -W 1 192.168.1.123 | grep -c \"100% packet loss\"", "r");
 ```
 解释一下各项参数
 - `-c` 表示ping的次数, 这里我们只ping一次
 - `-W` 表示等待回复的超时时间, Linux上单位为秒, 这里设定成1秒, 因为局域网内在线的机器通常一秒内都能回复
 - `gerp` 的 `-c` 表示只打印找到目标文本的行号, 这里我们使用`gerp`查找「100% packet loss」这段字符, 如果目标不在线, 那么行号会等于1, 反之行号等于0
-- 最后使用 `>` 将`gerp`查找到的行号结果存入**wol_temp**文件中
+> 提示: 也可以通过`system()`函数调用命令, 在命令中配合 `>` 将输出结果存入文本文件, 然后再读取文件内容即可 
 
-2. **使用文件函数读取结果**
+2. **读取命令执行结果**
 ```
-FILE *file = fopen("wol_temp", "r");
 char cmd_value = getc(file);
-fclose(file);
+pclose(file);
 ```
-- `getc()`读取文件的第一个字符, 在**wol_temp**文件中读取到的结果只会是0或1
+- `getc()`读取文件的第一个字符, 在上面`ping`命令中读取到的结果只会是0或1
 
 
-3. **使用`curl`命令查询服务端数据, 同样将结果存入文件, 再次读取文件判断是否需要开机**
+3. **使用`curl`命令查询服务端数据, 同样将结果存入文件, 再次读取文件内容判断是否需要开机**
 ```
-system("curl http://服务器IP:9080/command/wol/fetch > wol_temp");
+file = popen("curl http://服务器IP:9080/command/wol/fetch", "r");
 ```
 
 4. **实现发送魔术包函数, 并通过UDP发送, 唤醒电脑**
@@ -225,35 +224,23 @@ int send_magic_pack(const char* mac, const char* ip);
 
 int main(int argc, char *argv[])
 {
-	FILE *file;
-	int code = system("ping -c 1 -W 1 192.168.1.123 | grep -c \"100% packet loss\" > wol_temp");
-	if (code < 0 || code == 127) 
-	{
-		puts("ping执行出错");
-		return -1;
-	}
-	file = fopen("wol_temp", "r");
-	char cmd_value = getc(file);
-	fclose(file);
+    //使用ping命令检测目标主机是否存在, -c 1 只ping一次, -W 1 超时时间1秒, gerp查找ping结果中100% packet loss字符, -c 只显示找到的行号
+    FILE* file = popen("ping -c 1 -W 1 192.168.1.123 | grep -c \"100% packet loss\"", "r");
+    char cmd_value = getc(file);
+    pclose(file);
 	if (cmd_value == '0')
 	{
-		puts("电脑在线, 无需唤醒");
+		puts("目标主机在线, 无需唤醒");
 		return 0;
 	}
-	code = system("curl http://服务器IP:9080/command/wol/fetch > wol_temp");
-	if (code < 0 || code == 127)
-	{
-		puts("curl命令执行失败");
-		return -1;
-	}
 
-	file = fopen("wol_temp", "r");
-	cmd_value = getc(file);
-	fclose(file);
+    file = popen("curl http://服务器IP:9080/command/wol/fetch", "r");
+    cmd_value = getc(file);
+    pclose(file);
 	if (cmd_value == '0')
 	{
 		puts("当前无开机命令");
-		return 0;
+		return 0;		//命令标记=0说明不需要开机
 	}
 
 	puts("收到开机命令, 执行开机...");
