@@ -228,28 +228,28 @@ int main(int argc, char *argv[])
     FILE* file = popen("ping -c 1 -W 1 192.168.1.123 | grep -c \"100% packet loss\"", "r");
     char cmd_value = getc(file);
     pclose(file);
-	if (cmd_value == '0')
-	{
-		puts("目标主机在线, 无需唤醒");
-		return 0;
-	}
+    if (cmd_value == '0')
+    {
+        puts("目标主机在线, 无需唤醒");
+        return 0;
+    }
 
     file = popen("curl http://服务器IP:9080/command/wol/fetch", "r");
     cmd_value = getc(file);
     pclose(file);
-	if (cmd_value == '0')
-	{
-		puts("当前无开机命令");
-		return 0;		//命令标记=0说明不需要开机
-	}
+    if (cmd_value == '0')
+    {
+        puts("当前无开机命令");
+        return 0;		//命令标记=0说明不需要开机
+    }
 
-	puts("收到开机命令, 执行开机...");
+    puts("收到开机命令, 执行开机...");
     int ret = send_magic_pack("AA:BB:CC:DD:EE:FF", "192.168.1.255");
     if (ret == 0)
         puts("唤醒包已发送");
-	return 0;
+    return 0;
 }
-```
+```  
 > 注意: 函数`send_magic_pack()`目标IP参数可以是192.168.1.123, 但我这里传广播地址 192.168.1.255, 原因见后文
 
 5. **编译**  
