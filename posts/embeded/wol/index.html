@@ -122,26 +122,26 @@ int main(int argc, char *argv[])
     FILE* file = popen(&quot;ping -c 1 -W 1 192.168.1.123 | grep -c \&quot;100% packet loss\&quot;&quot;, &quot;r&quot;);
     char cmd_value = getc(file);
     pclose(file);
-	if (cmd_value == '0')
-	{
-		puts(&quot;目标主机在线, 无需唤醒&quot;);
-		return 0;
-	}
+    if (cmd_value == '0')
+    {
+        puts(&quot;目标主机在线, 无需唤醒&quot;);
+        return 0;
+    }
 
     file = popen(&quot;curl http://服务器IP:9080/command/wol/fetch&quot;, &quot;r&quot;);
     cmd_value = getc(file);
     pclose(file);
-	if (cmd_value == '0')
-	{
-		puts(&quot;当前无开机命令&quot;);
-		return 0;		//命令标记=0说明不需要开机
-	}
+    if (cmd_value == '0')
+    {
+        puts(&quot;当前无开机命令&quot;);
+        return 0;		//命令标记=0说明不需要开机
+    }
 
-	puts(&quot;收到开机命令, 执行开机...&quot;);
+    puts(&quot;收到开机命令, 执行开机...&quot;);
     int ret = send_magic_pack(&quot;AA:BB:CC:DD:EE:FF&quot;, &quot;192.168.1.255&quot;);
     if (ret == 0)
         puts(&quot;唤醒包已发送&quot;);
-	return 0;
+    return 0;
 }
 </code></pre><blockquote><p>注意: 函数<code>send_magic_pack()</code>目标IP参数可以是192.168.1.123, 但我这里传广播地址 192.168.1.255, 原因见后文</p></blockquote><ol start=5><li><strong>编译</strong><br>在Linux中导航到源文件所在目录, 执行命令<code>mipsel-linux-gnu-gcc wol.c -o wol -static</code>, 得到可执行文件<strong>wol</strong></li></ol><blockquote><p>注意: 执行<code>mipsel-linux-gnu-gcc</code>命令需要先<a class=link href=../mipsel>搭建MIPS架构交叉编译环境</a></p></blockquote><h2 id=6>测试效果</h2><p>全部编写好后, 将服务端发布到云服务器上并启动. 客户端可以通过WinSCP复制到路由器<code>/var</code>目录并配置好crontab (方法参考上文). 然后关闭电脑</p><p>此时用另一台电脑打开CMD, 输入<code>curl -X PUT http://服务器IP:9080/command/wol/push</code>, 正常的话就可以看到电脑在一分钟内启动了</p><p>如果此时没有另一台电脑, 也可以用手机打开终端(Android), 或者其他任意能够以PUT方式发送HTTP请求到服务器的也是一样的</p><h2 id=7>遇到的问题</h2><p><strong>关机时间久了(大于1分钟)之后无法唤醒</strong><br>可能的原因如下:</p><ol><li>网卡没有禁用节能, 例如我的网卡需要关闭「以太网节能」, 参考上文. 另外我的路由器没有开启APR绑定, 在路由器管理页设置「APR绑定」或许也能解决</li><li>UDP发送的IP地址不对, 例如开始的时候发送包的目标IP是192.168.1.123, 刚关机可以唤醒, 但几分钟后就无法唤醒了, 后改成192.168.1.255后唤醒成功, 区别在于后者是广播地址, 关于广播的详细介绍可参考: <a class=link href=https://blog.csdn.net/weixin_47783699/article/details/127937448 target=_blank rel=noopener>UDP广播</a></li></ol><p>还有一个很奇怪的现象, 当时用自己编写的程序(以下简称WOL), 对比微信小程序「网络唤醒WakeOnLan」(以下简称小程序) 进行测试</p><p>刚关机几分钟内, 通过小程序以及WOL都能够唤醒电脑. 当关机几分钟后, 使用小程序能够唤醒成功, 但是通过WOL就不能. 使用网络调试助手对比过两者发送的魔术包数据是完全一致的.</p><p>后来将WOL发送的目标IP地址改成广播地址192.168.1.255之后就可以唤醒了, 但作为对比的小程序不论填192.168.1.123还是192.168.1.255还是255.255.255.255都可以唤醒, 推测可能还是因为没有设置「APR绑定」, 释放了IP, 而小程序有做特殊处理, 发送的也是广播IP</p></section><footer class=article-footer><section class=article-tags><a href=/tags/embeded/>Embeded</a>
 <a href=/tags/padavan/>Padavan</a>
