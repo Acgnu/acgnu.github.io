@@ -35,7 +35,7 @@ tags:
 
 <h2 id='2'>准备工作</h2>
 
-1. 一台支持运行三方程序的路由器, OpenWRT或Padavan等. 在路由器「DHCP」管理页中为需要唤醒的电脑设置**固定IP**以及「**ARP绑定**」
+1. 一台支持运行三方程序的路由器, OpenWRT或Padavan等. 在路由器「DHCP」管理页中为需要唤醒的电脑设置固定IP
 2. 电脑设置启用网络唤醒. [如何设置网络唤醒?](https://post.smzdm.com/p/a7d70m4g/) 以我的设备为例:  
 主板「B460M AORUS ELITE (rev. 1.0) 」默认开启了网络唤醒, 无需修改任何设置.  
 网卡「Intel(R) Ethernet Connection (12) I219-V」设置如下:
