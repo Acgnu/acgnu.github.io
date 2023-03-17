@@ -19,7 +19,7 @@
 &lt;h2 id='2'>准备工作&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>一台支持运行三方程序的路由器, OpenWRT或Padavan等. 在路由器「DHCP」管理页中为需要唤醒的电脑设置&lt;strong>固定IP&lt;/strong>以及「&lt;strong>ARP绑定&lt;/strong>」&lt;/p>
+&lt;p>一台支持运行三方程序的路由器, OpenWRT或Padavan等. 在路由器「DHCP」管理页中为需要唤醒的电脑设置固定IP&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>电脑设置启用网络唤醒. &lt;a class="link" href="https://post.smzdm.com/p/a7d70m4g/" target="_blank" rel="noopener"
@@ -332,58 +332,47 @@ return 0;
 &lt;/ol>
 &lt;p>还有一个很奇怪的现象, 当时用自己编写的程序(以下简称WOL), 对比微信小程序「网络唤醒WakeOnLan」(以下简称小程序) 进行测试&lt;/p>
 &lt;p>刚关机几分钟内, 通过小程序以及WOL都能够唤醒电脑. 当关机几分钟后, 使用小程序能够唤醒成功, 但是通过WOL就不能. 使用网络调试助手对比过两者发送的魔术包数据是完全一致的.&lt;/p>
-&lt;p>后来将WOL发送的目标IP地址改成广播地址192.168.1.255之后就可以唤醒了, 但作为对比的小程序不论填192.168.1.123还是192.168.1.255还是255.255.255.255都可以唤醒, 推测可能还是因为没有设置「APR绑定」, 释放了IP, 而小程序有做特殊处理, 发送的也是广播IP&lt;/p></description></item><item><title>在Windows上使用基于WSL的Ubuntu搭建MIPSEL架构的C语言交叉编译环境</title><link>/posts/embeded/mipsel/</link><pubDate>Fri, 03 Mar 2023 00:50:44 +0800</pubDate><guid>/posts/embeded/mipsel/</guid><description>&lt;img src="/posts/embeded/mipsel/cover.png" alt="Featured image of post 在Windows上使用基于WSL的Ubuntu搭建MIPSEL架构的C语言交叉编译环境" />&lt;h2 id="目录">目录&lt;/h2>
+&lt;p>后来将WOL发送的目标IP地址改成广播地址192.168.1.255之后就可以唤醒了, 但作为对比的小程序不论填192.168.1.123还是192.168.1.255还是255.255.255.255都可以唤醒, 推测可能还是因为没有设置「APR绑定」, 释放了IP, 而小程序有做特殊处理, 发送的也是广播IP&lt;/p></description></item><item><title>在Windows上使用基于WSL的Ubuntu搭建MIPSEL处理器的C语言交叉编译环境</title><link>/posts/embeded/mipsel/</link><pubDate>Fri, 03 Mar 2023 00:50:44 +0800</pubDate><guid>/posts/embeded/mipsel/</guid><description>&lt;img src="/posts/embeded/mipsel/cover.png" alt="Featured image of post 在Windows上使用基于WSL的Ubuntu搭建MIPSEL处理器的C语言交叉编译环境" />&lt;h2 id="目录">目录&lt;/h2>
 &lt;ol>
 &lt;li>&lt;a class="link" href="#1" >硬件准备&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="#2" >Windows上的开发环境准备&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="#3" >使用Ubuntu安装MIPSEL架构的交叉编译器&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="#4" >使用C编写Hello Word!测试&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#5" >过程中遇到的问题&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#5" >遇到的问题&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="#6" >一点感想&lt;/a>&lt;/li>
 &lt;/ol>
 &lt;h2 id='1'>硬件准备&lt;/h2>
 &lt;ul>
-&lt;li>一台基于Linux内核, 采用MIPS架构CPU的路由器, 我的是小米AC2100, 刷了Padavan系统&lt;/li>
+&lt;li>一台基于Linux内核, 采用MIPS处理器的设备, 例如我的小米AC2100, Padavan系统&lt;/li>
 &lt;li>一台支持Windows子系统(WSL)的Windows 10的电脑&lt;/li>
 &lt;/ul>
 &lt;h2 id='2'>Windows上的开发环境准备&lt;/h2>
 &lt;ol>
-&lt;li>
-&lt;p>安装&lt;a class="link" href="https://visualstudio.microsoft.com/zh-hans/" target="_blank" rel="noopener"
->Visual Studio&lt;/a> 2019.9 或以上版本&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>为&lt;a class="link" href="https://visualstudio.microsoft.com/zh-hans/" target="_blank" rel="noopener"
->Visual Studio&lt;/a>添加Linux开发环境工具集 (安装时已勾选的可跳过)&lt;/p>
+&lt;li>&lt;strong>安装&lt;a class="link" href="https://visualstudio.microsoft.com/zh-hans/" target="_blank" rel="noopener"
+>Visual Studio&lt;/a> 2019.9 或以上版本&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://www.cnblogs.com/MIUMIUBLING/p/16566200.html" target="_blank" rel="noopener"
+>添加Linux开发环境工具集&lt;/a> (安装时已勾选的可跳过)&lt;/strong>
 &lt;ol>
 &lt;li>在开始菜单中打开「Visual Studio Installer」&lt;/li>
-&lt;li>找到刚刚安装的Visual Studio 2019, 点击右侧的「修改」按钮&lt;/li>
+&lt;li>找到Visual Studio 2019, 点击右侧的「修改」按钮&lt;/li>
 &lt;li>找到「使用C++的Linux开发」, 并勾选保存&lt;/li>
 &lt;/ol>
-&lt;blockquote>
-&lt;p>参考资料: &lt;a class="link" href="https://www.cnblogs.com/MIUMIUBLING/p/16566200.html" target="_blank" rel="noopener"
->如何修改开发工具集?&lt;/a>&lt;/p>
-&lt;/blockquote>
 &lt;/li>
-&lt;li>
-&lt;p>为Windows开启子系统(WSL)并安装Ubuntu&lt;/p>
-&lt;ol>
-&lt;li>在Windows功能中启用 「适用于Linux的Windows子系统」和「虚拟机平台」&lt;/li>
-&lt;li>在Microsoft Store中搜索 &lt;strong>Ubuntu&lt;/strong>, 下载一个Linux发行版, 我的是22.04.2&lt;/li>
-&lt;li>安装后, 可按照自己需要&lt;a class="link" href="https://blog.csdn.net/ximaiyao1984/article/details/128593271" target="_blank" rel="noopener"
->修改root密码&lt;/a>, &lt;a class="link" href="https://www.cnblogs.com/oongxu/p/16911759.html" target="_blank" rel="noopener"
->设置默认以root启动&lt;/a>, &lt;a class="link" href="https://blog.csdn.net/Erictr/article/details/121729194" target="_blank" rel="noopener"
->修改镜像源&lt;/a>等&lt;/li>
-&lt;/ol>
-&lt;blockquote>
-&lt;p>参考资料: &lt;a class="link" href="https://blog.csdn.net/VXzhangkaiOsLab/article/details/128205285" target="_blank" rel="noopener"
->如何启用Win10的WSL?&lt;/a>&lt;/p>
-&lt;/blockquote>
+&lt;li>&lt;strong>开启Windows子系统(WSL)并安装Ubuntu, &lt;a class="link" href="https://blog.csdn.net/VXzhangkaiOsLab/article/details/128205285" target="_blank" rel="noopener"
+>如何启用Win10的WSL?&lt;/a>&lt;/strong>&lt;br>
+安装好后, 以下可&lt;strong>按需&lt;/strong>修改
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://blog.csdn.net/ximaiyao1984/article/details/128593271" target="_blank" rel="noopener"
+>修改root密码&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.cnblogs.com/oongxu/p/16911759.html" target="_blank" rel="noopener"
+>设置默认以root启动&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://blog.csdn.net/Erictr/article/details/121729194" target="_blank" rel="noopener"
+>修改镜像源&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;/li>
-&lt;li>
-&lt;p>为&lt;a class="link" href="https://visualstudio.microsoft.com/zh-hans/" target="_blank" rel="noopener"
->Visual Studio&lt;/a>配置跨平台编译
-具体配置方式可参考微软官方教程&lt;/p>
+&lt;li>&lt;strong>为&lt;a class="link" href="https://visualstudio.microsoft.com/zh-hans/" target="_blank" rel="noopener"
+>Visual Studio&lt;/a>配置跨平台编译&lt;/strong>&lt;br>
+具体配置方式可参考微软官方教程
 &lt;ul>
 &lt;li>&lt;a class="link" href="hhttps://devblogs.microsoft.com/cppblog/c-with-visual-studio-2019-and-windows-subsystem-for-linux-wsl/" >如何在Visual Studio 2019中配置WSL交叉编译环境?&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://learn.microsoft.com/zh-cn/cpp/build/walkthrough-build-debug-wsl2?view=msvc-170" target="_blank" rel="noopener"
@@ -403,42 +392,41 @@ alt="WSL配置">
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;h2 id='3'>使用Ubuntu安装MIPSEL架构的交叉编译器&lt;/h2>
-&lt;ol>
-&lt;li>
-&lt;p>添加源, 以root权限添加下面两行内容到 /etc/apt/sources.list 文件&lt;/p>
-&lt;pre>&lt;code>deb http://ftp.de.debian.org/debian squeeze main
-deb http://www.emdebian.org/debian/ squeeze main
-&lt;/code>&lt;/pre>&lt;/li>
-&lt;li>
-&lt;p>在Ubuntu中依次执行下列命令&lt;/p>
-&lt;pre>&lt;code>sudo apt-get update
-sudo apt-get install emdebian-archive-keyring
-apt-get install linux-libc-dev-mips-cross libc6-mips-cross libc6-dev-mips-cross binutils-mips-linux-gnu gcc--mipsel-linux-gnu g++-mipsel-linux-gnu
-&lt;/code>&lt;/pre>&lt;/li>
-&lt;li>
-&lt;p>检查是否安装成功&lt;/p>
-&lt;pre>&lt;code>mipsel-linux-gnu-gcc -dumpmachine
-&lt;/code>&lt;/pre>&lt;p>安装正确会输出 &lt;strong>mipsel-linux-gnu&lt;/strong>&lt;br>
-参考资料: &lt;a class="link" href="https://blog.csdn.net/xingjiarong/article/details/49862159" target="_blank" rel="noopener"
->Ubuntu下安装MIPS交叉编译器 mips-linux-gcc&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>附一个FTP的库地址备用: &lt;a href="ftp://ftp.linux-mips.org/pub/linux/mips/people/macro/RPMS/mipsel/">ftp://ftp.linux-mips.org/pub/linux/mips/people/macro/RPMS/mipsel/&lt;/a>&lt;/p>
-&lt;/blockquote>
-&lt;/li>
-&lt;/ol>
+&lt;h2 id='3'>使用Ubuntu安装MIPSEL交叉编译器&lt;/h2>
+&lt;p>在Ubuntu中执行下列命令&lt;/p>
+&lt;pre>&lt;code>apt update
+apt -y install gcc-mipsel-linux-gnu qemu qemu-user
+&lt;/code>&lt;/pre>&lt;p>等待安装完毕后, 就可以使用 &lt;code>mipsel-linux-gnu-gcc&lt;/code> 命令了&lt;/p>
+&lt;p>补充说明:&lt;/p>
+&lt;ul>
+&lt;li>建议更换阿里或清华镜像源后执行, 提升下载速度&lt;/li>
+&lt;li>「gcc-mipsel-linux-gnu」是交叉编译器, 可将C语言源文件编译成MIPS处理器支持的可执行文件, 如果需要编译C++, 还需安装「g++-mipsel-linux-gnu」&lt;/li>
+&lt;li>「qemu」是仿真器, 可以在Ubuntu上模拟运行MIPS架构程序, 节约测试时间&lt;/li>
+&lt;li>MIPS可执行文件分为大端(big-endian)和小端(little-endian), 两者的可执行文件不能互相兼容, 通常以mips代指大端, mipsel代指小端&lt;/li>
+&lt;/ul>
+&lt;p>参考资料:&lt;br>
+&lt;a class="link" href="https://noobient.com/2020/12/22/mips-cross-compilation-crash-course/" target="_blank" rel="noopener"
+>MIPS跨平台编译教程&lt;/a>&lt;br>
+&lt;a class="link" href="https://www.howtoinstall.me/ubuntu/18-04/gcc-mipsel-linux-gnu/" target="_blank" rel="noopener"
+>Ubuntu中如何安装 gcc-mipsel-linux-gnu&lt;/a>&lt;br>
+&lt;a class="link" href="https://baike.baidu.com/item/QEMU/1311178?fr=aladdin" target="_blank" rel="noopener"
+>QEMU简介&lt;/a>&lt;/p>
 &lt;h2 id='4'>使用C编写Hello Word!测试&lt;/h2>
 &lt;p>回到&lt;a class="link" href="https://visualstudio.microsoft.com/zh-hans/" target="_blank" rel="noopener"
->Visual Studio&lt;/a>中, 在项目里创建源文件&lt;strong>hello.c&lt;/strong>并编写helloword测试代码, 代码随处可见这里就不贴了, 编写完后在Ubuntu中导航到&lt;strong>源文件目录&lt;/strong>并执行命令&lt;/p>
+>Visual Studio&lt;/a>中, 在项目里创建源文件&lt;strong>hello.c&lt;/strong>并编写helloword测试代码, 编写完后可以通过以下三种方式运行&lt;/p>
+&lt;p>&lt;strong>1. 直接在Visual Studio中运行&lt;/strong>&lt;br>
+可以直接在&lt;a class="link" href="https://visualstudio.microsoft.com/zh-hans/" target="_blank" rel="noopener"
+>Visual Studio&lt;/a>中启动运行或调试, &lt;a class="link" href="https://visualstudio.microsoft.com/zh-hans/" target="_blank" rel="noopener"
+>Visual Studio&lt;/a>会自动将源代码在WSL中编译并运行, 并打开一个控制台输出结果, 方便快速预览效果以及调试&lt;/p>
+&lt;p>&lt;strong>2. 在qemu中模拟运行&lt;/strong>&lt;br>
+使用qemu可以模拟在路由器中运行, 首先需要在Ubuntu中将源代码编译成可执行文件, 我们可以在Ubuntu中导航到&lt;strong>源文件目录&lt;/strong>并执行命令&lt;/p>
 &lt;pre>&lt;code>mipsel-linux-gnu-gcc hello.c -o hello -static
-&lt;/code>&lt;/pre>&lt;p>得到可执行文件&lt;strong>hello&lt;/strong>&lt;/p>
-&lt;blockquote>
-&lt;ol>
-&lt;li>在基于WSL的Ubuntu中, 可以通过路径 &lt;strong>/mnt/Windows盘符/Windows路径&lt;/strong> 的方式便捷的访问Windows上的文件, 例如 &lt;code>cd /mnt/c/Windows&lt;/code>&lt;/li>
-&lt;li>gcc编译命令中&lt;code>-static&lt;/code>可以将所需要的库一起打包, 但这样做会导致可执行文件体积偏大, 优点就是可以确保目标系统能够在缺少动态链接库的情况下执行&lt;/li>
-&lt;/ol>
-&lt;/blockquote>
-&lt;p>将可执行文件&lt;strong>hello&lt;/strong>通过WinSCP上传至路由器&lt;code>/var&lt;/code>目录, 然后SSH到路由器并执行以下命令:&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>编译得到可执行文件&lt;strong>hello&lt;/strong>, 再通过 &lt;code>qemu-mipsel&lt;/code> 命令预览效果, 如下&lt;/p>
+&lt;pre>&lt;code>$ qemu-mipsel -L /usr/mipsel-linux-gnu hello
+Hello World !
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>3. 使用路由器运行&lt;/strong>&lt;br>
+参考上文「&lt;em>&lt;strong>2. 在qemu中模拟运行&lt;/strong>&lt;/em>」生成可执行文件&lt;strong>hello&lt;/strong>, 再使用&lt;a class="link" href="https://winscp.net/eng/download.php" target="_blank" rel="noopener"
+>WinSCP&lt;/a>将其上传至路由器 &lt;code>/var&lt;/code> 目录, 然后SSH到路由器执行以下命令运行并查看结果&lt;/p>
 &lt;pre>&lt;code>chmod u+x ./var/hello
 ./var/hello
 &lt;/code>&lt;/pre>&lt;p>&lt;figure style="flex-grow: 377; flex-basis: 905px">
@@ -447,11 +435,16 @@ srcset="/posts/embeded/mipsel/hello_hua744cf37185bcafc47f58974947343cc_14186_480
 width="249"
 height="66"
 loading="lazy"
-alt="hello world">
+alt="运行结果">
 &lt;/a>
-&lt;figcaption>hello world&lt;/figcaption>
+&lt;figcaption>运行结果&lt;/figcaption>
 &lt;/figure>&lt;/p>
-&lt;p>可以看到路由器已经正确输出, 现在环境配置完毕, 可以开始编写需求代码了&lt;/p>
+&lt;p>补充说明:&lt;/p>
+&lt;ul>
+&lt;li>在基于WSL的Ubuntu中, 可以通过路径 &lt;strong>/mnt/Windows盘符/Windows路径&lt;/strong> 的方式便捷的访问Windows上的文件, 例如 &lt;code>cd /mnt/c/Windows&lt;/code>&lt;/li>
+&lt;li>&lt;code>mipsel-linux-gnu-gcc&lt;/code> 中 &lt;code>-static&lt;/code> 可以将所需要的库一起打包, 缺点是导致文件体积偏大, 优点是可以确保目标系统能够在缺少动态链接库的情况下运行&lt;/li>
+&lt;li>&lt;code>qemu-mipsel&lt;/code> 中 &lt;code>-L&lt;/code> 指定运行库路径, 位于Ubuntu的「/usr/mipsel-linux-gnu」目录中&lt;/li>
+&lt;/ul>
 &lt;h2 id='5'>过程中遇到的问题&lt;/h2>
 &lt;ol>
 &lt;li>
@@ -491,7 +484,7 @@ alt="winscp">
 &lt;/a>
 &lt;figcaption>winscp&lt;/figcaption>
 &lt;/figure>&lt;br>
-因为一开始是复制到&lt;code>/user&lt;/code>目录, 但此目录空间满了, 后来复制到&lt;code>/var&lt;/code>就成功了, 可以在根目录使用&lt;code>df&lt;/code>命令查看空间占用率&lt;br>
+因为一开始是复制到 &lt;code>/user&lt;/code> 目录, 但此目录空间满了, 后来复制到 &lt;code>/var&lt;/code> 就成功了, 可以在根目录使用 &lt;code>df&lt;/code> 命令查看空间占用率&lt;br>
 &lt;figure style="flex-grow: 419; flex-basis: 1006px">
 &lt;a href="/posts/embeded/mipsel/df.png" data-size="503x120">&lt;img src="/posts/embeded/mipsel/df.png"
 srcset="/posts/embeded/mipsel/df_huc9db960f5887b194616d3191f78750b9_4629_480x0_resize_box_2.png 480w, /posts/embeded/mipsel/df_huc9db960f5887b194616d3191f78750b9_4629_1024x0_resize_box_2.png 1024w"
@@ -514,10 +507,10 @@ alt="空间占用">
 &lt;p>因为编译出来的可执行文件的指令集, 或者位数(64/32)不符合目标平台的CPU, 我的小米路由器AC2100搭载的CPU为&lt;a class="link" href="https://www.mediatek.cn/products/home-networking/mt7621" target="_blank" rel="noopener"
 >MT7621A&lt;/a>, 是一颗MIPS架构32位的CPU, 而最开始&lt;a class="link" href="https://visualstudio.microsoft.com/zh-hans/" target="_blank" rel="noopener"
 >Visual Studio&lt;/a>使用默认编译环境生成的平台是Intel x64, 所以路由器无法执行.
-解决方法是在Ubuntu上安装mips架构的gcc编译器重新编译&lt;/p>
+解决方法是在Ubuntu上安装mips交叉编译器重新编译&lt;/p>
 &lt;p>说一下发现过程:&lt;br>
-MIPS同ARM类似是属于嵌入式CPU的一种, 由于没有接触过嵌入式Linux开发, 仅在官网CPU介绍界面看到了MIPS字样, 同时看到很多嵌入式编译提到ARM字样, 推测MIPS也有自己的编译工具, 但网上ARM教程居多, MIPS很少, 大部分MIPS都需要自己使用「buildroot」或「crosstool-NG」生成编译工具, 找了好久才找到能直接用的编译工具&lt;code>mips-linux-gnu-gcc&lt;/code>, 但编译出来的文件还是报一样的错, 一度怀疑是位数的问题, 但是加上参数指定位数&lt;code>mips-linux-gnu-gcc -mabi=32&lt;/code>编译依然没有解决.&lt;/p>
-&lt;p>后来我从路由器中复制出来一份自带的程序&lt;strong>zerotier-one&lt;/strong>, 用记事本打开并和我自己编译的程序对比, 显示两者都是以&lt;code>ELF&lt;/code>开头的后面接二进制数据, 说明我编译出来的确实是可执行文件.&lt;/p>
+MIPS同ARM类似是属于嵌入式CPU的一种, 由于没有接触过嵌入式Linux开发, 仅在官网CPU介绍界面看到了MIPS字样, 同时看到很多嵌入式编译提到ARM字样, 推测MIPS也有自己的编译工具, 但网上ARM教程居多, MIPS很少, 大部分MIPS都需要自己使用「buildroot」或「crosstool-NG」生成编译工具, 找了好久才找到能直接用的编译工具&lt;code>mips-linux-gnu-gcc&lt;/code>, 但编译出来的文件还是报一样的错, 一度怀疑是位数的问题, 但是加上参数指定位数&lt;code>mips-linux-gnu-gcc -mabi=32&lt;/code> 编译依然没有解决.&lt;/p>
+&lt;p>后来我从路由器中复制出来一份自带的程序&lt;strong>zerotier-one&lt;/strong>, 用记事本打开并和我自己编译的程序对比, 显示两者都是以&lt;strong>ELF&lt;/strong>开头的后面接二进制数据, 说明我编译出来的确实是可执行文件.&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 316; flex-basis: 759px">
 &lt;a href="/posts/embeded/mipsel/elf.png" data-size="329x104">&lt;img src="/posts/embeded/mipsel/elf.png"
 srcset="/posts/embeded/mipsel/elf_hub34eb7eac1621353cbfdca82ef4e05c0_3363_480x0_resize_box_2.png 480w, /posts/embeded/mipsel/elf_hub34eb7eac1621353cbfdca82ef4e05c0_3363_1024x0_resize_box_2.png 1024w"
@@ -528,7 +521,7 @@ alt="elf">
 &lt;/a>
 &lt;figcaption>elf&lt;/figcaption>
 &lt;/figure>&lt;/p>
-&lt;p>再后来用&lt;code>file&lt;/code>命令分别查看两个文件, 显示&lt;strong>zerotier-one&lt;/strong>和我编译的有所不同.&lt;/p>
+&lt;p>再后来用 &lt;code>file&lt;/code> 命令分别查看两个文件, 显示&lt;strong>zerotier-one&lt;/strong>和我编译的有所不同.&lt;/p>
 &lt;p>&lt;strong>hello&lt;/strong>的file信息&lt;/p>
 &lt;pre>&lt;code>ELF 32-bit MSB executable, MIPS, MIPS32 rel2 version 1 (SYSV), dynamically linked, interpreter /lib/ld.so.1, BuildID[sha1].&amp;gt; =5cffbd2c17c264eadb4b91fa4490d868de7e4e15, for GNU/Linux 3.2.0, not stripped
 &lt;/code>&lt;/pre>&lt;p>&lt;strong>zerotier-one&lt;/strong>的file信息&lt;/p>
@@ -536,35 +529,35 @@ alt="elf">
 &lt;/code>&lt;/pre>&lt;p>可见最大的差别就是MSB和LSB, 查询资料后了解到是高低在前的问题, 两者的数据内容相反.&lt;/p>
 &lt;p>参考资料: &lt;a class="link" href="https://blog.csdn.net/qq_22279697/article/details/80508624" target="_blank" rel="noopener"
 >MSB和LSB区别&lt;/a>&lt;/p>
-&lt;p>于是编译时加上参数&lt;code>mips-linux-gnu-gcc -EL&lt;/code>&lt;/p>
+&lt;p>于是编译时加上参数 &lt;code>mips-linux-gnu-gcc -EL&lt;/code>&lt;/p>
 &lt;pre>&lt;code>/usr/lib/gcc-cross/mips-linux-gnu/10/../../../../mips-linux-gnu/bin/ld: /usr/lib/gcc-cross/mips-linux-gnu/10/../../../../mips-linux-gnu/lib/../lib/libgcc_s.so.1: error adding symbols: file in wrong format
 collect2: error: ld returned 1 exit status
-&lt;/code>&lt;/pre>&lt;p>但是报错了, 再后来注意到 &lt;strong>MIPS编译工具也是分为MIPS和MIPSEL的, MIPSEL编译结果是低位在前, 就是我们想要的LSB文件, 而我一开始安装的编译工具是「gcc-mips-linux-gnu」, 即生成高位在前的可执行文件&lt;/strong>, 而当我直接执行 &lt;code>mipsel-linux-gnu-gcc&lt;/code>会提示未安装&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>但是报错了(似乎应该是 &lt;code>-LE&lt;/code>, 未验证), 再后来注意到 &lt;strong>MIPS编译工具也是分为MIPS和MIPSEL的, MIPSEL编译结果是低位在前, 就是我们想要的LSB文件, 而我一开始安装的编译工具是「gcc-mips-linux-gnu」, 即生成高位在前的可执行文件&lt;/strong>, 而当我直接执行 &lt;code>mipsel-linux-gnu-gcc&lt;/code> 会提示未安装&lt;/p>
 &lt;pre>&lt;code>Command 'mipsel-linux-gnu-gcc' not found, but can be installed with:
 apt install gcc-mipsel-linux-gnu
 &lt;/code>&lt;/pre>&lt;p>我们根据提示执行
 &lt;code>apt install gcc-mipsel-linux-gnu&lt;/code>
-安装后就可以使用&lt;code>mipsel-linux-gnu-gcc&lt;/code>命令了&lt;/p>
+安装后就可以使用 &lt;code>mipsel-linux-gnu-gcc&lt;/code> 命令了&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>执行程序出错「&lt;font color='red'>-sh: ./hello: not found&lt;/font>」&lt;/p>
-&lt;p>原因是缺少运行库, 可以从别的地方复制库过来并配置环境变量啥的, 也可以简单点编译的时候加上&lt;code>-static&lt;/code>参数直接把需要的库打包进程序里&lt;/p>
-&lt;pre>&lt;code>mipsel-linux-gnu-gcc hello.c -o hello --static
-&lt;/code>&lt;/pre>&lt;p>参考资料: &lt;a class="link" href="https://blog.csdn.net/socbis/article/details/108001336" target="_blank" rel="noopener"
+&lt;p>原因是缺少运行库, 可以从别的地方复制库过来并配置环境变量啥的, 也可以简单点编译的时候加上 &lt;code>-static&lt;/code> 参数直接把需要的库打包进程序里.&lt;br>
+另外在WSL中, 所有目录以文件都位于Windows「C:\Users\用户名\AppData\Local\Packages\Ubuntu发行版号\LocalState\rootfs\」, 例如:「C:\Users\Administrator\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04LTS_79rhkp1fndgsc\LocalState\rootfs\」, 而编译时所需的库文件位于「usr\mipsel-linux-gnu\lib」&lt;/p>
+&lt;p>参考资料: &lt;a class="link" href="https://blog.csdn.net/socbis/article/details/108001336" target="_blank" rel="noopener"
 >linux 执行程序时，提示not found问题分析&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>其他探索&lt;/p>
 &lt;ul>
-&lt;li>可使用&lt;code>cat /proc/cpuinfo&lt;/code>命令查看CPU信息, 可得到关键信息32, MIPS, 1004K, MT7621, 然后查找相关资料&lt;/li>
-&lt;li>可使用&lt;code>uname -a&lt;/code>命令查看系统信息, 但是不多,&lt;/li>
-&lt;li>可使用&lt;code>cat /proc/version&lt;/code>命令查看系统信息, 如下&lt;/li>
+&lt;li>可使用 &lt;code>cat /proc/cpuinfo&lt;/code> 命令查看CPU信息, 可得到关键信息32, MIPS, 1004K, MT7621, 然后查找相关资料&lt;/li>
+&lt;li>可使用 &lt;code>uname -a&lt;/code> 命令查看系统信息, 但是不多,&lt;/li>
+&lt;li>可使用 &lt;code>cat /proc/version&lt;/code> 命令查看系统信息, 如下&lt;/li>
 &lt;/ul>
 &lt;pre>&lt;code>R2100:/proc # cat /proc/version
 Linux version 3.4.113 (root@fv-az19-273) (gcc version 7.4.0 (crosstool-NG 1.24.0) ) #1 SMP Wed Oct 20 17:03:44 UTC 2021
 &lt;/code>&lt;/pre>&lt;p>其中的 &lt;strong>crosstool-NG 1.24.0&lt;/strong>, 是交叉编译工具, 所以这套系统应该是用这个工具编译出来的, 同理应该可以用这套工具编译自己的程序, 但网上很难找到现成的, 需要自己构建&lt;/p>
 &lt;ul>
-&lt;li>可使用&lt;code>readelf&lt;/code>命令查看可执行文件信息, 查看hello的信息如下:
+&lt;li>可使用 &lt;code>readelf&lt;/code> 命令查看可执行文件信息, 查看hello的信息如下:
 &lt;figure style="flex-grow: 207; flex-basis: 499px">
 &lt;a href="/posts/embeded/mipsel/readelf1.png" data-size="678x326">&lt;img src="/posts/embeded/mipsel/readelf1.png"
 srcset="/posts/embeded/mipsel/readelf1_hu6db303a8d1b0d5b981ac711e8eccf8e9_10594_480x0_resize_box_2.png 480w, /posts/embeded/mipsel/readelf1_hu6db303a8d1b0d5b981ac711e8eccf8e9_10594_1024x0_resize_box_2.png 1024w"
@@ -587,12 +580,12 @@ alt="zerotier-one">
 &lt;figcaption>zerotier-one&lt;/figcaption>
 &lt;/figure>
 可见一眼看上去并没有明显差别, 都是MIPS&lt;/li>
-&lt;li>路由器上可以执行shell脚本和curl, 但我需要发送UDP路由器上的系统无法实现, 例如&lt;code>/dev/udp/xxx.xxx.xxx.xxx/x&lt;/code>路由器并不支持, 还是只能用代码&lt;/li>
+&lt;li>路由器上可以执行shell脚本和curl, 但我需要发送UDP路由器上的系统无法实现, 例如 &lt;code>/dev/udp/xxx.xxx.xxx.xxx/x&lt;/code> 路由器并不支持, 还是只能用代码&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
 &lt;p>最新发现&lt;br>
-&lt;strong>Go语言原生支持Windows交叉编译MIPSEL&lt;/strong>, 在GO环境变量中将&lt;code>GOOS&lt;/code>设置为&lt;strong>linux&lt;/strong>, &lt;code>GOARCH&lt;/code>设置为&lt;strong>mipsle&lt;/strong> (没有拼错), 就可以直接用&lt;code>go build&lt;/code>命令编译出MIPS架构LSB的可执行文件&lt;/p>
+&lt;strong>Go语言原生支持Windows交叉编译MIPSEL&lt;/strong>, 在GO环境变量中将 &lt;code>GOOS&lt;/code> 设置为&lt;strong>linux&lt;/strong>, &lt;code>GOARCH&lt;/code> 设置为&lt;strong>mipsle&lt;/strong> (没有拼错), 就可以直接用 &lt;code>go build&lt;/code> 命令编译出MIPS架构LSB的可执行文件&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;h2 id='6'>一点感想&lt;/h2>
