@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Flash on Acgnu+</title><link>/tags/flash/</link><description>Recent content in Flash on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 22 Aug 2024 00:50:44 +0800</lastBuildDate><atom:link href="/tags/flash/index.xml" rel="self" type="application/rss+xml"/><item><title>关于Adobe Flash失效后如何继续使用某弹播放器</title><link>/posts/hack/xtan/flashnext/</link><pubDate>Thu, 22 Aug 2024 00:50:44 +0800</pubDate><guid>/posts/hack/xtan/flashnext/</guid><description>背景 本文再续 某琴吧EXE播放器破解记录, 意在解决Adobe停止维护Flash后, 整个Flash失效导致播放器无法使用的问题.
 2020年末Adobe公司停止了对Flash的维护, 随之而来的是浏览器删除了对Flash的支持, 包括Windows系统内安装的Flash也无法继续使用, 而我们获取乐谱资源需要用到Flash版的某琴吧播放器, 之前使用的是AxShockwaveFlash, 这个组件也是引用了Windows上安装的Flash, 只能寻找其他替代方案
-此文章编辑于2024年8月, 实际改造在2021年5月就已完成, 因此没有早期Flash失效截图. 另外某琴吧在2023年再次更新, 用手机版APP取代了PC版播放器, 所以此破解方案在此时已失效, 再此仅为记录
+此文章编辑于2024年8月, 实际改造在2021年5月就已完成, 因此没有早期Flash失效截图. 另外某琴吧在2023年再次更新, 用手机版APP取代了PC版播放器, 后续的乐谱播放文件变更为.ypn1 (通过前两次规律使用 yp 当前缀, 再加两位数组/字母用脚本穷举得出), 新格式只能在手机上用APP播放. 但暂不影响乐谱页的获取.
 目标 使Flash版某琴吧播放器可用
 分析 首先简单回顾一下破解过程, 我们先反编译了Flash版的某琴吧播放器, 然后在源码中增加了一个swfExtGetypURL方法, 此方法根据传入的乐谱ID返回乐谱资源URL, 再通过ExternalInterface.addCallback将该方法暴露给Flash容器, 我们就可以使用容器与Flash通信了. 而现在的问题是, 容器即AxShockwaveFlash组件由于Flash停止维护已经用不了了, 那么有没有什么办法能够继续运行Flash呢? 答案是有的, 我们还有另一种独立的Flash Player应用程序, 它不需要安装, 下载到电脑后双击即可运行
 Adobe Flash Player 29截图
 如上图所示, 启动之后界面是空白的, 因为没有运行Flash文件, 我们可以单击 文件 - 打开, 来选择一个.swf后缀的Flash文件进行播放, 例如下图是来自QQ秀的.swf文件运行效果
 image-3
 实际上当时下载到的最新版本为Adobe Flash Player 3x, 这些版本也受到了停止维护的影响无法使用, 直到我逐个尝试旧版之后才找到了可用的版本 29
-如何传入参数?
-根据 某琴吧Flash播放器破解记录 中的描述, 打开某琴吧播放器是需要传入一个id参数的, 那么这个图形化界面我们应该如何传入参数呢?</description></item><item><title>某琴吧Flash播放器破解记录</title><link>/posts/hack/xtan/flash/</link><pubDate>Tue, 25 May 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xtan/flash/</guid><description>背景 2019年的某月, 某琴吧将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.
+如何传入参数?</description></item><item><title>某琴吧Flash播放器破解记录</title><link>/posts/hack/xtan/flash/</link><pubDate>Tue, 25 May 2021 00:50:44 +0800</pubDate><guid>/posts/hack/xtan/flash/</guid><description>背景 2019年的某月, 某琴吧将越来越多的谱子改为vip收费谱, 遂于网上寻找Chrome插件实现白嫖.
 同年, 得知Adobe公司将于2020年年末彻底停用Flash, 遂产生破解其Flash播放器并本地化的想法.
 目标 破解该站的Flash播放器, 使其能够免费下载并播放VIP乐谱, 并将乐谱保存至本地硬盘, 同时使播放器可以脱离浏览器且可以脱机使用
 网站乐谱页 image-1

@@ -2,7 +2,7 @@
 &lt;p>本文再续 &lt;a class="link" href="../exe" >某琴吧EXE播放器破解记录&lt;/a>, 意在解决Adobe停止维护Flash后, 整个Flash失效导致播放器无法使用的问题.&lt;/p>
 &lt;p>2020年末Adobe公司停止了对Flash的维护, 随之而来的是浏览器删除了对Flash的支持, 包括Windows系统内安装的Flash也无法继续使用, 而我们获取乐谱资源需要用到Flash版的某琴吧播放器, 之前使用的是&lt;code>AxShockwaveFlash&lt;/code>, 这个组件也是引用了Windows上安装的Flash, 只能寻找其他替代方案&lt;/p>
 &lt;blockquote>
-&lt;p>此文章编辑于2024年8月, 实际改造在2021年5月就已完成, 因此没有早期Flash失效截图. 另外某琴吧在2023年再次更新, 用手机版APP取代了PC版播放器, 所以此破解方案在此时已失效, 再此仅为记录&lt;/p>
+&lt;p>此文章编辑于2024年8月, 实际改造在2021年5月就已完成, 因此没有早期Flash失效截图. 另外某琴吧在2023年再次更新, 用手机版APP取代了PC版播放器, 后续的乐谱播放文件变更为&lt;code>.ypn1&lt;/code> (通过前两次规律使用 &lt;code>yp&lt;/code> 当前缀, 再加两位数组/字母用脚本穷举得出), 新格式只能在手机上用APP播放. 但暂不影响乐谱页的获取.&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="目标">目标&lt;/h2>
 &lt;p>使Flash版某琴吧播放器可用&lt;/p>
