@@ -1,4 +1,182 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 22 Aug 2024 00:50:44 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>关于Adobe Flash失效后如何继续使用某弹播放器</title><link>/posts/hack/xtan/flashnext/</link><pubDate>Thu, 22 Aug 2024 00:50:44 +0800</pubDate><guid>/posts/hack/xtan/flashnext/</guid><description>&lt;img src="/posts/hack/xtan/flashnext/cover.png" alt="Featured image of post 关于Adobe Flash失效后如何继续使用某弹播放器" />&lt;h2 id="背景">背景&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Acgnu+</title><link>/</link><description>Recent content on Acgnu+</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2025 00:50:44 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 LuCI 编写用于 OpenWRT 的远程开机服务</title><link>/posts/embeded/wol-luci/</link><pubDate>Thu, 20 Feb 2025 00:50:44 +0800</pubDate><guid>/posts/embeded/wol-luci/</guid><description>&lt;img src="/posts/embeded/wol-luci/cover.png" alt="Featured image of post 使用 LuCI 编写用于 OpenWRT 的远程开机服务" />&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>最近更换了宽带, 拿到了公网IPv6, 刚好又换了一台 小米AX3000T 路由器, 搭载了 ARM 架构的 MT7981B 处理器, 使得安装 OpenWRT 成为了可能. 之前编写的&lt;a class="link" href="../wol" >远程开机程序&lt;/a>是轮询模式的, 在拥有公网的现在, 本着折腾的心态, 就干脆改造成服务端监听模式, 顺便为其增加 UI 方便配置. 查阅资料后了解到可以使用 LuCI, 不过网上教程基本上是 UI 和 服务分离, 这需要分别编译两个软件包 (opkg), 而我其实希望只有一个软件包, 因此有了这篇文章&lt;/p>
+&lt;h2 id="需求">需求&lt;/h2>
+&lt;p>编写带有 LuCI 的 OpenWRT 软件包 ( Package ), 包含 UI 和服务两部分, 作为服务运行并监听请求, 最终实现效果如下:&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 199; flex-basis: 478px">
+&lt;a href="/posts/embeded/wol-luci/01.png" data-size="1539x772">&lt;img src="/posts/embeded/wol-luci/01.png"
+srcset="/posts/embeded/wol-luci/01_hu8d7382504fa65059fecc6a9b88b122e0_53131_480x0_resize_box_2.png 480w, /posts/embeded/wol-luci/01_hu8d7382504fa65059fecc6a9b88b122e0_53131_1024x0_resize_box_2.png 1024w"
+width="1539"
+height="772"
+loading="lazy"
+alt="预览">
+&lt;/a>
+&lt;figcaption>预览&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="前置条件">前置条件&lt;/h2>
+&lt;ul>
+&lt;li>公网 IPv6&lt;/li>
+&lt;li>域名 (可选)&lt;/li>
+&lt;li>OpenWRT 或基于 OpenWRT 的分支系统, 本人安装的是 ImmortalWRT, 后文将只写 ImmortalWRT&lt;/li>
+&lt;/ul>
+&lt;h2 id="开发准备">开发准备&lt;/h2>
+&lt;p>首先需要安装环境, 基于 OpenWRT 的软件包开发通常可以选择使用 SDK 或者完整的源码, 我这边由于是 ImmortalWRT 分支系统, 所以直接下载它的 &lt;strong>&lt;a class="link" href="https://github.com/hanwckf/immortalwrt-mt798x" target="_blank" rel="noopener"
+>源码&lt;/a>&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>按照源码仓库 &lt;strong>Requirements&lt;/strong> 章节准备系统和开发工具, 我这里使用的WSL 20.04&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用 &lt;code>git clone&lt;/code> 源码, 我这里存放到目录 &lt;strong>/home/acgnu/code/immortalwrt-mt798x&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>参考源码仓库 &lt;strong>Quickstart&lt;/strong> 章节执行以下步骤&lt;/p>
+&lt;ul>
+&lt;li>更新 feeds&lt;/li>
+&lt;li>安装 feeds&lt;/li>
+&lt;li>复制配置文件&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>注意这里不需要编译整个固件, 因此 &lt;code>make&lt;/code> 是不需要执行的&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在源码目录中执行 &lt;code>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make toolchain/compile -j$(nproc)&lt;/code> 编译工具链. 首次编译会生成 menuconfig, 此时不需要修改任何东西直接保存&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>使用WSL的任何 &lt;code>make&lt;/code> 命令都需要加上&lt;code>PATH&lt;/code>, 详见 &lt;a class="link" href="https://openwrt.org/docs/guide-developer/toolchain/wsl" target="_blank" rel="noopener"
+>Build system setup WSL&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="编写程序">编写程序&lt;/h2>
+&lt;h3 id="创建工程">创建工程&lt;/h3>
+&lt;p>在源码目录 &lt;strong>immortalwrt-mt798x/package/feeds/luci&lt;/strong> 下新建工程目录 &lt;strong>luci-app-remotewol&lt;/strong> 以及子目录, 此时完整的工程路径为 &lt;strong>/home/acgnu/code/immortalwrt-mt798x/luci-app-remotewol&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>将工程文件存放在此目录是为了减少编译步骤, 由于固件源码中本身就包含 Luci 模块, 所以不需要其他额外操作. 如果按照 &lt;a class="link" href="https://openwrt.org/docs/guide-developer/start" target="_blank" rel="noopener"
+>OpenWRT 官方文档&lt;/a>, 则还需要额外创建模块和链接操作&lt;/p>
+&lt;/blockquote>
+&lt;p>完整的工程目录如下, 关于每个目录的作用可以参考: &lt;a class="link" href="https://github.com/openwrt/luci/blob/master/docs/Modules.md" target="_blank" rel="noopener"
+>LuCI Modules&lt;/a>&lt;/p>
+&lt;pre>&lt;code>luci-app-remotewol
+|-- luasrc
+|-- controller
+|-- remotewol.lua #定义 LuCI 页面接口
+|-- model
+|-- cbi
+|-- remotewol.lua #定义配置页面结构, 基于此结构生成页面组件
+|-- root
+|-- etc
+|-- config
+|-- remotewol #定义服务需要用到的配置文件
+|-- init.d
+|-- remotewol #定义 ImmortalWRT 后台服务规则
+|-- uci-defaults
+|-- luci-app-remotewol #定义软件包安装时执行的脚本
+|-- usr
+|-- share
+|-- rpcd
+|-- acl.d
+|-- luci-app-remotewol.json #定义 UCI 访问权限
+|-- src
+Makefile #定义此 src 目录中的源码编译
+remotewol.c #实际wol服务源码
+Makefile #定义此软件包清单
+&lt;/code>&lt;/pre>&lt;h3 id="编写-luci-前端">编写 LuCI 前端&lt;/h3>
+&lt;p>LuCI 前端的编写在网上有较多的教程和&lt;a class="link" href="https://github.com/sirpdboy/sirpdboy-package/tree/main" target="_blank" rel="noopener"
+>Github源码示例&lt;/a>, 此处不再详细说明, 本项目源码已上传至&lt;a class="link" href="https://github.com/Acgnu/luci-app-remotewol" target="_blank" rel="noopener"
+>Github仓库&lt;/a>, 简单介绍一下关键文件&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>luasrc/controller/remotewol.lua 定义配置入口. 相关参考: &lt;a class="link" href="https://juejin.cn/post/7343616758325035045" target="_blank" rel="noopener"
+>LuCI插件入门&lt;/a>, &lt;a class="link" href="https://www.cnblogs.com/weiweixu/p/4129234.html" target="_blank" rel="noopener"
+>开发OpenWrt路由器上LuCI的模块&lt;/a>&lt;/p>
+&lt;pre>&lt;code>#此处将此软件包注册在「服务」菜单, 模块为 remotewol, 名称为「远程开机」, 顺序 92
+entry({&amp;quot;admin&amp;quot;,&amp;quot;services&amp;quot;,&amp;quot;remotewol&amp;quot;},cbi(&amp;quot;remotewol&amp;quot;), _(&amp;quot;远程开机&amp;quot;), 92)
+&lt;/code>&lt;/pre>&lt;p>效果图如下:&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 92; flex-basis: 223px">
+&lt;a href="/posts/embeded/wol-luci/02.png" data-size="383x412">&lt;img src="/posts/embeded/wol-luci/02.png"
+srcset="/posts/embeded/wol-luci/02_hu8104123c71a8033d467bfb0566144372_28607_480x0_resize_box_2.png 480w, /posts/embeded/wol-luci/02_hu8104123c71a8033d467bfb0566144372_28607_1024x0_resize_box_2.png 1024w"
+width="383"
+height="412"
+loading="lazy"
+alt="菜单">
+&lt;/a>
+&lt;figcaption>菜单&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>luasrc/model/cbi/remotewol.lua 定义配置项, LuCI 可根据配置项生成页面. 控件编写可参考: &lt;a class="link" href="https://www.cnblogs.com/lionxy/p/15269112.html" target="_blank" rel="noopener"
+>Openwrt LuCI之CBI控件&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>root/etc/config/remotewol 定义实际配置文件, 软件包安装时会按照 root 下的目录结构原样复制此文件到 OpenWRT 系统中, 本例会复制到 /etc/config/remotewol&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>root/init.d/remotewol 通过继承 OpenWRT 系统脚本 /etc/rc.common 从而实现定义服务和执行逻辑, 而后可以在「系统」-「启动项」中呈现, 在脚本中实现 &lt;code>start_service&lt;/code>, &lt;code>stop_service&lt;/code>, &lt;code>reload_service&lt;/code> 等函数即可从页面按钮中调用&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 280; flex-basis: 673px">
+&lt;a href="/posts/embeded/wol-luci/03.png" data-size="1300x463">&lt;img src="/posts/embeded/wol-luci/03.png"
+srcset="/posts/embeded/wol-luci/03_hu55179c5aec5cc4897c6642bb943226d9_42225_480x0_resize_box_2.png 480w, /posts/embeded/wol-luci/03_hu55179c5aec5cc4897c6642bb943226d9_42225_1024x0_resize_box_2.png 1024w"
+width="1300"
+height="463"
+loading="lazy"
+alt="启动项">
+&lt;/a>
+&lt;figcaption>启动项&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>root/uci-defaults/luci-app-remotewol 软件包安装时自动执行的脚本, 这里主要需要给 root/init.d/remotewol 中的脚本文件赋予可执行权限和替换旧配置, 默认不可执行, 会导致服务脚本执行出错&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="编写-luci-服务端">编写 LuCI 服务端&lt;/h3>
+&lt;p>因为这是基于 LuCI 的前端和服务端合并的软件包, 因此服务端源码有以下要求&lt;/p>
+&lt;ul>
+&lt;li>C 源码需要放在 src 目录中&lt;/li>
+&lt;li>src 目录中需要包含 Makefile 以指示如何编译&lt;/li>
+&lt;/ul>
+&lt;p>C 源码编写没有特殊要求, 功能实现并非本文重点, &lt;a class="link" href="https://github.com/Acgnu/luci-app-remotewol/blob/master/src/remotewol.c" target="_blank" rel="noopener"
+>src/remotewol.c&lt;/a> 内容大致为先读取 &lt;a class="link" href="https://github.com/Acgnu/luci-app-remotewol/blob/master/root/etc/config/remotewol" target="_blank" rel="noopener"
+>/etc/config/remotewol&lt;/a> 中的配置, 然后启动一个 IPv6 的 UDP 监听. 当收到来自客户端的启动命令时, 执行唤醒局域网内的设备.&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 100; flex-basis: 240px">
+&lt;a href="/posts/embeded/wol-luci/05.jpg" data-size="836x833">&lt;img src="/posts/embeded/wol-luci/05.jpg"
+srcset="/posts/embeded/wol-luci/05_hue266f3e4449a5b91e4bebc8d6c0b1501_91094_480x0_resize_q75_box.jpg 480w, /posts/embeded/wol-luci/05_hue266f3e4449a5b91e4bebc8d6c0b1501_91094_1024x0_resize_q75_box.jpg 1024w"
+width="836"
+height="833"
+loading="lazy"
+alt="main">
+&lt;/a>
+&lt;figcaption>main&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>而 src/Makefile 中的代码如下:&lt;/p>
+&lt;pre>&lt;code>%.o: %.c
+$(CC) $(CPPFLAGS) $(CFLAGS) $(FPIC) -Wall -c -o $@ $&amp;lt;
+clean:
+rm -f remotewol *.o
+remotewol: remotewol.o
+$(CC) $(LDFLAGS) -o $@ $^ -ldl
+compile: remotewol
+install: compile
+mkdir -p $(DESTDIR)/usr/bin
+cp remotewol $(DESTDIR)/usr/bin/remotewol
+&lt;/code>&lt;/pre>&lt;p>基本上是模板代码, 主要提供编译, 清理, 安装. 一般只需要修改其中的程序名称和路径部分即可, 执行打包的时候会被调用.&lt;/p>
+&lt;h2 id="编译和打包">编译和打包&lt;/h2>
+&lt;p>&lt;strong>在源码根目录&lt;/strong>, 首先执行 &lt;code>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make menuconfig&lt;/code> 进入构建配置菜单, 检查并确保 「LuCI」-「Application」中的 luci-app-remotewol 被选上, 如下图&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 186; flex-basis: 448px">
+&lt;a href="/posts/embeded/wol-luci/04.png" data-size="1360x728">&lt;img src="/posts/embeded/wol-luci/04.png"
+srcset="/posts/embeded/wol-luci/04_hu8d94a7b65def4c836131859098da2fd4_119111_480x0_resize_box_2.png 480w, /posts/embeded/wol-luci/04_hu8d94a7b65def4c836131859098da2fd4_119111_1024x0_resize_box_2.png 1024w"
+width="1360"
+height="728"
+loading="lazy"
+alt="LuCI配置">
+&lt;/a>
+&lt;figcaption>LuCI配置&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>保存后, 执行以下命令进行构建&lt;/p>
+&lt;p>&lt;code>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make package/feeds/luci/luci-app-remotewol/compile -j$(nproc)&lt;/code>&lt;/p>
+&lt;p>编译完成后, 将会在 immortalwrt-mt798x/bin/packages/aarch64_cortex-a53/luci 目录下生成 .ipk 文件, 即 ImmortalWRT 的软件包文件&lt;/p>
+&lt;blockquote>
+&lt;p>编译时也可以执行 &lt;code>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make package/feeds/luci/luci-app-remotewol/{clean,compile} -j$(nproc)&lt;/code> , 这样可以在编译之前先清理&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="安装和卸载软件包">安装和卸载软件包&lt;/h2>
+&lt;p>安装就很简单了, 通过 &lt;code>scp&lt;/code> 命令把 xxx.ipk 发送到路由器的任意目录, 然后执行 &lt;code>opkg install xxx.ipk&lt;/code> 即可安装, 安装完成后就可以在「服务」菜单中看到了. 如果要卸载的话可以执行 &lt;code>opkg remove xxx&lt;/code> 就可以连带配置文件和脚本一并删除了. 详细介绍请戳 &lt;a class="link" href="https://wiki.8devices.com/openwrt:recipes:opkg" target="_blank" rel="noopener"
+>Package management with OPKG&lt;/a>&lt;/p></description></item><item><title>关于Adobe Flash失效后如何继续使用某弹播放器</title><link>/posts/hack/xtan/flashnext/</link><pubDate>Thu, 22 Aug 2024 00:50:44 +0800</pubDate><guid>/posts/hack/xtan/flashnext/</guid><description>&lt;img src="/posts/hack/xtan/flashnext/cover.png" alt="Featured image of post 关于Adobe Flash失效后如何继续使用某弹播放器" />&lt;h2 id="背景">背景&lt;/h2>
 &lt;p>本文再续 &lt;a class="link" href="../exe" >某琴吧EXE播放器破解记录&lt;/a>, 意在解决Adobe停止维护Flash后, 整个Flash失效导致播放器无法使用的问题.&lt;/p>
 &lt;p>2020年末Adobe公司停止了对Flash的维护, 随之而来的是浏览器删除了对Flash的支持, 包括Windows系统内安装的Flash也无法继续使用, 而我们获取乐谱资源需要用到Flash版的某琴吧播放器, 之前使用的是&lt;code>AxShockwaveFlash&lt;/code>, 这个组件也是引用了Windows上安装的Flash, 只能寻找其他替代方案&lt;/p>
 &lt;blockquote>
